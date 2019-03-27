@@ -1,11 +1,11 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 
 const isSignedIn = () =>
   // mock function for the authentication check
   Promise.resolve(false);
 const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
+  ios: "Press Cmd+R to reload,\nCmd+D or shake for dev menu",
   android:
     "Double tap R on your keyboard to reload,\n" +
     "Shake or press menu button for dev menu"
@@ -30,14 +30,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const AppContainer = props => {
+const AppContainer = () => {
   const [{ signedIn, isChecked }, setLoginData] = useState({
     signedIn: false,
     isChecked: false
   });
 
   useEffect(() => {
-    isSignedIn().then(signedIn => setLoginData({ signedIn, isChecked: true }));
+    isSignedIn().then(isAuthenticated =>
+      setLoginData({ signedIn: isAuthenticated, isChecked: true })
+    );
   }, []);
 
   return (
