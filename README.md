@@ -1,5 +1,7 @@
 # ptushki-mobile
 React-Native application which help bird ringing and observation process. Primary Mobile OS is Android.
+
+Folder structure should follow https://github.com/tr3v3r/react-native-lecture42/ 
 ## Project setup
  - Please follow https://facebook.github.io/react-native/docs/getting-started in order to install all necessary packages;
  - Clone this repo;
