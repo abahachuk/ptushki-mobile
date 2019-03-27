@@ -32,9 +32,6 @@
     "preset": "react-native"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write *.js",
-      "pre-push": "node 1+1"
-    }
+
   }
 }
