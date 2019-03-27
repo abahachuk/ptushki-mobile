@@ -3,7 +3,7 @@
         "es6": true,
         "node": true
     },
-    "extends": "airbnb",
+    "extends": ["airbnb", "plugin:react/recommended", "prettier"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"

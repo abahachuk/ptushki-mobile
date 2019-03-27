@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint ./src/**/*.js App.js",
+    "lint:fix": "eslint ./src/**/*.js App.js --fix"
   },
   "dependencies": {
     "react": "16.8.3",
@@ -18,6 +19,7 @@
     "babel-jest": "^24.5.0",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
@@ -32,6 +34,6 @@
     "preset": "react-native"
   },
   "husky": {
-
+    "pre-push": "npm run lint:fix"
   }
 }
