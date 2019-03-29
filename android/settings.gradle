@@ -1,0 +1,3 @@
+rootProject.name = 'PtushkiMobile'
+
+include ':app'
