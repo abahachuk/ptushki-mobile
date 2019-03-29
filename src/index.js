@@ -40,11 +40,7 @@ const AppContainer = () => {
 
   return (
     <View style={styles.container}>
-      {isChecked && signedIn ? (
-        <Text>Signed in!</Text>
-      ) : (
-        <Login />
-      )}
+      {isChecked && signedIn ? <Text>Signed in!</Text> : <Login />}
     </View>
   );
 };
