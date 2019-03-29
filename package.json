@@ -9,6 +9,8 @@
     "lint:fix": "eslint ./src/**/*.js App.js --fix"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
+    "ramda": "^0.26.1",
     "react": "16.8.3",
     "react-native": "0.59.2"
   },
