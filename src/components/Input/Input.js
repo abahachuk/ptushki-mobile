@@ -55,9 +55,12 @@ const Input = props => {
           {...additionalProps}
         />
         {isPasswordInput && (
-            <TouchableHighlight style={[styles.showHidePassIcon]} onPress={handleShowHidePassword}>
-              <Image source={isPassVisible ? icEyeHide : icEyeShow} />
-            </TouchableHighlight>
+          <TouchableHighlight
+            style={[styles.showHidePassIcon]}
+            onPress={handleShowHidePassword}
+          >
+            <Image source={isPassVisible ? icEyeHide : icEyeShow} />
+          </TouchableHighlight>
         )}
       </View>
       <Text style={styles.error}>{error}</Text>

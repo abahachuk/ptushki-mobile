@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 6,
     paddingTop: 13,
-    paddingBottom: 13,
+    paddingBottom: 13
   },
   buttonDark: {
     backgroundColor: "#546e7a"
@@ -16,9 +16,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#546e7a"
   },
-  buttonBorderless: {
-
-  },
+  buttonBorderless: {},
   buttonText: {
     color: "#546e7a",
     textAlign: "center",
