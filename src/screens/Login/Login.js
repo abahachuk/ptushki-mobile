@@ -7,7 +7,6 @@ import {
   KeyboardAvoidingView,
   ScrollView
 } from "react-native";
-import R from "ramda";
 
 import { Button, Input } from "../../components";
 
@@ -17,14 +16,8 @@ const logoImg = require("../../assets/logotype/logotype2x.png");
 
 const Login = props => {
   const { email: emailFromProps, password: passwordFromProps } = props;
-  const [{ email, password }, setLoginData] = useState({
-    email: emailFromProps,
-    password: passwordFromProps
-  });
-
-  const curriedSetLoginData = R.curry((field, value) => {
-    setLoginData(prevData => ({ ...prevData, [field]: value }));
-  });
+  const [email, setEmail] = useState(emailFromProps);
+  const [password, setPassword] = useState(passwordFromProps);
   const onLoginPress = () => {
     props.onLogin({ email, password });
   };
@@ -36,7 +29,7 @@ const Login = props => {
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ paddingVertical: 20 }}
+      contentContainerStyle={{ paddingBottom: 50 }}
     >
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <View>
@@ -50,17 +43,17 @@ const Login = props => {
             value={email}
             label="E-mail"
             textContentType="emailAddress"
-            onChangeText={curriedSetLoginData("email")}
+            onChangeText={setEmail}
           />
           <Input
             value={password}
             label="Пароль"
             textContentType="password"
-            onChangeText={curriedSetLoginData("password")}
+            onChangeText={setPassword}
           />
           <Button caption="Войти" onPress={onLoginPress} appearance="Dark" />
         </View>
-        <View>
+        <View style={styles.footer}>
           <Button
             caption="Регистрация"
             onPress={onRegisterPress}

@@ -9,11 +9,14 @@ export const styles = StyleSheet.create({
   },
   logoImg: {
     width: 300,
-    height: 280,
     alignSelf: "center"
   },
   headerText: {
     fontSize: 20,
-    textAlign: "center"
+    textAlign: "center",
+    paddingBottom: 15
+  },
+  footer: {
+    paddingTop: 20
   }
 });
