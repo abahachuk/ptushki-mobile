@@ -13,6 +13,8 @@ import { Button, Input } from "../../components";
 
 import { styles } from "./styles";
 
+import { AuthService } from "../../api";
+
 const logoImg = require("../../assets/logotype/logotype2x.png");
 
 const Login = props => {
@@ -27,6 +29,10 @@ const Login = props => {
   });
   const onLoginPress = () => {
     props.onLogin({ email, password });
+    AuthService.login(email, password).then(data => {
+      console.log("response from server", data);
+      // AsyncStorage.setItem("user", JSON.stringify(data));
+    });
   };
   const onRegisterPress = () => {
     props.onRegister();
@@ -41,9 +47,7 @@ const Login = props => {
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <View>
           <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-          <Text style={styles.headerText}>
-            Центр Кольцевания Птиц при Акажемии наук Республики Беларусь
-          </Text>
+          <Text style={styles.headerText}>Центр Кольцевания</Text>
         </View>
         <View>
           <Input

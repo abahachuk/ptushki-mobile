@@ -9,6 +9,8 @@
     "lint:fix": "eslint ./src/**/*.js App.js --fix"
   },
   "dependencies": {
+    "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "react": "16.8.3",
