@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
-  TextInput,
-  TouchableHighlight,
+  View,
   Text,
   Image,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ScrollView
 } from "react-native";
 import R from "ramda";
 
+import { Button, Input } from "../../components";
+
 import { styles } from "./styles";
 
-const logoImg = require("../../assets/logo.png");
+const logoImg = require("../../assets/logotype/logotype2x.png");
 
 const Login = props => {
   const { email: emailFromProps, password: passwordFromProps } = props;
@@ -29,41 +31,49 @@ const Login = props => {
   const onRegisterPress = () => {
     props.onRegister();
   };
+  const onPasswordForgot = () => {};
 
   return (
-    <KeyboardAvoidingView style={styles.container} enabled>
-      <Image style={styles.logoImg} source={logoImg} />
-      <Text style={styles.headerText}>Войти</Text>
-      <TextInput
-        value={email}
-        textContentType="emailAddress"
-        placeholder="Электронная почта"
-        maxLength={100}
-        onChangeText={curriedSetLoginData("email")}
-        style={styles.input}
-      />
-      <TextInput
-        value={password}
-        textContentType="password"
-        placeholder="Пароль"
-        maxLength={100}
-        onChangeText={curriedSetLoginData("password")}
-        style={styles.input}
-        secureTextEntry
-      />
-      <TouchableHighlight
-        style={[styles.button, styles.buttonLogin]}
-        onPress={onLoginPress}
-      >
-        <Text style={styles.buttonText}>Войти</Text>
-      </TouchableHighlight>
-      <TouchableHighlight
-        style={[styles.button, styles.buttonRegister]}
-        onPress={onRegisterPress}
-      >
-        <Text style={styles.buttonText}>Регистрация</Text>
-      </TouchableHighlight>
-    </KeyboardAvoidingView>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ paddingVertical: 20 }}
+    >
+      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+        <View>
+          <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
+          <Text style={styles.headerText}>
+            Центр Кольцевания Птиц при Акажемии наук Республики Беларусь
+          </Text>
+        </View>
+        <View>
+          <Input
+            value={email}
+            label="E-mail"
+            textContentType="emailAddress"
+            onChangeText={curriedSetLoginData("email")}
+          />
+          <Input
+            value={password}
+            label="Пароль"
+            textContentType="password"
+            onChangeText={curriedSetLoginData("password")}
+          />
+          <Button caption="Войти" onPress={onLoginPress} appearance="Dark" />
+        </View>
+        <View>
+          <Button
+            caption="Регистрация"
+            onPress={onRegisterPress}
+            appearance="Light"
+          />
+          <Button
+            caption="Забыли пароль"
+            onPress={onPasswordForgot}
+            appearance="Borderless"
+          />
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
