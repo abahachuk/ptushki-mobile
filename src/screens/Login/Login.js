@@ -7,12 +7,12 @@ import {
   KeyboardAvoidingView,
   ScrollView
 } from "react-native";
-
-import { Button, Input } from "../../components";
+/* eslint-disable-next-line */
+import { Button, Input } from "components";
 
 import { styles } from "./styles";
-
-const logoImg = require("../../assets/logotype/logotype2x.png");
+/* eslint-disable-next-line */
+const logoImg = require("assets/logotype/logotype2x.png");
 
 const Login = props => {
   const { email: emailFromProps, password: passwordFromProps } = props;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-
-import { Login } from "./screens";
+/* eslint-disable-next-line */
+import { Login } from "screens";
 
 const isSignedIn = () =>
   // mock function for the authentication check

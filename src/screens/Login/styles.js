@@ -3,9 +3,11 @@ import { StyleSheet } from "react-native";
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   container: {
-    width: "90%",
+    width: "100%",
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    paddingRight: 10,
+    paddingLeft: 10
   },
   logoImg: {
     width: 300,
