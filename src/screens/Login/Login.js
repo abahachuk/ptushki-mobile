@@ -4,6 +4,7 @@ import { View, Text, Image, KeyboardAvoidingView } from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
+import { translate } from "i18n";
 import { validateEmail, validatePassword } from "utils/validators";
 import { styles } from "./styles";
 
@@ -38,9 +39,7 @@ const Login = props => {
         </View>
         <View style={styles.header}>
           <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-          <Text style={styles.headerText}>
-            Центр Кольцевания Птиц при Акажемии наук Республики Беларусь
-          </Text>
+          <Text style={styles.headerText}>{translate("bandingCenter")}</Text>
         </View>
       </View>
       <View>

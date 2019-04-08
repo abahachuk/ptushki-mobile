@@ -11,6 +11,7 @@ import {
 } from "../../utils/validators";
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
+import { translate } from "../../i18n";
 
 const fields = {
   email: "email",
@@ -26,8 +27,7 @@ const Registration = props => {
     passwordDefault,
     firstNameDefault,
     lastNameDefault,
-    phoneDefault,
-    hintText
+    phoneDefault
   } = props;
   const [
     { email, password, firstName, lastName, phone },
@@ -76,10 +76,10 @@ const Registration = props => {
       enabled
     >
       <KeyboardAvoidingView style={styles.container} enabled>
-        <Text style={styles.headerText}>Регистрация</Text>
+        <Text style={styles.headerText}>{translate("sign-up")}</Text>
         <Input
           value={email}
-          label="E-mail"
+          label={translate("email")}
           textContentType="emailAddress"
           onChangeText={setRegistrationDataCommon(fields.email)}
           error={emailError}
@@ -87,17 +87,19 @@ const Registration = props => {
         />
         <Input
           value={password}
-          label="Пароль"
+          label={translate("password")}
           textContentType="password"
           onChangeText={setRegistrationDataCommon(fields.password)}
           error={passwordError}
           onTextInputBlur={onAuthFieldBlur}
           wrapperStyles={[styles.belowInput]}
         />
-        <Text style={styles.hintText}>{hintText}</Text>
+        <Text style={styles.hintText}>
+          {translate("communicationDataHint")}
+        </Text>
         <Input
           value={firstName}
-          label="Имя"
+          label={translate("firstName")}
           textContentType="name"
           onChangeText={setRegistrationDataCommon(fields.firstName)}
           error={firstNameError}
@@ -105,7 +107,7 @@ const Registration = props => {
         />
         <Input
           value={lastName}
-          label="Фамилия"
+          label={translate("lastName")}
           textContentType="familyName"
           onChangeText={setRegistrationDataCommon(fields.lastName)}
           error={lastNameError}
@@ -114,7 +116,7 @@ const Registration = props => {
         />
         <Input
           value={phone}
-          label="Телефон"
+          label={translate("phone")}
           textContentType="telephoneNumber"
           onChangeText={setRegistrationDataCommon(fields.phone)}
           error={phoneError}
@@ -122,11 +124,15 @@ const Registration = props => {
           wrapperStyles={[styles.belowInput, styles.lastInput]}
         />
         <Button
-          caption="Регистрация"
+          caption={translate("sign-up")}
           onPress={onRegisterPress}
           appearance="Dark"
         />
-        <Button caption="НАЗАД" onPress={onBackPress} appearance="Borderless" />
+        <Button
+          caption={translate("back").toUpperCase()}
+          onPress={onBackPress}
+          appearance="Borderless"
+        />
       </KeyboardAvoidingView>
     </ScrollView>
   );
@@ -138,7 +144,6 @@ Registration.propTypes = {
   firstNameDefault: PropTypes.string,
   lastNameDefault: PropTypes.string,
   phoneDefault: PropTypes.string,
-  hintText: PropTypes.string,
   onSubmit: PropTypes.func,
   onBackNavigation: PropTypes.func
 };
@@ -148,8 +153,6 @@ Registration.defaultProps = {
   firstNameDefault: "",
   lastNameDefault: "",
   phoneDefault: "",
-  hintText:
-    "Следующие данные нужны для связи с вами в случае, если потребуется уточнить данные",
   onSubmit: () => {},
   onBackNavigation: () => {}
 };
