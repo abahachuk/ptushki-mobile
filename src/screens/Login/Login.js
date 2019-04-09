@@ -14,7 +14,7 @@ import { Button, Input } from "../../components";
 import { styles } from "./styles";
 
 const logoImg = require("../../assets/logotype/logotype2x.png");
-
+/* eslint react/jsx-one-expression-per-line: 0 */
 const Login = props => {
   const {
     email: emailFromProps,

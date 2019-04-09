@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, Button } from "react-native";
 
 // temporary components for navigation flow
-
+/* eslint react/prop-types: 0 */
 export const passwordResetScreen = props => {
   const { navigation } = props;
 
