@@ -10,29 +10,6 @@ import { createAppContainer,
 
 import { Login } from "./screens";
 
-// const isSignedIn = () =>
-//   // mock function for the authentication check
-//   Promise.resolve(false);
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#ffffff"
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: "center",
-//     margin: 10
-//   },
-//   instructions: {
-//     textAlign: "center",
-//     color: "#333333",
-//     marginBottom: 5
-//   }
-// });
-
 //placeholder components
 class HomeScreen extends React.Component {
   render() {
@@ -162,25 +139,20 @@ class mainPageScreen extends React.Component {
 }
 //createStackNavigator fails intermittently, investigating https://github.com/kmagiera/react-native-gesture-handler/issues/538
 const AppNavigator = createStackNavigator({
-  login: {
+  'login': {
     screen: Login
   },
-  registration: {
+  'registration': {
     screen: registrationScreen
   },
-  registrationSuccess: registrationSuccessScreen,
-  passwordReset: passwordResetScreen,
-  passwordResetDone: passwordResetDoneScreen,
-  mainPage: mainPageScreen
+  'registrationSuccess': registrationSuccessScreen,
+  'passwordReset': passwordResetScreen,
+  'passwordResetDone': passwordResetDoneScreen,
+  'mainPage': mainPageScreen
 },
 {
   initialRouteName: 'login'
 })
-//   return (
-//     <View style={styles.container}>
-//       {isChecked && signedIn ? <Text>Signed in!</Text> : <Login />}
-//     </View>
-//   );
-// };
+
 
 export default createAppContainer(AppNavigator);
