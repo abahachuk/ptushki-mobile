@@ -16,7 +16,12 @@ import { styles } from "./styles";
 const logoImg = require("../../assets/logotype/logotype2x.png");
 
 const Login = props => {
-  const { email: emailFromProps, password: passwordFromProps } = props;
+  const {
+    email: emailFromProps,
+    password: passwordFromProps,
+    navigation
+  } = props;
+
   const [{ email, password }, setLoginData] = useState({
     email: emailFromProps,
     password: passwordFromProps
@@ -27,13 +32,14 @@ const Login = props => {
   });
   const onLoginPress = () => {
     props.onLogin({ email, password });
+    navigation.navigate("mainPage");
   };
   const onRegisterPress = () => {
     props.onRegister();
-    props.navigation.navigate('registration')
+    navigation.navigate("registration");
   };
   const onPasswordForgot = () => {
-    props.navigation.navigate('passwordReset')
+    navigation.navigate("passwordReset");
   };
 
   return (
@@ -80,11 +86,18 @@ const Login = props => {
   );
 };
 
+Login.navigationOptions = {
+  title: "Войти",
+  header: null
+};
 Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
   onLogin: PropTypes.func,
-  onRegister: PropTypes.func
+  onRegister: PropTypes.func,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 };
 Login.defaultProps = {
   email: "",

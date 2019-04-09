@@ -37,10 +37,12 @@ const Registration = props => {
 
   const onRegisterPress = () => {
     props.onSubmit();
+    props.navigation.navigate("mainPage");
   };
   const onBackPress = () => {
     // TODO: figure out whether it's possible just to trigger default android back button
     props.onBackNavigation();
+    props.navigation.navigate("login");
   };
 
   return (
@@ -92,6 +94,19 @@ const Registration = props => {
     </ScrollView>
   );
 };
+Registration.navigationOptions = {
+  title: "Регистрация",
+  header: null
+  // styles in case we want android app header and back button enabled
+  // headerStyle: {
+  //   backgroundColor: '#fff',
+  // },
+  // headerTintColor: '#4f6e7c',
+  // headerTitleStyle: {
+  //   fontSize: 34,
+  //   color: "#4f6e7c"
+  // },
+};
 
 Registration.propTypes = {
   emailDefault: PropTypes.string,
@@ -101,7 +116,10 @@ Registration.propTypes = {
   phoneDefault: PropTypes.string,
   hintText: PropTypes.string,
   onSubmit: PropTypes.func,
-  onBackNavigation: PropTypes.func
+  onBackNavigation: PropTypes.func,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 };
 Registration.defaultProps = {
   emailDefault: "",
