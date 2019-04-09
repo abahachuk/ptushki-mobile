@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login screen renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 30,
+      "width": "90%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/logo.png",
+      }
+    }
+    style={
+      Object {
+        "alignSelf": "center",
+        "marginBottom": 30,
+        "top": 0,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "fontSize": 30,
+        "paddingBottom": 20,
+        "paddingTop": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    Войти
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    maxLength={100}
+    onChangeText={[Function]}
+    placeholder="Электронная почта"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "borderColor": "#d3d3d3",
+        "borderWidth": 1,
+        "fontSize": 20,
+        "marginBottom": 15,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "width": "100%",
+      }
+    }
+    textContentType="emailAddress"
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <TextInput
+    allowFontScaling={true}
+    maxLength={100}
+    onChangeText={[Function]}
+    placeholder="Пароль"
+    rejectResponderTermination={true}
+    secureTextEntry={true}
+    style={
+      Object {
+        "borderColor": "#d3d3d3",
+        "borderWidth": 1,
+        "fontSize": 20,
+        "marginBottom": 15,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "width": "100%",
+      }
+    }
+    textContentType="password"
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "paddingBottom": 20,
+          "paddingTop": 10,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#007bff",
+          "marginBottom": 15,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Войти
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "paddingBottom": 20,
+          "paddingTop": 10,
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "#868e96",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Регистрация
+    </Text>
+  </View>
+</View>
+`;
