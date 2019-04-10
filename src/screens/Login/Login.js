@@ -39,13 +39,15 @@ const Login = props => {
         </View>
         <View style={styles.header}>
           <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-          <Text style={styles.headerText}>{translate("bandingCenter")}</Text>
+          <Text style={styles.headerText}>
+            {translate("login.bandingCenter")}
+          </Text>
         </View>
       </View>
       <View>
         <Input
           value={email}
-          label="E-mail"
+          label={translate("login.email")}
           textContentType="emailAddress"
           onChangeText={setEmail}
           error={emailError}
@@ -53,23 +55,27 @@ const Login = props => {
         />
         <Input
           value={password}
-          label="Пароль"
+          label={translate("login.password")}
           textContentType="password"
           onChangeText={setPassword}
           error={passwordError}
           onTextInputBlur={onTextInputBlur}
           wrapperStyles={[styles.passwordInput]}
         />
-        <Button caption="Войти" onPress={onLoginPress} appearance="Dark" />
+        <Button
+          caption={translate("login.sign-in")}
+          onPress={onLoginPress}
+          appearance="Dark"
+        />
       </View>
       <View style={styles.footer}>
         <Button
-          caption="Регистрация"
+          caption={translate("login.sign-up")}
           onPress={onRegisterPress}
           appearance="Light"
         />
         <Button
-          caption="Забыли пароль"
+          caption={translate("login.forgotPassword")}
           onPress={onPasswordForgot}
           appearance="Borderless"
         />

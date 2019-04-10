@@ -76,10 +76,12 @@ const Registration = props => {
       enabled
     >
       <KeyboardAvoidingView style={styles.container} enabled>
-        <Text style={styles.headerText}>{translate("sign-up")}</Text>
+        <Text style={styles.headerText}>
+          {translate("registration.sign-up")}
+        </Text>
         <Input
           value={email}
-          label={translate("email")}
+          label={translate("registration.email")}
           textContentType="emailAddress"
           onChangeText={setRegistrationDataCommon(fields.email)}
           error={emailError}
@@ -87,7 +89,7 @@ const Registration = props => {
         />
         <Input
           value={password}
-          label={translate("password")}
+          label={translate("registration.password")}
           textContentType="password"
           onChangeText={setRegistrationDataCommon(fields.password)}
           error={passwordError}
@@ -95,11 +97,11 @@ const Registration = props => {
           wrapperStyles={[styles.belowInput]}
         />
         <Text style={styles.hintText}>
-          {translate("communicationDataHint")}
+          {translate("registration.communicationDataHint")}
         </Text>
         <Input
           value={firstName}
-          label={translate("firstName")}
+          label={translate("registration.firstName")}
           textContentType="name"
           onChangeText={setRegistrationDataCommon(fields.firstName)}
           error={firstNameError}
@@ -107,7 +109,7 @@ const Registration = props => {
         />
         <Input
           value={lastName}
-          label={translate("lastName")}
+          label={translate("registration.lastName")}
           textContentType="familyName"
           onChangeText={setRegistrationDataCommon(fields.lastName)}
           error={lastNameError}
@@ -116,7 +118,7 @@ const Registration = props => {
         />
         <Input
           value={phone}
-          label={translate("phone")}
+          label={translate("registration.phone")}
           textContentType="telephoneNumber"
           onChangeText={setRegistrationDataCommon(fields.phone)}
           error={phoneError}
@@ -124,12 +126,12 @@ const Registration = props => {
           wrapperStyles={[styles.belowInput, styles.lastInput]}
         />
         <Button
-          caption={translate("sign-up")}
+          caption={translate("registration.sign-up")}
           onPress={onRegisterPress}
           appearance="Dark"
         />
         <Button
-          caption={translate("back").toUpperCase()}
+          caption={translate("registration.back").toUpperCase()}
           onPress={onBackPress}
           appearance="Borderless"
         />
