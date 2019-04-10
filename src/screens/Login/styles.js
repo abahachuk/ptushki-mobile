@@ -6,11 +6,29 @@ export const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     justifyContent: "space-between",
-    paddingRight: 10,
-    paddingLeft: 10
+    paddingRight: 20,
+    paddingLeft: 20
+  },
+  headerContainer: {
+    width: "100%",
+    flexDirection: "row"
+    // marginBottom: "auto"
+  },
+  infoImgContainer: {
+    flex: 1,
+    paddingTop: 20
+  },
+  header: {
+    flex: 10,
+    paddingTop: 10
+  },
+  infoImg: {
+    width: 30,
+    height: 30
   },
   logoImg: {
-    width: 300,
+    width: "100%",
+    height: 200,
     alignSelf: "center"
   },
   headerText: {
@@ -19,6 +37,9 @@ export const styles = StyleSheet.create({
     paddingBottom: 15
   },
   footer: {
-    paddingTop: 20
+    // marginTop: "auto"
+  },
+  passwordInput: {
+    marginTop: 15
   }
 });
