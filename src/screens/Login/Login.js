@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { View, Text, Image, KeyboardAvoidingView } from "react-native";
 
-import { styles } from "./styles";
 /* eslint-disable */
 import { Button, Input } from "components";
 import { validateEmail, validatePassword } from "utils/validators";
+import { styles } from "./styles";
 
 const logoImg = require("assets/logotype/logotype2x.png");
 const infoImg = require("assets/ic_info/ic_info2x.png");
