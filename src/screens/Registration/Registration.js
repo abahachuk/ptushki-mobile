@@ -3,11 +3,9 @@ import PropTypes from "prop-types";
 import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
 
 import {
-  validateEmail,
-  validatePassword,
-  validateFirstName,
-  validateLastName,
-  validatePhone
+  makeValidatorEmail,
+  makeValidatorPassword,
+  makeRequiredValidator
 } from "../../utils/validators";
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
@@ -44,6 +42,20 @@ const Registration = props => {
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+
+  const validateEmail = makeValidatorEmail(translate("validationError.email"));
+  const validatePassword = makeValidatorPassword(
+    translate("validationError.password")
+  );
+  const validateFirstName = makeRequiredValidator(
+    translate("validationError.firstName")
+  );
+  const validateLastName = makeRequiredValidator(
+    translate("validationError.lastName")
+  );
+  const validatePhone = makeRequiredValidator(
+    translate("validationError.phone")
+  );
 
   const setRegistrationDataCommon = field => value =>
     setRegistrationData(prevData => ({ ...prevData, [field]: value }));

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Login } from "screens";
 import TranslationProvider, {
   Translation
-} from "components/TranslationProvider";
+} from "./components/TranslationProvider";
 
 const isSignedIn = () =>
   // mock function for the authentication check

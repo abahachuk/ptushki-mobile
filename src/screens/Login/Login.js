@@ -4,8 +4,8 @@ import { View, Text, Image, KeyboardAvoidingView } from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
-import { translate } from "i18n";
-import { validateEmail, validatePassword } from "utils/validators";
+import { translate } from "../../i18n"
+import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { styles } from "./styles";
 
 const logoImg = require("assets/logotype/logotype2x.png");
@@ -26,6 +26,10 @@ const Login = props => {
     props.onRegister();
   };
   const onPasswordForgot = () => {};
+  const validateEmail = makeValidatorEmail(translate("validationError.email"));
+  const validatePassword = makeValidatorPassword(
+    translate("validationError.password")
+  );
   const onTextInputBlur = () => {
     setEmailError(validateEmail(email));
     setPasswordError(validatePassword(password));
