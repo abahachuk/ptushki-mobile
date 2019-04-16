@@ -1,10 +1,10 @@
-import 'whatwg-fetch'
-import AsyncStorage from '@react-native-community/async-storage';
+/* eslint class-methods-use-this: "error" */
+import "whatwg-fetch";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const HOST = "http://10.0.2.2:3000";
 
 export default class AuthService {
-
   logIn(email, password) {
     const requestOptions = {
       method: "POST",
@@ -14,29 +14,27 @@ export default class AuthService {
       },
       body: JSON.stringify({ email, password })
     };
-    return (
-      fetch(`${HOST}/api/login`, requestOptions)
-        .then(response => {
-          return response.text().then(text => {
-            const data = text && JSON.parse(text);
+    return fetch(`${HOST}/api/login`, requestOptions)
+      .then(response => {
+        return response.text().then(text => {
+          const data = text && JSON.parse(text);
 
-            if (response.ok && response.status === 200) {
-              this.onValueChange("Access_token", data.access_token);
-              this.onValueChange("Refresh_token", data.refresh_token);
-              this.onValueChange("User_Data", data);
+          if (response.ok && response.status === 200) {
+            this.onValueChange("Access_token", data.access_token);
+            this.onValueChange("Refresh_token", data.refresh_token);
+            this.onValueChange("User_Data", data);
 
-              return data;
-            }
+            return data;
+          }
 
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
-          });
-        })
-        .catch(error => {
-          console.info("Login failed:", error);
-          throw new Error(error);
-        })
-    );
+          const error = (data && data.message) || response.statusText;
+          return Promise.reject(error);
+        });
+      })
+      .catch(error => {
+        console.info("Login failed:", error);
+        throw new Error(error);
+      });
   }
 
   async logOut() {
@@ -57,30 +55,31 @@ export default class AuthService {
       headers: {
         Authorization: accessToken
       }
-    }).then(response => {
-      console.info("response 2", accessToken);
-      console.info("response 2", data);
-      if (response.ok && response.status === 200) {
-        response.text().then(text => {
-          const tokens = text && JSON.parse(text);
-
-          data.access_token = tokens.access_token;
-          data.refresh_token = tokens.refresh_token;
-
-          this.onValueChange("Access_token", tokens.access_token);
-          this.onValueChange("Refresh_token", tokens.refresh_token);
-          this.onValueChange("User_Data", data);
-
-          return data;
-        });
-      }
-      this.logOut();
-      const error = response.statusText;
-      return Promise.reject(error);
     })
-    .catch(error => {
-      console.error("Error", error);
-    });
+      .then(response => {
+        console.info("response 2", accessToken);
+        console.info("response 2", data);
+        if (response.ok && response.status === 200) {
+          response.text().then(text => {
+            const tokens = text && JSON.parse(text);
+
+            data.access_token = tokens.access_token;
+            data.refresh_token = tokens.refresh_token;
+
+            this.onValueChange("Access_token", tokens.access_token);
+            this.onValueChange("Refresh_token", tokens.refresh_token);
+            this.onValueChange("User_Data", data);
+
+            return data;
+          });
+        }
+        this.logOut();
+        const error = response.statusText;
+        return Promise.reject(error);
+      })
+      .catch(error => {
+        console.error("Error", error);
+      });
   }
 
   async onValueChange(item, selectedValue) {
