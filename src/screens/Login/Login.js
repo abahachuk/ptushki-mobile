@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   KeyboardAvoidingView,
-  ScrollView
+  ScrollView,
+  Alert
 } from "react-native";
 import R from "ramda";
 
@@ -27,16 +28,44 @@ const Login = props => {
   const curriedSetLoginData = R.curry((field, value) => {
     setLoginData(prevData => ({ ...prevData, [field]: value }));
   });
-  const onLoginPress = () => {
-    props.onLogin({ email, password });
-    AuthService.login(email, password).then(data => {
-      console.log("response from server", data);
-      // AsyncStorage.setItem("user", JSON.stringify(data));
-    });
+
+  const renderAlert = message => {
+    Alert.alert(
+      "",
+      message,
+      [
+        {},
+        {
+          text: "Закрыть",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        }
+      ],
+      { cancelable: false }
+    );
   };
+
+  const onLoginPress = () => {
+    const authService = new AuthService();
+
+    authService
+      .logIn(email, password)
+      .then(data => {
+        if (data) {
+          console.info("Login is successful");
+          props.onLogin({ signedIn: true, isChecked: true });
+        }
+      })
+      .catch(err => {
+        console.info(err.message);
+        renderAlert(err.message);
+      });
+  };
+
   const onRegisterPress = () => {
     props.onRegister();
   };
+
   const onPasswordForgot = () => {};
 
   return (

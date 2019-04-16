@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import { Login } from "./screens";
 
-const isSignedIn = () =>
-  // mock function for the authentication check
-  Promise.resolve(false);
+// const isSignedIn = () =>
+//   // mock function for the authentication check
+//   Promise.resolve(false);
+
+const isSignedIn = async () => {
+  try {
+    const userData = await AsyncStorage.getItem("User_Data");
+    console.log("userData", userData);
+    return userData ? Promise.resolve(true) : Promise.resolve(false);
+  } catch (error) {
+    console.info(error.message);
+    return Promise.resolve(false);
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -40,7 +52,11 @@ const AppContainer = () => {
 
   return (
     <View style={styles.container}>
-      {isChecked && signedIn ? <Text>Signed in!</Text> : <Login />}
+      {isChecked && signedIn ? (
+        <Text>Signed in!</Text>
+      ) : (
+        <Login onLogin={setLoginData} />
+      )}
     </View>
   );
 };
