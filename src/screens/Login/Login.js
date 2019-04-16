@@ -96,7 +96,8 @@ Login.propTypes = {
   onLogin: PropTypes.func,
   onRegister: PropTypes.func,
   navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
+    navigate: PropTypes.func,
+    goBack: PropTypes.func
   }).isRequired
 };
 Login.defaultProps = {

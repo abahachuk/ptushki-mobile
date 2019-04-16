@@ -37,12 +37,17 @@ const Registration = props => {
 
   const onRegisterPress = () => {
     props.onSubmit();
-    props.navigation.navigate("mainPage");
+    props.navigation.navigate("registrationSuccess", {
+      origin: "registrationSuccess",
+      statusText: "Ура! Мы зарегистрировались",
+      hintText:
+        "Проверьте свой E-mail, чтобы продолжить. Если долго ничего не приходит - проверьте спам или повторите!"
+    });
   };
   const onBackPress = () => {
     // TODO: figure out whether it's possible just to trigger default android back button
     props.onBackNavigation();
-    props.navigation.navigate("login");
+    props.navigation.goBack();
   };
 
   return (
@@ -97,15 +102,6 @@ const Registration = props => {
 Registration.navigationOptions = {
   title: "Регистрация",
   header: null
-  // styles in case we want android app header and back button enabled
-  // headerStyle: {
-  //   backgroundColor: '#fff',
-  // },
-  // headerTintColor: '#4f6e7c',
-  // headerTitleStyle: {
-  //   fontSize: 34,
-  //   color: "#4f6e7c"
-  // },
 };
 
 Registration.propTypes = {
@@ -118,7 +114,8 @@ Registration.propTypes = {
   onSubmit: PropTypes.func,
   onBackNavigation: PropTypes.func,
   navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired
+    navigate: PropTypes.func,
+    goBack: PropTypes.func
   }).isRequired
 };
 Registration.defaultProps = {
