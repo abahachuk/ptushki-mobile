@@ -4,7 +4,8 @@ import { View, Text, Image, KeyboardAvoidingView } from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
-import { validateEmail, validatePassword } from "utils/validators";
+import { translate } from "../../i18n"
+import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { styles } from "./styles";
 
 const logoImg = require("assets/logotype/logotype2x.png");
@@ -25,6 +26,10 @@ const Login = props => {
     props.onRegister();
   };
   const onPasswordForgot = () => {};
+  const validateEmail = makeValidatorEmail(translate("validationError.email"));
+  const validatePassword = makeValidatorPassword(
+    translate("validationError.password")
+  );
   const onTextInputBlur = () => {
     setEmailError(validateEmail(email));
     setPasswordError(validatePassword(password));
@@ -39,14 +44,14 @@ const Login = props => {
         <View style={styles.header}>
           <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
           <Text style={styles.headerText}>
-            Центр Кольцевания Птиц при Акажемии наук Республики Беларусь
+            {translate("login.bandingCenter")}
           </Text>
         </View>
       </View>
       <View>
         <Input
           value={email}
-          label="E-mail"
+          label={translate("login.email")}
           textContentType="emailAddress"
           onChangeText={setEmail}
           error={emailError}
@@ -54,23 +59,27 @@ const Login = props => {
         />
         <Input
           value={password}
-          label="Пароль"
+          label={translate("login.password")}
           textContentType="password"
           onChangeText={setPassword}
           error={passwordError}
           onTextInputBlur={onTextInputBlur}
           wrapperStyles={[styles.passwordInput]}
         />
-        <Button caption="Войти" onPress={onLoginPress} appearance="Dark" />
+        <Button
+          caption={translate("login.sign-in")}
+          onPress={onLoginPress}
+          appearance="Dark"
+        />
       </View>
       <View style={styles.footer}>
         <Button
-          caption="Регистрация"
+          caption={translate("login.sign-up")}
           onPress={onRegisterPress}
           appearance="Light"
         />
         <Button
-          caption="Забыли пароль"
+          caption={translate("login.forgotPassword")}
           onPress={onPasswordForgot}
           appearance="Borderless"
         />
