@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+/* eslint-disable-next-line */
+import { Login } from "screens";
 
 const isSignedIn = () =>
   // mock function for the authentication check
   Promise.resolve(false);
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\nCmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#ffffff"
   },
   welcome: {
     fontSize: 20,
@@ -44,14 +40,7 @@ const AppContainer = () => {
 
   return (
     <View style={styles.container}>
-      {isChecked && signedIn ? (
-        <Text>Signed in!</Text>
-      ) : (
-        <Text>Signed out :(</Text>
-      )}
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit App.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
+      {isChecked && signedIn ? <Text>Signed in!</Text> : <Login />}
     </View>
   );
 };
