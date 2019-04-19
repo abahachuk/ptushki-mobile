@@ -1,4 +1,3 @@
-
 import React from "react";
 import PropTypes from "prop-types";
 import {
@@ -23,26 +22,14 @@ const RegistrationEmailSent = props => {
     navigation.navigate("login");
   };
 
-  const statusText = navigation.getParam(
-    "statusText",
-    "а"
-  );
-  const hintText = navigation.getParam(
-    "hintText",
-    "б"
-  );
+  const statusText = navigation.getParam("registrationSuccess", "а");
+  const hintText = navigation.getParam("hintText", "б");
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <KeyboardAvoidingView 
-      style={styles.container} 
-      behavior="padding" 
-      enabled>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <View>
-          <Image 
-          style={styles.logoImg} 
-          resizeMode="contain" 
-          source={logoImg} />
+          <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
           <Text style={styles.headerText}>
             {translate("login.bandingCenter")}
           </Text>
@@ -51,7 +38,7 @@ const RegistrationEmailSent = props => {
         </View>
         <View>
           <Button
-            caption= {translate("registrationEmailSent.goToLogin")}
+            caption={translate("registrationEmailSent.goToLogin")}
             onPress={goToLogin}
             appearance="Dark"
           />
@@ -62,7 +49,7 @@ const RegistrationEmailSent = props => {
 };
 
 RegistrationEmailSent.navigationOptions = {
-  title:  translate("login.sign-in"),
+  title: translate("login.sign-in"),
   header: null
 };
 RegistrationEmailSent.propTypes = {

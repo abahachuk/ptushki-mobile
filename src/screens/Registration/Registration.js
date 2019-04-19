@@ -25,8 +25,7 @@ const Registration = props => {
     passwordDefault,
     firstNameDefault,
     lastNameDefault,
-    phoneDefault,
-    hintText
+    phoneDefault
   } = props;
   const [
     { email, password, firstName, lastName, phone },
@@ -65,7 +64,7 @@ const Registration = props => {
     props.onSubmit();
     props.navigation.navigate("registrationSuccess", {
       origin: "registrationSuccess",
-      statusText: translate("registration.registrationSuccess"),
+      registrationSuccess: translate("registration.registrationSuccess"),
       hintText: translate("registration.hintText")
     });
   };
@@ -167,9 +166,7 @@ Registration.propTypes = {
   firstNameDefault: PropTypes.string,
   lastNameDefault: PropTypes.string,
   phoneDefault: PropTypes.string,
-  hintText: PropTypes.string,
   onSubmit: PropTypes.func,
-  onBackNavigation: PropTypes.func,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
     goBack: PropTypes.func
@@ -181,10 +178,7 @@ Registration.defaultProps = {
   firstNameDefault: "",
   lastNameDefault: "",
   phoneDefault: "",
-  hintText:
-    "Следующие данные нужны для связи с вами в случае, если потребуется уточнить данные",
-  onSubmit: () => {},
-  onBackNavigation: () => {}
+  onSubmit: () => {}
 };
 
 export default Registration;

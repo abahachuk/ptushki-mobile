@@ -13,7 +13,11 @@ const infoImg = require("assets/ic_info/ic_info2x.png");
 /* eslint-enable */
 
 const Login = props => {
-  const { email: emailFromProps, password: passwordFromProps, navigation } = props;
+  const {
+    email: emailFromProps,
+    password: passwordFromProps,
+    navigation
+  } = props;
   const [email, setEmail] = useState(emailFromProps);
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);

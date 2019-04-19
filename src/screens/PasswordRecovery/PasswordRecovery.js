@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Text, KeyboardAvoidingView, ScrollView } from "react-native";
 
-import { Button, Input, TranslationProvider } from "../../components";
+import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 
@@ -22,7 +22,7 @@ const PasswordRecovery = props => {
     props.navigation.navigate("passwordResetDone", {
       origin: "passwordRecovery",
       statusText: translate("passwordRecovery.statusText"),
-      hintText: translate("passwordRecovery.passwordSentText")    
+      hintText: translate("passwordRecovery.passwordSentText")
     });
   };
   const onBackPress = () => {
@@ -39,24 +39,24 @@ const PasswordRecovery = props => {
         <Text style={styles.headerText}>
           {translate("passwordRecovery.recovery")}
         </Text>
-        <Text 
-        style={styles.hintText}>
-        {translate("passwordRecovery.instructionText")}
+        <Text style={styles.hintText}>
+          {translate("passwordRecovery.instructionText")}
         </Text>
-        <Input 
-        value={email} 
-        label={translate("passwordRecovery.email")} 
-        textContentType="emailAddress" 
+        <Input
+          value={email}
+          label={translate("passwordRecovery.email")}
+          textContentType="emailAddress"
         />
         <Button
           caption={translate("passwordRecovery.sendNewPassword")}
           onPress={onRecoveryPress}
           appearance="Dark"
         />
-        <Button 
-        caption={translate("passwordRecovery.back")}
-        onPress={onBackPress} 
-        appearance="Borderless" />
+        <Button
+          caption={translate("passwordRecovery.back")}
+          onPress={onBackPress}
+          appearance="Borderless"
+        />
       </KeyboardAvoidingView>
     </ScrollView>
   );

@@ -4,8 +4,8 @@ import {
   Registration,
   PasswordRecovery,
   RegistrationEmailSent
-} from "./../../screens";
-import { mainPageScreen } from "./../../screens/placeholders";
+} from "../../screens";
+import { mainPageScreen } from "../../screens/placeholders";
 
 const AppNavigator = createStackNavigator(
   {
