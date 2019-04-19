@@ -9,6 +9,8 @@
     "lint:fix": "eslint ./src/**/*.js App.js --fix"
   },
   "dependencies": {
+    "EventEmitter": "^1.0.0",
+    "i18n-js": "^3.2.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "react": "16.8.3",

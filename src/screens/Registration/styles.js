@@ -22,5 +22,11 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 14,
     lineHeight: 24
+  },
+  belowInput: {
+    marginTop: 15
+  },
+  lastInput: {
+    marginBottom: 15
   }
 });

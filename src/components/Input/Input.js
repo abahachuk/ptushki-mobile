@@ -13,6 +13,7 @@ const Input = props => {
   };
   const handleBlur = () => {
     setFocusedState(false);
+    props.onTextInputBlur();
   };
   const [isPassVisible, setPassVisibility] = useState(false);
   const handleShowHidePassword = () => {
@@ -38,8 +39,10 @@ const Input = props => {
     additionalProps.secureTextEntry = true;
   }
 
+  const { wrapperStyles } = props;
+
   return (
-    <View>
+    <View style={wrapperStyles}>
       <View style={containerStyles}>
         <Text style={labelStyles}>{label}</Text>
         <TextInput
@@ -59,7 +62,10 @@ const Input = props => {
             style={[styles.showHidePassIcon]}
             onPress={handleShowHidePassword}
           >
-            <Image source={isPassVisible ? icEyeHide : icEyeShow} />
+            <Image
+              style={[styles.inputIcon]}
+              source={isPassVisible ? icEyeHide : icEyeShow}
+            />
           </TouchableHighlight>
         )}
       </View>
@@ -70,17 +76,21 @@ const Input = props => {
 
 Input.propTypes = {
   onChangeText: PropTypes.func,
+  onTextInputBlur: PropTypes.func,
   textContentType: PropTypes.string,
   value: PropTypes.string,
   label: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
+  wrapperStyles: PropTypes.any
 };
 Input.defaultProps = {
   onChangeText: () => {},
+  onTextInputBlur: () => {},
   textContentType: "",
   value: "",
   label: "",
-  error: ""
+  error: "",
+  wrapperStyles: []
 };
 
 export default Input;

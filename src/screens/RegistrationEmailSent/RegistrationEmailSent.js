@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import { Button } from "../../components";
-
+import { translate } from "../../i18n";
 import { styles } from "./styles";
 /* eslint react/jsx-one-expression-per-line: 0 */
 
@@ -25,27 +25,33 @@ const RegistrationEmailSent = props => {
 
   const statusText = navigation.getParam(
     "statusText",
-    "Ура! Мы зарегистрировались"
+    "а"
   );
   const hintText = navigation.getParam(
     "hintText",
-    "Проверьте свой E-mail, чтобы продолжить. Если долго ничего не приходит - проверьте спам или повторите!"
+    "б"
   );
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+      <KeyboardAvoidingView 
+      style={styles.container} 
+      behavior="padding" 
+      enabled>
         <View>
-          <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
+          <Image 
+          style={styles.logoImg} 
+          resizeMode="contain" 
+          source={logoImg} />
           <Text style={styles.headerText}>
-            Центр Кольцевания Птиц при Академии наук Республики Беларусь
+            {translate("login.bandingCenter")}
           </Text>
           <Text style={styles.statusText}>{statusText}</Text>
           <Text style={styles.hintText}>{hintText}</Text>
         </View>
         <View>
           <Button
-            caption="Перейти ко входу"
+            caption= {translate("registrationEmailSent.goToLogin")}
             onPress={goToLogin}
             appearance="Dark"
           />
@@ -56,7 +62,7 @@ const RegistrationEmailSent = props => {
 };
 
 RegistrationEmailSent.navigationOptions = {
-  title: "Войти",
+  title:  translate("login.sign-in"),
   header: null
 };
 RegistrationEmailSent.propTypes = {

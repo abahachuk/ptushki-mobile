@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
+
+import {
+  makeValidatorEmail,
+  makeValidatorPassword,
+  makeRequiredValidator
+} from "../../utils/validators";
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
+import { translate } from "../../i18n";
 
 const fields = {
   email: "email",
@@ -31,6 +38,25 @@ const Registration = props => {
     [fields.lastName]: lastNameDefault,
     [fields.phone]: phoneDefault
   });
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const validateEmail = makeValidatorEmail(translate("validationError.email"));
+  const validatePassword = makeValidatorPassword(
+    translate("validationError.password")
+  );
+  const validateFirstName = makeRequiredValidator(
+    translate("validationError.firstName")
+  );
+  const validateLastName = makeRequiredValidator(
+    translate("validationError.lastName")
+  );
+  const validatePhone = makeRequiredValidator(
+    translate("validationError.phone")
+  );
 
   const setRegistrationDataCommon = field => value =>
     setRegistrationData(prevData => ({ ...prevData, [field]: value }));
@@ -39,15 +65,25 @@ const Registration = props => {
     props.onSubmit();
     props.navigation.navigate("registrationSuccess", {
       origin: "registrationSuccess",
-      statusText: "Ура! Мы зарегистрировались",
-      hintText:
-        "Проверьте свой E-mail, чтобы продолжить. Если долго ничего не приходит - проверьте спам или повторите!"
+      statusText: translate("registration.registrationSuccess"),
+      hintText: translate("registration.hintText")
     });
   };
   const onBackPress = () => {
-    // TODO: figure out whether it's possible just to trigger default android back button
-    props.onBackNavigation();
     props.navigation.goBack();
+  };
+  const onAuthFieldBlur = () => {
+    setEmailError(validateEmail(email));
+    setPasswordError(validatePassword(password));
+  };
+  const onFirstNameBlur = () => {
+    setFirstNameError(validateFirstName(firstName));
+  };
+  const onLastNameBlur = () => {
+    setLastNameError(validateLastName(lastName));
+  };
+  const onPhoneBlur = () => {
+    setPhoneError(validatePhone(phone));
   };
 
   return (
@@ -57,44 +93,65 @@ const Registration = props => {
       enabled
     >
       <KeyboardAvoidingView style={styles.container} enabled>
-        <Text style={styles.headerText}>Регистрация</Text>
+        <Text style={styles.headerText}>
+          {translate("registration.sign-up")}
+        </Text>
         <Input
           value={email}
-          label="E-mail"
+          label={translate("registration.email")}
           textContentType="emailAddress"
           onChangeText={setRegistrationDataCommon(fields.email)}
+          error={emailError}
+          onTextInputBlur={onAuthFieldBlur}
         />
         <Input
           value={password}
-          label="Пароль"
+          label={translate("registration.password")}
           textContentType="password"
           onChangeText={setRegistrationDataCommon(fields.password)}
+          error={passwordError}
+          onTextInputBlur={onAuthFieldBlur}
+          wrapperStyles={[styles.belowInput]}
         />
-        <Text style={styles.hintText}>{hintText}</Text>
+        <Text style={styles.hintText}>
+          {translate("registration.communicationDataHint")}
+        </Text>
         <Input
           value={firstName}
-          label="Имя"
+          label={translate("registration.firstName")}
           textContentType="name"
           onChangeText={setRegistrationDataCommon(fields.firstName)}
+          error={firstNameError}
+          onTextInputBlur={onFirstNameBlur}
         />
         <Input
           value={lastName}
-          label="Фамилия"
+          label={translate("registration.lastName")}
           textContentType="familyName"
           onChangeText={setRegistrationDataCommon(fields.lastName)}
+          error={lastNameError}
+          onTextInputBlur={onLastNameBlur}
+          wrapperStyles={[styles.belowInput]}
         />
         <Input
           value={phone}
-          label="Телефон"
+          label={translate("registration.phone")}
           textContentType="telephoneNumber"
           onChangeText={setRegistrationDataCommon(fields.phone)}
+          error={phoneError}
+          onTextInputBlur={onPhoneBlur}
+          wrapperStyles={[styles.belowInput, styles.lastInput]}
         />
         <Button
-          caption="Регистрация"
+          caption={translate("registration.sign-up")}
           onPress={onRegisterPress}
           appearance="Dark"
         />
-        <Button caption="НАЗАД" onPress={onBackPress} appearance="Borderless" />
+        <Button
+          caption={translate("registration.back").toUpperCase()}
+          onPress={onBackPress}
+          appearance="Borderless"
+        />
       </KeyboardAvoidingView>
     </ScrollView>
   );
