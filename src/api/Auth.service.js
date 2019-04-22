@@ -37,6 +37,35 @@ export default class AuthService {
       });
   }
 
+  static registration(email, password, firstName, lastName, phone) {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password, firstName, lastName, phone })
+    };
+    // eslint-disable-next-line no-undef
+    return fetch(`${HOST}/api/registration`, requestOptions)
+      .then(response => {
+        return response.text().then(text => {
+          const data = text && JSON.parse(text);
+
+          if (response.ok && response.status === 200) {
+            return data;
+          }
+
+          const error = (data && data.message) || response.statusText;
+          return Promise.reject(error);
+        });
+      })
+      .catch(error => {
+        console.info("Registration failed:", error);
+        throw new Error(error);
+      });
+  }
+
   static async logOut() {
     try {
       return await AsyncStorage.removeItem("User_Data");

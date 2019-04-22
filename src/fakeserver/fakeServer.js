@@ -13,6 +13,16 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.post("/api/registarion", (req, res) => {
+  res.json({
+    email: testLogin,
+    firstName: "Dmitry",
+    lastName: "Hot",
+    password: testPassword,
+    phone: "+375291235813"
+  });
+});
+
 app.post("/api/login", (req, res) => {
   if (req.body.email === testLogin && req.body.password === testPassword) {
     res.json({
@@ -24,8 +34,7 @@ app.post("/api/login", (req, res) => {
       refresh_token: refreshToken
     });
   } else {
-    res.status(403).send({ message: "Testing refreshing" });
-    // res.status(500).send({ message: "Wrong login or password" });
+    res.status(500).send({ message: "Wrong login or password" });
   }
 });
 
