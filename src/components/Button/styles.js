@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
 
+/* eslint-disable-next-line */
+import * as colors from "constants/colors";
+
+const { dimGray, white } = colors;
+
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   button: {
@@ -9,22 +14,22 @@ export const styles = StyleSheet.create({
     paddingBottom: 13
   },
   buttonDark: {
-    backgroundColor: "#546e7a"
+    backgroundColor: dimGray
   },
   buttonLight: {
-    backgroundColor: "#ffffff",
+    backgroundColor: white,
     borderWidth: 1,
-    borderColor: "#546e7a"
+    borderColor: dimGray
   },
   buttonBorderless: {},
   buttonText: {
-    color: "#546e7a",
+    color: dimGray,
     textAlign: "center",
     textTransform: "uppercase",
     fontSize: 18,
     fontWeight: "500"
   },
   buttonTextDark: {
-    color: "#ffffff"
+    color: white
   }
 });

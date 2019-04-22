@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
 
+/* eslint-disable-next-line */
+import * as colors from "constants/colors";
+
+const { firebrick, white, borderBlack, textBlack } = colors;
+
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   container: {
@@ -9,40 +14,44 @@ export const styles = StyleSheet.create({
     paddingBottom: 12,
     paddingLeft: 16,
     borderWidth: 2,
-    borderColor: "#151822",
+    borderColor: borderBlack,
     borderRadius: 6
   },
   containerWithErrors: {
-    borderColor: "#b00020"
+    borderColor: firebrick
   },
   label: {
     position: "absolute",
     top: 21,
     left: 19,
     fontSize: 23,
-    color: "#090a10"
+    color: textBlack
   },
   labelFocused: {
     top: -15,
     fontSize: 18,
-    backgroundColor: "#ffffff",
+    backgroundColor: white,
     paddingLeft: 5,
     paddingRight: 5
   },
   labelWithErrors: {
-    color: "#b00020"
+    color: firebrick
   },
   textInput: {
     fontSize: 23,
-    color: "#090a10"
+    color: textBlack
   },
   error: {
     fontSize: 18,
-    color: "#b00020"
+    color: firebrick
   },
   showHidePassIcon: {
     position: "absolute",
-    top: 15,
+    top: 20,
     right: 15
+  },
+  inputIcon: {
+    width: 35,
+    height: 35
   }
 });
