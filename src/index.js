@@ -7,10 +7,6 @@ import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
 
-// const isSignedIn = () =>
-//   // mock function for the authentication check
-//   Promise.resolve(false);
-
 const isSignedIn = async () => {
   try {
     const userData = await AsyncStorage.getItem("User_Data");

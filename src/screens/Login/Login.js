@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  Text,
-  Image,
-  KeyboardAvoidingView,
-  Alert
-} from "react-native";
-import R from "ramda";
+import { View, Text, Image, KeyboardAvoidingView } from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
@@ -28,31 +21,8 @@ const Login = props => {
   const [password, setPassword] = useState(passwordFromProps);
   const [passwordError, setPasswordError] = useState("");
 
-  const curriedSetLoginData = R.curry((field, value) => {
-    setLoginData(prevData => ({ ...prevData, [field]: value }));
-  });
-
-  const renderAlert = message => {
-    Alert.alert(
-      "",
-      message,
-      [
-        {},
-        {
-          text: "Закрыть",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        }
-      ],
-      { cancelable: false }
-    );
-  };
-
   const onLoginPress = () => {
-    const authService = new AuthService();
-
-    authService
-      .logIn(email, password)
+    AuthService.logIn(email, password)
       .then(data => {
         if (data) {
           console.info("Login is successful");
@@ -61,7 +31,6 @@ const Login = props => {
       })
       .catch(err => {
         console.info(err.message);
-        renderAlert(err.message);
       });
   };
 

@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
 
-const testLogin = "test";
-const testPassword = "test";
+const testLogin = "test@email.ru";
+const testPassword = "testTEST2*";
 const accessToken = "access_token";
 const refreshToken = "refresh_token";
 
