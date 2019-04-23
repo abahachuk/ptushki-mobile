@@ -10,6 +10,7 @@ import {
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
+import { AuthService } from "../../api";
 
 const fields = {
   email: "email",
@@ -61,12 +62,18 @@ const Registration = props => {
     setRegistrationData(prevData => ({ ...prevData, [field]: value }));
 
   const onRegisterPress = () => {
-    props.onSubmit();
-    props.navigation.navigate("registrationSuccess", {
-      origin: "registrationSuccess",
-      registrationSuccess: translate("registration.registrationSuccess"),
-      hintText: translate("registration.hintText")
-    });
+    AuthService.registrate(email, password, firstName, lastName, phone)
+      .then(data => {
+        console.log("registrations success", data);
+        props.navigation.navigate("registrationSuccess", {
+          origin: "registrationSuccess",
+          registrationSuccess: translate("registration.registrationSuccess"),
+          hintText: translate("registration.hintText")
+        });
+      })
+      .catch(err => {
+        console.info(err.message);
+      });
   };
   const onBackPress = () => {
     props.navigation.goBack();
@@ -166,7 +173,6 @@ Registration.propTypes = {
   firstNameDefault: PropTypes.string,
   lastNameDefault: PropTypes.string,
   phoneDefault: PropTypes.string,
-  onSubmit: PropTypes.func,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
     goBack: PropTypes.func
@@ -177,8 +183,7 @@ Registration.defaultProps = {
   passwordDefault: "",
   firstNameDefault: "",
   lastNameDefault: "",
-  phoneDefault: "",
-  onSubmit: () => {}
+  phoneDefault: ""
 };
 
 export default Registration;

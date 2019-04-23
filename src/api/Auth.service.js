@@ -40,7 +40,7 @@ export default class AuthService {
       });
   }
 
-  static registration(email, password, firstName, lastName, phone) {
+  static registrate(email, password, firstName, lastName, phone) {
     const requestOptions = {
       method: "POST",
       headers: {

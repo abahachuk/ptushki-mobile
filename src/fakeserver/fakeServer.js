@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/api/registarion", (req, res) => {
+app.post("/api/registration", (req, res) => {
   res.json({
     email: testLogin,
     firstName: "Dmitry",
