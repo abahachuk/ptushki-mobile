@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 /* eslint-disable-next-line */
 import { Login } from "screens";
+import { Observations } from "screens";
 import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
+
+console.log()
 
 const isSignedIn = () =>
   // mock function for the authentication check
@@ -49,7 +52,7 @@ const AppContainer = () => {
             {isChecked && signedIn ? (
               <Text>Signed in!</Text>
             ) : (
-              <Login {...context} />
+              <Observations/>
             )}
           </View>
         )}
