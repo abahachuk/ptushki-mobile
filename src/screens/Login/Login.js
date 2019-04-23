@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  KeyboardAvoidingView,
+  ScrollView
+} from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
@@ -50,53 +56,59 @@ const Login = props => {
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="position" enabled>
-      <View style={styles.headerContainer}>
-        <View style={styles.infoImgContainer}>
-          <Image style={styles.infoImg} source={infoImg} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.headerContainer}>
+          <View style={styles.infoImgContainer}>
+            <Image style={styles.infoImg} source={infoImg} />
+          </View>
+          <View style={styles.header}>
+            <Image
+              style={styles.logoImg}
+              resizeMode="contain"
+              source={logoImg}
+            />
+            <Text style={styles.headerText}>
+              {translate("login.bandingCenter")}
+            </Text>
+          </View>
         </View>
-        <View style={styles.header}>
-          <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-          <Text style={styles.headerText}>
-            {translate("login.bandingCenter")}
-          </Text>
+        <View>
+          <Input
+            value={email}
+            label={translate("login.email")}
+            textContentType="emailAddress"
+            onChangeText={setEmail}
+            error={emailError}
+            onTextInputBlur={onTextInputBlur}
+          />
+          <Input
+            value={password}
+            label={translate("login.password")}
+            textContentType="password"
+            onChangeText={setPassword}
+            error={passwordError}
+            onTextInputBlur={onTextInputBlur}
+            wrapperStyles={[styles.passwordInput]}
+          />
+          <Button
+            caption={translate("login.sign-in")}
+            onPress={onLoginPress}
+            appearance="Dark"
+          />
         </View>
-      </View>
-      <View>
-        <Input
-          value={email}
-          label={translate("login.email")}
-          textContentType="emailAddress"
-          onChangeText={setEmail}
-          error={emailError}
-          onTextInputBlur={onTextInputBlur}
-        />
-        <Input
-          value={password}
-          label={translate("login.password")}
-          textContentType="password"
-          onChangeText={setPassword}
-          error={passwordError}
-          onTextInputBlur={onTextInputBlur}
-          wrapperStyles={[styles.passwordInput]}
-        />
-        <Button
-          caption={translate("login.sign-in")}
-          onPress={onLoginPress}
-          appearance="Dark"
-        />
-      </View>
-      <View style={styles.footer}>
-        <Button
-          caption={translate("login.sign-up")}
-          onPress={onRegisterPress}
-          appearance="Light"
-        />
-        <Button
-          caption={translate("login.forgotPassword")}
-          onPress={onPasswordForgot}
-          appearance="Borderless"
-        />
-      </View>
+        <View style={styles.footer}>
+          <Button
+            caption={translate("login.sign-up")}
+            onPress={onRegisterPress}
+            appearance="Light"
+          />
+          <Button
+            caption={translate("login.forgotPassword")}
+            onPress={onPasswordForgot}
+            appearance="Borderless"
+          />
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };
