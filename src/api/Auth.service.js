@@ -20,9 +20,12 @@ export default class AuthService {
           const data = text && JSON.parse(text);
 
           if (response.ok && response.status === 200) {
-            onValueChange("Access_token", data.access_token);
-            onValueChange("Refresh_token", data.refresh_token);
-            onValueChange("User_Data", data);
+            const dataToStore = [
+              ["Access_token", data.access_token],
+              ["Refresh_token", data.refresh_token],
+              ["User_Data", data]
+            ];
+            onValueChange(dataToStore);
 
             return data;
           }
