@@ -21,7 +21,11 @@ const infoImg = require("assets/ic_info/ic_info2x.png");
 /* eslint-enable */
 
 const Login = props => {
-  const { email: emailFromProps, password: passwordFromProps } = props;
+  const {
+    email: emailFromProps,
+    password: passwordFromProps,
+    navigation
+  } = props;
   const [email, setEmail] = useState(emailFromProps);
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
@@ -32,7 +36,7 @@ const Login = props => {
       .then(data => {
         if (data) {
           console.info("Login is successful");
-          props.onLogin({ signedIn: true, isChecked: true });
+          navigation.navigate("mainPage");
         }
       })
       .catch(err => {
@@ -42,9 +46,12 @@ const Login = props => {
 
   const onRegisterPress = () => {
     props.onRegister();
+    navigation.navigate("registration");
+  };
+  const onPasswordForgot = () => {
+    navigation.navigate("passwordReset");
   };
 
-  const onPasswordForgot = () => {};
   const validateEmail = makeValidatorEmail(translate("validationError.email"));
   const validatePassword = makeValidatorPassword(
     translate("validationError.password")
@@ -113,16 +120,22 @@ const Login = props => {
   );
 };
 
+Login.navigationOptions = {
+  title: "Войти",
+  header: null
+};
 Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
-  onLogin: PropTypes.func,
-  onRegister: PropTypes.func
+  onRegister: PropTypes.func,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func
+  }).isRequired
 };
 Login.defaultProps = {
   email: "",
   password: "",
-  onLogin: () => {},
   onRegister: () => {}
 };
 

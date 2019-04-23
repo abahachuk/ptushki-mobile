@@ -32,7 +32,9 @@ exports[`Registration screen renders correctly 1`] = `
       >
         Регистрация
       </Text>
-      <View>
+      <View
+        style={Array []}
+      >
         <View
           style={
             Array [
@@ -71,6 +73,7 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
+            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             style={
               Object {
@@ -81,6 +84,7 @@ exports[`Registration screen renders correctly 1`] = `
             textContentType="emailAddress"
             underlineColorAndroid="transparent"
             value=""
+            wrapperStyles={Array []}
           />
         </View>
         <Text
@@ -94,7 +98,9 @@ exports[`Registration screen renders correctly 1`] = `
           
         </Text>
       </View>
-      <View>
+      <View
+        style={Array []}
+      >
         <View
           style={
             Array [
@@ -133,6 +139,7 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
+            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             secureTextEntry={true}
             style={
@@ -144,6 +151,7 @@ exports[`Registration screen renders correctly 1`] = `
             textContentType="password"
             underlineColorAndroid="transparent"
             value=""
+            wrapperStyles={Array []}
           />
           <View
             accessible={true}
@@ -159,7 +167,7 @@ exports[`Registration screen renders correctly 1`] = `
                 Object {
                   "position": "absolute",
                   "right": 15,
-                  "top": 15,
+                  "top": 20,
                 },
               ]
             }
@@ -170,7 +178,14 @@ exports[`Registration screen renders correctly 1`] = `
                   "testUri": "../../../src/assets/ic_eye_show/ic_eye_show2x.png",
                 }
               }
-              style={null}
+              style={
+                Array [
+                  Object {
+                    "height": 35,
+                    "width": 35,
+                  },
+                ]
+              }
             />
           </View>
         </View>
@@ -199,7 +214,9 @@ exports[`Registration screen renders correctly 1`] = `
       >
         Следующие данные нужны для связи с вами в случае, если потребуется уточнить данные
       </Text>
-      <View>
+      <View
+        style={Array []}
+      >
         <View
           style={
             Array [
@@ -238,6 +255,7 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
+            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             style={
               Object {
@@ -248,6 +266,7 @@ exports[`Registration screen renders correctly 1`] = `
             textContentType="name"
             underlineColorAndroid="transparent"
             value=""
+            wrapperStyles={Array []}
           />
         </View>
         <Text
@@ -261,7 +280,9 @@ exports[`Registration screen renders correctly 1`] = `
           
         </Text>
       </View>
-      <View>
+      <View
+        style={Array []}
+      >
         <View
           style={
             Array [
@@ -300,6 +321,7 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
+            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             style={
               Object {
@@ -310,6 +332,7 @@ exports[`Registration screen renders correctly 1`] = `
             textContentType="familyName"
             underlineColorAndroid="transparent"
             value=""
+            wrapperStyles={Array []}
           />
         </View>
         <Text
@@ -323,7 +346,9 @@ exports[`Registration screen renders correctly 1`] = `
           
         </Text>
       </View>
-      <View>
+      <View
+        style={Array []}
+      >
         <View
           style={
             Array [
@@ -362,6 +387,7 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
+            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             style={
               Object {
@@ -372,6 +398,7 @@ exports[`Registration screen renders correctly 1`] = `
             textContentType="telephoneNumber"
             underlineColorAndroid="transparent"
             value=""
+            wrapperStyles={Array []}
           />
         </View>
         <Text
@@ -463,6 +490,519 @@ exports[`Registration screen renders correctly 1`] = `
           }
         >
           НАЗАД
+        </Text>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#4f6e7c",
+            "fontSize": 34,
+            "paddingBottom": 20,
+          }
+        }
+      >
+        [missing "en.registration.sign-up" translation]
+      </Text>
+      <View
+        style={Array []}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "#151822",
+                "borderRadius": 6,
+                "borderWidth": 2,
+                "paddingBottom": 12,
+                "paddingLeft": 16,
+                "paddingTop": 12,
+                "position": "relative",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#090a10",
+                  "fontSize": 23,
+                  "left": 19,
+                  "position": "absolute",
+                  "top": 21,
+                },
+              ]
+            }
+          >
+            [missing "en.registration.email" translation]
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onTextInputBlur={[Function]}
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#090a10",
+                "fontSize": 23,
+              }
+            }
+            textContentType="emailAddress"
+            underlineColorAndroid="transparent"
+            value=""
+            wrapperStyles={Array []}
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#b00020",
+              "fontSize": 18,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "#151822",
+                "borderRadius": 6,
+                "borderWidth": 2,
+                "paddingBottom": 12,
+                "paddingLeft": 16,
+                "paddingTop": 12,
+                "position": "relative",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#090a10",
+                  "fontSize": 23,
+                  "left": 19,
+                  "position": "absolute",
+                  "top": 21,
+                },
+              ]
+            }
+          >
+            [missing "en.registration.password" translation]
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onTextInputBlur={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            style={
+              Object {
+                "color": "#090a10",
+                "fontSize": 23,
+              }
+            }
+            textContentType="password"
+            underlineColorAndroid="transparent"
+            value=""
+            wrapperStyles={
+              Array [
+                Object {
+                  "marginTop": 15,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "position": "absolute",
+                  "right": 15,
+                  "top": 20,
+                },
+              ]
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/assets/ic_eye_show/ic_eye_show2x.png",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "height": 35,
+                    "width": 35,
+                  },
+                ]
+              }
+            />
+          </View>
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#b00020",
+              "fontSize": 18,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#546E7A",
+            "fontFamily": "Roboto",
+            "fontSize": 14,
+            "lineHeight": 24,
+            "marginBottom": 16,
+            "marginLeft": 6,
+          }
+        }
+      >
+        [missing "en.registration.communicationDataHint" translation]
+      </Text>
+      <View
+        style={Array []}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "#151822",
+                "borderRadius": 6,
+                "borderWidth": 2,
+                "paddingBottom": 12,
+                "paddingLeft": 16,
+                "paddingTop": 12,
+                "position": "relative",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#090a10",
+                  "fontSize": 23,
+                  "left": 19,
+                  "position": "absolute",
+                  "top": 21,
+                },
+              ]
+            }
+          >
+            [missing "en.registration.firstName" translation]
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onTextInputBlur={[Function]}
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#090a10",
+                "fontSize": 23,
+              }
+            }
+            textContentType="name"
+            underlineColorAndroid="transparent"
+            value=""
+            wrapperStyles={Array []}
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#b00020",
+              "fontSize": 18,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "#151822",
+                "borderRadius": 6,
+                "borderWidth": 2,
+                "paddingBottom": 12,
+                "paddingLeft": 16,
+                "paddingTop": 12,
+                "position": "relative",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#090a10",
+                  "fontSize": 23,
+                  "left": 19,
+                  "position": "absolute",
+                  "top": 21,
+                },
+              ]
+            }
+          >
+            [missing "en.registration.lastName" translation]
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onTextInputBlur={[Function]}
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#090a10",
+                "fontSize": 23,
+              }
+            }
+            textContentType="familyName"
+            underlineColorAndroid="transparent"
+            value=""
+            wrapperStyles={
+              Array [
+                Object {
+                  "marginTop": 15,
+                },
+              ]
+            }
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#b00020",
+              "fontSize": 18,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": 15,
+            },
+            Object {
+              "marginBottom": 15,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderColor": "#151822",
+                "borderRadius": 6,
+                "borderWidth": 2,
+                "paddingBottom": 12,
+                "paddingLeft": 16,
+                "paddingTop": 12,
+                "position": "relative",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#090a10",
+                  "fontSize": 23,
+                  "left": 19,
+                  "position": "absolute",
+                  "top": 21,
+                },
+              ]
+            }
+          >
+            [missing "en.registration.phone" translation]
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onTextInputBlur={[Function]}
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#090a10",
+                "fontSize": 23,
+              }
+            }
+            textContentType="telephoneNumber"
+            underlineColorAndroid="transparent"
+            value=""
+            wrapperStyles={
+              Array [
+                Object {
+                  "marginTop": 15,
+                },
+                Object {
+                  "marginBottom": 15,
+                },
+              ]
+            }
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#b00020",
+              "fontSize": 18,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "borderRadius": 6,
+              "paddingBottom": 13,
+              "paddingTop": 13,
+              "width": "100%",
+            },
+            Object {
+              "backgroundColor": "#546e7a",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#546e7a",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "textAlign": "center",
+                "textTransform": "uppercase",
+              },
+              Object {
+                "color": "#ffffff",
+              },
+            ]
+          }
+        >
+          [missing "en.registration.sign-up" translation]
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "borderRadius": 6,
+              "paddingBottom": 13,
+              "paddingTop": 13,
+              "width": "100%",
+            },
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#546e7a",
+                "fontSize": 18,
+                "fontWeight": "500",
+                "textAlign": "center",
+                "textTransform": "uppercase",
+              },
+              undefined,
+            ]
+          }
+        >
+          [MISSING "EN.REGISTRATION.BACK" TRANSLATION]
         </Text>
       </View>
     </View>
