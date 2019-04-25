@@ -1,35 +1,30 @@
 export const observations = [
-    {
-        key: 1,
-        name: "Lebed Shipun",
-        serialNumber: "7BC1",
-        location: "Brest, Belarus",
-        imageUrl: [`./mockData/bird.jpg`, `./mockData/bird.jpg`],
-        dataOfObservation: new Date().toLocaleString(),
-        images: []
-    },
-    {
-        key: 2,
-        name: "noname",
-        serialNumber: "1848590",
-        location: "Minsk, Belarus, Zelva",
-        dataOfObservation: new Date().toLocaleString(),
-        images: []
-    },
-    {
-        key: 3,
-        name: "Lebeds Shipun",
-        serialNumber: "7BC1",
-        location: "Brest, Belarus",
-        dataOfObservation: new Date().toLocaleString(),
-        images: []
-    },
-    {
-        key: 4,
-        name: "Lebedq Shipun",
-        serialNumber: "7BC1",
-        location: "Brest, Belarus",
-        dataOfObservation: new Date().toLocaleString(),
-        images: []
-    }
-]
+  {
+    id: "1",
+    species: "Lebed Shipun",
+    ringNumber: "7BC1",
+    country: "Brest, Belarus",
+    date: new Date().toLocaleString()
+  },
+  {
+    id: "2",
+    species: "no species",
+    ringNumber: "1848590",
+    country: "Minsk, Belarus, Zelva",
+    date: new Date().toLocaleString()
+  },
+  {
+    id: "3",
+    species: "Lebeds Shipun",
+    ringNumber: "7BC1",
+    country: "Brest, Belarus",
+    date: new Date().toLocaleString()
+  },
+  {
+    id: "4",
+    species: "Lebedq Shipun",
+    ringNumber: "7BC1",
+    country: "Brest, Belarus",
+    date: new Date().toLocaleString()
+  }
+];

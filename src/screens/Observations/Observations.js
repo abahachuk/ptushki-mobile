@@ -1,23 +1,36 @@
 import React from "react";
-import { FlatList, Text } from "react-native";
-import Observation from "./Observation/Observation";
+import { FlatList, View, Text, TouchableOpacity } from "react-native";
+import Observation from "./Observation";
+import { styles } from "./styles";
+// import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { observations } from "./Observation/mockData/mockObservations";
 
 const Observations = () => {
-    // const { observations }  = props;
+  // const { observations }  = props;
 
-    renderItem = ({ item }) => {
-        return <Observation { ...item }/>
-    }
+  renderItem = ({ item }) => {
+    return <Observation {...item} />;
+  };
+  addObservation = () => {};
+  keyExtractor = (item, index) => item.id;
 
-    return (
-        <FlatList
-            data = {observations}
-            renderItem = {this.renderItem}
-        />
-    );
-}
+  return (
+    <View>
+      <FlatList
+        contentContainerStyle={styles.container}
+        data={observations}
+        renderItem={this.renderItem}
+        keyExtractor={this.keyExtractor}
+      />
+      <TouchableOpacity
+        style={styles.addObservation}
+        onPress={this.addObservation}
+      >
+        <Text style={styles.buttonTextStyle}>+</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 export default Observations;
-
