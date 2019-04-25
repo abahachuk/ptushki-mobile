@@ -1,4 +1,4 @@
-export const observations = [
+const observations = [
   {
     id: "1",
     species: "Lebed Shipun",
@@ -28,3 +28,5 @@ export const observations = [
     date: new Date().toLocaleString()
   }
 ];
+
+export default observations;

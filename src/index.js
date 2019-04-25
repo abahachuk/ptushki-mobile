@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 /* eslint-disable-next-line */
-import { Login } from "screens";
-import { Observations } from "screens";
+import { Login, Observations } from "screens";
 import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
@@ -47,7 +46,11 @@ const AppContainer = () => {
       <Translation.Consumer>
         {context => (
           <View style={styles.container}>
-            {isChecked && signedIn ? <Text>Signed in!</Text> : <Observations />}
+            {isChecked && signedIn ? (
+              <Text>Signed in!</Text>
+            ) : (
+              <Observations {...context} />
+            )}
           </View>
         )}
       </Translation.Consumer>

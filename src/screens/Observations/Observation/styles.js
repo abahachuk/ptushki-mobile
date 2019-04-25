@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import * as colors from "../../../constants/colors";
 
+/* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   observation: {
     backgroundColor: colors.white,

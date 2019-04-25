@@ -3,20 +3,21 @@ import PropTypes from "prop-types";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
+const img = require("./mockData/bird.jpg");
+
 const Observation = props => {
   const { species, ringNumber, country, date } = props;
-  const imgUrl = "./mockData/bird.jpg"; // example
 
-  showObservation = () => {};
+  const showObservation = () => {};
 
   return (
-    <TouchableOpacity style={styles.observation} onPress={this.showObservation}>
+    <TouchableOpacity style={styles.observation} onPress={showObservation}>
       <Text style={styles.species}>{species}</Text>
       <View style={styles.ringNumberWrap}>
         <Text style={styles.ringNumber}>{ringNumber}</Text>
       </View>
       <View style={styles.images}>
-        <Image style={styles.image} source={require(imgUrl)} />
+        <Image style={styles.image} source={img} />
       </View>
       <Text style={styles.country}>{country}</Text>
       <Text style={styles.date}>{date}</Text>
