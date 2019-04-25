@@ -4,11 +4,13 @@ import {
   View,
   UIManager,
   findNodeHandle,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const ICON_SIZE = 24;
+/*eslint-disable */
+const dotsIcon = require("assets/three-dots-menu/dots-vertical-black.png");
+/* eslint-enable */
 
 export default class PopupMenu extends Component {
   constructor(props) {
@@ -51,7 +53,7 @@ export default class PopupMenu extends Component {
     return (
       <View>
         <TouchableOpacity onPress={onPress}>
-          <Icon name="dots-vertical" size={ICON_SIZE} color="red" ref={onRef} />
+          <Image resizeMode="contain" source={dotsIcon} ref={onRef} />
         </TouchableOpacity>
       </View>
     );

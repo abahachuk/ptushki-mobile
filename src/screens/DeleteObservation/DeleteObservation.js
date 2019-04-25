@@ -1,23 +1,17 @@
 import React, { Component } from "react";
-import { Text, View, KeyboardAvoidingView } from "react-native";
-import { Overlay } from "react-native-elements";
-import { styles } from "./styles";
-import { Button, Input } from "../../components";
-import { translate } from "../../i18n";
+import { View, KeyboardAvoidingView } from "react-native";
+import { Overlay, Button, Text, Input } from "react-native-elements";
 import Popup from "./Popup";
+import { translate } from "../../i18n";
+import { styles } from "./styles";
 
-const DeleteObservationHeader = translate(
-  "deleteObservation.deleteObservationHeader"
-);
-const deleteObservationReason = translate(
-  "deleteObservation.deleteObservationReason"
-);
-const deleteObservationInputLabel = translate(
-  "deleteObservation.deleteObservationInputLabel"
-);
-const undoAction = translate("deleteObservation.undoAction");
-const deleteObservation = translate("deleteObservation.deleteObservation");
-const editObservation = translate("deleteObservation.editObservation");
+const deleteObservationHeader = "deleteObservation.deleteObservationHeader";
+const deleteObservationReason = "deleteObservation.deleteObservationReason";
+const deleteObservationInputLabel =
+  "deleteObservation.deleteObservationInputLabel";
+const undoAction = "deleteObservation.undoAction";
+const deleteObservation = "deleteObservation.deleteObservation";
+const editObservation = "deleteObservation.editObservation";
 
 class DeleteObservation extends Component {
   constructor(props) {
@@ -49,34 +43,42 @@ class DeleteObservation extends Component {
     };
 
     return (
-      <View style={{ marginTop: 22 }}>
+      <View>
         <Overlay
-          animationType="slide"
           isVisible={modalVisible}
-          windowBackgroundColor="rgba(255, 255, 255, .5)"
+          windowBackgroundColor="rgba(0, 0, 0, .5)"
         >
           <KeyboardAvoidingView style={styles.container} enabled>
-            <Text style={styles.headerText}>{DeleteObservationHeader}</Text>
-            <Text>{deleteObservationReason}</Text>
+            <Text h4 style={styles.headerText}>
+              {translate(deleteObservationHeader)}
+            </Text>
+            <Text style={styles.hintText}>
+              {translate(deleteObservationReason)}
+            </Text>
             <Input
-              label={deleteObservationInputLabel}
+              label={translate(deleteObservationInputLabel)}
               textContentType="emailAddress"
+              containerStyle={styles.input}
             />
-            <Button
-              caption={undoAction}
-              onPress={onBackPress}
-              appearance="Light"
-            />
-            <Button
-              caption={deleteObservation}
-              onPress={onDeletePress}
-              appearance="Light"
-            />
+            <View style={styles.buttonsContainer}>
+              <Button
+                title={translate(undoAction)}
+                onPress={onBackPress}
+                type="clear"
+                titleStyle={styles.buttonsText}
+              />
+              <Button
+                title={translate(deleteObservation)}
+                onPress={onDeletePress}
+                type="clear"
+                titleStyle={styles.buttonsText}
+              />
+            </View>
           </KeyboardAvoidingView>
         </Overlay>
 
         <Popup
-          actions={[editObservation, deleteObservation]}
+          actions={[translate(editObservation), translate(deleteObservation)]}
           onPress={this.onPopupPress}
         />
       </View>
