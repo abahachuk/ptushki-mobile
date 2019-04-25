@@ -39,5 +39,13 @@
     },
     "registrationEmailSent": {
         "goToLogin": "Перейти ко входу"
+    },
+    "deleteObservation": {
+        "deleteObservationHeader": "Удалить наблюдение?",
+        "deleteObservationReason": "Мы будем благодарны, если вы напишете причину",
+        "deleteObservationInputLabel": "Причина",
+        "undoAction": "Отмена",
+        "deleteObservation": "Удалить",
+        "editObservation": "Редактировать"
     }
 }
