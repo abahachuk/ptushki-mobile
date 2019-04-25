@@ -7,8 +7,6 @@ import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
 
-console.log()
-
 const isSignedIn = () =>
   // mock function for the authentication check
   Promise.resolve(false);
@@ -49,11 +47,7 @@ const AppContainer = () => {
       <Translation.Consumer>
         {context => (
           <View style={styles.container}>
-            {isChecked && signedIn ? (
-              <Text>Signed in!</Text>
-            ) : (
-              <Observations/>
-            )}
+            {isChecked && signedIn ? <Text>Signed in!</Text> : <Observations />}
           </View>
         )}
       </Translation.Consumer>

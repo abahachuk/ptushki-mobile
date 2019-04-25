@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 import { Dimensions } from "react-native";
 
-const width = Dimensions.get("window").width; //dirty solution
+const { width } = Dimensions.get("window"); // dirty solution
 
 export const styles = StyleSheet.create({
   container: {
-    width: width,
+    width,
     paddingVertical: 5
   },
   addObservation: {

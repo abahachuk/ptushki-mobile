@@ -5,7 +5,7 @@ import { styles } from "./styles";
 
 const Observation = props => {
   const { species, ringNumber, country, date } = props;
-  const imgUrl = "./mockData/bird.jpg"; //example
+  const imgUrl = "./mockData/bird.jpg"; // example
 
   showObservation = () => {};
 

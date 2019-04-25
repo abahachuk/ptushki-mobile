@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     paddingHorizontal: 5,
     paddingVertical: 2,
-    backgroundColor: colors.firebrick, //example color
+    backgroundColor: colors.firebrick, // example color
     alignSelf: "flex-start",
     shadowColor: colors.black,
     shadowOffset: {

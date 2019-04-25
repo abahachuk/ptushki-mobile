@@ -2,7 +2,6 @@ import React from "react";
 import { FlatList, View, Text, TouchableOpacity } from "react-native";
 import Observation from "./Observation";
 import { styles } from "./styles";
-// import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { observations } from "./Observation/mockData/mockObservations";
 
