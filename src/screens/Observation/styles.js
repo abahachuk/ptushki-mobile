@@ -11,9 +11,10 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   toolbar: {
-    backgroundColor: "#FF546E7A",
-    paddingTop: 20,
-    paddingBottom: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    height: 56,
+    backgroundColor: "#546e7a",
     paddingLeft: 16
   },
   backButton: {
@@ -21,10 +22,15 @@ export const styles = StyleSheet.create({
   },
   toolbarTitle: {
     fontSize: 20,
-    fontFamily: "Roboto"
+    fontFamily: "Roboto",
+    color: "white"
   },
   birdPhoto: {
-    height: 120
+    height: 120,
+    width: 120
+  },
+  commentField: {
+    marginTop: 100
   },
   oneMoreRingButtonContainer: {
     display: "flex",

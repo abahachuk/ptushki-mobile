@@ -86,7 +86,7 @@ Input.propTypes = {
 Input.defaultProps = {
   onChangeText: () => {},
   onTextInputBlur: () => {},
-  textContentType: "",
+  textContentType: "none",
   value: "",
   label: "",
   error: "",
