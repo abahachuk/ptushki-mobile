@@ -144,7 +144,11 @@ const EditObservation = props => {
             birdObstaclesValues={birdObstaclesValues}
             setFieldValue={setFieldValue}
           />
-          <ScrollView horizontal>
+          <ScrollView
+            enabled
+            horizontal
+            contentContainerStyle={styles.photosContainer}
+          >
             {birdPhotos.map(photoPath => (
               <Image
                 style={styles.birdPhoto}
@@ -219,19 +223,59 @@ EditObservation.propTypes = {
 };
 EditObservation.defaultProps = {
   birdSpeciesDefault: "",
-  birdSpeciesValues: [],
+  birdSpeciesValues: [
+    {
+      label: "Лебедь Шипун",
+      value: "swanMute"
+    },
+    {
+      label: "Беркут",
+      value: "goldenEagle"
+    }
+  ],
   birdSexDefault: "",
-  birdSexValues: [],
+  birdSexValues: [
+    {
+      label: "Не определен",
+      value: "notDetermined"
+    },
+    {
+      label: "Самец",
+      value: "male"
+    },
+    {
+      label: "Самка",
+      value: "female"
+    }
+  ],
   birdAgeDefault: "",
-  birdAgeValues: [],
+  birdAgeValues: [
+    {
+      label: "Старше 1 года",
+      value: "olderOneYear"
+    },
+    {
+      label: "Младше месяца",
+      value: "earlierOneMonth"
+    }
+  ],
   birdObstaclesDefault: "",
-  birdObstaclesValues: [],
+  birdObstaclesValues: [
+    {
+      label: "Птица была запутана в естественных условиях",
+      value: "tangledNaturally"
+    },
+    {
+      label: "Пила водичку из лужи",
+      value: "drinkWater"
+    }
+  ],
   ringsDefaultValues: {},
   ringTypeValues: [],
   ringMaterialValues: [],
   ringColorValues: [],
   ringLocationValues: [],
-  birdPhotos: [],
+  birdPhotos: [photoPlaceholder, photoPlaceholder, photoPlaceholder],
   countryDefault: "",
   countryValues: [],
   regionDefault: "",
