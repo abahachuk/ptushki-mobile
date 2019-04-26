@@ -19,26 +19,26 @@ export default class PopupMenu extends Component {
       icon: null
     };
 
-    this.onPress = this.onPress.bind(this);
+    this.onPress = () => {
+      const { icon } = this.state;
+      const { actions, onPress } = this.props;
+
+      if (icon) {
+        UIManager.showPopupMenu(
+          findNodeHandle(icon),
+          actions,
+          this.onError,
+          onPress
+        );
+      }
+    };
   }
 
   onError() {
-    console.log("Popup Error");
+    console.log(
+      "Popup Error: invalid arguments were passed to UIManager.showPopupMenu()"
+    );
     this.setState({ icon: null });
-  }
-
-  onPress() {
-    const { icon } = this.state;
-    const { actions, onPress } = this.props;
-
-    if (icon) {
-      UIManager.showPopupMenu(
-        findNodeHandle(icon),
-        actions,
-        this.onError,
-        onPress
-      );
-    }
   }
 
   render() {

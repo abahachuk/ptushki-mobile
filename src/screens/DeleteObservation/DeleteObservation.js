@@ -5,14 +5,6 @@ import Popup from "./Popup";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 
-const deleteObservationHeader = "deleteObservation.deleteObservationHeader";
-const deleteObservationReason = "deleteObservation.deleteObservationReason";
-const deleteObservationInputLabel =
-  "deleteObservation.deleteObservationInputLabel";
-const undoAction = "deleteObservation.undoAction";
-const deleteObservation = "deleteObservation.deleteObservation";
-const editObservation = "deleteObservation.editObservation";
-
 class DeleteObservation extends Component {
   constructor(props) {
     super(props);
@@ -50,25 +42,25 @@ class DeleteObservation extends Component {
         >
           <KeyboardAvoidingView style={styles.container} enabled>
             <Text h4 style={styles.headerText}>
-              {translate(deleteObservationHeader)}
+              {translate("deleteObservation.deleteObservationHeader")}
             </Text>
             <Text style={styles.hintText}>
-              {translate(deleteObservationReason)}
+              {translate("deleteObservation.deleteObservationReason")}
             </Text>
             <Input
-              label={translate(deleteObservationInputLabel)}
+              label={translate("deleteObservation.deleteObservationInputLabel")}
               textContentType="emailAddress"
               containerStyle={styles.input}
             />
             <View style={styles.buttonsContainer}>
               <Button
-                title={translate(undoAction)}
+                title={translate("deleteObservation.undoAction")}
                 onPress={onBackPress}
                 type="clear"
                 titleStyle={styles.buttonsText}
               />
               <Button
-                title={translate(deleteObservation)}
+                title={translate("deleteObservation.deleteObservation")}
                 onPress={onDeletePress}
                 type="clear"
                 titleStyle={styles.buttonsText}
@@ -78,7 +70,10 @@ class DeleteObservation extends Component {
         </Overlay>
 
         <Popup
-          actions={[translate(editObservation), translate(deleteObservation)]}
+          actions={[
+            translate("deleteObservation.editObservation"),
+            translate("deleteObservation.deleteObservation")
+          ]}
           onPress={this.onPopupPress}
         />
       </View>

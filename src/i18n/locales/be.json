@@ -40,11 +40,11 @@
         "goToLogin": "Перайсці да ўваходу"
     },
     "deleteObservation": {
-        "deleteObservationHeader": "Удалить наблюдение?",
-        "deleteObservationReason": "Мы будем благодарны, если вы напишете причину",
-        "deleteObservationInputLabel": "Причина",
-        "undoAction": "Отмена",
-        "deleteObservation": "Удалить",
-        "editObservation": "Редактировать"
+        "deleteObservationHeader": "Выдаліць назіранне?",
+        "deleteObservationReason": "Мы будзем ўдзячныя, калі вы напішаце прычыну",
+        "deleteObservationInputLabel": "Прычына",
+        "undoAction": "Адмена",
+        "deleteObservation": "Выдаліць",
+        "editObservation": "Рэдагаваць"
     }
 }
