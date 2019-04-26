@@ -28,16 +28,20 @@ const ObstaclesSection = props => {
         translate("editObservation.obstaclesHeader"),
         translate("editObservation.obstaclesDescription")
       )}
-      <Text style={styles.smallHeaderText}>
+      <Text style={styles.sectionTitle}>
         {translate("editObservation.place")}
       </Text>
       <View style={styles.geolocationButtons}>
-        <Button onPress={onCurrentPositionPress} appearance="Borderless">
-          {translate("editObservation.currentGeoposition")}
-        </Button>
-        <Button onPress={onSearchOnMapPress} appearance="Borderless">
-          {translate("editObservation.searchOnMap")}
-        </Button>
+        <Button
+          onPress={onCurrentPositionPress}
+          caption={translate("editObservation.currentGeoposition")}
+          appearance="Borderless"
+        />
+        <Button
+          onPress={onSearchOnMapPress}
+          caption={translate("editObservation.searchOnMap")}
+          appearance="Borderless"
+        />
       </View>
       <Picker
         style={styles.picker}
@@ -52,14 +56,22 @@ const ObstaclesSection = props => {
           />
         ))}
       </Picker>
-      <Input value={region} />
-      <Input value={coordinates} />
-      <Text style={styles.smallHeaderText}>Время</Text>
-      <Button onPress={onCurrentDateTimePress} appearance="Borderless">
-        {translate("editObservation.currentDateTime")}
-      </Button>
-      <Input value={dateTime} />
-      <Input value={dateTimeInaccuracy} />
+      <Input value={region} label={translate("editObservation.region")} />
+      <Input
+        value={coordinates}
+        label={translate("editObservation.coordinates")}
+      />
+      <Text style={styles.sectionTitle}>Время</Text>
+      <Button
+        caption={translate("editObservation.currentDateTime")}
+        onPress={onCurrentDateTimePress}
+        appearance="Borderless"
+      />
+      <Input value={dateTime} label={translate("editObservation.dateTime")} />
+      <Input
+        value={dateTimeInaccuracy}
+        label={translate("editObservation.dateTimeInaccuracy")}
+      />
     </View>
   );
 };

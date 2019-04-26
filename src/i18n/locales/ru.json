@@ -40,6 +40,10 @@
         "searchOnMap": "НАЙТИ НА КАРТЕ",
         "time": "Время",
         "sendObservation": "ОТПРАВИТЬ НАБЛЮДЕНИЕ",
-        "currentDateTime": "ТЕКУЩЕЕ ВРЕМЯ И ДАТА"
+        "currentDateTime": "ТЕКУЩЕЕ ВРЕМЯ И ДАТА",
+        "region": "Область район",
+        "coordinates": "Координаты",
+        "dateTime": "Время/Дата",
+        "dateTimeInaccuracy": "Погрешность времени"
     }
 }

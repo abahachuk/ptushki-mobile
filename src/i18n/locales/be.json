@@ -40,6 +40,10 @@
         "searchOnMap": "ЗНАЙСЦІ НА КАРЦЕ",
         "time": "Час",
         "sendObservation": "АДПРАВІЦЬ НАЗІРАННЕ",
-        "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА"
+        "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА",
+        "region": "Вобласць раён",
+        "coordinates": "Каардынаты",
+        "dateTime": "Час/Дата",
+        "dateTimeInaccuracy": "Хiбнасць часу"
     }
 }

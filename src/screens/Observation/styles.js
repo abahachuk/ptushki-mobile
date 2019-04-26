@@ -3,9 +3,8 @@ import { StyleSheet } from "react-native";
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   scrollContainer: {
-    paddingTop: 20,
-    paddingBottom: 12,
-    width: "90%"
+    padding: 20,
+    width: "100%"
   },
   container: {
     flex: 1
@@ -38,9 +37,9 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-end"
   },
   geolocationButtons: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between"
+    flex: 1,
+    flexDirection: "column"
+    // justifyContent: "space-between"
   },
   headerText: {
     fontSize: 34,
@@ -67,5 +66,8 @@ export const styles = StyleSheet.create({
     top: 20,
     width: 44,
     height: 24
+  },
+  sectionTitle: {
+    fontSize: 16
   }
 });
