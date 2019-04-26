@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Picker, Text } from "react-native";
+import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 
-import { Button, Input } from "../../components";
+import { Button, Input, CustomPicker } from "../../components";
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
@@ -33,42 +33,59 @@ const ObstaclesSection = props => {
       </Text>
       <View style={styles.geolocationButtons}>
         <Button
+          wrapperStyles={styles.geolocationButton}
+          customTextStyles={styles.buttonTextLeft}
           onPress={onCurrentPositionPress}
           caption={translate("editObservation.currentGeoposition")}
           appearance="Borderless"
         />
         <Button
+          wrapperStyles={styles.geolocationButton}
+          customTextStyles={styles.buttonTextRight}
           onPress={onSearchOnMapPress}
           caption={translate("editObservation.searchOnMap")}
           appearance="Borderless"
         />
       </View>
-      <Picker
-        style={styles.picker}
-        selectedValue={country}
-        onValueChange={setFieldValue}
-      >
-        {countryValues.map(countryItem => (
-          <Picker.Item
-            key={countryItem.value}
-            label={countryItem.label}
-            value={countryItem.value}
-          />
-        ))}
-      </Picker>
-      <Input value={region} label={translate("editObservation.region")} />
+      <CustomPicker
+        wrappedStyles={styles.countryPicker}
+        defaultValue={country}
+        onValueChange={itemValue => setFieldValue({ country: itemValue })}
+        items={countryValues}
+        caption={translate("editObservation.country")}
+      />
       <Input
+        customViewStyles={styles.customView}
+        customTextStyles={styles.customText}
+        wrapperStyles={styles.customInput}
+        value={region}
+        label={translate("editObservation.region")}
+      />
+      <Input
+        wrapperStyles={styles.customInput}
+        customViewStyles={styles.customView}
+        customTextStyles={styles.customText}
         value={coordinates}
         label={translate("editObservation.coordinates")}
       />
       <Text style={styles.sectionTitle}>Время</Text>
       <Button
+        customTextStyles={styles.buttonTextLeft}
         caption={translate("editObservation.currentDateTime")}
         onPress={onCurrentDateTimePress}
         appearance="Borderless"
       />
-      <Input value={dateTime} label={translate("editObservation.dateTime")} />
       <Input
+        wrapperStyles={styles.customInput}
+        customViewStyles={styles.customView}
+        customTextStyles={styles.customText}
+        value={dateTime}
+        label={translate("editObservation.dateTime")}
+      />
+      <Input
+        wrapperStyles={styles.customInput}
+        customViewStyles={styles.customView}
+        customTextStyles={styles.customText}
         value={dateTimeInaccuracy}
         label={translate("editObservation.dateTimeInaccuracy")}
       />

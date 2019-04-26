@@ -41,9 +41,11 @@
         "time": "Время",
         "sendObservation": "ОТПРАВИТЬ НАБЛЮДЕНИЕ",
         "currentDateTime": "ТЕКУЩЕЕ ВРЕМЯ И ДАТА",
+        "country": "Страна",
         "region": "Область район",
         "coordinates": "Координаты",
         "dateTime": "Время/Дата",
-        "dateTimeInaccuracy": "Погрешность времени"
+        "dateTimeInaccuracy": "Погрешность времени",
+        "comment": "Комметарий"
     }
 }

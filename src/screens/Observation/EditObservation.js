@@ -180,7 +180,13 @@ const EditObservation = props => {
             dateTime={dateTime}
             dateTimeInaccuracy={dateTimeInaccuracy}
           />
-          <Input wrapperStyles={styles.commentField} value={comment} />
+          <Input
+            customLabel={styles.customLabel}
+            customViewStyles={styles.commentField}
+            customTextStyles={styles.customText}
+            value={comment}
+            label={translate("editObservation.comment")}
+          />
           <Button
             onPress={onSubmitPress}
             appearance="Dark"
@@ -277,7 +283,16 @@ EditObservation.defaultProps = {
   ringLocationValues: [],
   birdPhotos: [photoPlaceholder, photoPlaceholder, photoPlaceholder],
   countryDefault: "",
-  countryValues: [],
+  countryValues: [
+    {
+      label: "Беларусь",
+      value: "belarus"
+    },
+    {
+      label: "Россия",
+      value: "russian"
+    }
+  ],
   regionDefault: "",
   coordinatesDefault: "",
   commentDefault: "",

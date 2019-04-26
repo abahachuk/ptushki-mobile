@@ -32,9 +32,11 @@ export const styles = StyleSheet.create({
     marginRight: 10
   },
   commentField: {
+    borderWidth: 0,
+    paddingLeft: 0,
     marginTop: 100,
     borderBottomWidth: 2,
-    borderBottomColor: "black"
+    borderBottomColor: "#9a9a9a"
   },
   restBirdPickers: {
     marginTop: 26
@@ -48,17 +50,27 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-end"
   },
   geolocationButtons: {
-    flex: 1,
-    flexDirection: "column"
-    // justifyContent: "space-between"
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  geolocationButton: {
+    width: "50%"
+  },
+  buttonTextLeft: {
+    textAlign: "left",
+    fontSize: 16
+  },
+  buttonTextRight: {
+    textAlign: "right",
+    fontSize: 16
   },
   headerText: {
-    fontSize: 34,
-    paddingBottom: 10,
+    fontSize: 30,
+    paddingBottom: 5,
     color: "#212121"
   },
   descriptionText: {
-    fontSize: 18
+    fontSize: 16
   },
   firstBirdPicker: {
     marginTop: 20
@@ -85,6 +97,29 @@ export const styles = StyleSheet.create({
     height: 24
   },
   sectionTitle: {
+    marginTop: 15,
+    marginBottom: -5,
+    fontSize: 16,
+    color: "#000000"
+  },
+  customInput: {
+    marginTop: 20
+  },
+  customView: {
+    borderWidth: 0,
+    paddingLeft: 0,
+    paddingBottom: 0,
+    borderBottomWidth: 2,
+    borderBottomColor: "#9a9a9a",
+    borderRadius: 0
+  },
+  customText: {
+    paddingLeft: 25,
+    paddingBottom: 10,
     fontSize: 16
+  },
+  countryPicker: {
+    marginTop: 26,
+    marginBottom: 20
   }
 });

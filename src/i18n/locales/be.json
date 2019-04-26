@@ -41,9 +41,11 @@
         "time": "Час",
         "sendObservation": "АДПРАВІЦЬ НАЗІРАННЕ",
         "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА",
+        "country": "Краiна",
         "region": "Вобласць раён",
         "coordinates": "Каардынаты",
         "dateTime": "Час/Дата",
-        "dateTimeInaccuracy": "Хiбнасць часу"
+        "dateTimeInaccuracy": "Хiбнасць часу",
+        "comment": "Каментар"
     }
 }
