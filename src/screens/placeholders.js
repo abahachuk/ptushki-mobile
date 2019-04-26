@@ -24,6 +24,6 @@ export const mainPageScreen = props => {
 };
 
 mainPageScreen.navigationOptions = {
-  title: "лебедь шипун",
+  title: "Home",
   headerRight: <DeleteObservation />
 };
