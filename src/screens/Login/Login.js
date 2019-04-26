@@ -13,7 +13,11 @@ const infoImg = require("assets/ic_info/ic_info2x.png");
 /* eslint-enable */
 
 const Login = props => {
-  const { email: emailFromProps, password: passwordFromProps } = props;
+  const {
+    email: emailFromProps,
+    password: passwordFromProps,
+    navigation
+  } = props;
   const [email, setEmail] = useState(emailFromProps);
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
@@ -21,11 +25,15 @@ const Login = props => {
 
   const onLoginPress = () => {
     props.onLogin({ email, password });
+    navigation.navigate("mainPage");
   };
   const onRegisterPress = () => {
     props.onRegister();
+    navigation.navigate("registration");
   };
-  const onPasswordForgot = () => {};
+  const onPasswordForgot = () => {
+    navigation.navigate("passwordReset");
+  };
   const validateEmail = makeValidatorEmail(translate("validationError.email"));
   const validatePassword = makeValidatorPassword(
     translate("validationError.password")
@@ -88,11 +96,19 @@ const Login = props => {
   );
 };
 
+Login.navigationOptions = {
+  title: "Войти",
+  header: null
+};
 Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
   onLogin: PropTypes.func,
-  onRegister: PropTypes.func
+  onRegister: PropTypes.func,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func
+  }).isRequired
 };
 Login.defaultProps = {
   email: "",

@@ -1,13 +1,16 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Registration from "./Registration";
+import RegistrationEmailSent from "./RegistrationEmailSent";
 /* eslint  no-undef: 0 */
 describe("Registration screen", () => {
   test("renders correctly", () => {
-    const navigation = { navigate: jest.fn() };
+    const navigation = {
+      navigate: jest.fn(),
+      getParam: () => "succes"
+    };
     const tree = renderer
-      .create(<Registration navigation={navigation} />)
+      .create(<RegistrationEmailSent navigation={navigation} />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
