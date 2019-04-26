@@ -6,7 +6,6 @@ import {
   RegistrationEmailSent,
   Observations
 } from "../../screens";
-import { mainPageScreen } from "../../screens/placeholders";
 
 const AppNavigator = createStackNavigator(
   {
