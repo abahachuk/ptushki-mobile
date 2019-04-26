@@ -3,7 +3,8 @@ import {
   Login,
   Registration,
   PasswordRecovery,
-  RegistrationEmailSent
+  RegistrationEmailSent,
+  Observations
 } from "../../screens";
 import { mainPageScreen } from "../../screens/placeholders";
 
@@ -16,7 +17,7 @@ const AppNavigator = createStackNavigator(
       screen: RegistrationEmailSent
     },
     registrationSuccess: RegistrationEmailSent,
-    mainPage: mainPageScreen
+    mainPage: Observations
   },
   {
     initialRouteName: "login",

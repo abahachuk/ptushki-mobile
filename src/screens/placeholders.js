@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, Button } from "react-native";
 import DeleteObservation from "./DeleteObservation/DeleteObservation";
+import Observations from "./Observations";
 
 // temporary components for navigation flow
 /* eslint react/prop-types: 0 */
@@ -24,6 +25,6 @@ export const mainPageScreen = props => {
 };
 
 mainPageScreen.navigationOptions = {
-  title: "лебедь шипун",
+  title: "Home",
   headerRight: <DeleteObservation />
 };

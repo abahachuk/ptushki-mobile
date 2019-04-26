@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, View, Text, TouchableOpacity } from "react-native";
 import Observation from "./Observation";
 import { styles } from "./styles";
-
+import DeleteObservation from "../DeleteObservation";
 import observations from "./Observation/mockData/mockObservations";
 
 const Observations = () => {
@@ -21,6 +21,11 @@ const Observations = () => {
       </TouchableOpacity>
     </View>
   );
+};
+
+Observations.navigationOptions = {
+  title: "Наблюдения",
+  headerRight: <DeleteObservation />
 };
 
 export default Observations;
