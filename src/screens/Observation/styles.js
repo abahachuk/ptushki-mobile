@@ -3,8 +3,10 @@ import { StyleSheet } from "react-native";
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   scrollContainer: {
-    padding: 20,
-    width: "100%"
+    paddingTop: 18,
+    paddingBottom: 12,
+    paddingLeft: 16,
+    paddingRight: 16
   },
   container: {
     flex: 1
@@ -26,10 +28,19 @@ export const styles = StyleSheet.create({
   },
   birdPhoto: {
     height: 120,
-    width: 120
+    width: 120,
+    marginRight: 10
   },
   commentField: {
-    marginTop: 100
+    marginTop: 100,
+    borderBottomWidth: 2,
+    borderBottomColor: "black"
+  },
+  restBirdPickers: {
+    marginTop: 26
+  },
+  photosContainer: {
+    marginTop: 28
   },
   oneMoreRingButtonContainer: {
     display: "flex",
@@ -43,8 +54,14 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 34,
-    paddingBottom: 20,
-    color: "#4f6e7c"
+    paddingBottom: 10,
+    color: "#212121"
+  },
+  descriptionText: {
+    fontSize: 18
+  },
+  firstBirdPicker: {
+    marginTop: 20
   },
   hintText: {
     marginLeft: 6,
