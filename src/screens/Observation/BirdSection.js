@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Picker } from "react-native";
+import { View } from "react-native";
 import PropTypes from "prop-types";
 
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 import { pickerValuesArrayType } from "./propTypes";
+import { CustomPicker } from "../../components";
 
 const BirdSection = props => {
   const {
@@ -26,58 +27,34 @@ const BirdSection = props => {
         translate("editObservation.birdHeader"),
         translate("editObservation.birdDescription")
       )}
-      <Picker
-        style={styles.picker}
-        selectedValue={birdSpecies}
+      <CustomPicker
+        wrappedStyles={styles.firstBirdPicker}
+        defaultValue={birdSpecies}
         onValueChange={itemValue => setFieldValue({ birdSpecies: itemValue })}
-      >
-        {birdSpeciesValues.map(birdSpeciesItem => (
-          <Picker.Item
-            key={birdSpeciesItem.value}
-            label={birdSpeciesItem.label}
-            value={birdSpeciesItem.value}
-          />
-        ))}
-      </Picker>
-      <Picker
-        style={styles.picker}
-        selectedValue={birdSex}
+        items={birdSpeciesValues}
+        caption="Вид птицы"
+      />
+      <CustomPicker
+        wrappedStyles={styles.restBirdPickers}
+        defaultValue={birdSex}
         onValueChange={itemValue => setFieldValue({ birdSex: itemValue })}
-      >
-        {birdSexValues.map(birdSexItem => (
-          <Picker.Item
-            key={birdSexItem.value}
-            label={birdSexItem.label}
-            value={birdSexItem.value}
-          />
-        ))}
-      </Picker>
-      <Picker
-        style={styles.picker}
-        selectedValue={birdAge}
+        items={birdSexValues}
+        caption="Пол"
+      />
+      <CustomPicker
+        wrappedStyles={styles.restBirdPickers}
+        defaultValue={birdAge}
         onValueChange={itemValue => setFieldValue({ birdAge: itemValue })}
-      >
-        {birdAgeValues.map(birdAgeItem => (
-          <Picker.Item
-            key={birdAgeItem.value}
-            label={birdAgeItem.label}
-            value={birdAgeItem.value}
-          />
-        ))}
-      </Picker>
-      <Picker
-        style={styles.picker}
-        selectedValue={birdObstacles}
+        items={birdAgeValues}
+        caption="Возраст"
+      />
+      <CustomPicker
+        wrappedStyles={styles.restBirdPickers}
+        defaultValue={birdObstacles}
         onValueChange={itemValue => setFieldValue({ birdAge: itemValue })}
-      >
-        {birdObstaclesValues.map(birdObstaclesItem => (
-          <Picker.Item
-            key={birdObstaclesItem.value}
-            label={birdObstaclesItem.label}
-            value={birdObstaclesItem.value}
-          />
-        ))}
-      </Picker>
+        items={birdObstaclesValues}
+        caption="Птица была"
+      />
     </View>
   );
 };
