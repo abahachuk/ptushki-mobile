@@ -8,7 +8,9 @@
         "firstName": "Імя",
         "lastName": "Прозвішча",
         "phone": "Тэлефон",
-        "back": "Назад"
+        "back": "Назад",
+        "registrationSuccess:": "Ура! Мы зарэгістраваліся",
+        "hintText": "Праверце свой E-mail, каб працягнуць. Калі доўга нічога не прыходзіць - праверце спам або паўтарыце!"
     },
     "login": {
         "bandingCenter": "Цэнтр Кальцавання Птушак пры Акадэміі навук Рэспублікі Беларусь",
@@ -24,5 +26,25 @@
         "firstName": "Поле Імя не павінна быць пустым",
         "lastName": "Поле Прозвішча не павінна быць пустым",
         "phone": "Поле Тэлефон не павінна быць пустым"
+    },
+    "passwordRecovery": {
+        "recovery": "Аднаўленне пароля",
+        "sendNewPassword": "Выслаць новы пароль",
+        "statusText": "Мы выслалі вам новы пароль!",
+        "instructionText": "Увядзіце ваш E-mail, каб мы выслалі новы пароль",
+        "passwordSentText": "Праверце свой E-mail, каб атрымаць новы пароль. Увядзiце яго пры ўваходзе, после чего сможете его изменить, пасля чаго зможаце яго змяніць",
+        "email": "E-mail",
+        "back": "Назад"
+    },
+    "registrationEmailSent": {
+        "goToLogin": "Перайсці да ўваходу"
+    },
+    "deleteObservation": {
+        "deleteObservationHeader": "Выдаліць назіранне?",
+        "deleteObservationReason": "Мы будзем ўдзячныя, калі вы напішаце прычыну",
+        "deleteObservationInputLabel": "Прычына",
+        "undoAction": "Адмена",
+        "deleteObservation": "Выдаліць",
+        "editObservation": "Рэдагаваць"
     }
 }
