@@ -1,31 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {
-  Text,
-  ScrollView,
-  KeyboardAvoidingView,
-  Image,
-  View,
-  TouchableHighlight
-} from "react-native";
+import { ScrollView, KeyboardAvoidingView, View } from "react-native";
 
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
-import { pickerValuesArrayType } from "./propTypes";
+import { pickerValuesArrayType } from "../../propTypes";
 import BirdSection from "./BirdSection";
 import RingsSection from "./RingsSection";
 import ObstaclesSection from "./ObstaclesSection";
+import Toolbar from "./Toolbar";
+import PhotoCarousel from "./PhotoCarousel";
 
-const backIcon = require("../../assets/arrow-pointing-to-left.png");
 const photoPlaceholder = require("../../assets/photoPlaceholder.png");
-
-const getEmptyPickerValue = () => {
-  return {
-    label: "",
-    value: ""
-  };
-};
 
 const EditObservation = props => {
   const {
@@ -64,7 +51,7 @@ const EditObservation = props => {
       dateTime,
       dateTimeInaccuracy
     },
-    setFieldValue
+    setFieldsValue
   ] = useState({
     birdSpecies: birdSpeciesDefault,
     birdSex: birdSexDefault,
@@ -78,7 +65,13 @@ const EditObservation = props => {
     dateTimeInaccuracy: dateTimeInaccuracyDefault
   });
 
-  const { rings, setRingsValues } = useState(ringsDefaultValues);
+  const updateFieldValue = fieldForMerge =>
+    setFieldsValue(prevState => ({
+      ...prevState,
+      ...fieldForMerge
+    }));
+
+  const [rings, setRingsValues] = useState(ringsDefaultValues);
 
   const onSubmitPress = () => {
     props.onSubmit();
@@ -99,34 +92,9 @@ const EditObservation = props => {
     props.onLoadPhoto();
   };
 
-  const getNewRingId = () => `${Object.keys(rings).length + 1}`;
-  const getEmptyRingFieldsGroup = () => {
-    return {
-      type: getEmptyPickerValue(),
-      material: getEmptyPickerValue(),
-      color: getEmptyPickerValue(),
-      location: getEmptyPickerValue(),
-      tagId: ""
-    };
-  };
-  const onAddOneMoreRing = () => {
-    setRingsValues(
-      Object.assign({}, rings, {
-        [getNewRingId()]: getEmptyRingFieldsGroup()
-      })
-    );
-  };
-
   return (
     <View>
-      <View style={styles.toolbar}>
-        <TouchableHighlight style={styles.backButton} onPress={onBackPress}>
-          <Image source={backIcon} />
-        </TouchableHighlight>
-        <Text style={styles.toolbarTitle}>
-          {translate("editObservation.editing")}
-        </Text>
-      </View>
+      <Toolbar onBackPress={onBackPress} />
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -142,37 +110,25 @@ const EditObservation = props => {
             birdAgeValues={birdAgeValues}
             birdObstacles={birdObstacles}
             birdObstaclesValues={birdObstaclesValues}
-            setFieldValue={setFieldValue}
+            setFieldValue={updateFieldValue}
           />
-          <ScrollView
-            enabled
-            horizontal
-            contentContainerStyle={styles.photosContainer}
-          >
-            {birdPhotos.map(photoPath => (
-              <Image
-                style={styles.birdPhoto}
-                key={photoPath}
-                source={photoPath}
-              />
-            ))}
-            <TouchableHighlight onPress={onLoadPhotoPress}>
-              <Image style={styles.birdPhoto} source={photoPlaceholder} />
-            </TouchableHighlight>
-          </ScrollView>
+          <PhotoCarousel
+            photos={birdPhotos}
+            onLoadPhotoPress={onLoadPhotoPress}
+          />
           <RingsSection
             rings={rings}
             ringTypeValues={ringTypeValues}
             ringMaterialValues={ringMaterialValues}
             ringColorValues={ringColorValues}
             ringLocationValues={ringLocationValues}
-            onAddOneMoreRing={onAddOneMoreRing}
+            setRingsValues={setRingsValues}
           />
           <ObstaclesSection
             onCurrentPositionPress={onCurrentPositionPress}
             onSearchOnMapPress={onSearchOnMapPress}
             country={country}
-            setFieldValue={setFieldValue}
+            setFieldValue={updateFieldValue}
             countryValues={countryValues}
             region={region}
             coordinates={coordinates}
@@ -181,6 +137,7 @@ const EditObservation = props => {
             dateTimeInaccuracy={dateTimeInaccuracy}
           />
           <Input
+            onChangeText={value => updateFieldValue({ comment: value })}
             customLabel={styles.customLabel}
             customViewStyles={styles.commentField}
             customTextStyles={styles.customText}
@@ -198,6 +155,8 @@ const EditObservation = props => {
   );
 };
 
+// TODO: update defaultProps to contain isReuiqred where it's need and get
+// rid of mocks
 EditObservation.propTypes = {
   birdSpeciesDefault: PropTypes.string,
   birdSpeciesValues: pickerValuesArrayType,
@@ -276,11 +235,47 @@ EditObservation.defaultProps = {
       value: "drinkWater"
     }
   ],
-  ringsDefaultValues: {},
-  ringTypeValues: [],
-  ringMaterialValues: [],
-  ringColorValues: [],
-  ringLocationValues: [],
+  ringsDefaultValues: { "1": {} },
+  ringTypeValues: [
+    {
+      label: "Кольцо",
+      value: "ring"
+    },
+    {
+      label: "Большое кольцо",
+      value: "bigRing"
+    }
+  ],
+  ringMaterialValues: [
+    {
+      label: "Алюминиевое кольцо",
+      value: "alumineum"
+    },
+    {
+      label: "Стальное кольцо",
+      value: "steel"
+    }
+  ],
+  ringColorValues: [
+    {
+      label: "Серебристый",
+      value: "#d7d7d7"
+    },
+    {
+      label: "Темный шифер",
+      value: "#242a3b"
+    }
+  ],
+  ringLocationValues: [
+    {
+      label: "Левая нога ниже колена",
+      value: "leftLegBelowKnee"
+    },
+    {
+      label: "Шея",
+      value: "neck"
+    }
+  ],
   birdPhotos: [photoPlaceholder, photoPlaceholder, photoPlaceholder],
   countryDefault: "",
   countryValues: [

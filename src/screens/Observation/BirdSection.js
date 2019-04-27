@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
-import { pickerValuesArrayType } from "./propTypes";
+import { pickerValuesArrayType } from "../../propTypes";
 import { CustomPicker } from "../../components";
 
 const BirdSection = props => {
@@ -28,32 +28,32 @@ const BirdSection = props => {
         translate("editObservation.birdDescription")
       )}
       <CustomPicker
+        caption={translate("editObservation.birdSpecies")}
         wrappedStyles={styles.firstBirdPicker}
-        defaultValue={birdSpecies}
+        selectedValue={birdSpecies}
         onValueChange={itemValue => setFieldValue({ birdSpecies: itemValue })}
         items={birdSpeciesValues}
-        caption="Вид птицы"
       />
       <CustomPicker
+        caption={translate("editObservation.birdSex")}
         wrappedStyles={styles.restBirdPickers}
-        defaultValue={birdSex}
+        selectedValue={birdSex}
         onValueChange={itemValue => setFieldValue({ birdSex: itemValue })}
         items={birdSexValues}
-        caption="Пол"
       />
       <CustomPicker
+        caption={translate("editObservation.birdAge")}
         wrappedStyles={styles.restBirdPickers}
-        defaultValue={birdAge}
+        selectedValue={birdAge}
         onValueChange={itemValue => setFieldValue({ birdAge: itemValue })}
         items={birdAgeValues}
-        caption="Возраст"
       />
       <CustomPicker
+        caption={translate("editObservation.birdWas")}
         wrappedStyles={styles.restBirdPickers}
-        defaultValue={birdObstacles}
-        onValueChange={itemValue => setFieldValue({ birdAge: itemValue })}
+        selectedValue={birdObstacles}
+        onValueChange={itemValue => setFieldValue({ birdObstacles: itemValue })}
         items={birdObstaclesValues}
-        caption="Птица была"
       />
     </View>
   );

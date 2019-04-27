@@ -46,6 +46,14 @@
         "coordinates": "Координаты",
         "dateTime": "Время/Дата",
         "dateTimeInaccuracy": "Погрешность времени",
-        "comment": "Комметарий"
+        "comment": "Комментарий",
+        "birdSpecies": "Тип птицы",
+        "birdSex": "Пол",
+        "birdAge": "Возраст",
+        "birdWas": "Птица была",
+        "ringType": "Тип метки",
+        "ringMaterial": "Материал метки",
+        "ringColor": "Цвет",
+        "ringLocation": "Расположение на теле"
     }
 }

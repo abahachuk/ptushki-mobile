@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import { Text, View, Picker } from "react-native";
 
 import { styles } from "./styles";
-import { pickerValuesArrayType } from "../../screens/Observation/propTypes";
+import { pickerValuesArrayType } from "../../propTypes";
 
 const CustomPicker = props => {
-  const { items, onValueChange, defaultValue, caption, wrappedStyles } = props;
+  const { items, onValueChange, selectedValue, caption, wrappedStyles } = props;
 
   return (
     <View style={[styles.container, wrappedStyles]}>
       <Text style={styles.caption}>{caption}</Text>
-      <Picker selectedValue={defaultValue} onValueChange={onValueChange}>
+      <Picker selectedValue={selectedValue} onValueChange={onValueChange}>
         {items.map(item => (
           <Picker.Item
             style={styles.pickerItem}
@@ -28,13 +28,13 @@ const CustomPicker = props => {
 CustomPicker.propTypes = {
   items: pickerValuesArrayType,
   onValueChange: PropTypes.func.isRequired,
-  defaultValue: PropTypes.string,
+  selectedValue: PropTypes.string,
   caption: PropTypes.string,
   wrappedStyles: PropTypes.object
 };
 CustomPicker.defaultProps = {
   items: [],
-  defaultValue: "",
+  selectedValue: "",
   caption: "",
   wrappedStyles: {}
 };

@@ -64,7 +64,6 @@ const Registration = props => {
     props.onSubmit();
   };
   const onBackPress = () => {
-    // TODO: figure out whether it's possible just to trigger default android back button
     props.onBackNavigation();
   };
   const onAuthFieldBlur = () => {

@@ -6,7 +6,7 @@ import { Button, Input, CustomPicker } from "../../components";
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
-import { pickerValuesArrayType } from "./propTypes";
+import { pickerValuesArrayType } from "../../propTypes";
 
 const ObstaclesSection = props => {
   const {
@@ -23,7 +23,7 @@ const ObstaclesSection = props => {
   } = props;
 
   return (
-    <View>
+    <View style={styles.obstaclesSectionContainer}>
       {getDescriptionBlock(
         translate("editObservation.obstaclesHeader"),
         translate("editObservation.obstaclesDescription")
@@ -49,12 +49,13 @@ const ObstaclesSection = props => {
       </View>
       <CustomPicker
         wrappedStyles={styles.countryPicker}
-        defaultValue={country}
+        selectedValue={country}
         onValueChange={itemValue => setFieldValue({ country: itemValue })}
         items={countryValues}
         caption={translate("editObservation.country")}
       />
       <Input
+        onChangeText={value => setFieldValue({ region: value })}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         wrapperStyles={styles.customInput}
@@ -62,13 +63,16 @@ const ObstaclesSection = props => {
         label={translate("editObservation.region")}
       />
       <Input
+        onChangeText={value => setFieldValue({ coordinates: value })}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={coordinates}
         label={translate("editObservation.coordinates")}
       />
-      <Text style={styles.sectionTitle}>Время</Text>
+      <Text style={styles.sectionTitle}>
+        {translate("editObservation.time")}
+      </Text>
       <Button
         customTextStyles={styles.buttonTextLeft}
         caption={translate("editObservation.currentDateTime")}
@@ -76,6 +80,7 @@ const ObstaclesSection = props => {
         appearance="Borderless"
       />
       <Input
+        onChangeText={value => setFieldValue({ dateTime: value })}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
@@ -83,6 +88,7 @@ const ObstaclesSection = props => {
         label={translate("editObservation.dateTime")}
       />
       <Input
+        onChangeText={value => setFieldValue({ dateTimeInaccuracy: value })}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}

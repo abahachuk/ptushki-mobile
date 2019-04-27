@@ -21,15 +21,24 @@ export const styles = StyleSheet.create({
   backButton: {
     marginRight: 32
   },
+  obstaclesSectionContainer: {
+    marginTop: 36
+  },
   toolbarTitle: {
     fontSize: 20,
     fontFamily: "Roboto",
     color: "white"
   },
+  ringItemTitle: {
+    marginTop: 20
+  },
   birdPhoto: {
     height: 120,
     width: 120,
     marginRight: 10
+  },
+  ringsSectionContainer: {
+    marginTop: 36
   },
   commentField: {
     borderWidth: 0,
@@ -45,9 +54,11 @@ export const styles = StyleSheet.create({
     marginTop: 28
   },
   oneMoreRingButtonContainer: {
-    display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end"
+  },
+  oneMoreRingButton: {
+    width: 290
   },
   geolocationButtons: {
     flexDirection: "row",
@@ -75,6 +86,9 @@ export const styles = StyleSheet.create({
   firstBirdPicker: {
     marginTop: 20
   },
+  ringField: {
+    marginTop: 20
+  },
   hintText: {
     marginLeft: 6,
     marginBottom: 16,
@@ -91,8 +105,8 @@ export const styles = StyleSheet.create({
   },
   colorPatch: {
     position: "absolute",
-    left: 240,
-    top: 20,
+    left: 280,
+    top: 60,
     width: 44,
     height: 24
   },
