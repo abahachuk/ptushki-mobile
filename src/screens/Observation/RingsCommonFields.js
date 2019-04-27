@@ -52,7 +52,10 @@ const RingsCommonFields = props => {
         <View
           style={[
             styles.colorPatch,
-            { backgroundColor: ringColorSelectedValue }
+            {
+              backgroundColor:
+                ringColorSelectedValue || ringColorValues[0].value
+            }
           ]}
         />
       </View>
