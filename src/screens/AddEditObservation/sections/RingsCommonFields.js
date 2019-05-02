@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Text } from "react-native";
 
-import { translate } from "../../i18n";
-import { styles } from "./styles";
-import { Input, CustomPicker } from "../../components";
-import { pickerValuesArrayType } from "../../propTypes";
+import { translate } from "../../../i18n";
+import { styles } from "../styles";
+import { Input, CustomPicker } from "../../../components";
+import { pickerValuesArrayType } from "../../../propTypes";
 
 const RingsCommonFields = props => {
   const {

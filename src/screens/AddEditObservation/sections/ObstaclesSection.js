@@ -2,11 +2,11 @@ import React from "react";
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 
-import { Button, Input, CustomPicker } from "../../components";
+import { Button, Input, CustomPicker } from "../../../components";
 import getDescriptionBlock from "./DescriptionBlock";
-import { translate } from "../../i18n";
-import { styles } from "./styles";
-import { pickerValuesArrayType } from "../../propTypes";
+import { translate } from "../../../i18n";
+import { styles } from "../styles";
+import { pickerValuesArrayType } from "../../../propTypes";
 
 const ObstaclesSection = props => {
   const {

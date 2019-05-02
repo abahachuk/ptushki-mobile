@@ -7,13 +7,11 @@ import { styles } from "./styles";
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
 import { pickerValuesArrayType } from "../../propTypes";
-import BirdSection from "./BirdSection";
-import RingsSection from "./RingsSection";
-import ObstaclesSection from "./ObstaclesSection";
-import Toolbar from "./Toolbar";
-import PhotoCarousel from "./PhotoCarousel";
-
-const photoPlaceholder = require("../../assets/photoPlaceholder.png");
+import BirdSection from "./sections/BirdSection";
+import RingsSection from "./sections/RingsSection";
+import ObstaclesSection from "./sections/ObstaclesSection";
+import Toolbar from "./sections/Toolbar";
+import PhotoCarousel from "./sections/PhotoCarousel";
 
 const EditObservation = props => {
   const {
@@ -80,7 +78,7 @@ const EditObservation = props => {
     props.onSubmit();
   };
   const onBackPress = () => {
-    props.onBackNavigation();
+    props.navigation.goBack();
   };
   const onCurrentPositionPress = () => {
     props.onCurrentPosition();
@@ -101,7 +99,7 @@ const EditObservation = props => {
   };
 
   return (
-    <View>
+    <View style={styles.rootContainer}>
       <Toolbar onBackPress={onBackPress} />
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
@@ -187,124 +185,34 @@ EditObservation.propTypes = {
   commentDefault: PropTypes.string,
   dateTimeDefault: PropTypes.string,
   dateTimeInaccuracyDefault: PropTypes.string,
-  onBackNavigation: PropTypes.func,
-  onSubmit: PropTypes.func,
-  onCurrentPosition: PropTypes.func,
-  onSearchOnMap: PropTypes.func,
-  onCurrentDateTime: PropTypes.func
+  navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onCurrentPosition: PropTypes.func.isRequired,
+  onSearchOnMap: PropTypes.func.isRequired,
+  onCurrentDateTime: PropTypes.func.isRequired
 };
 EditObservation.defaultProps = {
   birdSpeciesDefault: "",
-  birdSpeciesValues: [
-    {
-      label: "Лебедь Шипун",
-      value: "swanMute"
-    },
-    {
-      label: "Беркут",
-      value: "goldenEagle"
-    }
-  ],
+  birdSpeciesValues: [],
   birdSexDefault: "",
-  birdSexValues: [
-    {
-      label: "Не определен",
-      value: "notDetermined"
-    },
-    {
-      label: "Самец",
-      value: "male"
-    },
-    {
-      label: "Самка",
-      value: "female"
-    }
-  ],
+  birdSexValues: [],
   birdAgeDefault: "",
-  birdAgeValues: [
-    {
-      label: "Старше 1 года",
-      value: "olderOneYear"
-    },
-    {
-      label: "Младше месяца",
-      value: "earlierOneMonth"
-    }
-  ],
+  birdAgeValues: [],
   birdObstaclesDefault: "",
-  birdObstaclesValues: [
-    {
-      label: "Птица была запутана в естественных условиях",
-      value: "tangledNaturally"
-    },
-    {
-      label: "Пила водичку из лужи",
-      value: "drinkWater"
-    }
-  ],
+  birdObstaclesValues: [],
   ringsDefaultValues: { "1": {} },
-  ringTypeValues: [
-    {
-      label: "Кольцо",
-      value: "ring"
-    },
-    {
-      label: "Большое кольцо",
-      value: "bigRing"
-    }
-  ],
-  ringMaterialValues: [
-    {
-      label: "Алюминиевое кольцо",
-      value: "alumineum"
-    },
-    {
-      label: "Стальное кольцо",
-      value: "steel"
-    }
-  ],
-  ringColorValues: [
-    {
-      label: "Серебристый",
-      value: "#d7d7d7"
-    },
-    {
-      label: "Темный шифер",
-      value: "#242a3b"
-    }
-  ],
-  ringLocationValues: [
-    {
-      label: "Левая нога ниже колена",
-      value: "leftLegBelowKnee"
-    },
-    {
-      label: "Шея",
-      value: "neck"
-    }
-  ],
-  birdPhotosDefault: [photoPlaceholder, photoPlaceholder, photoPlaceholder],
+  ringTypeValues: [],
+  ringMaterialValues: [],
+  ringColorValues: [],
+  ringLocationValues: [],
+  birdPhotosDefault: [],
   countryDefault: "",
-  countryValues: [
-    {
-      label: "Беларусь",
-      value: "belarus"
-    },
-    {
-      label: "Россия",
-      value: "russian"
-    }
-  ],
+  countryValues: [],
   regionDefault: "",
   coordinatesDefault: "",
   commentDefault: "",
   dateTimeDefault: "",
-  dateTimeInaccuracyDefault: "",
-  onBackNavigation: () => {},
-  onSubmit: () => {},
-  onCurrentPosition: () => {},
-  onSearchOnMap: () => {},
-  onCurrentDateTime: () => {}
+  dateTimeInaccuracyDefault: ""
 };
 
 export default EditObservation;

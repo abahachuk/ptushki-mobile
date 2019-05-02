@@ -2,9 +2,9 @@ import React from "react";
 import { TouchableHighlight, Image, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 
-import { styles } from "./styles";
+import { styles } from "../styles";
 
-const photoPlaceholder = require("../../assets/photoPlaceholder.png");
+const photoPlaceholder = require("../../../assets/photoPlaceholder.png");
 
 const PhotoCarousel = props => {
   const { photos, onLoadPhotoPress } = props;

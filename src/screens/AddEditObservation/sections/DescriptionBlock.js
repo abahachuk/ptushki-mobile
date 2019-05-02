@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-import { styles } from "./styles";
+import { styles } from "../styles";
 
 const getDescriptionBlock = (headerText, descriptionText) => (
   <View>

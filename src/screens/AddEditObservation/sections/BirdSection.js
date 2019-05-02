@@ -3,10 +3,10 @@ import { View } from "react-native";
 import PropTypes from "prop-types";
 
 import getDescriptionBlock from "./DescriptionBlock";
-import { translate } from "../../i18n";
-import { styles } from "./styles";
-import { pickerValuesArrayType } from "../../propTypes";
-import { CustomPicker } from "../../components";
+import { translate } from "../../../i18n";
+import { styles } from "../styles";
+import { pickerValuesArrayType } from "../../../propTypes";
+import { CustomPicker } from "../../../components";
 
 const BirdSection = props => {
   const {

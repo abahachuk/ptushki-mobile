@@ -2,10 +2,10 @@ import React from "react";
 import { View, TouchableHighlight, Image, Text } from "react-native";
 import PropTypes from "prop-types";
 
-import { translate } from "../../i18n";
-import { styles } from "./styles";
+import { translate } from "../../../i18n";
+import { styles } from "../styles";
 
-const backIcon = require("../../assets/arrow-pointing-to-left.png");
+const backIcon = require("../../../assets/arrow-pointing-to-left.png");
 
 const Toolbar = props => {
   const { onBackPress } = props;
