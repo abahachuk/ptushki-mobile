@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { ScrollView, KeyboardAvoidingView, View } from "react-native";
+import ImagePicker from "react-native-image-picker";
 
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
@@ -29,7 +30,7 @@ const EditObservation = props => {
     ringMaterialValues,
     ringColorValues,
     ringLocationValues,
-    birdPhotos,
+    birdPhotosDefault,
     countryDefault,
     countryValues,
     regionDefault,
@@ -49,7 +50,8 @@ const EditObservation = props => {
       coordinates,
       comment,
       dateTime,
-      dateTimeInaccuracy
+      dateTimeInaccuracy,
+      birdPhotos
     },
     setFieldsValue
   ] = useState({
@@ -57,6 +59,7 @@ const EditObservation = props => {
     birdSex: birdSexDefault,
     birdAge: birdAgeDefault,
     birdObstacles: birdObstaclesDefault,
+    birdPhotos: birdPhotosDefault,
     country: countryDefault,
     region: regionDefault,
     coordinates: coordinatesDefault,
@@ -89,7 +92,12 @@ const EditObservation = props => {
     props.onCurrentDateTime();
   };
   const onLoadPhotoPress = () => {
-    props.onLoadPhoto();
+    ImagePicker.showImagePicker({}, response => {
+      if (response.uri) {
+        const imgSrc = { uri: response.uri };
+        updateFieldValue({ birdPhotos: birdPhotos.concat(imgSrc) });
+      }
+    });
   };
 
   return (
@@ -171,7 +179,7 @@ EditObservation.propTypes = {
   ringMaterialValues: pickerValuesArrayType,
   ringColorValues: pickerValuesArrayType,
   ringLocationValues: pickerValuesArrayType,
-  birdPhotos: PropTypes.array,
+  birdPhotosDefault: PropTypes.array,
   countryDefault: PropTypes.string,
   countryValues: pickerValuesArrayType,
   regionDefault: PropTypes.string,
@@ -183,8 +191,7 @@ EditObservation.propTypes = {
   onSubmit: PropTypes.func,
   onCurrentPosition: PropTypes.func,
   onSearchOnMap: PropTypes.func,
-  onCurrentDateTime: PropTypes.func,
-  onLoadPhoto: PropTypes.func
+  onCurrentDateTime: PropTypes.func
 };
 EditObservation.defaultProps = {
   birdSpeciesDefault: "",
@@ -276,7 +283,7 @@ EditObservation.defaultProps = {
       value: "neck"
     }
   ],
-  birdPhotos: [photoPlaceholder, photoPlaceholder, photoPlaceholder],
+  birdPhotosDefault: [photoPlaceholder, photoPlaceholder, photoPlaceholder],
   countryDefault: "",
   countryValues: [
     {
@@ -297,8 +304,7 @@ EditObservation.defaultProps = {
   onSubmit: () => {},
   onCurrentPosition: () => {},
   onSearchOnMap: () => {},
-  onCurrentDateTime: () => {},
-  onLoadPhoto: () => {}
+  onCurrentDateTime: () => {}
 };
 
 export default EditObservation;
