@@ -8,7 +8,9 @@
         "firstName": "Имя",
         "lastName": "Фамилия",
         "phone": "Телефон",
-        "back": "Назад"
+        "back": "Назад",
+        "registrationSuccess:": "Ура! Мы зарегистрировались",
+        "hintText": "Проверьте свой E-mail, чтобы продолжить. Если долго ничего не приходит - проверьте спам или повторите!"
     },
     "login": {
         "bandingCenter": "Центр Кольцевания Птиц при Акажемии наук Республики Беларусь",
@@ -16,7 +18,8 @@
         "email": "E-mail",
         "sign-in": "Войти",
         "sign-up": "Регистрация",
-        "forgotPassword": "Забыли пароль"
+        "forgotPassword": "Забыли пароль",
+        "goToLogin": "Перейти ко входу"
     },
     "validationError": {
         "email": "Не выглядит как email",
@@ -55,5 +58,25 @@
         "ringMaterial": "Материал метки",
         "ringColor": "Цвет",
         "ringLocation": "Расположение на теле"
+    },
+    "passwordRecovery": {
+        "recovery": "Восстановление пароля",
+        "sendNewPassword": "Выслать новый пароль",
+        "statusText": "Мы выслали вам новый пароль!",
+        "instructionText": "Введите ваш E-mail, чтобы мы выслали новый пароль",
+        "passwordSentText": "Проверьте свой E-mail, чтобы получить новый пароль. Введите его при входе, после чего сможете его изменить",
+        "email": "E-mail",
+        "back": "Назад"
+    },
+    "registrationEmailSent": {
+        "goToLogin": "Перейти ко входу"
+    },
+    "deleteObservation": {
+        "deleteObservationHeader": "Удалить наблюдение?",
+        "deleteObservationReason": "Мы будем благодарны, если вы напишете причину",
+        "deleteObservationInputLabel": "Причина",
+        "undoAction": "Отмена",
+        "deleteObservation": "Удалить",
+        "editObservation": "Редактировать"
     }
 }

@@ -62,9 +62,14 @@ const Registration = props => {
 
   const onRegisterPress = () => {
     props.onSubmit();
+    props.navigation.navigate("registrationSuccess", {
+      origin: "registrationSuccess",
+      registrationSuccess: translate("registration.registrationSuccess"),
+      hintText: translate("registration.hintText")
+    });
   };
   const onBackPress = () => {
-    props.onBackNavigation();
+    props.navigation.goBack();
   };
   const onAuthFieldBlur = () => {
     setEmailError(validateEmail(email));
@@ -150,6 +155,10 @@ const Registration = props => {
     </ScrollView>
   );
 };
+Registration.navigationOptions = {
+  title: "Регистрация",
+  header: null
+};
 
 Registration.propTypes = {
   emailDefault: PropTypes.string,
@@ -158,7 +167,10 @@ Registration.propTypes = {
   lastNameDefault: PropTypes.string,
   phoneDefault: PropTypes.string,
   onSubmit: PropTypes.func,
-  onBackNavigation: PropTypes.func
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func
+  }).isRequired
 };
 Registration.defaultProps = {
   emailDefault: "",
@@ -166,8 +178,7 @@ Registration.defaultProps = {
   firstNameDefault: "",
   lastNameDefault: "",
   phoneDefault: "",
-  onSubmit: () => {},
-  onBackNavigation: () => {}
+  onSubmit: () => {}
 };
 
 export default Registration;
