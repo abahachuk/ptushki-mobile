@@ -4,7 +4,7 @@ import { View, Text, Image, KeyboardAvoidingView } from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
-import { translate } from "../../i18n"
+import { translate } from "../../i18n";
 import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { styles } from "./styles";
 
@@ -36,41 +36,48 @@ const Login = props => {
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="position" enabled>
-      <View style={styles.headerContainer}>
-        <View style={styles.infoImgContainer}>
-          <Image style={styles.infoImg} source={infoImg} />
-        </View>
-        <View style={styles.header}>
-          <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-          <Text style={styles.headerText}>
-            {translate("login.bandingCenter")}
-          </Text>
-        </View>
-      </View>
+    <KeyboardAvoidingView style={styles.container} enabled>
       <View>
-        <Input
-          value={email}
-          label={translate("login.email")}
-          textContentType="emailAddress"
-          onChangeText={setEmail}
-          error={emailError}
-          onTextInputBlur={onTextInputBlur}
-        />
-        <Input
-          value={password}
-          label={translate("login.password")}
-          textContentType="password"
-          onChangeText={setPassword}
-          error={passwordError}
-          onTextInputBlur={onTextInputBlur}
-          wrapperStyles={[styles.passwordInput]}
-        />
-        <Button
-          caption={translate("login.sign-in")}
-          onPress={onLoginPress}
-          appearance="Dark"
-        />
+        <View style={styles.headerContainer}>
+          <View style={styles.infoImgContainer}>
+            <Image style={styles.infoImg} source={infoImg} />
+          </View>
+          <View style={styles.header}>
+            <Image
+              style={styles.logoImg}
+              resizeMode="contain"
+              source={logoImg}
+            />
+            <Text style={styles.headerText}>
+              {translate("login.bandingCenter")}
+            </Text>
+          </View>
+        </View>
+        <View style={styles.loginForm}>
+          <Input
+            value={email}
+            label={translate("login.email")}
+            textContentType="emailAddress"
+            onChangeText={setEmail}
+            error={emailError}
+            onTextInputBlur={onTextInputBlur}
+          />
+          <Input
+            value={password}
+            label={translate("login.password")}
+            textContentType="password"
+            onChangeText={setPassword}
+            error={passwordError}
+            onTextInputBlur={onTextInputBlur}
+            wrapperStyles={[styles.passwordInput]}
+          />
+          <Button
+            caption={translate("login.sign-in")}
+            onPress={onLoginPress}
+            appearance="Dark"
+            style={styles.signInBtn}
+          />
+        </View>
       </View>
       <View style={styles.footer}>
         <Button
@@ -82,6 +89,7 @@ const Login = props => {
           caption={translate("login.forgotPassword")}
           onPress={onPasswordForgot}
           appearance="Borderless"
+          style={styles.restorePswBtn}
         />
       </View>
     </KeyboardAvoidingView>

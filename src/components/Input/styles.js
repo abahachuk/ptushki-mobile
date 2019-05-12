@@ -8,28 +8,31 @@ const { firebrick, white, borderBlack, textBlack } = colors;
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: 328,
+    height: 56,
     position: "relative",
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingLeft: 16,
-    borderWidth: 2,
+    paddingLeft: 15,
+    borderWidth: 0.5,
     borderColor: borderBlack,
-    borderRadius: 6
+    borderRadius: 4
   },
   containerWithErrors: {
     borderColor: firebrick
   },
   label: {
     position: "absolute",
-    top: 21,
-    left: 19,
-    fontSize: 23,
-    color: textBlack
+    top: 15,
+    left: 15,
+    fontSize: 16,
+    fontFamily: "Roboto",
+    letterSpacing: 0.15,
+    lineHeight: 24,
+    color: "rgba(0,0,0,0.6)"
   },
   labelFocused: {
     top: -15,
-    fontSize: 18,
+    fontSize: 12,
+    fontFamily: "Roboto",
     backgroundColor: white,
     paddingLeft: 5,
     paddingRight: 5
@@ -38,20 +41,24 @@ export const styles = StyleSheet.create({
     color: firebrick
   },
   textInput: {
-    fontSize: 23,
-    color: textBlack
+    fontSize: 16,
+    color: "rgba(0,0,0,0.6)"
   },
   error: {
-    fontSize: 18,
-    color: firebrick
+    fontFamily: "Roboto",
+    fontSize: 12,
+    letterSpacing: 0.4,
+    lineHeight: 16,
+    color: firebrick,
+    paddingTop: 2
   },
   showHidePassIcon: {
     position: "absolute",
-    top: 20,
+    top: 15,
     right: 15
   },
   inputIcon: {
-    width: 35,
-    height: 35
+    width: 24,
+    height: 24
   }
 });

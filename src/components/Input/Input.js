@@ -69,7 +69,7 @@ const Input = props => {
           </TouchableHighlight>
         )}
       </View>
-      <Text style={styles.error}>{error}</Text>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
     </View>
   );
 };
