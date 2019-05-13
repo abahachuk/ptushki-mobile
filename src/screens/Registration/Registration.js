@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
+import { Text, ScrollView, KeyboardAvoidingView, View } from "react-native";
 
 import {
   makeValidatorEmail,
@@ -138,7 +138,7 @@ const Registration = props => {
           wrapperStyles={[styles.belowInput, styles.lastInput]}
         />
         <Button
-          caption={translate("registration.sign-up")}
+          caption={translate("registration.register")}
           onPress={onRegisterPress}
           appearance="Dark"
         />
@@ -146,6 +146,7 @@ const Registration = props => {
           caption={translate("registration.back").toUpperCase()}
           onPress={onBackPress}
           appearance="Borderless"
+          style={styles.footerBtn}
         />
       </KeyboardAvoidingView>
     </ScrollView>

@@ -37,7 +37,7 @@ const Login = props => {
 
   return (
     <KeyboardAvoidingView style={styles.container} enabled>
-      <View>
+      <View style={styles.loginContainer}>
         <View style={styles.headerContainer}>
           <View style={styles.infoImgContainer}>
             <Image style={styles.infoImg} source={infoImg} />

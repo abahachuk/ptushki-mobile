@@ -6,7 +6,12 @@ export const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    paddingRight: 20,
+    paddingLeft: 20
+  },
+  loginContainer: {
+    width: "100%"
   },
   headerContainer: {
     flexDirection: "row"
@@ -39,7 +44,9 @@ export const styles = StyleSheet.create({
     paddingBottom: 15,
     color: "#546e7a"
   },
-  footer: {},
+  footer: {
+    width: "100%"
+  },
   passwordInput: {
     marginTop: 15
   },

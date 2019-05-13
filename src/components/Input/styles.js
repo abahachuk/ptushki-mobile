@@ -8,7 +8,7 @@ const { firebrick, white, borderBlack, textBlack } = colors;
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   container: {
-    width: 328,
+    width: "100%",
     height: 56,
     position: "relative",
     paddingLeft: 15,

@@ -8,7 +8,7 @@ const { dimGray, white } = colors;
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   button: {
-    width: 328,
+    width: "100%",
     height: 36,
     borderRadius: 4
   },
