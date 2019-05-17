@@ -20,9 +20,7 @@ const PasswordRecovery = props => {
   const onRecoveryPress = () => {
     props.onSubmit();
     props.navigation.navigate("passwordResetDone", {
-      origin: "passwordRecovery",
-      statusText: translate("passwordRecovery.statusText"),
-      hintText: translate("passwordRecovery.passwordSentText")
+      origin: "passwordRecovery"
     });
   };
   const onBackPress = () => {

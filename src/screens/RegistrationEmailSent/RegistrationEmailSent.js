@@ -22,8 +22,7 @@ const RegistrationEmailSent = props => {
     navigation.navigate("login");
   };
 
-  const statusText = navigation.getParam("registrationSuccess", "а");
-  const hintText = navigation.getParam("hintText", "б");
+  const origin = navigation.getParam("origin", "registration");
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -33,8 +32,10 @@ const RegistrationEmailSent = props => {
           <Text style={styles.headerText}>
             {translate("login.bandingCenter")}
           </Text>
-          <Text style={styles.statusText}>{statusText}</Text>
-          <Text style={styles.hintText}>{hintText}</Text>
+          <Text style={styles.statusText}>
+            {translate(`${origin}.statusText`)}
+          </Text>
+          <Text style={styles.hintText}>{translate(`${origin}.hintText`)}</Text>
         </View>
         <View>
           <Button
