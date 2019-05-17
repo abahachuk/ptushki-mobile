@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, View, Text, TouchableOpacity } from "react-native";
+import { FlatList, View, Text, TouchableOpacity, Button } from "react-native";
 import Observation from "./Observation";
 import { styles } from "./styles";
 import DeleteObservation from "../DeleteObservation";
@@ -17,7 +17,11 @@ const Observations = () => {
         keyExtractor={item => item.id}
       />
       <TouchableOpacity style={styles.addObservation} onPress={addObservation}>
-        <Text style={styles.buttonTextStyle}>+</Text>
+        <Text 
+        style={styles.buttonTextStyle}
+        >
+        +
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -25,7 +29,6 @@ const Observations = () => {
 
 Observations.navigationOptions = {
   title: "Наблюдения",
-  headerRight: <DeleteObservation />
 };
 
 export default Observations;
