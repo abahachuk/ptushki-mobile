@@ -20,9 +20,6 @@
         "sign-up": "Рэгістрацыя",
         "forgotPassword": "Забыліся пароль"
     },
-    "registrationEmailSent": {
-        "goToLogin": "Перайсці да ўваходу"
-    },
     "validationError": {
         "email": "Не выглядае як email",
         "password": "Пароль не адпавядае фармату",
@@ -38,5 +35,16 @@
         "passwordSentText": "Праверце свой E-mail, каб атрымаць новы пароль. Увядзiце яго пры ўваходзе, после чего сможете его изменить, пасля чаго зможаце яго змяніць",
         "email": "E-mail",
         "back": "Назад"
+    },
+    "registrationEmailSent": {
+        "goToLogin": "Перайсці да ўваходу"
+    },
+    "deleteObservation": {
+        "deleteObservationHeader": "Выдаліць назіранне?",
+        "deleteObservationReason": "Мы будзем ўдзячныя, калі вы напішаце прычыну",
+        "deleteObservationInputLabel": "Прычына",
+        "undoAction": "Адмена",
+        "deleteObservation": "Выдаліць",
+        "editObservation": "Рэдагаваць"
     }
 }

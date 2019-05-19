@@ -44,7 +44,7 @@ exports[`Registration screen renders correctly 1`] = `
             }
           }
         >
-          Центр Кольцевания Птиц при Академии наук Республики Беларусь
+          [missing "en.login.bandingCenter" translation]
         </Text>
         <Text
           style={
@@ -117,7 +117,7 @@ exports[`Registration screen renders correctly 1`] = `
               ]
             }
           >
-            Перейти ко входу
+            [missing "en.registrationEmailSent.goToLogin" translation]
           </Text>
         </View>
       </View>
