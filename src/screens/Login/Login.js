@@ -35,11 +35,11 @@ const Login = props => {
     AuthService.logIn(email, password)
       .then(data => {
         if (data) {
-          console.info("Login is successful");
           navigation.navigate("mainPage");
         }
       })
       .catch(err => {
+        // TODO: show message for user
         console.info(err.message);
       });
   };

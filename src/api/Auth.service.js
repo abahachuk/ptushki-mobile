@@ -13,29 +13,31 @@ export default class AuthService {
       },
       body: JSON.stringify({ email, password })
     };
-    // eslint-disable-next-line no-undef
-    return fetch(`${HOST}/api/login`, requestOptions)
-      .then(response => {
-        return response.text().then(text => {
-          const data = text && JSON.parse(text);
 
+    // eslint-disable-next-line no-undef
+    return fetch(`${HOST}/auth/login`, requestOptions)
+      .then(response => {
+        return response.json().then(data => {
           if (response.ok && response.status === 200) {
             const dataToStore = [
-              ["Access_token", data.access_token],
-              ["Refresh_token", data.refresh_token],
-              ["User_Data", data]
+              ["token", data.token],
+              ["refreshToken", data.refreshToken],
+              ["user", JSON.stringify(data.user)]
             ];
-            onValueChange(dataToStore);
 
+            onValueChange(dataToStore);
+            console.info("Login is successful");
             return data;
           }
-
-          const error = (data && data.message) || response.statusText;
+          const error = new Error(
+            `Status: ${response.status}, message: ${data.error.message}`
+          );
           return Promise.reject(error);
         });
       })
+
       .catch(error => {
-        console.info("Login failed:", error);
+        console.info("Login failed:", error.message);
         throw new Error(error);
       });
   }
@@ -50,16 +52,24 @@ export default class AuthService {
       body: JSON.stringify({ email, password, firstName, lastName, phone })
     };
     // eslint-disable-next-line no-undef
-    return fetch(`${HOST}/api/registration`, requestOptions)
+    return fetch(`${HOST}/auth/signup`, requestOptions)
       .then(response => {
-        return response.text().then(text => {
-          const data = text && JSON.parse(text);
-
+        return response.json().then(data => {
           if (response.ok && response.status === 200) {
+            const dataToStore = [
+              ["token", data.token],
+              ["refreshToken", data.refreshToken],
+              ["user", JSON.stringify(data.user)]
+            ];
+
+            onValueChange(dataToStore);
+            console.info("Registration is successful");
             return data;
           }
 
-          const error = (data && data.message) || response.statusText;
+          const error = new Error(
+            `Status: ${response.status}, message: ${data.error.message}`
+          );
           return Promise.reject(error);
         });
       })
@@ -71,9 +81,9 @@ export default class AuthService {
 
   static async logOut() {
     try {
-      return await AsyncStorage.removeItem("User_Data");
+      return await AsyncStorage.removeItem("user");
     } catch (error) {
-      console.log(`AsyncStorage error: ${error.message}`);
+      console.log(`Logout error: ${error.message}`);
       return Promise.reject(error);
     }
   }
