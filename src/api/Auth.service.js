@@ -26,7 +26,7 @@ export default class AuthService {
 
             AsyncStorage.multiSet(dataToStore);
             console.info("Login is successful");
-            return data;
+            return data.user;
           }
           const error = new Error(
             `Status: ${response.status}, message: ${data.error.message}`
@@ -34,7 +34,6 @@ export default class AuthService {
           return Promise.reject(error);
         });
       })
-
       .catch(error => {
         console.info("Login failed:", error.message);
         throw new Error(error);

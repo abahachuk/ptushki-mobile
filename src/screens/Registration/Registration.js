@@ -64,14 +64,16 @@ const Registration = props => {
   const onRegisterPress = () => {
     AuthService.registrate(email, password, firstName, lastName, phone)
       .then(data => {
-        console.log("registrations success", data);
-        props.navigation.navigate("registrationSuccess", {
-          origin: "registrationSuccess",
-          registrationSuccess: translate("registration.registrationSuccess"),
-          hintText: translate("registration.hintText")
-        });
+        if (data) {
+          props.navigation.navigate("registrationSuccess", {
+            origin: "registrationSuccess",
+            registrationSuccess: translate("registration.registrationSuccess"),
+            hintText: translate("registration.hintText")
+          });
+        }
       })
       .catch(err => {
+        // TODO: show message for user
         console.info(err.message);
       });
   };
