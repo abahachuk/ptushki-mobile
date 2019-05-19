@@ -57,12 +57,14 @@ const Registration = props => {
   const validatePhone = makeRequiredValidator(
     translate("validationError.phone")
   );
+  const authService = new AuthService();
 
   const setRegistrationDataCommon = field => value =>
     setRegistrationData(prevData => ({ ...prevData, [field]: value }));
 
   const onRegisterPress = () => {
-    AuthService.registrate(email, password, firstName, lastName, phone)
+    authService
+      .registrate(email, password, firstName, lastName, phone)
       .then(data => {
         if (data) {
           props.navigation.navigate("registrationSuccess", {

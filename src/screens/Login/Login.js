@@ -13,8 +13,7 @@ import { Button, Input } from "components";
 import { translate } from "../../i18n"
 import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { styles } from "./styles";
-
-import { AuthService } from "../../api";
+import { AuthService } from "api";
 
 const logoImg = require("assets/logotype/logotype2x.png");
 const infoImg = require("assets/ic_info/ic_info2x.png");
@@ -30,9 +29,11 @@ const Login = props => {
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
   const [passwordError, setPasswordError] = useState("");
+  const authService = new AuthService();
 
   const onLoginPress = () => {
-    AuthService.logIn(email, password)
+    authService
+      .logIn(email, password)
       .then(data => {
         if (data) {
           navigation.navigate("mainPage");
@@ -40,7 +41,7 @@ const Login = props => {
       })
       .catch(err => {
         // TODO: show message for user
-        console.info(err.message);
+        console.info("Login failed:", err.message);
       });
   };
 
