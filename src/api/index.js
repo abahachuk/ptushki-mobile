@@ -1,5 +1,2 @@
-import AuthService from "./Auth.service";
-
-// remove this comment after adding new export
-// eslint-disable-next-line import/prefer-default-export
-export { AuthService };
+export { default as BaseService } from "./Base.service";
+export { default as AuthService } from "./Auth.service";
