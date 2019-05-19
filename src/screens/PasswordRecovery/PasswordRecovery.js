@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Text, KeyboardAvoidingView, ScrollView } from "react-native";
@@ -5,6 +6,8 @@ import { Text, KeyboardAvoidingView, ScrollView } from "react-native";
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
+import { AuthService } from "api";
+/* eslint-enable */
 
 const fields = {
   email: "email"
@@ -17,13 +20,24 @@ const PasswordRecovery = props => {
     [fields.email]: emailDefault
   });
 
+  const authService = new AuthService();
+
   const onRecoveryPress = () => {
-    props.onSubmit();
-    props.navigation.navigate("passwordResetDone", {
-      origin: "passwordRecovery",
-      statusText: translate("passwordRecovery.statusText"),
-      hintText: translate("passwordRecovery.passwordSentText")
-    });
+    authService
+      .logIn(email)
+      .then(data => {
+        if (data) {
+          props.navigation.navigate("passwordResetDone", {
+            origin: "passwordRecovery",
+            statusText: translate("passwordRecovery.statusText"),
+            hintText: translate("passwordRecovery.passwordSentText")
+          });
+        }
+      })
+      .catch(err => {
+        // TODO: show message for user
+        console.info("Recovery failed:", err.message);
+      });
   };
   const onBackPress = () => {
     props.navigation.goBack();
@@ -69,15 +83,13 @@ PasswordRecovery.navigationOptions = {
 
 PasswordRecovery.propTypes = {
   emailDefault: PropTypes.string,
-  onSubmit: PropTypes.func,
   navigation: PropTypes.shape({
     goBack: PropTypes.func,
     navigate: PropTypes.func
   }).isRequired
 };
 PasswordRecovery.defaultProps = {
-  emailDefault: "",
-  onSubmit: () => {}
+  emailDefault: ""
 };
 
 export default PasswordRecovery;
