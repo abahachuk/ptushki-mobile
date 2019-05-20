@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Text, ScrollView, KeyboardAvoidingView, View } from "react-native";
+import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
 
 import {
   makeValidatorEmail,

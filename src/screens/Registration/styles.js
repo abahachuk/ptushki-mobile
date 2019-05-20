@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   scrollContainer: {
     paddingTop: 20,
     paddingBottom: 12,
-    width: "100%",
+    width: "100%"
   },
   container: {
     justifyContent: "space-between",
