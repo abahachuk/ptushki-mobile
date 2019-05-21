@@ -54,5 +54,19 @@
         "birds": "Птицы",
         "settings": "Настройки",
         "exit": "Выйти"
+    },
+    "settings": {
+        "profileSettings": "Настройки профиля",
+        "email": "E-mail",
+        "refresh": "Обновить",
+        "password": "Пароль",
+        "oldPassword": "Старый пароль",
+        "newPassword": "Новый пароль",
+        "personalInfo": "Персональные данные",
+        "firstName": "Имя",
+        "lastName": "Фамилия", 
+        "phone": "Телефон",
+        "language": "Язык",
+        "apply": "Применить"
     }
 }

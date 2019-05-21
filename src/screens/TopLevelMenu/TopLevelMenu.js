@@ -1,29 +1,26 @@
 import React from "react";
 import { DrawerItems } from "react-navigation";
 import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
+import { Divider } from "react-native-elements";
 import { translate } from "../../i18n";
+import { styles } from "./styles";
 
-// const dotsIcon = require("assets/three-dots-menu/dots-vertical-black.png");
 const logo = require("./../../assets/logotype/logotype2x.png");
 
 const TopLevelMenu = props => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <View
-      style={{
-        height: 120,
-        backgroundColor: "white",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <Image style={{ height: 120, width: 220 }} source={logo} />
+  <SafeAreaView style={styles.safeArea}>
+    <View style={styles.imageContainer}>
+      <Image resizeMode="contain" style={styles.image} source={logo} />
     </View>
     <View>
-      <Text>Иван Иванов</Text>
+      <Text style={styles.userNameText}>Иван Иванов</Text>
     </View>
     <View>
-      <Text>{translate("topLevelMenu.userRole")}</Text>
+      <Text style={styles.userRoleText}>
+        {translate("topLevelMenu.userRole")}
+      </Text>
     </View>
+    <Divider style={styles.divider} />
     <ScrollView>
       <DrawerItems {...props} />
     </ScrollView>

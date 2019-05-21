@@ -53,5 +53,19 @@
         "birds": "Птушкі",
         "settings": "Налады",
         "exit": "Выйсці"
+    },
+    "settings": {
+        "profileSettings": "Налады профілю",
+        "email": "E-mail",
+        "refresh": "Аднавіць",
+        "password": "Пароль",
+        "oldPassword": "Стары пароль",
+        "newPassword": "Новы пароль",
+        "personalInfo": "Персанальныя дадзеныя",
+        "firstName": "Імя",
+        "lastName": "Прозвішча", 
+        "phone": "Тэлефон",
+        "language": "Мова",
+        "apply": "Ужыць"
     }
 }

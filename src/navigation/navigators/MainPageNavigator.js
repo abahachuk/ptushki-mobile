@@ -1,71 +1,41 @@
-import { createStackNavigator, createDrawerNavigator } from "react-navigation";
-
 import React from "react";
-import { Button, View, Text } from "react-native";
-import { Observations, TopLevelMenu } from "../../screens";
+import { createDrawerNavigator } from "react-navigation";
+import { View, Text, Image } from "react-native";
+import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
+import { TopLevelMenu } from "../../screens";
+import ObservationsNavigator from "./ObservationNavigator";
+import SettingsNavigator from "./SettingsNavigator";
 
-// TODO: replace it with actual component
-const Feed = () => (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    <Text>Наблюдения</Text>
-  </View>
-);
+const birdImg = require("./../../assets/bird/bird.png");
+/* eslint react/display-name: 0 */
+
+// TODO: replace it with actual screens
 const Birds = () => (
   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
     <Text>Птицы</Text>
   </View>
 );
-const Settings = () => (
+Birds.navigationOptions = {
+  drawerIcon: () => <Image resizeMode="contain" source={birdImg} />,
+  drawerLabel: "Птицы"
+};
+
+const Logout = () => (
   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    <Text>Настройки</Text>
+    <Text>Logout</Text>
   </View>
 );
-
-const ObservationStackNavigator = createStackNavigator(
-  {
-    Observations: {
-      screen: Observations
-    }
-    // TODO: add createObservation and ExistingObservation here
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerLeft: (
-          <Button title="Menu" onPress={() => navigation.openDrawer()} />
-        )
-      };
-    }
-  }
-);
-
-const FeedStackNavigator = createStackNavigator(
-  {
-    Feed: {
-      screen: Feed
-    }
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerLeft: (
-          <Button title="Menu" onPress={() => navigation.openDrawer()} />
-        )
-      };
-    }
-  }
-);
+Logout.navigationOptions = {
+  drawerIcon: () => <SimpleLineIcons name="login" size={24} color="black" />,
+  drawerLabel: "Выйти"
+};
 
 const AppDrawerNavigator = createDrawerNavigator(
   {
-    Observations: {
-      screen: ObservationStackNavigator
-    },
-    Feed: {
-      screen: FeedStackNavigator
-    },
+    ObservationsNavigator,
     Birds,
-    Settings
+    SettingsNavigator,
+    Logout
   },
   {
     contentComponent: TopLevelMenu
