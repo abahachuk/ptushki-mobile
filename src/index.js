@@ -6,7 +6,7 @@ import TranslationProvider, {
 
 const AppContainer = () => {
   return (
-    <TranslationProvider locale="be">
+    <TranslationProvider locale="ru">
       <Translation.Consumer>
         {context => <AppNavigator {...context} />}
       </Translation.Consumer>
