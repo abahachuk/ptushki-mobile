@@ -5,13 +5,9 @@ import { AUTH_LOGIN_ENDPOINT, AUTH_REGISTRATION_ENDPOINT, RESET_PASSWORD_ENDPOIN
 import { BaseService } from "api";
 /* eslint-enable */
 
-export default class AuthService {
-  constructor() {
-    this.baseService = new BaseService();
-  }
-
+export default class AuthService extends BaseService {
   logIn(email, password) {
-    return this.baseService
+    return super
       .sendRequest(AUTH_LOGIN_ENDPOINT, "POST", null, {
         email,
         password
@@ -31,8 +27,8 @@ export default class AuthService {
       .catch(err => console.log(err));
   }
 
-  registrate(email, password, firstName, lastName, phone) {
-    return this.baseService
+  static registrate(email, password, firstName, lastName, phone) {
+    return super
       .sendRequest(AUTH_REGISTRATION_ENDPOINT, "POST", null, {
         email,
         password,
@@ -54,8 +50,8 @@ export default class AuthService {
       });
   }
 
-  resetPassword(email) {
-    return this.baseService.sendRequest(RESET_PASSWORD_ENDPOINT, "POST", null, {
+  static resetPassword(email) {
+    return super.sendRequest(RESET_PASSWORD_ENDPOINT, "POST", null, {
       email
     });
   }
