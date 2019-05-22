@@ -42,7 +42,14 @@ export default class BaseService {
           });
         }
 
-        this.logOut();
+        this.makeCall(
+          AUTH_LOGOUT_ENDPOINT,
+          this.createRequestOptions("POST", null, {
+            closeAllSessions: true,
+            refreshToken
+          })
+        );
+
         return this.parseError(res);
       });
     }
@@ -72,15 +79,6 @@ export default class BaseService {
     }
 
     return options;
-  }
-
-  async logOut() {
-    const refreshToken = await AsyncStorage.getItem("refreshToken");
-
-    return this.sendRequest(AUTH_LOGOUT_ENDPOINT, "POST", null, {
-      closeAllSessions: true,
-      refreshToken
-    });
   }
 
   async parseError(response) {

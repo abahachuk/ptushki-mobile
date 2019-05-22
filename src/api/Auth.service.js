@@ -1,6 +1,11 @@
 /* eslint-disable */
 import AsyncStorage from "@react-native-community/async-storage";
-import { AUTH_LOGIN_ENDPOINT, AUTH_REGISTRATION_ENDPOINT, AUTH_RESET_PASSWORD_ENDPOINT } from "config";
+import {
+  AUTH_LOGIN_ENDPOINT,
+  AUTH_REGISTRATION_ENDPOINT,
+  AUTH_RESET_PASSWORD_ENDPOINT,
+  AUTH_LOGOUT_ENDPOINT
+} from "config";
 import { BaseService } from "api";
 /* eslint-enable */
 
@@ -25,7 +30,7 @@ export default class AuthService extends BaseService {
       .catch(err => console.error("Auth login error", err));
   }
 
-  static registrate(email, password, firstName, lastName, phone) {
+  registrate(email, password, firstName, lastName, phone) {
     return super
       .sendRequest(AUTH_REGISTRATION_ENDPOINT, "POST", null, {
         email,
@@ -48,11 +53,20 @@ export default class AuthService extends BaseService {
       .catch(err => console.error("Auth registration error", err));
   }
 
-  static resetPassword(email) {
+  resetPassword(email) {
     return super
       .sendRequest(AUTH_RESET_PASSWORD_ENDPOINT, "POST", null, {
         email
       })
       .catch(err => console.error("Auth reset password error", err));
+  }
+
+  async logOut() {
+    const refreshToken = await AsyncStorage.getItem("refreshToken");
+
+    return this.sendRequest(AUTH_LOGOUT_ENDPOINT, "POST", null, {
+      closeAllSessions: true,
+      refreshToken
+    });
   }
 }
