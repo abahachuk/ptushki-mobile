@@ -63,9 +63,7 @@ const Registration = props => {
   const onRegisterPress = () => {
     props.onSubmit();
     props.navigation.navigate("registrationSuccess", {
-      origin: "registrationSuccess",
-      registrationSuccess: translate("registration.registrationSuccess"),
-      hintText: translate("registration.hintText")
+      origin: "registration"
     });
   };
   const onBackPress = () => {

@@ -6,3 +6,5 @@ export { default as Observations } from "./Observations";
 export { default as PasswordRecovery } from "./PasswordRecovery";
 export { default as RegistrationEmailSent } from "./RegistrationEmailSent";
 export { default as DeleteObservation } from "./DeleteObservation";
+export { default as TopLevelMenu } from "./TopLevelMenu";
+export { default as Settings } from "./Settings";
