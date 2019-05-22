@@ -28,9 +28,7 @@ const PasswordRecovery = props => {
       .then(data => {
         if (data) {
           props.navigation.navigate("passwordResetDone", {
-            origin: "passwordRecovery",
-            statusText: translate("passwordRecovery.statusText"),
-            hintText: translate("passwordRecovery.passwordSentText")
+            origin: "passwordRecovery"
           });
         }
       })

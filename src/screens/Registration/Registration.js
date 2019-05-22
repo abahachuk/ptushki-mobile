@@ -68,9 +68,7 @@ const Registration = props => {
       .then(data => {
         if (data) {
           props.navigation.navigate("registrationSuccess", {
-            origin: "registrationSuccess",
-            registrationSuccess: translate("registration.registrationSuccess"),
-            hintText: translate("registration.hintText")
+            origin: "registration"
           });
         }
       })
