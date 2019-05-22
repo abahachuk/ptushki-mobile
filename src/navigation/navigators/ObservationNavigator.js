@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { Observations } from "../../screens";
+import { Observations, AddEditObservation } from "../../screens";
 
 /* eslint react/display-name: 0 */
 
@@ -10,6 +10,9 @@ const ObservationStackNavigator = createStackNavigator(
   {
     Observations: {
       screen: Observations
+    },
+    AddEditObservation: {
+      screen: AddEditObservation
     }
     // TODO: add createObservation and ExistingObservation here
   },
