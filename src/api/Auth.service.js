@@ -1,6 +1,6 @@
 /* eslint-disable */
 import AsyncStorage from "@react-native-community/async-storage";
-import { AUTH_LOGIN_ENDPOINT, AUTH_REGISTRATION_ENDPOINT, RESET_PASSWORD_ENDPOINT } from "config";
+import { AUTH_LOGIN_ENDPOINT, AUTH_REGISTRATION_ENDPOINT, AUTH_RESET_PASSWORD_ENDPOINT } from "config";
 import { BaseService } from "api";
 /* eslint-enable */
 
@@ -50,7 +50,7 @@ export default class AuthService extends BaseService {
   }
 
   static resetPassword(email) {
-    return super.sendRequest(RESET_PASSWORD_ENDPOINT, "POST", null, {
+    return super.sendRequest(AUTH_RESET_PASSWORD_ENDPOINT, "POST", null, {
       email
     });
   }
