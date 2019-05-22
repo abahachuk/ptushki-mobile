@@ -96,10 +96,10 @@ const Login = props => {
   );
 };
 
-Login.navigationOptions = {
-  title: "Войти",
+Login.navigationOptions = () => ({
+  title: translate("registration.sign-in"),
   header: null
-};
+});
 Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,

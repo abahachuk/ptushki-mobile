@@ -4,6 +4,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
 
 import { Settings } from "../../screens";
+import { translate } from "../../i18n";
 /* eslint react/display-name: 0 */
 
 const SettingsStackNavigator = createStackNavigator(
@@ -27,9 +28,9 @@ const SettingsStackNavigator = createStackNavigator(
   }
 );
 
-SettingsStackNavigator.navigationOptions = {
+SettingsStackNavigator.navigationOptions = () => ({
   drawerIcon: () => <Octicons name="settings" size={24} color="black" />,
-  drawerLabel: "Настройки"
-};
+  drawerLabel: translate("topLevelMenu.settings")
+});
 
 export default SettingsStackNavigator;

@@ -1,21 +1,19 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { Observations, AddEditObservation } from "../../screens";
+import { Image } from "react-native";
+import { Observations } from "../../screens";
 import { translate } from "../../i18n";
 
 /* eslint react/display-name: 0 */
+const birdImg = require("./../../assets/bird/bird.png");
 
-const ObservationStackNavigator = createStackNavigator(
+const BirdsStackNavigator = createStackNavigator(
   {
     Observations: {
       screen: Observations
-    },
-    AddEditObservation: {
-      screen: AddEditObservation
     }
-    // TODO: add createObservation and ExistingObservation here
+    // TODO: figure out how to use Observation for all birds AND for separate group of birds
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
@@ -34,9 +32,9 @@ const ObservationStackNavigator = createStackNavigator(
   }
 );
 
-ObservationStackNavigator.navigationOptions = () => ({
-  drawerIcon: () => <FontAwesome name="binoculars" size={24} color="black" />,
-  drawerLabel: translate("topLevelMenu.observationTitle")
+BirdsStackNavigator.navigationOptions = () => ({
+  drawerIcon: () => <Image resizeMode="contain" source={birdImg} />,
+  drawerLabel: translate("topLevelMenu.birds")
 });
 
-export default ObservationStackNavigator;
+export default BirdsStackNavigator;
