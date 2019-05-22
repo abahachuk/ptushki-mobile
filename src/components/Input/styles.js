@@ -22,17 +22,16 @@ export const styles = StyleSheet.create({
   },
   label: {
     position: "absolute",
-    top: 21,
-    left: 19,
-    fontSize: 23,
-    color: textBlack
+    top: 10,
+    left: 23,
+    fontSize: 16,
+    color: "#9a9a9a"
   },
   labelFocused: {
-    top: -15,
-    fontSize: 18,
-    backgroundColor: white,
-    paddingLeft: 5,
-    paddingRight: 5
+    top: -5,
+    left: 15,
+    fontSize: 13,
+    backgroundColor: white
   },
   labelWithErrors: {
     color: firebrick
