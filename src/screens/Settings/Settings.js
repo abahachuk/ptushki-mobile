@@ -1,11 +1,17 @@
 import React from "react";
-import { Text, ScrollView, KeyboardAvoidingView, View } from "react-native";
-import { Input, Button } from "react-native-elements";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles";
 import { translate } from "../../i18n";
+import SettingsButton from "./SettingsButton";
+import SettingsInput from "./SettingsInput";
+import SettingsRadioButton from "./SettingsRadioButton";
 
 const Settings = () => {
+  const emailRefresh = () => {};
+  const passwordRefresh = () => {};
+  const personalInfoRefresh = () => {};
+  const langRefresh = () => {};
+
   return (
     <ScrollView
       contentContainerStyle={styles.scrollContainer}
@@ -18,104 +24,33 @@ const Settings = () => {
         </Text>
 
         <Text style={styles.hintText}>{translate("settings.email")}</Text>
-        <View style={styles.inputContainer}>
-          <Input
-            placeholder=""
-            label={translate("settings.email")}
-            labelStyle={styles.inputLabel}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title={translate("settings.refresh")}
-            type="outline"
-            buttonStyle={styles.buttonContainer}
-            titleStyle={styles.buttonTitleStyle}
-          />
-        </View>
+        <SettingsInput labelKey="email" />
+        <SettingsButton titleKey="refresh" updateCallback={emailRefresh} />
 
         <Text style={styles.hintText}>{translate("settings.password")}</Text>
 
-        <View style={styles.inputContainer}>
-          <Input
-            placeholder=""
-            label={translate("settings.oldPassword")}
-            labelStyle={styles.inputLabel}
-          />
-          <Input
-            placeholder=""
-            label={translate("settings.newPassword")}
-            labelStyle={styles.inputLabel}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title={translate("settings.refresh")}
-            type="outline"
-            buttonStyle={styles.buttonContainer}
-            titleStyle={styles.buttonTitleStyle}
-          />
-        </View>
+        <SettingsInput labelKey="oldPassword" />
+        <SettingsInput labelKey="newPassword" />
+
+        <SettingsButton titleKey="refresh" updateCallback={passwordRefresh} />
 
         <Text style={styles.hintText}>
           {translate("settings.personalInfo")}
         </Text>
-        <View style={styles.inputContainer}>
-          <Input
-            placeholder=""
-            label={translate("settings.firstName")}
-            labelStyle={styles.inputLabel}
-          />
-          <Input
-            placeholder=""
-            label={translate("settings.lastName")}
-            labelStyle={styles.inputLabel}
-          />
-          <Input
-            placeholder=""
-            label={translate("settings.phone")}
-            labelStyle={styles.inputLabel}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title={translate("settings.refresh")}
-            type="outline"
-            buttonStyle={styles.buttonContainer}
-            titleStyle={styles.buttonTitleStyle}
-          />
-        </View>
+        <SettingsInput labelKey="firstName" />
+        <SettingsInput labelKey="lastName" />
+        <SettingsInput labelKey="phone" />
+        <SettingsButton
+          titleKey="refresh"
+          updateCallback={personalInfoRefresh}
+        />
 
         <Text style={styles.hintText}>{translate("settings.language")}</Text>
-        <Icon.Button
-          name="md-radio-button-on"
-          color="black"
-          backgroundColor="transparent"
-        >
-          <Text style={styles.radioText}>Русский</Text>
-        </Icon.Button>
-        <Icon.Button
-          name="md-radio-button-off"
-          color="black"
-          backgroundColor="transparent"
-        >
-          <Text style={styles.radioText}>Беларуская мова</Text>
-        </Icon.Button>
-        <Icon.Button
-          name="md-radio-button-off"
-          color="black"
-          backgroundColor="transparent"
-        >
-          <Text style={styles.radioText}>English</Text>
-        </Icon.Button>
-        <View style={styles.buttonContainer}>
-          <Button
-            title={translate("settings.apply")}
-            type="outline"
-            buttonStyle={styles.buttonContainer}
-            titleStyle={styles.buttonTitleStyle}
-          />
-        </View>
+        <SettingsRadioButton state="on" text="Русский" />
+        <SettingsRadioButton state="off" text="Беларуская мова" />
+        <SettingsRadioButton state="off" text="English" />
+
+        <SettingsButton titleKey="apply" updateCallback={langRefresh} />
       </KeyboardAvoidingView>
     </ScrollView>
   );
