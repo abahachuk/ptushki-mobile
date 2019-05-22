@@ -11,19 +11,18 @@ export default class AuthService extends BaseService {
         email,
         password
       })
-      .then(response => {
-        return response.json().then(data => {
-          const dataToStore = [
-            ["token", data.token],
-            ["refreshToken", data.refreshToken],
-            ["user", JSON.stringify(data.user)]
-          ];
+      .then(response => response.json())
+      .then(data => {
+        const dataToStore = [
+          ["token", data.token],
+          ["refreshToken", data.refreshToken],
+          ["user", JSON.stringify(data.user)]
+        ];
 
-          AsyncStorage.multiSet(dataToStore);
-          return data.user;
-        });
+        AsyncStorage.multiSet(dataToStore);
+        return data.user;
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error("Auth login error", err));
   }
 
   static registrate(email, password, firstName, lastName, phone) {
@@ -35,23 +34,25 @@ export default class AuthService extends BaseService {
         lastName,
         phone
       })
-      .then(response => {
-        return response.json().then(data => {
-          const dataToStore = [
-            ["token", data.token],
-            ["refreshToken", data.refreshToken],
-            ["user", JSON.stringify(data.user)]
-          ];
+      .then(response => response.json())
+      .then(data => {
+        const dataToStore = [
+          ["token", data.token],
+          ["refreshToken", data.refreshToken],
+          ["user", JSON.stringify(data.user)]
+        ];
 
-          AsyncStorage.multiSet(dataToStore);
-          return data.user;
-        });
-      });
+        AsyncStorage.multiSet(dataToStore);
+        return data.user;
+      })
+      .catch(err => console.error("Auth registration error", err));
   }
 
   static resetPassword(email) {
-    return super.sendRequest(AUTH_RESET_PASSWORD_ENDPOINT, "POST", null, {
-      email
-    });
+    return super
+      .sendRequest(AUTH_RESET_PASSWORD_ENDPOINT, "POST", null, {
+        email
+      })
+      .catch(err => console.error("Auth reset password error", err));
   }
 }

@@ -51,7 +51,6 @@ export default class BaseService {
   }
 
   makeCall(url, options) {
-    // eslint-disable-next-line no-undef
     return fetch(`${config.host}${url}`, options);
   }
 
