@@ -1,5 +1,4 @@
 /* eslint-disable */
-import "whatwg-fetch";
 import AsyncStorage from "@react-native-community/async-storage";
 import { AUTH_LOGIN_ENDPOINT, AUTH_REGISTRATION_ENDPOINT, RESET_PASSWORD_ENDPOINT } from "config";
 import { BaseService } from "api";

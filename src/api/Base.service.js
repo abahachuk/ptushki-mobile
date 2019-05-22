@@ -1,5 +1,4 @@
 /* eslint-disable */
-import "whatwg-fetch";
 import AsyncStorage from "@react-native-community/async-storage";
 import { config, AUTH_REFRESH_ENDPOINT, AUTH_LOGOUT_ENDPOINT } from "config";
 /* eslint-enable */
