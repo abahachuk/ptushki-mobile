@@ -43,14 +43,14 @@ const Input = props => {
 
   return (
     <View style={wrapperStyles}>
-      <View style={containerStyles}>
+      <View style={[containerStyles, rest.customViewStyles]}>
         <Text style={labelStyles}>{label}</Text>
         <TextInput
           value={value}
           textContentType={textContentType}
           maxLength={100}
           onChangeText={onChangeText}
-          style={styles.textInput}
+          style={[styles.textInput, rest.customTextStyles]}
           onFocus={handleFocus}
           onBlur={handleBlur}
           blurOnSubmit
@@ -86,7 +86,7 @@ Input.propTypes = {
 Input.defaultProps = {
   onChangeText: () => {},
   onTextInputBlur: () => {},
-  textContentType: "",
+  textContentType: "none",
   value: "",
   label: "",
   error: "",

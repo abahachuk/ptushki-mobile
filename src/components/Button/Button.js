@@ -4,14 +4,26 @@ import { TouchableHighlight, Text } from "react-native";
 import { styles } from "./styles";
 
 const Button = props => {
-  const { onPress, caption, appearance, style } = props;
+  const {
+    onPress,
+    caption,
+    appearance,
+    wrapperStyles,
+    customTextStyles
+  } = props;
 
   return (
     <TouchableHighlight
-      style={[styles.button, styles[`button${appearance}`], style]}
+      style={[styles.button, wrapperStyles, styles[`button${appearance}`]]}
       onPress={onPress}
     >
-      <Text style={[styles.buttonText, styles[`buttonText${appearance}`]]}>
+      <Text
+        style={[
+          styles.buttonText,
+          customTextStyles,
+          styles[`buttonText${appearance}`]
+        ]}
+      >
         {caption}
       </Text>
     </TouchableHighlight>
@@ -22,13 +34,15 @@ Button.propTypes = {
   onPress: PropTypes.func,
   caption: PropTypes.string,
   appearance: PropTypes.oneOf(["Dark", "Light", "Borderless"]),
-  style: PropTypes.object
+  wrapperStyles: PropTypes.any,
+  customTextStyles: PropTypes.any
 };
 Button.defaultProps = {
   onPress: () => {},
   caption: "",
   appearance: "Borderless",
-  style: {}
+  wrapperStyles: [],
+  customTextStyles: []
 };
 
 export default Button;

@@ -8,7 +8,9 @@
         "firstName": "Імя",
         "lastName": "Прозвішча",
         "phone": "Тэлефон",
-        "back": "Назад"
+        "back": "Назад",
+        "statusText": "Ура! Мы зарэгістраваліся",
+        "hintText": "Праверце свой E-mail, каб працягнуць. Калі доўга нічога не прыходзіць - праверце спам або паўтарыце!"
     },
     "login": {
         "bandingCenter": "Цэнтр Кальцавання Птушак пры Акадэміі навук Рэспублікі Беларусь",
@@ -24,5 +26,77 @@
         "firstName": "Поле Імя не павінна быць пустым",
         "lastName": "Поле Прозвішча не павінна быць пустым",
         "phone": "Поле Тэлефон не павінна быць пустым"
+    },
+    "editObservation": {
+        "editing": "Рэдагаванне",
+        "birdHeader": "Птушка",
+        "birdDescription": "Апішыце птушку і ўмовы, у якіх вы яе ўбачылі. Вы можаце спампаваць вызначальнік птушак беларусі, каб даведацца выгляд.",
+        "ringHeader": "Кольцы",
+        "ringDescription": "Пакажыце кольцы ці іншыя пазнакі, якія вы бачылі на птушцы, іх размяшчэнне і нумар.",
+        "ring": "Кальцо",
+        "oneMoreRing": "НА ПТУШЦЫ ЁСЦЬ ЯШЧЭ АДНО КАЛЬЦО",
+        "obstaclesHeader": "Абставіны",
+        "obstaclesDescription": "Дзе і калі вы ўбачылі птушку? Пакіньце каментар, калі хочаце нешта дадаць",
+        "place": "Месца",
+        "currentGeoposition": "АКТУАЛЬНАЯ ПАЗІЦЫЯ",
+        "searchOnMap": "ЗНАЙСЦІ НА КАРЦЕ",
+        "time": "Час",
+        "sendObservation": "АДПРАВІЦЬ НАЗІРАННЕ",
+        "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА",
+        "country": "Краiна",
+        "region": "Вобласць раён",
+        "coordinates": "Каардынаты",
+        "dateTime": "Час/Дата",
+        "dateTimeInaccuracy": "Хiбнасць часу",
+        "comment": "Каментар",
+        "birdSpecies": "Тып птушкі",
+        "birdSex": "Пол",
+        "birdAge": "Ўзрост",
+        "birdWas": "Птушка была",
+        "ringType": "Тып пазнакі",
+        "ringMaterial": "Матэрыял пазнакі",
+        "ringColor": "Колер",
+        "ringLocation": "Размяшчэнне на целе"
+    },
+    "passwordRecovery": {
+        "recovery": "Аднаўленне пароля",
+        "sendNewPassword": "Выслаць новы пароль",
+        "statusText": "Мы выслалі вам новы пароль!",
+        "hintText": "Праверце свой E-mail, каб атрымаць новы пароль. Увядзiце яго пры ўваходзе, после чего сможете его изменить, пасля чаго зможаце яго змяніць",
+        "instructionText": "Увядзіце ваш E-mail, каб мы выслалі новы пароль",
+        "email": "E-mail",
+        "back": "Назад"
+    },
+    "registrationEmailSent": {
+        "goToLogin": "Перайсці да ўваходу"
+    },
+    "deleteObservation": {
+        "deleteObservationHeader": "Выдаліць назіранне?",
+        "deleteObservationReason": "Мы будзем ўдзячныя, калі вы напішаце прычыну",
+        "deleteObservationInputLabel": "Прычына",
+        "undoAction": "Адмена",
+        "deleteObservation": "Выдаліць",
+        "editObservation": "Рэдагаваць"
+    }, 
+    "topLevelMenu": {
+        "observationTitle": "Назіранні",
+        "userRole": "Назіральнік",
+        "birds": "Птушкі",
+        "settings": "Налады",
+        "exit": "Выйсці"
+    },
+    "settings": {
+        "profileSettings": "Налады профілю",
+        "email": "E-mail",
+        "refresh": "Аднавіць",
+        "password": "Пароль",
+        "oldPassword": "Стары пароль",
+        "newPassword": "Новы пароль",
+        "personalInfo": "Персанальныя дадзеныя",
+        "firstName": "Імя",
+        "lastName": "Прозвішча", 
+        "phone": "Тэлефон",
+        "language": "Мова",
+        "apply": "Ужыць"
     }
 }

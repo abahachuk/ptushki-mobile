@@ -10,6 +10,7 @@ import {
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
+import { AuthService } from "../../api";
 
 const fields = {
   email: "email",
@@ -56,16 +57,28 @@ const Registration = props => {
   const validatePhone = makeRequiredValidator(
     translate("validationError.phone")
   );
+  const authService = new AuthService();
 
   const setRegistrationDataCommon = field => value =>
     setRegistrationData(prevData => ({ ...prevData, [field]: value }));
 
   const onRegisterPress = () => {
-    props.onSubmit();
+    authService
+      .registrate(email, password, firstName, lastName, phone)
+      .then(data => {
+        if (data) {
+          props.navigation.navigate("registrationSuccess", {
+            origin: "registration"
+          });
+        }
+      })
+      .catch(err => {
+        // TODO: show message for user
+        console.info(err.message);
+      });
   };
   const onBackPress = () => {
-    // TODO: figure out whether it's possible just to trigger default android back button
-    props.onBackNavigation();
+    props.navigation.goBack();
   };
   const onAuthFieldBlur = () => {
     setEmailError(validateEmail(email));
@@ -152,6 +165,10 @@ const Registration = props => {
     </ScrollView>
   );
 };
+Registration.navigationOptions = {
+  title: "Регистрация",
+  header: null
+};
 
 Registration.propTypes = {
   emailDefault: PropTypes.string,
@@ -159,17 +176,17 @@ Registration.propTypes = {
   firstNameDefault: PropTypes.string,
   lastNameDefault: PropTypes.string,
   phoneDefault: PropTypes.string,
-  onSubmit: PropTypes.func,
-  onBackNavigation: PropTypes.func
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func
+  }).isRequired
 };
 Registration.defaultProps = {
   emailDefault: "",
   passwordDefault: "",
   firstNameDefault: "",
   lastNameDefault: "",
-  phoneDefault: "",
-  onSubmit: () => {},
-  onBackNavigation: () => {}
+  phoneDefault: ""
 };
 
 export default Registration;
