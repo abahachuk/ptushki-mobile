@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { ScrollView, KeyboardAvoidingView, View } from "react-native";
+// eslint-disable-next-line import/no-unresolved
 import ImagePicker from "react-native-image-picker";
 
 import { styles } from "./styles";
