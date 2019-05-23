@@ -99,5 +99,18 @@
         "phone": "Телефон",
         "language": "Язык",
         "apply": "Применить"
+    },
+    "observationItem": {
+        "rings": "Кольца",
+        "rightRing": "Правая нога под коленом",
+        "leftRings": "Левая нога над коленом",
+        "dateHeader": "Время наблюдения",
+        "countryHeader": "Место наблюдения",
+        "genderHeader": "Пол",
+        "ageHeader": "Возраст",
+        "lifeStatusHeader": "Обстоятельства",
+        "commentHeader": "Комментарий",
+        "addSameBird": "Добавить такую же птицу",
+        "addSameBirdObservation": "наблюдение этой же птицы"
     }
 }

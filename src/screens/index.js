@@ -8,3 +8,4 @@ export { default as RegistrationEmailSent } from "./RegistrationEmailSent";
 export { default as DeleteObservation } from "./DeleteObservation";
 export { default as TopLevelMenu } from "./TopLevelMenu";
 export { default as Settings } from "./Settings";
+export { default as ObservationItem } from "./ObservationItem";
