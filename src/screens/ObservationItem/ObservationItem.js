@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Button } from "components";
+import getInformationBlock from "./sections/InformationBlock";
 import observationItem from "../Observations/Observation/mockData/mockObservationItem";
 
 import { translate } from "../../i18n";
@@ -20,7 +21,9 @@ const ObservationItem = props => {
             {/* <View style={styles.backImageWrap}>
                 <Image style={styles.backImage} source={img} />
             </View> */}
-            <Text style={styles.species}>{species}</Text>
+            <View style={styles.wrap}>
+                <Text style={styles.species}>{species}</Text>
+            </View>
             <View style={styles.images}>
                 <Image style={styles.image} source={img} />
                 <Image style={styles.image} source={img} />
@@ -46,45 +49,32 @@ const ObservationItem = props => {
                     </View>
                 </View>
             </View>
-            <View style={styles.wrap}>
-                <Text style={styles.header}>
-                    {translate("observationItem.dateHeader")}
-                </Text>
-                <Text style={styles.text}>{date}</Text>
-            </View>
-            <View style={styles.wrap}>
-                <Text style={styles.header}>
-                    {translate("observationItem.countryHeader")}
-                </Text>
-                <Text style={styles.text}>{country}</Text>
-            </View>
+            {getInformationBlock(
+                translate("observationItem.dateHeader"),
+                date
+            )}
+            {getInformationBlock(
+                translate("observationItem.countryHeader"),
+                country
+            )}
             <View style={styles.line}></View>
-            <View style={styles.wrap}>
-                <Text style={styles.header}>
-                    {translate("observationItem.genderHeader")}
-                </Text>
-                <Text style={styles.text}>{gender}</Text>
-            </View>
-            <View style={styles.wrap}>
-                <Text style={styles.header}>
-                    {translate("observationItem.ageHeader")}
-                </Text>
-                <Text style={styles.text}>{age}</Text>
-            </View>
-            <View style={styles.wrap}>
-                <Text style={styles.header}>
-                    {translate("observationItem.lifeStatusHeader")}
-                </Text>
-                <Text style={styles.text}>{lifeStatus}</Text>
-            </View>
+            {getInformationBlock(
+                translate("observationItem.genderHeader"),
+                gender
+            )}
+            {getInformationBlock(
+                translate("observationItem.ageHeader"),
+                age
+            )}
+            {getInformationBlock(
+                translate("observationItem.lifeStatusHeader"),
+                lifeStatus
+            )}
             <View style={styles.line}></View>
-            <View style={styles.wrap}>
-                <Text style={styles.header}>
-                    {translate("observationItem.commentHeader")}
-                </Text>
-                <Text style={styles.text}>{comment}</Text>
-            </View>
-            <View style={styles.buttonBlock}>
+            {getInformationBlock(
+                translate("observationItem.commentHeader"),
+                comment
+            )}
             <Button
                 caption={translate("observationItem.addSameBird")}
                 onPress={addSameBird}
@@ -95,8 +85,7 @@ const ObservationItem = props => {
                 onPress={addSameBirdObservation}
                 appearance="Dark"
             />
-            </View>
-            
+
         </ScrollView>
     );
 };
@@ -113,15 +102,15 @@ ObservationItem.propTypes = {
     comment: PropTypes.string
 };
 ObservationItem.defaultProps = {
-    species: "underfined",
-    rightNumber: "underfined",
-    leftNumber: "underfined",
-    country: "underfined",
-    date: "underfined",
-    gender: "underfined",
-    age: "underfined",
-    lifeStatus: "underfined",
-    comment: "underfined"
+    species: "",
+    rightNumber: "",
+    leftNumber: "",
+    country: "",
+    date: "",
+    gender: "",
+    age: "",
+    lifeStatus: "",
+    comment: ""
 };
 
 export default ObservationItem;

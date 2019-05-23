@@ -7,24 +7,16 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.white,
         fontFamily: "Roboto",
     },
-    backImageWrap: {
-        height: 254,
-        marginHorizontal: 16,
-    },
-    backImage: {
-        width: null,
-    },
     species: {
         marginVertical: 15,
-        marginHorizontal: 16,
         color: colors.textBlack,
         fontSize: 24,
         lineHeight: 24,
     },
     images: {
-        marginHorizontal: 16,
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        marginHorizontal: 16
     },
     image: {
         height: 120,
@@ -32,8 +24,8 @@ export const styles = StyleSheet.create({
         marginRight: 10
     },
     wrap: {
-        marginHorizontal: 16,
-        marginBottom: 10
+        marginBottom: 10,
+        marginHorizontal: 16
     },
     header: {
         marginVertical: 5,
