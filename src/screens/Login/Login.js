@@ -96,6 +96,7 @@ const Login = props => {
             caption={translate("login.sign-in")}
             onPress={onLoginPress}
             appearance="Dark"
+            wrapperStyles={styles.signInBtn}
           />
         </View>
       </View>
@@ -109,6 +110,7 @@ const Login = props => {
           caption={translate("login.forgotPassword")}
           onPress={onPasswordForgot}
           appearance="Borderless"
+          wrapperStyles={styles.restorePswBtn}
         />
       </View>
     </KeyboardAvoidingView>
