@@ -1,12 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FlatList, View, Text, TouchableOpacity } from "react-native";
 import Observation from "./Observation";
 import { styles } from "./styles";
-import DeleteObservation from "../DeleteObservation";
 import observations from "./Observation/mockData/mockObservations";
+import { translate } from "../../i18n";
 
-const Observations = () => {
-  const addObservation = () => {};
+const Observations = props => {
+  const addObservation = () => {
+    props.navigation.navigate("AddEditObservation");
+  };
 
   return (
     <View>
@@ -23,9 +26,13 @@ const Observations = () => {
   );
 };
 
-Observations.navigationOptions = {
-  title: "Наблюдения",
-  headerRight: <DeleteObservation />
+Observations.navigationOptions = () => ({
+  title: translate("topLevelMenu.observationTitle")
+});
+Observations.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func
+  }).isRequired
 };
 
 export default Observations;

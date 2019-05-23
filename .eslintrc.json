@@ -6,7 +6,8 @@
     "extends": ["airbnb", "plugin:react/recommended", "prettier"],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "fetch": "readonly"
     },
     "parserOptions": {
         "ecmaFeatures": {

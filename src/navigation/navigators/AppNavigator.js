@@ -1,35 +1,16 @@
-import { createAppContainer, createStackNavigator } from "react-navigation";
-import {
-  Login,
-  Registration,
-  PasswordRecovery,
-  RegistrationEmailSent,
-  Observations
-} from "../../screens";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import RegistrationNavigator from "./RegistrationNavigator";
+import MainPageNavigator from "./MainPageNavigator";
 
-const AppNavigator = createStackNavigator(
-  {
-    login: Login,
-    registration: Registration,
-    passwordReset: PasswordRecovery,
-    passwordResetDone: {
-      screen: RegistrationEmailSent
-    },
-    registrationSuccess: RegistrationEmailSent,
-    mainPage: Observations
+const AppSwitchNavigator = createSwitchNavigator({
+  login: {
+    screen: RegistrationNavigator
   },
-  {
-    initialRouteName: "login",
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: "#fff"
-      },
-      headerTintColor: "#000",
-      headerTitleStyle: {
-        fontWeight: "bold"
-      }
-    }
+  mainPage: {
+    screen: MainPageNavigator
   }
-);
+});
 
-export default createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(AppSwitchNavigator);
+
+export default AppContainer;
