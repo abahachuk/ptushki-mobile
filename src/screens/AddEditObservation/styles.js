@@ -36,6 +36,14 @@ export const styles = StyleSheet.create({
   obstaclesSectionContainer: {
     marginTop: 36
   },
+  resizedPhotoButton: {
+    alignItems: "center"
+  },
+  resizedPhotoButtonText: {
+    color: "coral",
+    fontSize: 18,
+    fontWeight: "500"
+  },
   toolbarTitle: {
     fontSize: 20,
     fontFamily: "Roboto",
@@ -48,6 +56,12 @@ export const styles = StyleSheet.create({
     height: 120,
     width: 120,
     marginRight: 10
+  },
+  birdPhotoResized: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: "contain"
   },
   ringsSectionContainer: {
     marginTop: 36

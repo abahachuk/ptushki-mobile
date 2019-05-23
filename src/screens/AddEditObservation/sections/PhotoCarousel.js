@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   TouchableHighlight,
+  TouchableOpacity,
   Image,
   ScrollView,
   Text,
@@ -77,9 +78,11 @@ PhotoChooseWindow.defaultProps = {
 };
 
 const PhotoCarousel = props => {
-  const { photos, updateFieldValue, birdPhotos } = props;
+  const { photos, updateFieldValue, birdPhotos, setFieldValue } = props;
 
   const [isUploadPhotoVisible, setUploadPhotoVisible] = useState(false);
+  const [isPhotoResized, setPhotoResized] = useState(false);
+  const [photoForResizing, setPhotoForResizing] = useState(null);
 
   const onLoadPhotoPress = () => {
     setUploadPhotoVisible(true);
@@ -97,12 +100,48 @@ const PhotoCarousel = props => {
     }
   };
 
+  const resizePhoto = photoPath => {
+    setPhotoForResizing(photoPath);
+    setPhotoResized(true);
+  };
+  const onCloseResizedPhoto = () => {
+    setPhotoResized(false);
+  };
+  const onDeletePhoto = () => {
+    setPhotoResized(false);
+    const filteredPhotos = photos.filter(photo => photo !== photoForResizing);
+    setFieldValue({ birdPhotos: filteredPhotos });
+  };
+
   return (
     <ScrollView
       enabled
       horizontal
       contentContainerStyle={styles.photosContainer}
     >
+      <Overlay
+        isVisible={isPhotoResized}
+        overlayBackgroundColor="rgba(0, 0, 0, 0.6)"
+        fullScreen
+      >
+        <TouchableOpacity
+          onPress={onCloseResizedPhoto}
+          style={styles.resizedPhotoButton}
+        >
+          <Text style={styles.resizedPhotoButtonText}>
+            {translate("editObservation.close")}
+          </Text>
+        </TouchableOpacity>
+        <Image style={styles.birdPhotoResized} source={photoForResizing} />
+        <TouchableOpacity
+          onPress={onDeletePhoto}
+          style={styles.resizedPhotoButton}
+        >
+          <Text style={styles.resizedPhotoButtonText}>
+            {translate("editObservation.delete")}
+          </Text>
+        </TouchableOpacity>
+      </Overlay>
       {isUploadPhotoVisible ? (
         <PhotoChooseWindow
           onPhotoChosen={onPhotoChosen}
@@ -110,7 +149,12 @@ const PhotoCarousel = props => {
         />
       ) : null}
       {photos.map(photoPath => (
-        <Image style={styles.birdPhoto} key={photoPath} source={photoPath} />
+        <TouchableHighlight
+          key={photoPath}
+          onPress={() => resizePhoto(photoPath)}
+        >
+          <Image style={styles.birdPhoto} source={photoPath} />
+        </TouchableHighlight>
       ))}
       <TouchableHighlight onPress={onLoadPhotoPress}>
         <Image style={styles.birdPhoto} source={photoPlaceholder} />
@@ -122,11 +166,13 @@ const PhotoCarousel = props => {
 PhotoCarousel.propTypes = {
   photos: PropTypes.array,
   updateFieldValue: PropTypes.func.isRequired,
-  birdPhotos: PropTypes.array
+  birdPhotos: PropTypes.array,
+  setFieldValue: PropTypes.func
 };
 PhotoCarousel.defaultProps = {
   photos: [],
-  birdPhotos: []
+  birdPhotos: [],
+  setFieldValue: () => {}
 };
 
 export default PhotoCarousel;

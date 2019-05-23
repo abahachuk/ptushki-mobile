@@ -112,6 +112,7 @@ const EditObservation = props => {
             updateFieldValue={updateFieldValue}
             birdPhotos={birdPhotos}
             photos={birdPhotos}
+            setFieldValue={updateFieldValue}
           />
           <RingsSection
             rings={rings}
