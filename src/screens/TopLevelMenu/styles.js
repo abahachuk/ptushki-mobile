@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   safeArea: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "white"
   },
   imageContainer: {
     paddingLeft: 15,
@@ -31,5 +32,17 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 15,
     padding: 1
+  },
+  icon: {
+    paddingLeft: 15
+  },
+  iconText: {
+    fontWeight: "bold",
+    color: "black",
+    marginLeft: 23
+  },
+  iconContainer: {
+    backgroundColor: "white",
+    alignSelf: "stretch"
   }
 });
