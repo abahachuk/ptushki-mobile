@@ -29,9 +29,14 @@ const RegistrationEmailSent = props => {
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <View>
           <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-          <Text style={styles.headerText}>
-            {translate("login.bandingCenter")}
-          </Text>
+          <View style={styles.headerTextContainer}>
+            <Text style={styles.headerText}>
+              {translate("passwordRecovery.bandingCenter")}
+            </Text>
+            <Text style={styles.headerText}>
+              {translate("passwordRecovery.academy")}
+            </Text>
+          </View>
           <Text style={styles.statusText}>
             {translate(`${origin}.statusText`)}
           </Text>
