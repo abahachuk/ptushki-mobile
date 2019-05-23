@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import * as colors from "../../constants/colors";
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
@@ -20,6 +21,14 @@ export const styles = StyleSheet.create({
     height: 56,
     backgroundColor: "#546e7a",
     paddingLeft: 16
+  },
+  appLinkBlock: {
+    marginTop: 30,
+    fontSize: 16,
+    lineHeight: 24
+  },
+  appLinkBlockLink: {
+    color: "#5890e5"
   },
   backButton: {
     marginRight: 32
@@ -46,7 +55,7 @@ export const styles = StyleSheet.create({
   commentField: {
     borderWidth: 0,
     paddingLeft: 0,
-    marginTop: 100,
+    marginTop: 20,
     borderBottomWidth: 2,
     borderBottomColor: "#9a9a9a"
   },
@@ -56,26 +65,74 @@ export const styles = StyleSheet.create({
   photosContainer: {
     marginTop: 28
   },
-  oneMoreRingButtonContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end"
+  overlay: {
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingTop: 24,
+    paddingBottom: 18
   },
-  oneMoreRingButton: {
-    width: 290
+  overlayGallery: {
+    marginTop: 18
+  },
+  overlayTakePhoto: {
+    marginTop: 18
+  },
+  overlayCloseWindow: {
+    marginTop: 30,
+    width: 96
+  },
+  overlayCloseWindowContainer: {
+    alignItems: "flex-end"
+  },
+  overlayTitle: {
+    fontSize: 24,
+    fontWeight: "500",
+    color: "black"
+  },
+  overlayDescription: {
+    marginTop: 10,
+    fontSize: 20
+  },
+  buttonWithIcon: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingLeft: 14,
+    paddingRight: 16,
+    height: 46,
+    borderColor: "rgba(0,0,0,0.12)",
+    borderWidth: 1,
+    borderRadius: 4
+  },
+  buttonWithIconText: {
+    fontSize: 18,
+    color: colors.green
   },
   geolocationButtons: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginTop: 20
+  },
+  currentDateTimeButton: {
+    marginTop: 20,
+    justifyContent: "flex-start"
+  },
+  currentDateTimeText: {
+    marginLeft: 40
   },
   geolocationButton: {
-    width: "50%"
+    width: "28%"
+  },
+  currentPosition: {
+    width: "72%",
+    paddingRight: 14
   },
   buttonTextLeft: {
     textAlign: "left",
     fontSize: 16
   },
   buttonTextRight: {
-    textAlign: "right",
+    textAlign: "center",
     fontSize: 16
   },
   headerText: {
@@ -84,6 +141,11 @@ export const styles = StyleSheet.create({
     color: "#212121"
   },
   descriptionText: {
+    fontSize: 16,
+    lineHeight: 24
+  },
+  sectionDescription: {
+    marginTop: 10,
     fontSize: 16
   },
   firstBirdPicker: {

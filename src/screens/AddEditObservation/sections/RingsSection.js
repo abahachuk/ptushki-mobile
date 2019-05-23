@@ -1,8 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { KeyboardAvoidingView, TouchableOpacity, Text } from "react-native";
 import PropTypes from "prop-types";
+import Icon from "react-native-vector-icons/AntDesign";
 
-import { Button } from "../../../components";
+import * as colors from "../../../constants/colors";
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../../i18n";
 import { styles } from "../styles";
@@ -59,7 +60,7 @@ const RingsSection = props => {
   const sortRingsGroup = (a, b) => (+a < +b ? -1 : 1);
 
   return (
-    <View style={styles.ringsSectionContainer}>
+    <KeyboardAvoidingView style={styles.ringsSectionContainer}>
       {getDescriptionBlock(
         translate("editObservation.ringHeader"),
         translate("editObservation.ringDescription")
@@ -91,15 +92,16 @@ const RingsSection = props => {
             />
           );
         })}
-      <View style={styles.oneMoreRingButtonContainer}>
-        <Button
-          onPress={onAddOneMoreRing}
-          appearance="Light"
-          caption={translate("editObservation.oneMoreRing")}
-          wrapperStyles={styles.oneMoreRingButton}
-        />
-      </View>
-    </View>
+      <TouchableOpacity
+        style={styles.buttonWithIcon}
+        onPress={onAddOneMoreRing}
+      >
+        <Icon name="plus" size={30} color={colors.green} />
+        <Text style={styles.buttonWithIconText}>
+          {translate("editObservation.oneMoreRing")}
+        </Text>
+      </TouchableOpacity>
+    </KeyboardAvoidingView>
   );
 };
 

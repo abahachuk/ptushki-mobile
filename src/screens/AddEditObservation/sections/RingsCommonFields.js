@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text } from "react-native";
+import { KeyboardAvoidingView, View, Text } from "react-native";
 
 import { translate } from "../../../i18n";
 import { styles } from "../styles";
@@ -23,7 +23,7 @@ const RingsCommonFields = props => {
   } = props;
 
   return (
-    <View>
+    <KeyboardAvoidingView>
       <Text style={styles.ringItemTitle}>
         {`${translate("editObservation.ring")} ${ringKey}`}
       </Text>
@@ -41,7 +41,7 @@ const RingsCommonFields = props => {
         items={ringMaterialValues}
         wrappedStyles={styles.ringField}
       />
-      <View>
+      <KeyboardAvoidingView>
         <CustomPicker
           caption={translate("editObservation.ringColor")}
           onValueChange={onFieldValueChange("color")}
@@ -54,11 +54,13 @@ const RingsCommonFields = props => {
             styles.colorPatch,
             {
               backgroundColor:
-                ringColorSelectedValue || ringColorValues[0].value
+                ringColorSelectedValue || ringColorValues.length
+                  ? ringColorValues[0].value
+                  : "transparent"
             }
           ]}
         />
-      </View>
+      </KeyboardAvoidingView>
       <CustomPicker
         caption={translate("editObservation.ringLocation")}
         onValueChange={onFieldValueChange("location")}
@@ -72,8 +74,9 @@ const RingsCommonFields = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={ringIdFilledValue}
+        label={translate("editObservation.ringNumber")}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

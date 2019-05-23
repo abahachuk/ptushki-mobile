@@ -30,7 +30,7 @@
     "editObservation": {
         "editing": "Рэдагаванне",
         "birdHeader": "Птушка",
-        "birdDescription": "Апішыце птушку і ўмовы, у якіх вы яе ўбачылі. Вы можаце спампаваць вызначальнік птушак беларусі, каб даведацца выгляд.",
+        "birdDescription": "Апішыце птушку і ўмовы, у якіх вы яе ўбачылі.",
         "ringHeader": "Кольцы",
         "ringDescription": "Пакажыце кольцы ці іншыя пазнакі, якія вы бачылі на птушцы, іх размяшчэнне і нумар.",
         "ring": "Кальцо",
@@ -38,8 +38,8 @@
         "obstaclesHeader": "Абставіны",
         "obstaclesDescription": "Дзе і калі вы ўбачылі птушку? Пакіньце каментар, калі хочаце нешта дадаць",
         "place": "Месца",
-        "currentGeoposition": "АКТУАЛЬНАЯ ПАЗІЦЫЯ",
-        "searchOnMap": "ЗНАЙСЦІ НА КАРЦЕ",
+        "currentGeoposition": "АКТУАЛЬНАЯ ГЕАПАЗІЦЫЯ",
+        "searchOnMap": "НА КАРЦЕ",
         "time": "Час",
         "sendObservation": "АДПРАВІЦЬ НАЗІРАННЕ",
         "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА",
@@ -56,7 +56,19 @@
         "ringType": "Тып пазнакі",
         "ringMaterial": "Матэрыял пазнакі",
         "ringColor": "Колер",
-        "ringLocation": "Размяшчэнне на целе"
+        "ringLocation": "Размяшчэнне на целе",
+        "ringNumber": "Нумар пазнакі",
+        "linkToAppFirstPart": "Вызначыць птушку можна з дапамогай",
+        "linkToAppSecondPart": "мабільнага вызначальніка",
+        "linkToAppThirdPart": "ад Аховы Птушак Бацькаўшчыны",
+        "commentBlockDescription": "Калі вы хочаце дадаць нешта дадаткова - пакіньце каментар",
+        "preciseTime": "Дакладны час",
+        "addPhotoTitle": "Даданне фота",
+        "addPhotoDescription": "Дадайце фатаграфію птушкі, пажадана, каб на фатаграфіі было відаць кольца і яго нумар",
+        "gallery": "ГАЛЕРЭЯ",
+        "makePhoto": "ЗРАБІЦЬ ФОТА",
+        "close": "ЗАЧЫНІЦЬ"
+
     },
     "passwordRecovery": {
         "recovery": "Аднаўленне пароля",

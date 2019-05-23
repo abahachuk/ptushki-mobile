@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TouchableHighlight, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { styles } from "./styles";
 
 const Button = props => {
@@ -13,7 +13,7 @@ const Button = props => {
   } = props;
 
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       style={[styles.button, wrapperStyles, styles[`button${appearance}`]]}
       onPress={onPress}
     >
@@ -26,7 +26,7 @@ const Button = props => {
       >
         {caption}
       </Text>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 

@@ -1,7 +1,15 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import {
+  KeyboardAvoidingView,
+  View,
+  Text,
+  TouchableOpacity
+} from "react-native";
 import PropTypes from "prop-types";
+import IconFA from "react-native-vector-icons/FontAwesome";
+import IconII from "react-native-vector-icons/Ionicons";
 
+import * as colors from "../../../constants/colors";
 import { Button, Input, CustomPicker } from "../../../components";
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../../i18n";
@@ -10,35 +18,68 @@ import { pickerValuesArrayType } from "../../../propTypes";
 
 const ObstaclesSection = props => {
   const {
-    onCurrentPositionPress,
     onSearchOnMapPress,
     country,
     setFieldValue,
     countryValues,
     region,
     coordinates,
-    onCurrentDateTimePress,
     dateTime,
-    dateTimeInaccuracy
+    dateTimeInaccuracy,
+    comment
   } = props;
 
+  const [
+    { dateTimeValue, dateTimeInaccuracyValue },
+    setDateTimeValue
+  ] = useState({
+    dateTimeValue: dateTime,
+    dateTimeInaccuracyValue: dateTimeInaccuracy
+  });
+  const [coordinatesValue, setCoordinatesValue] = useState(coordinates);
+
+  const onCurrentPositionPress = () => {
+    const coordsSymbolsLimit = 9;
+
+    navigator.geolocation.getCurrentPosition(value => {
+      const longitude = `${value.coords.longitude}`.slice(
+        0,
+        coordsSymbolsLimit
+      );
+      const latitude = `${value.coords.latitude}`.slice(0, coordsSymbolsLimit);
+      setCoordinatesValue(`${longitude}, ${latitude}`);
+    });
+  };
+
+  const refineDateTimeValue = value => {
+    return `${value < 10 ? `0${value}` : value}`;
+  };
+
+  const onCurrentDateTimePress = () => {
+    const fullDate = new Date();
+    const date = `${refineDateTimeValue(
+      fullDate.getDate()
+    )}.${refineDateTimeValue(
+      fullDate.getMonth() + 1
+    )}.${fullDate.getFullYear()}`;
+    const time = `${refineDateTimeValue(
+      fullDate.getHours()
+    )}:${refineDateTimeValue(fullDate.getMinutes())}`;
+    const newDateTimeValue = `${date} ${time}`;
+
+    setDateTimeValue({
+      dateTimeValue: newDateTimeValue,
+      dateTimeInaccuracyValue: translate("editObservation.preciseTime")
+    });
+  };
+
   return (
-    <View style={styles.obstaclesSectionContainer}>
+    <KeyboardAvoidingView style={styles.obstaclesSectionContainer}>
       {getDescriptionBlock(
         translate("editObservation.obstaclesHeader"),
         translate("editObservation.obstaclesDescription")
       )}
-      <Text style={styles.sectionTitle}>
-        {translate("editObservation.place")}
-      </Text>
       <View style={styles.geolocationButtons}>
-        <Button
-          wrapperStyles={styles.geolocationButton}
-          customTextStyles={styles.buttonTextLeft}
-          onPress={onCurrentPositionPress}
-          caption={translate("editObservation.currentGeoposition")}
-          appearance="Borderless"
-        />
         <Button
           wrapperStyles={styles.geolocationButton}
           customTextStyles={styles.buttonTextRight}
@@ -46,7 +87,19 @@ const ObstaclesSection = props => {
           caption={translate("editObservation.searchOnMap")}
           appearance="Borderless"
         />
+        <TouchableOpacity
+          style={[styles.buttonWithIcon, styles.currentPosition]}
+          onPress={onCurrentPositionPress}
+        >
+          <IconFA name="map-marker" size={30} color={colors.green} />
+          <Text style={styles.buttonWithIconText}>
+            {translate("editObservation.currentGeoposition")}
+          </Text>
+        </TouchableOpacity>
       </View>
+      <Text style={styles.sectionTitle}>
+        {translate("editObservation.place")}
+      </Text>
       <CustomPicker
         wrappedStyles={styles.countryPicker}
         selectedValue={country}
@@ -67,24 +120,27 @@ const ObstaclesSection = props => {
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
-        value={coordinates}
+        value={coordinatesValue}
         label={translate("editObservation.coordinates")}
       />
       <Text style={styles.sectionTitle}>
         {translate("editObservation.time")}
       </Text>
-      <Button
-        customTextStyles={styles.buttonTextLeft}
-        caption={translate("editObservation.currentDateTime")}
+      <TouchableOpacity
+        style={[styles.buttonWithIcon, styles.currentDateTimeButton]}
         onPress={onCurrentDateTimePress}
-        appearance="Borderless"
-      />
+      >
+        <IconII name="md-time" size={30} color={colors.green} />
+        <Text style={[styles.buttonWithIconText, styles.currentDateTimeText]}>
+          {translate("editObservation.currentDateTime")}
+        </Text>
+      </TouchableOpacity>
       <Input
         onChangeText={value => setFieldValue({ dateTime: value })}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
-        value={dateTime}
+        value={dateTimeValue}
         label={translate("editObservation.dateTime")}
       />
       <Input
@@ -92,36 +148,48 @@ const ObstaclesSection = props => {
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
-        value={dateTimeInaccuracy}
+        value={dateTimeInaccuracyValue}
         label={translate("editObservation.dateTimeInaccuracy")}
       />
-    </View>
+      <Text style={styles.sectionTitle}>
+        {translate("editObservation.comment")}
+      </Text>
+      <Text style={styles.sectionDescription}>
+        {translate("editObservation.commentBlockDescription")}
+      </Text>
+      <Input
+        onChangeText={value => setFieldValue({ comment: value })}
+        customLabel={styles.customLabel}
+        customViewStyles={styles.commentField}
+        customTextStyles={styles.customText}
+        value={comment}
+        label={translate("editObservation.comment")}
+      />
+    </KeyboardAvoidingView>
   );
 };
 
 ObstaclesSection.propTypes = {
-  onCurrentPositionPress: PropTypes.func,
   onSearchOnMapPress: PropTypes.func,
   country: PropTypes.string,
   setFieldValue: PropTypes.func,
   countryValues: pickerValuesArrayType,
   region: PropTypes.string,
   coordinates: PropTypes.string,
-  onCurrentDateTimePress: PropTypes.func,
   dateTime: PropTypes.string,
-  dateTimeInaccuracy: PropTypes.string
+  dateTimeInaccuracy: PropTypes.string,
+  comment: PropTypes.string
 };
 ObstaclesSection.defaultProps = {
-  onCurrentPositionPress: () => {},
   onSearchOnMapPress: () => {},
   country: "",
   setFieldValue: () => {},
   countryValues: [],
   region: "",
   coordinates: "",
-  onCurrentDateTimePress: () => {},
   dateTime: "",
-  dateTimeInaccuracy: ""
+  dateTimeInaccuracy: "",
+  comment: ""
 };
 
 export default ObstaclesSection;
