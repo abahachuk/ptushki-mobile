@@ -3,7 +3,7 @@ import RegistrationNavigator from "./RegistrationNavigator";
 import MainPageNavigator from "./MainPageNavigator";
 
 const AppSwitchNavigator = createSwitchNavigator({
-  login: {
+  auth: {
     screen: RegistrationNavigator
   },
   mainPage: {
