@@ -151,7 +151,7 @@ const Registration = props => {
           wrapperStyles={[styles.belowInput, styles.lastInput]}
         />
         <Button
-          caption={translate("registration.sign-up")}
+          caption={translate("registration.register")}
           onPress={onRegisterPress}
           appearance="Dark"
         />
@@ -159,6 +159,7 @@ const Registration = props => {
           caption={translate("registration.back").toUpperCase()}
           onPress={onBackPress}
           appearance="Borderless"
+          style={styles.footerBtn}
         />
       </KeyboardAvoidingView>
     </ScrollView>

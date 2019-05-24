@@ -9,9 +9,8 @@ const { dimGray, white } = colors;
 export const styles = StyleSheet.create({
   button: {
     width: "100%",
-    borderRadius: 6,
-    paddingTop: 13,
-    paddingBottom: 13
+    height: 36,
+    borderRadius: 4
   },
   buttonDark: {
     backgroundColor: dimGray
@@ -23,11 +22,15 @@ export const styles = StyleSheet.create({
   },
   buttonBorderless: {},
   buttonText: {
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: "500",
+    letterSpacing: 1.25,
+    lineHeight: 16,
     color: dimGray,
     textAlign: "center",
     textTransform: "uppercase",
-    fontSize: 18,
-    fontWeight: "500"
+    paddingTop: 10
   },
   buttonTextDark: {
     color: white

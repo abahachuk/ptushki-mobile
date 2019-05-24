@@ -9,6 +9,7 @@
         "lastName": "Фамилия",
         "phone": "Телефон",
         "back": "Назад",
+        "register": "Зарегистрироваться",
         "statusText": "Ура! Мы зарегистрировались",
         "hintText": "Проверьте свой E-mail, чтобы продолжить. Если долго ничего не приходит - проверьте спам или повторите!"
     },
@@ -78,7 +79,7 @@
         "undoAction": "Отмена",
         "deleteObservation": "Удалить",
         "editObservation": "Редактировать"
-    }, 
+    },
     "topLevelMenu": {
         "observationTitle": "Наблюдения",
         "userRole": "Наблюдатель",
@@ -95,7 +96,7 @@
         "newPassword": "Новый пароль",
         "personalInfo": "Персональные данные",
         "firstName": "Имя",
-        "lastName": "Фамилия", 
+        "lastName": "Фамилия",
         "phone": "Телефон",
         "language": "Язык",
         "apply": "Применить"

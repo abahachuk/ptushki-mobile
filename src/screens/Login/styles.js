@@ -6,13 +6,15 @@ export const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
     justifyContent: "space-between",
+    alignItems: "center",
     paddingRight: 20,
     paddingLeft: 20
   },
+  loginContainer: {
+    width: "100%"
+  },
   headerContainer: {
-    width: "100%",
     flexDirection: "row"
-    // marginBottom: "auto"
   },
   infoImgContainer: {
     flex: 1,
@@ -23,23 +25,38 @@ export const styles = StyleSheet.create({
     paddingTop: 10
   },
   infoImg: {
-    width: 30,
-    height: 30
+    width: 22,
+    height: 22
   },
   logoImg: {
-    width: "100%",
-    height: 200,
+    width: 186,
+    height: 104,
     alignSelf: "center"
   },
   headerText: {
-    fontSize: 20,
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: "400",
+    letterSpacing: 0.1,
+    lineHeight: 18,
     textAlign: "center",
-    paddingBottom: 15
+    paddingTop: 15,
+    paddingBottom: 15,
+    color: "#546e7a"
   },
   footer: {
-    // marginTop: "auto"
+    width: "100%"
   },
   passwordInput: {
     marginTop: 15
+  },
+  loginForm: {},
+  signInBtn: {
+    marginTop: 20
+  },
+  signUpBtn: {},
+  restorePswBtn: {
+    marginTop: 10,
+    marginBottom: 10
   }
 });

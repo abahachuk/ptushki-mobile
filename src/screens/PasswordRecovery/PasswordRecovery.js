@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Text, KeyboardAvoidingView, ScrollView } from "react-native";
+import { Text, View } from "react-native";
 
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
@@ -42,12 +42,8 @@ const PasswordRecovery = props => {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.scrollContainer}
-      showsVerticalScrollIndicator={false}
-      enabled
-    >
-      <KeyboardAvoidingView style={styles.container} enabled>
+    <View style={styles.container}>
+      <View style={styles.main}>
         <Text style={styles.headerText}>
           {translate("passwordRecovery.recovery")}
         </Text>
@@ -63,14 +59,18 @@ const PasswordRecovery = props => {
           caption={translate("passwordRecovery.sendNewPassword")}
           onPress={onRecoveryPress}
           appearance="Dark"
+          wrapperStyles={styles.resetPswBtn}
         />
+      </View>
+      <View style={styles.footer}>
         <Button
           caption={translate("passwordRecovery.back")}
           onPress={onBackPress}
           appearance="Borderless"
+          wrapperStyles={styles.backButton}
         />
-      </KeyboardAvoidingView>
-    </ScrollView>
+      </View>
+    </View>
   );
 };
 

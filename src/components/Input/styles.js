@@ -9,48 +9,56 @@ const { firebrick, white, borderBlack, textBlack } = colors;
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
+    height: 56,
     position: "relative",
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingLeft: 16,
-    borderWidth: 2,
+    paddingLeft: 15,
+    borderWidth: 0.5,
     borderColor: borderBlack,
-    borderRadius: 6
+    borderRadius: 4
   },
   containerWithErrors: {
     borderColor: firebrick
   },
   label: {
     position: "absolute",
-    top: 10,
-    left: 23,
+    top: 15,
+    left: 15,
     fontSize: 16,
-    color: "#9a9a9a"
+    fontFamily: "Roboto",
+    letterSpacing: 0.15,
+    lineHeight: 24,
+    color: "rgba(0,0,0,0.6)"
   },
   labelFocused: {
-    top: -5,
-    left: 15,
-    fontSize: 13,
-    backgroundColor: white
+    top: -15,
+    fontSize: 12,
+    fontFamily: "Roboto",
+    backgroundColor: white,
+    paddingLeft: 5,
+    paddingRight: 5
   },
   labelWithErrors: {
     color: firebrick
   },
   textInput: {
-    fontSize: 23,
-    color: textBlack
+    fontSize: 16,
+    color: "rgba(0,0,0,0.6)"
   },
   error: {
-    fontSize: 18,
-    color: firebrick
+    fontFamily: "Roboto",
+    fontSize: 12,
+    letterSpacing: 0.4,
+    lineHeight: 16,
+    color: firebrick,
+    paddingTop: 2
   },
   showHidePassIcon: {
     position: "absolute",
-    top: 20,
+    top: 15,
     right: 15
   },
   inputIcon: {
-    width: 35,
-    height: 35
+    width: 24,
+    height: 24
   }
 });
