@@ -8,10 +8,8 @@ const img = require("./mockData/bird.jpg");
 const Observation = props => {
   const { species, ringNumber, country, date } = props;
 
-  const showObservation = () => {};
-
   return (
-    <TouchableOpacity style={styles.observation} onPress={showObservation}>
+    <TouchableOpacity style={styles.observation} onPress={props.showObservation}>
       <Text style={styles.species}>{species}</Text>
       <View style={styles.ringNumberWrap}>
         <Text style={styles.ringNumber}>{ringNumber}</Text>
