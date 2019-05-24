@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { Observations, AddEditObservation } from "../../screens";
+import { Observations, AddEditObservation, ObservationItem } from "../../screens";
 import { translate } from "../../i18n";
 
 /* eslint react/display-name: 0 */
@@ -11,6 +11,9 @@ const ObservationStackNavigator = createStackNavigator(
   {
     Observations: {
       screen: Observations
+    },
+    ObservationItem: {
+      screen: ObservationItem
     },
     AddEditObservation: {
       screen: AddEditObservation

@@ -10,13 +10,16 @@ const Observations = props => {
   const addObservation = () => {
     props.navigation.navigate("AddEditObservation");
   };
+  const showObservation = () => {
+    props.navigation.navigate("ObservationItem");
+  };
 
   return (
     <View>
       <FlatList
         contentContainerStyle={styles.container}
         data={observations}
-        renderItem={({ item }) => <Observation {...item} />}
+        renderItem={({ item }) => <Observation {...item} showObservation={showObservation}/>}
         keyExtractor={item => item.id}
       />
       <TouchableOpacity style={styles.addObservation} onPress={addObservation}>
