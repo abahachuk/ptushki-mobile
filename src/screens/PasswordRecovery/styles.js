@@ -2,52 +2,38 @@ import { StyleSheet } from "react-native";
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
-  scrollContainer: {
-    paddingTop: 20,
-    paddingBottom: 12,
-    width: "90%"
-  },
   container: {
+    width: "100%",
     flex: 1,
-    marginLeft: 15
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingRight: 20,
+    paddingLeft: 20
+  },
+  main: {
+    width: "100%"
+  },
+  logoImg: {
+    width: 300,
+    height: 280,
+    alignSelf: "center"
   },
   headerText: {
     fontSize: 34,
-    paddingBottom: 20,
-    color: "#4f6e7c"
+    textAlign: "left"
   },
   hintText: {
-    marginBottom: 16,
-    fontFamily: "Roboto",
-    fontSize: 18,
-    lineHeight: 24,
-    color: "#546E7A"
+    paddingTop: 10,
+    paddingBottom: 15
   },
-  inputContainer: {
-    marginLeft: 10
+  resetPswBtn: {
+    width: "100%",
+    marginTop: 15
   },
-  inputLabel: {
-    marginTop: 20
+  footer: {
+    width: "100%"
   },
-  buttonContainer: {
-    marginBottom: 20,
-    marginTop: 20,
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "flex-end"
-  },
-  buttonStyle: {
-    width: 150,
-    borderColor: "#006202EE"
-  },
-  buttonTitleStyle: {
-    color: "#4f6e7c",
-    textTransform: "uppercase",
-    paddingLeft: 40,
-    paddingRight: 40
-  },
-  radioText: {
-    fontFamily: "Arial",
-    fontSize: 15
+  backButton: {
+    marginBottom: 10
   }
 });
