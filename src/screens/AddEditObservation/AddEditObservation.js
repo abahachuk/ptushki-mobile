@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { ScrollView, KeyboardAvoidingView, View } from "react-native";
-// eslint-disable-next-line import/no-unresolved
-import ImagePicker from "react-native-image-picker";
+import { ScrollView, View } from "react-native";
 
 import { styles } from "./styles";
-import { Button, Input } from "../../components";
+import { Button } from "../../components";
 import { translate } from "../../i18n";
 import { pickerValuesArrayType } from "../../propTypes";
 import BirdSection from "./sections/BirdSection";
@@ -90,14 +88,6 @@ const EditObservation = props => {
   const onCurrentDateTimePress = () => {
     props.onCurrentDateTime();
   };
-  const onLoadPhotoPress = () => {
-    ImagePicker.showImagePicker({}, response => {
-      if (response.uri) {
-        const imgSrc = { uri: response.uri };
-        updateFieldValue({ birdPhotos: birdPhotos.concat(imgSrc) });
-      }
-    });
-  };
 
   return (
     <View style={styles.rootContainer}>
@@ -105,9 +95,8 @@ const EditObservation = props => {
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
-        enabled
       >
-        <KeyboardAvoidingView style={styles.container} enabled>
+        <View style={styles.container}>
           <BirdSection
             birdSpecies={birdSpecies}
             birdSpeciesValues={birdSpeciesValues}
@@ -120,8 +109,10 @@ const EditObservation = props => {
             setFieldValue={updateFieldValue}
           />
           <PhotoCarousel
+            updateFieldValue={updateFieldValue}
+            birdPhotos={birdPhotos}
             photos={birdPhotos}
-            onLoadPhotoPress={onLoadPhotoPress}
+            setFieldValue={updateFieldValue}
           />
           <RingsSection
             rings={rings}
@@ -142,28 +133,19 @@ const EditObservation = props => {
             onCurrentDateTimePress={onCurrentDateTimePress}
             dateTime={dateTime}
             dateTimeInaccuracy={dateTimeInaccuracy}
-          />
-          <Input
-            onChangeText={value => updateFieldValue({ comment: value })}
-            customLabel={styles.customLabel}
-            customViewStyles={styles.commentField}
-            customTextStyles={styles.customText}
-            value={comment}
-            label={translate("editObservation.comment")}
+            comment={comment}
           />
           <Button
             onPress={onSubmitPress}
             appearance="Dark"
             caption={translate("editObservation.sendObservation")}
           />
-        </KeyboardAvoidingView>
+        </View>
       </ScrollView>
     </View>
   );
 };
 
-// TODO: update defaultProps to contain isReuiqred where it's need and get
-// rid of mocks
 EditObservation.propTypes = {
   birdSpeciesDefault: PropTypes.string,
   birdSpeciesValues: pickerValuesArrayType,
@@ -186,11 +168,11 @@ EditObservation.propTypes = {
   commentDefault: PropTypes.string,
   dateTimeDefault: PropTypes.string,
   dateTimeInaccuracyDefault: PropTypes.string,
-  navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  onCurrentPosition: PropTypes.func.isRequired,
-  onSearchOnMap: PropTypes.func.isRequired,
-  onCurrentDateTime: PropTypes.func.isRequired
+  onSubmit: PropTypes.func,
+  onCurrentPosition: PropTypes.func,
+  onSearchOnMap: PropTypes.func,
+  onCurrentDateTime: PropTypes.func,
+  navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired
 };
 EditObservation.defaultProps = {
   birdSpeciesDefault: "",
@@ -213,7 +195,11 @@ EditObservation.defaultProps = {
   coordinatesDefault: "",
   commentDefault: "",
   dateTimeDefault: "",
-  dateTimeInaccuracyDefault: ""
+  dateTimeInaccuracyDefault: "",
+  onSubmit: () => {},
+  onCurrentPosition: () => {},
+  onSearchOnMap: () => {},
+  onCurrentDateTime: () => {}
 };
 
 export default EditObservation;

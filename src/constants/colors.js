@@ -5,3 +5,4 @@ export const borderBlack = "#000000";
 export const textBlack = "#090a10";
 export const black = "#000000";
 export const hexGray = "#666666";
+export const green = "#546e7a";
