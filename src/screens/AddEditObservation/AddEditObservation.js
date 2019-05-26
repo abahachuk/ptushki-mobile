@@ -111,7 +111,6 @@ const EditObservation = props => {
           <PhotoCarousel
             updateFieldValue={updateFieldValue}
             birdPhotos={birdPhotos}
-            photos={birdPhotos}
             setFieldValue={updateFieldValue}
           />
           <RingsSection
@@ -136,6 +135,7 @@ const EditObservation = props => {
             comment={comment}
           />
           <Button
+            wrapperStyles={styles.submitButton}
             onPress={onSubmitPress}
             appearance="Dark"
             caption={translate("editObservation.sendObservation")}

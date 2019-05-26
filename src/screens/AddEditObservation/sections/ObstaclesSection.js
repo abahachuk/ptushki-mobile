@@ -41,6 +41,7 @@ const ObstaclesSection = props => {
   const onCurrentPositionPress = () => {
     const coordsSymbolsLimit = 9;
 
+    // eslint-disable-next-line
     navigator.geolocation.getCurrentPosition(value => {
       const longitude = `${value.coords.longitude}`.slice(
         0,
@@ -82,7 +83,6 @@ const ObstaclesSection = props => {
       <View style={styles.geolocationButtons}>
         <Button
           wrapperStyles={styles.geolocationButton}
-          customTextStyles={styles.buttonTextRight}
           onPress={onSearchOnMapPress}
           caption={translate("editObservation.searchOnMap")}
           appearance="Borderless"

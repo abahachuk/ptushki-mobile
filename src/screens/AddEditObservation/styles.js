@@ -125,6 +125,7 @@ export const styles = StyleSheet.create({
   geolocationButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     marginTop: 20
   },
   currentDateTimeButton: {
@@ -140,6 +141,9 @@ export const styles = StyleSheet.create({
   currentPosition: {
     width: "72%",
     paddingRight: 14
+  },
+  oneMoreRingButton: {
+    marginTop: 20
   },
   buttonTextLeft: {
     textAlign: "left",
@@ -214,5 +218,8 @@ export const styles = StyleSheet.create({
   countryPicker: {
     marginTop: 26,
     marginBottom: 20
+  },
+  submitButton: {
+    marginTop: 30
   }
 });
