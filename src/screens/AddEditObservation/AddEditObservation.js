@@ -12,7 +12,7 @@ import ObstaclesSection from "./sections/ObstaclesSection";
 import Toolbar from "./sections/Toolbar";
 import PhotoCarousel from "./sections/PhotoCarousel";
 
-const EditObservation = props => {
+const AddEditObservation = props => {
   const {
     birdSpeciesDefault,
     birdSpeciesValues,
@@ -146,7 +146,7 @@ const EditObservation = props => {
   );
 };
 
-EditObservation.propTypes = {
+AddEditObservation.propTypes = {
   birdSpeciesDefault: PropTypes.string,
   birdSpeciesValues: pickerValuesArrayType,
   birdSexDefault: PropTypes.string,
@@ -174,7 +174,7 @@ EditObservation.propTypes = {
   onCurrentDateTime: PropTypes.func,
   navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired
 };
-EditObservation.defaultProps = {
+AddEditObservation.defaultProps = {
   birdSpeciesDefault: "",
   birdSpeciesValues: [],
   birdSexDefault: "",
@@ -201,5 +201,8 @@ EditObservation.defaultProps = {
   onSearchOnMap: () => {},
   onCurrentDateTime: () => {}
 };
+AddEditObservation.navigationOptions = {
+  header: null
+};
 
-export default EditObservation;
+export default AddEditObservation;
