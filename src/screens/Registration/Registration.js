@@ -159,7 +159,7 @@ const Registration = props => {
           caption={translate("registration.back").toUpperCase()}
           onPress={onBackPress}
           appearance="Borderless"
-          style={styles.footerBtn}
+          wrapperStyles={styles.footerBtn}
         />
       </KeyboardAvoidingView>
     </ScrollView>

@@ -24,7 +24,7 @@ const PasswordRecovery = props => {
 
   const onRecoveryPress = () => {
     authService
-      .logIn(email)
+      .resetPassword(email)
       .then(data => {
         if (data) {
           props.navigation.navigate("passwordResetDone", {
