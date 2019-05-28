@@ -9,3 +9,4 @@ export { default as DeleteObservation } from "./DeleteObservation";
 export { default as TopLevelMenu } from "./TopLevelMenu";
 export { default as Settings } from "./Settings";
 export { default as ObservationItem } from "./ObservationItem";
+export { default as LanguageSelect } from "./LanguageSelect";
