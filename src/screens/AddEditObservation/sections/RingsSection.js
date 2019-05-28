@@ -93,7 +93,7 @@ const RingsSection = props => {
           );
         })}
       <TouchableOpacity
-        style={styles.buttonWithIcon}
+        style={[styles.buttonWithIcon, styles.oneMoreRingButton]}
         onPress={onAddOneMoreRing}
       >
         <Icon name="plus" size={30} color={colors.green} />

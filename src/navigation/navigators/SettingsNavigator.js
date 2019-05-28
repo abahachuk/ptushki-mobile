@@ -3,6 +3,7 @@ import { createStackNavigator } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
 
+import headerStyles from "./headerStyles";
 import { Settings } from "../../screens";
 import { translate } from "../../i18n";
 /* eslint react/display-name: 0 */
@@ -22,7 +23,8 @@ const SettingsStackNavigator = createStackNavigator(
             style={{ padding: 15 }}
             onPress={() => navigation.openDrawer()}
           />
-        )
+        ),
+        ...headerStyles
       };
     }
   }

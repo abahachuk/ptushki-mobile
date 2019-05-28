@@ -57,14 +57,7 @@ const Settings = () => {
 };
 
 Settings.navigationOptions = () => ({
-  title: translate("topLevelMenu.settings"),
-  headerStyle: {
-    backgroundColor: "#546E7A"
-  },
-  headerTintColor: "#fff",
-  headerTitleStyle: {
-    fontWeight: "bold"
-  }
+  title: translate("topLevelMenu.settings")
 });
 
 export default Settings;

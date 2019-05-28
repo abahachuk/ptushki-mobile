@@ -2,8 +2,13 @@ import React from "react";
 import { createStackNavigator } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { Observations, AddEditObservation, ObservationItem } from "../../screens";
+import {
+  Observations,
+  AddEditObservation,
+  ObservationItem
+} from "../../screens";
 import { translate } from "../../i18n";
+import headerStyles from "./headerStyles";
 
 /* eslint react/display-name: 0 */
 
@@ -27,11 +32,12 @@ const ObservationStackNavigator = createStackNavigator(
           <Ionicons
             name="md-menu"
             size={24}
-            color="black"
+            color="white"
             style={{ padding: 15 }}
             onPress={() => navigation.openDrawer()}
           />
-        )
+        ),
+        ...headerStyles
       };
     }
   }
