@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     paddingTop: 20,
-    paddingTop: 20
+    paddingBottom: 20
   },
   headerText: {
     fontSize: 34,
@@ -24,7 +24,6 @@ export const styles = StyleSheet.create({
     fontSize: 18
   },
   buttonStyle: {
-    borderColor: "transparent",
     paddingTop: 25,
     paddingBottom: 25
   }
