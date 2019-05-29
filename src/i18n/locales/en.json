@@ -24,7 +24,7 @@
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
-    "password": "Password doesn't follow the format",
+    "password": "Password length must be at least 4 characters",
     "firstName": "Name shouldn't be empty",
     "lastName": "Surname shouldn't be empty",
     "phone": "Phone Number shouldn't be empty"
