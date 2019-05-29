@@ -3,14 +3,14 @@
     "password": "Password",
     "email": "E-mail",
     "sign-in": "Sign In",
-    "sign-up": "Sigh Up",
+    "sign-up": "Sign Up",
     "communicationDataHint": "The following data is needed to contact you in case you need to clarify the data",
     "firstName": "Name",
     "lastName": "Surname",
     "phone": "Phone Number",
     "back": "Back",
     "register": "Register",
-    "statusText": "Yey! Successfully sighed up!",
+    "statusText": "Yey! Successfully signed up!",
     "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!"
   },
   "login": {
@@ -18,7 +18,7 @@
     "password": "Password",
     "email": "E-mail",
     "sign-in": "Sign In",
-    "sign-up": "Sigh Up",
+    "sign-up": "Sign Up",
     "forgotPassword": "Forgot password",
     "goToLogin": "Go to login"
   },
