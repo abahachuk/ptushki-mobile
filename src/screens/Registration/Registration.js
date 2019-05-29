@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
+import { Text, ScrollView, KeyboardAvoidingView, Alert } from "react-native";
 
 import {
   makeValidatorEmail,
@@ -72,9 +72,9 @@ const Registration = props => {
           });
         }
       })
-      .catch(err => {
+      .catch(() => {
         // TODO: show message for user
-        console.info(err.message);
+        Alert.alert(`Sorry, registration failed`);
       });
   };
   const onBackPress = () => {

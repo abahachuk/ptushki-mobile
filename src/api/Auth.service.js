@@ -27,7 +27,10 @@ export default class AuthService extends BaseService {
         AsyncStorage.multiSet(dataToStore);
         return data.user;
       })
-      .catch(err => console.error("Auth login error", err));
+      .catch(err => {
+        console.info("Login failed:", err);
+        throw err;
+      });
   }
 
   registrate(email, password, firstName, lastName, phone) {
@@ -50,7 +53,10 @@ export default class AuthService extends BaseService {
         AsyncStorage.multiSet(dataToStore);
         return data.user;
       })
-      .catch(err => console.error("Auth registration error", err));
+      .catch(err => {
+        console.info("Auth registration error", err);
+        throw err;
+      });
   }
 
   resetPassword(email) {
@@ -58,7 +64,10 @@ export default class AuthService extends BaseService {
       .sendRequest(AUTH_RESET_PASSWORD_ENDPOINT, "POST", null, {
         email
       })
-      .catch(err => console.error("Auth reset password error", err));
+      .catch(err => {
+        console.info("Auth reset password error", err);
+        throw err;
+      });
   }
 
   async logOut() {

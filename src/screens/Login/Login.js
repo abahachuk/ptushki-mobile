@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, KeyboardAvoidingView } from "react-native";
+import { View, Text, Image, KeyboardAvoidingView, Alert } from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
@@ -33,9 +33,9 @@ const Login = props => {
           navigation.navigate("mainPage");
         }
       })
-      .catch(err => {
+      .catch(() => {
         // TODO: show message for user
-        console.info("Login failed:", err.message);
+        Alert.alert(`Sorry, there's a problem with your data`);
       });
   };
 
