@@ -1,22 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, AsyncStorage, Alert } from "react-native";
+import { View, Text, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/SimpleLineIcons";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
-import { AuthService } from "../../api";
 
 const LogoutButton = props => {
-  const onLogout = () => {
-    AuthService.logOut()
-      .then(() => {
-        AsyncStorage.clear();
-        props.navigation.navigate("auth");
-      })
-      .catch(error => {
-        console.info("Logout failed: ", error.message);
-        Alert.alert(`Sorry, there's a problem with your data`);
-      });
+  const onLogout = async () => {
+    await AsyncStorage.clear();
+    props.navigation.navigate("auth");
   };
 
   return (
