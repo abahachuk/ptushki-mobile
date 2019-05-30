@@ -1,17 +1,18 @@
 import React from "react";
 import { Button } from "react-native-elements";
 import PropTypes from "prop-types";
+import AsyncStorage from "@react-native-community/async-storage";
 import { styles } from "./styles";
-// import AsyncStorage from "@react-native-community/async-storage";
+import { changeLocale } from "../../i18n";
 
 const LanguageButton = props => {
-  const { title, langKey, navigation, screenProps } = props;
-  /* eslint-disable-next-line */
-  const onPress = async (key) => {
-    console.log(key, "set");
-    navigation.navigate("auth");
-    screenProps.changeLocale(key);
-    // await AsyncStorage.setItem('lang', key);
+  const { title, langKey, navigation, screenProps, navigationRoute } = props;
+
+  const onPress = async key => {
+    changeLocale(key);
+    screenProps.onLocaleChange(key);
+    navigation.navigate(navigationRoute);
+    await AsyncStorage.setItem("lang", key);
   };
 
   return (
@@ -28,10 +29,13 @@ const LanguageButton = props => {
 LanguageButton.propTypes = {
   title: PropTypes.string.isRequired,
   langKey: PropTypes.string.isRequired,
+  navigationRoute: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func
   }).isRequired,
-  screenProps: PropTypes.func.isRequired
+  screenProps: PropTypes.shape({
+    onLocaleChange: PropTypes.func
+  }).isRequired
 };
 
 export default LanguageButton;

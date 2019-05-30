@@ -3,16 +3,18 @@ import React from "react";
 import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles";
 import { translate } from "../../i18n";
-import SettingsButton from "./SettingsButton";
-import SettingsInput from "./SettingsInput";
-import SettingsRadioButton from "./SettingsRadioButton";
-import LanguageButton from "../../components/LanguageButton.js/LanguageButton";
+// import SettingsButton from "./SettingsButton";
+// import SettingsInput from "./SettingsInput";
+// import SettingsRadioButton from "./SettingsRadioButton";
+import LanguageButton from "../../components/LanguageButton/LanguageButton.js";
 
 const Settings = props => {
   // const emailRefresh = () => {};
   // const passwordRefresh = () => {};
   // const personalInfoRefresh = () => {};
   // const langRefresh = () => {};
+
+  //TODO: styles for LanguageButtons
 
   return (
     <ScrollView
@@ -53,9 +55,9 @@ const Settings = props => {
         <SettingsRadioButton state="off" text="English" /> */}
 
         {/* <SettingsButton titleKey="apply" updateCallback={langRefresh} /> */}
-        <LanguageButton title="Беларуская мова" langKey="be" {...props} />
-        <LanguageButton title="Русский язык" langKey="ru" {...props} />
-        <LanguageButton title="English" langKey="en" {...props} />
+        <LanguageButton title="Беларуская мова" langKey="be" navigationRoute="Observations" {...props} />
+        <LanguageButton title="Русский язык" langKey="ru" navigationRoute="Observations" {...props} />
+        <LanguageButton title="English" langKey="en" navigationRoute="Observations" {...props} />
       </KeyboardAvoidingView>
     </ScrollView>
   );

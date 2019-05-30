@@ -9,11 +9,9 @@ import { AuthService } from "../../api";
 const LogoutButton = props => {
   const onLogout = () => {
     AuthService.logOut()
-      .then(data => {
-        if (data) {
-          AsyncStorage.clear();
-          props.navigation.navigate("auth");
-        }
+      .then(() => {
+        AsyncStorage.clear();
+        props.navigation.navigate("auth");
       })
       .catch(error => {
         console.info("Logout failed: ", error.message);
