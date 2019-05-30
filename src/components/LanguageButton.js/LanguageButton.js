@@ -10,7 +10,7 @@ const LanguageButton = props => {
   const onPress = async (key) => {
     console.log(key, "set");
     navigation.navigate("auth");
-    screenProps.onLocaleChange(key);
+    screenProps.changeLocale(key);
     // await AsyncStorage.setItem('lang', key);
   };
 

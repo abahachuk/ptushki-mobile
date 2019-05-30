@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import AppNavigator from "./navigation/navigators/AppNavigator";
 import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
 
 const AppContainer = () => {
+  const [locale, changeLocale] = useState("ru");
+
   return (
-    <TranslationProvider locale="ru">
+    <TranslationProvider locale={locale}>
       <Translation.Consumer>
-        {context => <AppNavigator {...context} />}
+        {context => (
+          <AppNavigator
+            {...context}
+            screenProps={{ onLocaleChange: changeLocale }}
+          />
+        )}
       </Translation.Consumer>
     </TranslationProvider>
   );

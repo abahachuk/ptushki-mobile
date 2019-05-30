@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles";
@@ -5,12 +6,13 @@ import { translate } from "../../i18n";
 import SettingsButton from "./SettingsButton";
 import SettingsInput from "./SettingsInput";
 import SettingsRadioButton from "./SettingsRadioButton";
+import LanguageButton from "../../components/LanguageButton.js/LanguageButton";
 
-const Settings = () => {
-  const emailRefresh = () => {};
-  const passwordRefresh = () => {};
-  const personalInfoRefresh = () => {};
-  const langRefresh = () => {};
+const Settings = props => {
+  // const emailRefresh = () => {};
+  // const passwordRefresh = () => {};
+  // const personalInfoRefresh = () => {};
+  // const langRefresh = () => {};
 
   return (
     <ScrollView
@@ -19,7 +21,7 @@ const Settings = () => {
       enabled
     >
       <KeyboardAvoidingView style={styles.container} enabled>
-        <Text style={styles.headerText}>
+        {/* <Text style={styles.headerText}>
           {translate("settings.profileSettings")}
         </Text>
 
@@ -43,14 +45,17 @@ const Settings = () => {
         <SettingsButton
           titleKey="refresh"
           updateCallback={personalInfoRefresh}
-        />
+        /> */}
 
-        <Text style={styles.hintText}>{translate("settings.language")}</Text>
+        {/* <Text style={styles.hintText}>{translate("settings.language")}</Text>
         <SettingsRadioButton state="on" text="Русский" />
         <SettingsRadioButton state="off" text="Беларуская мова" />
-        <SettingsRadioButton state="off" text="English" />
+        <SettingsRadioButton state="off" text="English" /> */}
 
-        <SettingsButton titleKey="apply" updateCallback={langRefresh} />
+        {/* <SettingsButton titleKey="apply" updateCallback={langRefresh} /> */}
+        <LanguageButton title="Беларуская мова" langKey="be" {...props} />
+        <LanguageButton title="Русский язык" langKey="ru" {...props} />
+        <LanguageButton title="English" langKey="en" {...props} />
       </KeyboardAvoidingView>
     </ScrollView>
   );
