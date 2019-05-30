@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { dimGray, white } from "constants/colors";
 
 const { width } = Dimensions.get("window"); // dirty solution
 
@@ -11,7 +12,7 @@ export const styles = StyleSheet.create({
   addObservation: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#F57C00",
+    backgroundColor: dimGray,
     borderRadius: 50,
     height: 56,
     width: 56,
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
     right: 18
   },
   buttonTextStyle: {
-    color: "black",
+    color: white,
     fontSize: 25,
     marginBottom: 5
   }
