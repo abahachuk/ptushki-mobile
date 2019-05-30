@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Text, View } from "react-native";
+import {Alert, Text, View} from "react-native";
 
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
@@ -32,9 +32,9 @@ const PasswordRecovery = props => {
           });
         }
       })
-      .catch(err => {
+      .catch(() => {
         // TODO: show message for user
-        console.info("Recovery failed:", err.message);
+        Alert.alert(`Sorry, recovery failed`);
       });
   };
   const onBackPress = () => {

@@ -9,6 +9,7 @@
         "lastName": "Прозвішча",
         "phone": "Тэлефон",
         "back": "Назад",
+        "register": "Зарэгістравацца",
         "statusText": "Ура! Мы зарэгістраваліся",
         "hintText": "Праверце свой E-mail, каб працягнуць. Калі доўга нічога не прыходзіць - праверце спам або паўтарыце!"
     },
@@ -18,11 +19,12 @@
         "email": "E-mail",
         "sign-in": "Увайсці",
         "sign-up": "Рэгістрацыя",
-        "forgotPassword": "Забыліся пароль"
+        "forgotPassword": "Забыліся пароль",
+        "goToLogin": "Перайсці да ўваходу"
     },
     "validationError": {
-        "email": "Не выглядае як email",
-        "password": "Пароль не адпавядае фармату",
+        "email": "E-mail павінен адпавядаць фармату `name@email.com`",
+        "password": "Даўжыня пароля павінна складаць мінімум 4 сімвала",
         "firstName": "Поле Імя не павінна быць пустым",
         "lastName": "Поле Прозвішча не павінна быць пустым",
         "phone": "Поле Тэлефон не павінна быць пустым"
@@ -80,7 +82,6 @@
         "back": "Назад",
         "bandingCenter": "Цэнтр Кальцавання Птушак",
         "academy": "пры Акадэміі навук Рэспублікі Беларусь"
-
     },
     "registrationEmailSent": {
         "goToLogin": "Перайсці да ўваходу"
@@ -113,5 +114,18 @@
         "phone": "Тэлефон",
         "language": "Мова",
         "apply": "Ужыць"
+    },
+    "observationItem": {
+        "rings": "Кольцы",
+        "rightRing": "Правая нага пад каленам",
+        "leftRings": "Левая нага над каленам",
+        "dateHeader": "Час назірання",
+        "countryHeader": "Месца назірання",
+        "genderHeader": "Пол",
+        "ageHeader": "Узрост",
+        "lifeStatusHeader": "Абставіны",
+        "commentHeader": "Каментар",
+        "addSameBird": "Дадаць такую ж птушку",
+        "addSameBirdObservation": "назіранне гэтай жа птушкі"
     }
 }
