@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, AsyncStorage } from "react-native";
+import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/SimpleLineIcons";
+import { AuthService } from "api";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 
+const authService = new AuthService();
+
 const LogoutButton = props => {
-  const onLogout = async () => {
-    await AsyncStorage.clear();
-    props.navigation.navigate("auth");
+  const onLogout = () => {
+    authService
+      .logOut()
+      .then(() => props.navigation.navigate("auth"))
+      .catch(err => console.info(err));
   };
 
   return (

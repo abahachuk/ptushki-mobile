@@ -33,7 +33,7 @@ export default class AuthService extends BaseService {
       });
   }
 
-  registrate(email, password, firstName, lastName, phone) {
+  register(email, password, firstName, lastName, phone) {
     return super
       .sendRequest(AUTH_REGISTRATION_ENDPOINT, "POST", null, {
         email,

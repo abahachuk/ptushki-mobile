@@ -96,7 +96,13 @@
   },
   "topLevelMenu": {
     "observationTitle": "Observations",
-    "userRole": "Observer",
+    "userRoles": {
+      "observer": "Observer",
+      "ringer": "Ringer",
+      "scientist": "Scientist",
+      "moderator": "Moderator",
+      "admin": "Admin"
+    },
     "birds": "Birds",
     "settings": "Settings",
     "exit": "Log out"

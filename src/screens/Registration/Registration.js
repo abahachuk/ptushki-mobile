@@ -64,7 +64,7 @@ const Registration = props => {
 
   const onRegisterPress = () => {
     authService
-      .registrate(email, password, firstName, lastName, phone)
+      .register(email, password, firstName, lastName, phone)
       .then(data => {
         if (data) {
           props.navigation.navigate("registrationSuccess", {
