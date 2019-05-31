@@ -1,4 +1,5 @@
 import I18N from "i18n-js";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import EventEmitter from "EventEmitter";
 import ru from "./locales/ru.json";
@@ -21,9 +22,11 @@ export const setI18nConfig = locale => {
 
 export const emitter = new EventEmitter();
 
-export const changeLocale = localeCode => {
+export const changeLocale = async localeCode => {
   const availableLocales = Object.keys(I18N.translations);
   const isLocaleAvailable = availableLocales.includes(localeCode);
   I18N.locale = isLocaleAvailable ? localeCode : defaultLocaleCode;
+
+  await AsyncStorage.setItem("lang", localeCode);
   emitter.emit(localeChangedEvent, localeCode);
 };

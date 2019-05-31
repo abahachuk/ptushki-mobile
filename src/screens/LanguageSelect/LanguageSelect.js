@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image } from "react-native";
 import { styles } from "./styles";
-import LanguageButton from "../../components/LanguageButton/LanguageButton";
+import LanguageButton from "./LanguageButton";
 
 const languageBird = require("./../../assets/languageBird/Bird.png");
 

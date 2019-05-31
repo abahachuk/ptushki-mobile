@@ -1,18 +1,14 @@
 import React from "react";
 import { Button } from "react-native-elements";
 import PropTypes from "prop-types";
-import AsyncStorage from "@react-native-community/async-storage";
 import { styles } from "./styles";
-import { changeLocale } from "../../i18n";
 
 const LanguageButton = props => {
   const { title, langKey, navigation, screenProps, navigationRoute } = props;
 
-  const onPress = async key => {
-    changeLocale(key);
+  const onPress = key => {
     screenProps.onLocaleChange(key);
     navigation.navigate(navigationRoute);
-    await AsyncStorage.setItem("lang", key);
   };
 
   return (

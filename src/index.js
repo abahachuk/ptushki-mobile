@@ -3,9 +3,14 @@ import AppNavigator from "./navigation/navigators/AppNavigator";
 import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
+import { changeLocale } from "./i18n";
 
 const AppContainer = () => {
-  const [locale, changeLocale] = useState("ru");
+  const [locale, changeLocaleState] = useState("ru");
+  const onLocaleChange = localeKey => {
+    changeLocale(localeKey);
+    changeLocaleState(localeKey);
+  };
 
   return (
     <TranslationProvider locale={locale}>
@@ -13,7 +18,10 @@ const AppContainer = () => {
         {context => (
           <AppNavigator
             {...context}
-            screenProps={{ onLocaleChange: changeLocale }}
+            screenProps={{
+              currentLocale: locale,
+              onLocaleChange
+            }}
           />
         )}
       </Translation.Consumer>
