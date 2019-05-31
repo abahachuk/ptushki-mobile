@@ -12,18 +12,22 @@ import { Divider } from "react-native-elements";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 import LogoutButton from "./LogoutButton";
+import userRoles from "constants/userRoles";
 
 const logo = require("./../../assets/logotype/logotype2x.png");
 
 const TopLevelMenu = props => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
+  const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
     AsyncStorage.getItem("user").then(userData => {
-      const { firstName, lastName } = JSON.parse(userData);
+      const { firstName, lastName, role } = JSON.parse(userData);
+
       setName(firstName);
       setSurname(lastName);
+      setUserRole(role in userRoles ? role : userRoles.observer);
     });
   }, []);
 
@@ -37,7 +41,7 @@ const TopLevelMenu = props => {
       </View>
       <View>
         <Text style={styles.userRoleText}>
-          {translate("topLevelMenu.userRole")}
+          {translate(`topLevelMenu.userRoles.${userRole}`)}
         </Text>
       </View>
       <Divider style={styles.divider} />
