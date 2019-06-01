@@ -87,5 +87,20 @@ export const styles = StyleSheet.create({
     line: {
         borderBottomColor: colors.textBlack,
         borderBottomWidth: 1,
-    }
+    },
+    toolbar: {
+        flexDirection: "row",
+        alignItems: "center",
+        height: 56,
+        backgroundColor: "#546e7a",
+        paddingLeft: 16
+      },
+      toolbarTitle: {
+        fontSize: 20,
+        fontFamily: "Roboto",
+        color: "white"
+      },
+      backButton: {
+        marginRight: 32
+      },
 });
