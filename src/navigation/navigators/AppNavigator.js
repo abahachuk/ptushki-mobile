@@ -1,11 +1,11 @@
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import RegistrationNavigator from "./RegistrationNavigator";
 import MainPageNavigator from "./MainPageNavigator";
-import { LanguageSelect } from "../../screens";
+import IntroductionNavigator from "./IntroductionNavigator";
 
 const AppSwitchNavigator = createSwitchNavigator({
-  languageSelect: {
-    screen: LanguageSelect
+  introduction: {
+    screen: IntroductionNavigator
   },
   auth: {
     screen: RegistrationNavigator

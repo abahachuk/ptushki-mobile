@@ -10,3 +10,4 @@ export { default as TopLevelMenu } from "./TopLevelMenu";
 export { default as Settings } from "./Settings";
 export { default as ObservationItem } from "./ObservationItem";
 export { default as LanguageSelect } from "./LanguageSelect";
+export { default as Introduction } from "./Introduction";

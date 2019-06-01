@@ -133,5 +133,12 @@
     "commentHeader": "Комментарий",
     "addSameBird": "Добавить такую же птицу",
     "addSameBirdObservation": "наблюдение этой же птицы"
+  },
+  "introduction": {
+    "back": "Назад",
+    "next": "Далее",
+    "understandably": "Понятно",
+    "clear": "Ясно",
+    "begin": "Начинаем!"
   }
 }

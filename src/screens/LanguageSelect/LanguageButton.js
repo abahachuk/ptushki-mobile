@@ -1,13 +1,17 @@
 import React from "react";
 import { Button } from "react-native-elements";
 import PropTypes from "prop-types";
+
+// eslint-disable-next-line import/no-unresolved
+import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
+
 import { styles } from "./styles";
 
 const LanguageButton = props => {
   const { title, langKey, navigation } = props;
   /* eslint-disable-next-line */
   const onPress = key => {
-    navigation.navigate("auth");
+    navigation.navigate(FIRST_INTRO_SCREEN);
   };
 
   return (
