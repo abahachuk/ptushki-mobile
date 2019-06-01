@@ -14,19 +14,19 @@ const IntroductionNavigator = createStackNavigator(
     languageSelect: {
       screen: LanguageSelect
     },
-    first: {
+    [FIRST_INTRO_SCREEN]: {
       screen: Introduction,
       params: { introductionId: FIRST_INTRO_SCREEN }
     },
-    second: {
+    [SECOND_INTRO_SCREEN]: {
       screen: Introduction,
       params: { introductionId: SECOND_INTRO_SCREEN }
     },
-    third: {
+    [THIRD_INTRO_SCREEN]: {
       screen: Introduction,
       params: { introductionId: THIRD_INTRO_SCREEN }
     },
-    fourth: {
+    [FOURTH_INTRO_SCREEN]: {
       screen: Introduction,
       params: { introductionId: FOURTH_INTRO_SCREEN }
     }
