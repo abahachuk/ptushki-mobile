@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 
+// eslint-disable-next-line import/no-unresolved
+import { dimGray } from "constants/colors";
+
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   container: {
@@ -10,10 +13,35 @@ export const styles = StyleSheet.create({
   },
   main: {},
   imageContainer: {},
-  image: {},
-  descriptionContainer: {},
+  image: {
+    width: "100%",
+    height: 280
+  },
+  descriptionContainer: {
+    paddingTop: 20,
+    paddingRight: 20,
+    paddingLeft: 20
+  },
+  screenTitle: {
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontWeight: "500",
+    fontSize: 20,
+    lineHeight: 24,
+    letterSpacing: 0.25,
+    color: "#375867"
+  },
+  screenText: {
+    paddingTop: 10,
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: "300",
+    letterSpacing: 0.1,
+    lineHeight: 18,
+    color: dimGray
+  },
   footer: {
-    // flex: 1,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-around",
