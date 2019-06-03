@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import { styles } from "./styles";
 
 const LanguageButton = props => {
-  const { title, langKey, navigation } = props;
-  /* eslint-disable-next-line */
+  const { title, langKey, navigation, screenProps, navigationRoute } = props;
+
   const onPress = key => {
-    navigation.navigate("auth");
+    screenProps.onLocaleChange(key);
+    navigation.navigate(navigationRoute);
   };
 
   return (
@@ -24,8 +25,12 @@ const LanguageButton = props => {
 LanguageButton.propTypes = {
   title: PropTypes.string.isRequired,
   langKey: PropTypes.string.isRequired,
+  navigationRoute: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func
+  }).isRequired,
+  screenProps: PropTypes.shape({
+    onLocaleChange: PropTypes.func
   }).isRequired
 };
 

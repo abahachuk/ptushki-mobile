@@ -1,14 +1,14 @@
 import { createDrawerNavigator } from "react-navigation";
 import { TopLevelMenu } from "../../screens";
 import ObservationsNavigator from "./ObservationNavigator";
-// import SettingsNavigator from "./SettingsNavigator";
+import SettingsNavigator from "./SettingsNavigator";
 // import BirdsNavigator from "./BirdsNavigator";
 
 const AppDrawerNavigator = createDrawerNavigator(
   {
-    ObservationsNavigator
+    ObservationsNavigator,
     // BirdsNavigator,
-    // SettingsNavigator
+    SettingsNavigator
   },
   {
     contentComponent: TopLevelMenu

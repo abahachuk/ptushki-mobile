@@ -11,9 +11,24 @@ const LanguageSelect = props => {
       <View style={styles.imageContainer}>
         <Image source={languageBird} resizeMethod="scale" />
         <View style={{}}>
-          <LanguageButton title="Беларуская мова" langKey="be" {...props} />
-          <LanguageButton title="Русский язык" langKey="ru" {...props} />
-          <LanguageButton title="English" langKey="en" {...props} />
+          <LanguageButton
+            title="Беларуская мова"
+            langKey="be"
+            navigationRoute="auth"
+            {...props}
+          />
+          <LanguageButton
+            title="Русский язык"
+            langKey="ru"
+            navigationRoute="auth"
+            {...props}
+          />
+          <LanguageButton
+            title="English"
+            langKey="en"
+            navigationRoute="auth"
+            {...props}
+          />
         </View>
       </View>
     </View>
