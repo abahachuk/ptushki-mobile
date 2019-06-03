@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import AppNavigator, {AppContainer2} from "./navigation/navigators/AppNavigator";
+import AsyncStorage from "@react-native-community/async-storage";
+import {
+  AppExtendedContainer,
+  AppPrimaryContainer
+} from "./navigation/navigators/AppNavigator";
 import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
 import { changeLocale } from "./i18n";
-import AsyncStorage from "@react-native-community/async-storage";
 
-const AppContainer = () => {
+const AppLocalised = () => {
   const [locale, changeLocaleState] = useState("ru");
   const [isFirstLaunch, toggleFirstLaunch] = useState(true);
+  let UltimateNavigator = AppExtendedContainer;
 
   const onLocaleChange = localeKey => {
     changeLocale(localeKey);
@@ -17,34 +21,20 @@ const AppContainer = () => {
 
   useEffect(() => {
     AsyncStorage.getItem("lang").then(langSet => {
-      console.log(langSet);
-
       toggleFirstLaunch(langSet);
-      onLocaleChange(langSet)
+      onLocaleChange(langSet);
     });
-  })
+  });
 
   if (isFirstLaunch) {
-    return <TranslationProvider locale={locale}>
-    <Translation.Consumer>
-      {context => (
-        <AppContainer2
-          {...context}
-          screenProps={{
-            currentLocale: locale,
-            onLocaleChange
-          }}
-        />
-      )}
-    </Translation.Consumer>
-  </TranslationProvider>
+    UltimateNavigator = AppPrimaryContainer;
   }
 
   return (
     <TranslationProvider locale={locale}>
       <Translation.Consumer>
         {context => (
-          <AppNavigator
+          <UltimateNavigator
             {...context}
             screenProps={{
               currentLocale: locale,
@@ -57,4 +47,4 @@ const AppContainer = () => {
   );
 };
 
-export default AppContainer;
+export default AppLocalised;
