@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
 import { FlatList, View, Text, TouchableOpacity } from "react-native";
 import Observation from "./Observation";
-import { styles } from "./styles";
-import observations2 from "./Observation/mockData/mockObservations";
-import { translate } from "../../i18n";
 import { ObservationService } from "api";
+
+import { translate } from "../../i18n";
+import { styles } from "./styles";
 
 const service = new ObservationService();
 export default class Observations extends PureComponent {
@@ -64,9 +63,3 @@ export default class Observations extends PureComponent {
     );
   }
 }
-
-// Observations.propTypes = {
-//   navigation: PropTypes.shape({
-//     navigate: PropTypes.func
-//   }).isRequired
-// };

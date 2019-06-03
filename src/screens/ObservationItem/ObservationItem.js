@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { View, Text, Image, ScrollView } from "react-native";
-import { styles } from "./styles";
 import getInformationBlock from "./sections/InformationBlock";
 import Toolbar from "./sections/Toolbar";
 
 import { translate } from "../../i18n";
+import { styles } from "./styles";
 
 const img = require("../Observations/Observation/mockData/bird.jpg");
 
@@ -90,28 +89,5 @@ const ObservationItem = (props) => {
         </View>
     );
 };
-
-ObservationItem.propTypes = {
-    species: PropTypes.string,
-    rightNumber: PropTypes.string,
-    leftNumber: PropTypes.string,
-    country: PropTypes.string,
-    date: PropTypes.string,
-    gender: PropTypes.string,
-    age: PropTypes.string,
-    lifeStatus: PropTypes.string,
-    comment: PropTypes.string
-};
-// ObservationItem.defaultProps = {
-//     species: "",
-//     rightNumber: "",
-//     leftNumber: "",
-//     country: "",
-//     date: "",
-//     gender: "",
-//     age: "",
-//     lifeStatus: "",
-//     comment: ""
-// };
 
 export default ObservationItem;

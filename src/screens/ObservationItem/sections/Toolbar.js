@@ -2,6 +2,7 @@ import React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/AntDesign";
+import TopLevelMenu from "../../TopLevelMenu";
 
 import { styles } from "../styles";
 
@@ -16,6 +17,7 @@ const Toolbar = props => {
       <Text style={styles.toolbarTitle}>
         {title}
       </Text>
+      {/* <TopLevelMenu/> */}
     </View>
   );
 };
