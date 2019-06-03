@@ -15,6 +15,18 @@ const AppSwitchNavigator = createSwitchNavigator({
   }
 });
 
+ const AppSwitchNavigator2 = createSwitchNavigator({
+  auth: {
+    screen: RegistrationNavigator
+  },
+  mainPage: {
+    screen: MainPageNavigator
+  }
+});
+
+export const AppContainer2 = createAppContainer(AppSwitchNavigator2);
+
+
 const AppContainer = createAppContainer(AppSwitchNavigator);
 
 export default AppContainer;
