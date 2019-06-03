@@ -4,16 +4,15 @@ import { ScrollView, View } from "react-native";
 
 import { styles } from "./styles";
 import { Button } from "../../components";
-import { translate } from "../../i18n";
 import { pickerValuesArrayType } from "../../propTypes";
 import BirdSection from "./sections/BirdSection";
 import RingsSection from "./sections/RingsSection";
 import ObstaclesSection from "./sections/ObstaclesSection";
-import Toolbar from "./sections/Toolbar";
 import PhotoCarousel from "./sections/PhotoCarousel";
 
-const AddEditObservation = props => {
+const ObservationBase = props => {
   const {
+    submitButtonText,
     birdSpeciesDefault,
     birdSpeciesValues,
     birdSexDefault,
@@ -76,9 +75,6 @@ const AddEditObservation = props => {
   const onSubmitPress = () => {
     props.onSubmit();
   };
-  const onBackPress = () => {
-    props.navigation.goBack();
-  };
   const onCurrentPositionPress = () => {
     props.onCurrentPosition();
   };
@@ -91,7 +87,6 @@ const AddEditObservation = props => {
 
   return (
     <View style={styles.rootContainer}>
-      <Toolbar onBackPress={onBackPress} />
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -139,7 +134,7 @@ const AddEditObservation = props => {
             wrapperStyles={styles.submitButton}
             onPress={onSubmitPress}
             appearance="Dark"
-            caption={translate("editObservation.sendObservation")}
+            caption={submitButtonText}
           />
         </View>
       </ScrollView>
@@ -147,7 +142,8 @@ const AddEditObservation = props => {
   );
 };
 
-AddEditObservation.propTypes = {
+ObservationBase.propTypes = {
+  submitButtonText: PropTypes.string,
   birdSpeciesDefault: PropTypes.string,
   birdSpeciesValues: pickerValuesArrayType,
   birdSexDefault: PropTypes.string,
@@ -175,7 +171,8 @@ AddEditObservation.propTypes = {
   onCurrentDateTime: PropTypes.func,
   navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired
 };
-AddEditObservation.defaultProps = {
+ObservationBase.defaultProps = {
+  submitButtonText: "",
   birdSpeciesDefault: "",
   birdSpeciesValues: [],
   birdSexDefault: "",
@@ -202,8 +199,5 @@ AddEditObservation.defaultProps = {
   onSearchOnMap: () => {},
   onCurrentDateTime: () => {}
 };
-AddEditObservation.navigationOptions = {
-  header: null
-};
 
-export default AddEditObservation;
+export default ObservationBase;

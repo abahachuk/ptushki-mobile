@@ -30,39 +30,39 @@ const BirdSection = props => {
   return (
     <KeyboardAvoidingView>
       {getDescriptionBlock(
-        translate("editObservation.birdHeader"),
-        translate("editObservation.birdDescription")
+        translate("addEditObservation.birdHeader"),
+        translate("addEditObservation.birdDescription")
       )}
       <CustomPicker
-        caption={translate("editObservation.birdSpecies")}
+        caption={translate("addEditObservation.birdSpecies")}
         wrappedStyles={styles.firstBirdPicker}
         selectedValue={birdSpecies}
         onValueChange={itemValue => setFieldValue({ birdSpecies: itemValue })}
         items={birdSpeciesValues}
       />
       <Text style={styles.appLinkBlock}>
-        <Text>{`${translate("editObservation.linkToAppFirstPart")} `}</Text>
+        <Text>{`${translate("addEditObservation.linkToAppFirstPart")} `}</Text>
         <Text style={styles.appLinkBlockLink} onPress={onOpenBirdsGuideApp}>
-          {`${translate("editObservation.linkToAppSecondPart")} `}
+          {`${translate("addEditObservation.linkToAppSecondPart")} `}
         </Text>
-        <Text>{translate("editObservation.linkToAppThirdPart")}</Text>
+        <Text>{translate("addEditObservation.linkToAppThirdPart")}</Text>
       </Text>
       <CustomPicker
-        caption={translate("editObservation.birdSex")}
+        caption={translate("addEditObservation.birdSex")}
         wrappedStyles={styles.restBirdPickers}
         selectedValue={birdSex}
         onValueChange={itemValue => setFieldValue({ birdSex: itemValue })}
         items={birdSexValues}
       />
       <CustomPicker
-        caption={translate("editObservation.birdAge")}
+        caption={translate("addEditObservation.birdAge")}
         wrappedStyles={styles.restBirdPickers}
         selectedValue={birdAge}
         onValueChange={itemValue => setFieldValue({ birdAge: itemValue })}
         items={birdAgeValues}
       />
       <CustomPicker
-        caption={translate("editObservation.birdWas")}
+        caption={translate("addEditObservation.birdWas")}
         wrappedStyles={styles.restBirdPickers}
         selectedValue={birdObstacles}
         onValueChange={itemValue => setFieldValue({ birdObstacles: itemValue })}

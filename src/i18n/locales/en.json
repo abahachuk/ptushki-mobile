@@ -29,7 +29,7 @@
     "lastName": "Surname shouldn't be empty",
     "phone": "Phone Number shouldn't be empty"
   },
-  "editObservation": {
+  "addEditObservation": {
     "editing": "Edit",
     "birdHeader": "Bird",
     "birdDescription": "Describe the bird and the circumstances in which you saw it.",
@@ -44,6 +44,9 @@
     "searchOnMap": "ON THE MAP",
     "time": "Time",
     "sendObservation": "SEND OBSERVATION",
+    "updateObservation": "APPLY UPDATES",
+    "navHeaderTitleAdd": "Adding observation",
+    "navHeaderTitleEdit": "Updating",
     "currentDateTime": "CURRENT DATE AND TIME",
     "country": "Country",
     "region": "Region",

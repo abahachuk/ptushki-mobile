@@ -29,7 +29,7 @@
     "lastName": "Поле Фамилия не должно быть пустым",
     "phone": "Поле Телефон не должно быть пустым"
   },
-  "editObservation": {
+  "addEditObservation": {
     "editing": "Редактирование",
     "birdHeader": "Птица",
     "birdDescription": "Опишите птицу и обстоятельства, в которых вы её увидели.",
@@ -44,6 +44,9 @@
     "searchOnMap": "НА КАРТЕ",
     "time": "Время",
     "sendObservation": "ОТПРАВИТЬ НАБЛЮДЕНИЕ",
+    "updateObservation": "ОТПРАВИТЬ ИЗМЕНЕНИЯ",
+    "navHeaderTitleAdd": "Добавление наблюдения",
+    "navHeaderTitleEdit": "Редактирование",
     "currentDateTime": "ТЕКУЩЕЕ ВРЕМЯ И ДАТА",
     "country": "Страна",
     "region": "Область район",

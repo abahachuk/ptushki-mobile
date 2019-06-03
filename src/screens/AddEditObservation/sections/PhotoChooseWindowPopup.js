@@ -8,7 +8,7 @@ import { Button } from "../../../components";
 import { translate } from "../../../i18n";
 import { styles } from "../styles";
 
-const PhotoChooseWindow = props => {
+const PhotoChooseWindowPopup = props => {
   const { onPhotoChosen, onCloseHandler } = props;
 
   const onOpenGallery = () => {
@@ -31,40 +31,40 @@ const PhotoChooseWindow = props => {
       contentContainerStyle={styles.overlay}
     >
       <Text style={styles.overlayTitle}>
-        {translate("editObservation.addPhotoTitle")}
+        {translate("addEditObservation.addPhotoTitle")}
       </Text>
       <Text style={styles.overlayDescription}>
-        {translate("editObservation.addPhotoDescription")}
+        {translate("addEditObservation.addPhotoDescription")}
       </Text>
       <Button
         wrapperStyles={styles.overlayGallery}
         onPress={onOpenGallery}
-        caption={translate("editObservation.gallery")}
+        caption={translate("addEditObservation.gallery")}
         appearance="Dark"
       />
       <Button
         wrapperStyles={styles.overlayTakePhoto}
         onPress={onTakePhoto}
-        caption={translate("editObservation.makePhoto")}
+        caption={translate("addEditObservation.makePhoto")}
         appearance="Light"
       />
       <View style={styles.overlayCloseWindowContainer}>
         <Button
           wrapperStyles={styles.overlayCloseWindow}
           onPress={onClose}
-          caption={translate("editObservation.close")}
+          caption={translate("addEditObservation.close")}
           appearance="Borderless"
         />
       </View>
     </Overlay>
   );
 };
-PhotoChooseWindow.propTypes = {
+PhotoChooseWindowPopup.propTypes = {
   onPhotoChosen: PropTypes.func,
   onCloseHandler: PropTypes.func
 };
-PhotoChooseWindow.defaultProps = {
+PhotoChooseWindowPopup.defaultProps = {
   onPhotoChosen: () => {},
   onCloseHandler: () => {}
 };
-export default PhotoChooseWindow;
+export default PhotoChooseWindowPopup;

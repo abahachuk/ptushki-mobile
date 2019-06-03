@@ -29,7 +29,7 @@
     "lastName": "Поле Прозвішча не павінна быць пустым",
     "phone": "Поле Тэлефон не павінна быць пустым"
   },
-  "editObservation": {
+  "addEditObservation": {
     "editing": "Рэдагаванне",
     "birdHeader": "Птушка",
     "birdDescription": "Апішыце птушку і ўмовы, у якіх вы яе ўбачылі.",
@@ -44,6 +44,9 @@
     "searchOnMap": "НА КАРЦЕ",
     "time": "Час",
     "sendObservation": "АДПРАВІЦЬ НАЗІРАННЕ",
+    "updateObservation": "АДПРАВІЦЬ ЗМЕНЫ",
+    "navHeaderTitleAdd": "Даданне назірання",
+    "navHeaderTitleEdit": "Рэдагаванне",
     "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА",
     "country": "Краiна",
     "region": "Вобласць раён",

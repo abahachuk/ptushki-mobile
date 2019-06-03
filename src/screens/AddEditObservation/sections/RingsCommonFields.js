@@ -25,17 +25,17 @@ const RingsCommonFields = props => {
   return (
     <KeyboardAvoidingView>
       <Text style={styles.ringItemTitle}>
-        {`${translate("editObservation.ring")} ${ringKey}`}
+        {`${translate("addEditObservation.ring")} ${ringKey}`}
       </Text>
       <CustomPicker
-        caption={translate("editObservation.ringType")}
+        caption={translate("addEditObservation.ringType")}
         onValueChange={onFieldValueChange("type")}
         selectedValue={ringTypeSelectedValue}
         items={ringTypeValues}
         wrappedStyles={styles.ringField}
       />
       <CustomPicker
-        caption={translate("editObservation.ringMaterial")}
+        caption={translate("addEditObservation.ringMaterial")}
         onValueChange={onFieldValueChange("material")}
         selectedValue={ringMaterialSelectedValue}
         items={ringMaterialValues}
@@ -43,7 +43,7 @@ const RingsCommonFields = props => {
       />
       <KeyboardAvoidingView>
         <CustomPicker
-          caption={translate("editObservation.ringColor")}
+          caption={translate("addEditObservation.ringColor")}
           onValueChange={onFieldValueChange("color")}
           selectedValue={ringColorSelectedValue}
           items={ringColorValues}
@@ -62,7 +62,7 @@ const RingsCommonFields = props => {
         />
       </KeyboardAvoidingView>
       <CustomPicker
-        caption={translate("editObservation.ringLocation")}
+        caption={translate("addEditObservation.ringLocation")}
         onValueChange={onFieldValueChange("location")}
         selectedValue={ringLocationSelectedValue}
         items={ringLocationValues}
@@ -74,7 +74,7 @@ const RingsCommonFields = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={ringIdFilledValue}
-        label={translate("editObservation.ringNumber")}
+        label={translate("addEditObservation.ringNumber")}
       />
     </KeyboardAvoidingView>
   );
