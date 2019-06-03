@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, KeyboardAvoidingView, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  KeyboardAvoidingView,
+  Alert,
+  TouchableHighlight
+} from "react-native";
 
 /* eslint-disable */
 import { Button, Input } from "components";
@@ -8,6 +15,7 @@ import { translate } from "../../i18n";
 import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { styles } from "./styles";
 import { AuthService } from "api";
+import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
 
 const logoImg = require("assets/logotype/logotype2x.png");
 const infoImg = require("assets/ic_info/ic_info2x.png");
@@ -61,7 +69,9 @@ const Login = props => {
       <View style={styles.loginContainer}>
         <View style={styles.headerContainer}>
           <View style={styles.infoImgContainer}>
-            <Image style={styles.infoImg} source={infoImg} />
+            <TouchableHighlight onPress={() => { navigation.navigate(FIRST_INTRO_SCREEN); }}>
+              <Image style={styles.infoImg} source={infoImg} />
+            </TouchableHighlight>
           </View>
           <View style={styles.header}>
             <Image

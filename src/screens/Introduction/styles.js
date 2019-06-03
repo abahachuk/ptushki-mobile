@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   imageContainer: {},
   image: {
     width: "100%",
-    height: 280
+    height: 200
   },
   descriptionContainer: {
     paddingTop: 20,
