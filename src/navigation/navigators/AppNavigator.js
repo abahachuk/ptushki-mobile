@@ -3,10 +3,7 @@ import RegistrationNavigator from "./RegistrationNavigator";
 import MainPageNavigator from "./MainPageNavigator";
 import { LanguageSelect } from "../../screens";
 
-const AppSwitchNavigator = createSwitchNavigator({
-  languageSelect: {
-    screen: LanguageSelect
-  },
+const primaryNavigator = createSwitchNavigator({
   auth: {
     screen: RegistrationNavigator
   },
@@ -15,6 +12,12 @@ const AppSwitchNavigator = createSwitchNavigator({
   }
 });
 
-const AppContainer = createAppContainer(AppSwitchNavigator);
+const extendedNavigator = createSwitchNavigator({
+  languageSelect: {
+    screen: LanguageSelect
+  },
+  primaryNavigator
+});
 
-export default AppContainer;
+export const AppPrimaryContainer = createAppContainer(primaryNavigator);
+export const AppExtendedContainer = createAppContainer(extendedNavigator);
