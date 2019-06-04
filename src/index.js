@@ -10,10 +10,9 @@ import TranslationProvider, {
 import { changeLocale } from "./i18n";
 
 const AppLocalised = () => {
-  const [locale, changeLocaleState] = useState("ru");
-  const [isFirstLaunch, toggleFirstLaunch] = useState(true);
-  let UltimateNavigator = AppExtendedContainer;
-
+  let AppContainer = AppPrimaryContainer;
+  const [currentLocale, changeLocaleState] = useState("ru");
+  const [isFirstLaunch, setFirstLaunch] = useState(false);
   const onLocaleChange = localeKey => {
     changeLocale(localeKey);
     changeLocaleState(localeKey);
@@ -21,23 +20,26 @@ const AppLocalised = () => {
 
   useEffect(() => {
     AsyncStorage.getItem("lang").then(langSet => {
-      toggleFirstLaunch(langSet);
-      onLocaleChange(langSet);
+      if (langSet) {
+        onLocaleChange(langSet);
+      } else {
+        setFirstLaunch(true);
+      }
     });
   });
 
   if (isFirstLaunch) {
-    UltimateNavigator = AppPrimaryContainer;
+    AppContainer = AppExtendedContainer;
   }
 
   return (
-    <TranslationProvider locale={locale}>
+    <TranslationProvider locale={currentLocale}>
       <Translation.Consumer>
         {context => (
-          <UltimateNavigator
+          <AppContainer
             {...context}
             screenProps={{
-              currentLocale: locale,
+              currentLocale,
               onLocaleChange
             }}
           />
