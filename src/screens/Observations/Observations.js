@@ -1,41 +1,65 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
 import { FlatList, View, Text, TouchableOpacity } from "react-native";
 import Observation from "./Observation";
-import { styles } from "./styles";
-import observations from "./Observation/mockData/mockObservations";
+import { ObservationService } from "api";
+
 import { translate } from "../../i18n";
+import { styles } from "./styles";
 
-const Observations = props => {
-  const addObservation = () => {
-    props.navigation.navigate("AddEditObservation");
+const service = new ObservationService();
+export default class Observations extends PureComponent {
+  constructor() {
+    super();
+
+    this.state = {
+      observations: [],
+      loading: true
+    }
+  }
+  componentDidMount() {
+    service.getObservations()
+      .then(response => {
+        this.setState({
+        observations: response.content,
+        loading: false
+        })
+      })
+      .catch(err => console.log(err));
+  }
+
+  addObservation = () => {
+    this.props.navigation.navigate("AddEditObservation");
   };
-  const showObservation = () => {
-    props.navigation.navigate("ObservationItem");
+  showObservation = (ObservationItem) => {
+    this.props.navigation.navigate("ObservationItem", { ObservationItem });
   };
 
-  return (
-    <View>
-      <FlatList
-        contentContainerStyle={styles.container}
-        data={observations}
-        renderItem={({ item }) => <Observation {...item} showObservation={showObservation}/>}
-        keyExtractor={item => item.id}
-      />
-      <TouchableOpacity style={styles.addObservation} onPress={addObservation}>
-        <Text style={styles.buttonTextStyle}>+</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+  static navigationOptions = () => ({
+    title: translate("topLevelMenu.observationTitle")
+  })
 
-Observations.navigationOptions = () => ({
-  title: translate("topLevelMenu.observationTitle")
-});
-Observations.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func
-  }).isRequired
-};
-
-export default Observations;
+  render() {
+    const { observations, loading } = this.state;
+    return (!loading && 
+      <View>
+        <FlatList
+          contentContainerStyle={styles.container}
+          data={observations}
+          renderItem={
+            ({ item }) =>
+              <Observation
+                observationItem={item}
+                showObservation={this.showObservation}
+              />
+          }
+          keyExtractor={item => item.id}
+        />
+        <TouchableOpacity
+          style={styles.addObservation}
+          onPress={this.addObservation}>
+          <Text style={styles.buttonTextStyle}>+</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
