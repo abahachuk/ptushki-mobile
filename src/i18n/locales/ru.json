@@ -73,7 +73,11 @@
     "gallery": "ГАЛЕРЕЯ",
     "makePhoto": "СДЕЛАТЬ ФОТО",
     "close": "ЗАКРЫТЬ",
-    "delete": "УДАЛИТЬ"
+    "delete": "УДАЛИТЬ",
+    "declineChangesTitle": "Выйти без изменений?",
+    "declineChangesDescription": "Вы уверены, что хотите выйти, не отправив изменения на сервер?",
+    "applyDeclineChanges": "ВЫЙТИ",
+    "cancelDeclineChanges": "ОТМЕНА"
   },
   "passwordRecovery": {
     "recovery": "Восстановление пароля",

@@ -73,7 +73,11 @@
     "gallery": "ГАЛЕРЭЯ",
     "makePhoto": "ЗРАБІЦЬ ФОТА",
     "close": "ЗАЧЫНІЦЬ",
-    "delete": "ВЫДАЛІЦЬ"
+    "delete": "ВЫДАЛІЦЬ",
+    "declineChangesTitle": "Выйсці без зменаў?",
+    "declineChangesDescription": "Вы ўпэўнены, што жадаеце выйсці, не даслаўшы змены на сервер?",
+    "applyDeclineChanges": "ВЫЙСЦІ",
+    "cancelDeclineChanges": "АДМЕНА"
   },
   "passwordRecovery": {
     "recovery": "Аднаўленне пароля",

@@ -28,7 +28,7 @@ const PhotoChooseWindowPopup = props => {
       height={400}
       width={280}
       borderRadius={6}
-      contentContainerStyle={styles.overlay}
+      overlayStyle={styles.overlay}
     >
       <Text style={styles.overlayTitle}>
         {translate("addEditObservation.addPhotoTitle")}
@@ -51,6 +51,7 @@ const PhotoChooseWindowPopup = props => {
       <View style={styles.overlayCloseWindowContainer}>
         <Button
           wrapperStyles={styles.overlayCloseWindow}
+          customTextStyles={styles.overlayCloseWindowText}
           onPress={onClose}
           caption={translate("addEditObservation.close")}
           appearance="Borderless"

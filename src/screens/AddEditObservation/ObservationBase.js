@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { ScrollView, View } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
 
+import { translate } from "../../i18n";
 import { styles } from "./styles";
 import { Button } from "../../components";
 import { pickerValuesArrayType } from "../../propTypes";
-import BirdSection from "./sections/BirdSection";
-import RingsSection from "./sections/RingsSection";
-import ObstaclesSection from "./sections/ObstaclesSection";
-import PhotoCarousel from "./sections/PhotoCarousel";
+import {
+  BirdSection,
+  RingsSection,
+  ObstaclesSection,
+  PhotoCarousel,
+  DeclineChangesPopup
+} from "./sections";
 
 const ObservationBase = props => {
   const {
@@ -33,7 +38,8 @@ const ObservationBase = props => {
     coordinatesDefault,
     commentDefault,
     dateTimeDefault,
-    dateTimeInaccuracyDefault
+    dateTimeInaccuracyDefault,
+    navigation
   } = props;
   const [
     {
@@ -85,8 +91,23 @@ const ObservationBase = props => {
     props.onCurrentDateTime();
   };
 
+  const onCancelExit = () => {
+    navigation.setParams({ isDeclineChangesPopupOpened: false });
+  };
+
+  const onExit = () => {
+    navigation.setParams({ isDeclineChangesPopupOpened: false });
+    navigation.goBack();
+  };
   return (
     <View style={styles.rootContainer}>
+      {navigation.state.params &&
+      navigation.state.params.isDeclineChangesPopupOpened ? (
+        <DeclineChangesPopup
+          onExitHandler={onExit}
+          onCancelHandler={onCancelExit}
+        />
+      ) : null}
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -198,6 +219,22 @@ ObservationBase.defaultProps = {
   onCurrentPosition: () => {},
   onSearchOnMap: () => {},
   onCurrentDateTime: () => {}
+};
+ObservationBase.navigationOptions = ({ navigation }) => {
+  return {
+    title: translate("addEditObservation.navHeaderTitleEdit"),
+    headerLeft: (
+      <Icon
+        name="arrowleft"
+        size={30}
+        color="white"
+        style={{ padding: 15 }}
+        onPress={() =>
+          navigation.setParams({ isDeclineChangesPopupOpened: true })
+        }
+      />
+    )
+  };
 };
 
 export default ObservationBase;

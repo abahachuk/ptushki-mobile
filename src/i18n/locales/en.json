@@ -73,7 +73,11 @@
     "gallery": "GALLERY",
     "makePhoto": "MAKE PHOTO",
     "close": "CLOSE",
-    "delete": "REMOVE"
+    "delete": "REMOVE",
+    "declineChangesTitle": "Exit without changes?",
+    "declineChangesDescription": "Are you sure you want to exit and lose your changes?",
+    "applyDeclineChanges": "EXIT",
+    "cancelDeclineChanges": "CANCEL"
   },
   "passwordRecovery": {
     "recovery": "E-mail recovery",
