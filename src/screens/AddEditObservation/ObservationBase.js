@@ -99,7 +99,7 @@ const ObservationBase = props => {
     props.onCurrentDateTime();
   };
 
-  const onCancelExit = () => {
+  const onCancel = () => {
     navigation.setParams({ isDeclineChangesPopupOpened: false });
   };
 
@@ -113,7 +113,7 @@ const ObservationBase = props => {
       navigation.state.params.isDeclineChangesPopupOpened ? (
         <DeclineChangesPopup
           onExitHandler={onExit}
-          onCancelHandler={onCancelExit}
+          onCancelHandler={onCancel}
         />
       ) : null}
       <ScrollView
