@@ -2,6 +2,7 @@
 export { default as Login } from "./Login";
 export { default as Registration } from "./Registration";
 export { EditObservation, AddObservation } from "./AddEditObservation";
+export { default as ObservationCreated } from "./ObservationCreated";
 export { default as Observations } from "./Observations";
 export { default as PasswordRecovery } from "./PasswordRecovery";
 export { default as RegistrationEmailSent } from "./RegistrationEmailSent";

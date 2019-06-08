@@ -79,6 +79,19 @@
     "applyDeclineChanges": "ВЫЙТИ",
     "cancelDeclineChanges": "ОТМЕНА"
   },
+  "observationCreated": {
+    "observationCreatedTitle": "Вы успешно добавили наблюдение",
+    "observationCreatedDescription": 
+      "Вы успешно добавили наблюдение в базу, ваша запись будет промодерирована и добавлена в национальную и европейскую базы наблюдений окольцованных птиц.",
+    "observationCreatedDate": "Время наблюдения",
+    "observationLocation": "Место наблюдения",
+    "birdSex": "Пол",
+    "birdAge": "Возраст",
+    "birdObstacles": "Обстоятельства",
+    "moveToRecord": "Перейти к записи",
+    "complete": "Завершить",
+    "creatingObservation": "Добавление наблюдения"
+  },
   "passwordRecovery": {
     "recovery": "Восстановление пароля",
     "sendNewPassword": "Выслать новый пароль",

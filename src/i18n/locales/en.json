@@ -79,6 +79,19 @@
     "applyDeclineChanges": "EXIT",
     "cancelDeclineChanges": "CANCEL"
   },
+  "observationCreated": {
+    "observationCreatedTitle": "Observation has been successfully added",
+    "observationCreatedDescription": 
+      "Observation has been successfully added to the database, your record will be moderized and then added to the national and european bases of ringed birds.",
+    "observationCreatedDate": "Observation time",
+    "observationLocation": "Observation location",
+    "birdSex": "Sex",
+    "birdAge": "Age",
+    "birdObstacles": "Obstacles",
+    "moveToRecord": "Go to the record",
+    "complete": "Complete",
+    "creatingObservation": "Creating observation"
+  },
   "passwordRecovery": {
     "recovery": "E-mail recovery",
     "sendNewPassword": "Sent new password",

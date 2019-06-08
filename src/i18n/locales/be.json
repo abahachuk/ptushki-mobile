@@ -79,6 +79,19 @@
     "applyDeclineChanges": "ВЫЙСЦІ",
     "cancelDeclineChanges": "АДМЕНА"
   },
+  "observationCreated": {
+    "observationCreatedTitle": "Вы паспяхова дадалі назіранне",
+    "observationCreatedDescription": 
+      "Вы паспяхова дадалі назіранне ў базу, ваша запіс будзе промодэрыравана і дададзеная ў нацыянальную і еўрапейскую базы назіранняў прамежкі птушак.",
+    "observationCreatedAdded": "Час назірання",
+    "observationLocation": "Месца назірання",
+    "birdSex": "Пол",
+    "birdAge": "Узрост",
+    "birdObstacles": "Абставіны",
+    "moveToRecord": "Перайсці да запісу",
+    "complete": "Завяршыць",
+    "creatingObservation": "Даданне назірання"
+  },
   "passwordRecovery": {
     "recovery": "Аднаўленне пароля",
     "sendNewPassword": "Выслаць новы пароль",

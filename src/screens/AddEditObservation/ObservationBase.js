@@ -79,7 +79,15 @@ const ObservationBase = props => {
   const [rings, setRingsValues] = useState(ringsDefaultValues);
 
   const onSubmitPress = () => {
-    props.onSubmit();
+    // TODO: make api call to create observation
+    props.navigation.navigate("ObservationCreated", {
+      birdSpecies,
+      dateTime,
+      observationLocation: `${country} ${region}`,
+      birdSex,
+      birdAge,
+      birdObstacles
+    });
   };
   const onCurrentPositionPress = () => {
     props.onCurrentPosition();
@@ -186,11 +194,13 @@ ObservationBase.propTypes = {
   commentDefault: PropTypes.string,
   dateTimeDefault: PropTypes.string,
   dateTimeInaccuracyDefault: PropTypes.string,
-  onSubmit: PropTypes.func,
   onCurrentPosition: PropTypes.func,
   onSearchOnMap: PropTypes.func,
   onCurrentDateTime: PropTypes.func,
-  navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+    navigate: PropTypes.func
+  }).isRequired
 };
 ObservationBase.defaultProps = {
   submitButtonText: "",
@@ -215,7 +225,6 @@ ObservationBase.defaultProps = {
   commentDefault: "",
   dateTimeDefault: "",
   dateTimeInaccuracyDefault: "",
-  onSubmit: () => {},
   onCurrentPosition: () => {},
   onSearchOnMap: () => {},
   onCurrentDateTime: () => {}
