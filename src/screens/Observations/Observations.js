@@ -1,12 +1,11 @@
-/* eslint-disable */
 import React, { PureComponent } from 'react';
-import { FlatList, View, TouchableOpacity } from "react-native";
+import { FlatList, View, Text, TouchableOpacity } from "react-native";
 import Observation from "./Observation";
 import { ObservationService } from "api";
 
 import { translate } from "../../i18n";
 import { styles } from "./styles";
-import { Overlay, Button, Text, Input } from "react-native-elements";
+
 const service = new ObservationService();
 export default class Observations extends PureComponent {
   constructor() {
@@ -28,18 +27,18 @@ export default class Observations extends PureComponent {
       .catch(err => console.log(err));
   }
 
-  
-  static navigationOptions () {
+  addObservation = () => {
+    this.props.navigation.navigate("AddObservation");
+  };
+  showObservation = (ObservationItem) => {
+    this.props.navigation.navigate("ObservationItem", { ObservationItem });
+  };
+
+  static navigationOptions = () => ({
     title: translate("topLevelMenu.observationTitle")
-  }
-  
+  })
+
   render() {
-    addObservation = () => {
-      this.props.navigation.navigate("AddObservation");
-    };
-    showObservation = (ObservationItem) => {
-      this.props.navigation.navigate("ObservationItem", { ObservationItem });
-    };
     const { observations, loading } = this.state;
     return (!loading && 
       <View>
