@@ -31,6 +31,7 @@ export default class Observations extends PureComponent {
     this.props.navigation.navigate("AddEditObservation");
   };
   showObservation = (ObservationItem) => {
+    console.log(ObservationItem)
     this.props.navigation.navigate("ObservationItem", { ObservationItem });
   };
 

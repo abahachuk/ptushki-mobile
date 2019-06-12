@@ -4,3 +4,5 @@ export const AUTH_REFRESH_ENDPOINT = "/auth/refresh";
 export const AUTH_REGISTRATION_ENDPOINT = "/auth/signup";
 export const AUTH_RESET_PASSWORD_ENDPOINT = "/auth/change-password";
 export const GET_OBSERVATIONS_ENDPOINT = "/observations";
+// export const DELETE_OBSERVATIONS_ENDPOINT = (id, description) => `/observations/?id=${id}&description=${description}`;
+export const DELETE_OBSERVATIONS_ENDPOINT = (id, description) => `/observations/${id}?description=${description}`;

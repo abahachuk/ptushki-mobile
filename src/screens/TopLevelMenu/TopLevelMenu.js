@@ -5,9 +5,9 @@ import {
   Text,
   SafeAreaView,
   ScrollView,
-  Image,
-  AsyncStorage
+  Image
 } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 import { Divider } from "react-native-elements";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
