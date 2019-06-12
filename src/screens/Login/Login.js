@@ -19,15 +19,16 @@ const Login = props => {
   const {
     email: emailFromProps,
     password: passwordFromProps,
+    error: errorFromProps,
     navigation
   } = props;
   const [email, setEmail] = useState(emailFromProps);
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
+  const [error, setError] = useState(errorFromProps);
   const [passwordError, setPasswordError] = useState("");
   const modalRef = useRef(null);
   const authService = new AuthService();
-  let backendErrorMessage;
 
   const onLoginPress = () => {
     authService
@@ -38,7 +39,10 @@ const Login = props => {
         }
       })
       .catch(err => {
-        backendErrorMessage = err.message;
+        const backendErrorMessage =
+          "Error with password or login, try one more time, please";
+
+        setError(err.message || backendErrorMessage);
         modalRef.current.open();
       });
   };
@@ -126,7 +130,7 @@ const Login = props => {
         position="top"
         ref={modalRef}
       >
-        <Text style={[modalWindowStyles.modalText]}>{backendErrorMessage}</Text>
+        <Text style={[modalWindowStyles.modalText]}>{error}</Text>
         <Button
           caption={translate("login.close")}
           onPress={closeModal}
@@ -145,6 +149,7 @@ Login.navigationOptions = () => ({
 Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
+  error: PropTypes.string,
   onRegister: PropTypes.func,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
@@ -154,6 +159,7 @@ Login.propTypes = {
 Login.defaultProps = {
   email: "",
   password: "",
+  error: "",
   onRegister: () => {}
 };
 

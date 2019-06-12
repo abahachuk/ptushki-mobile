@@ -91,9 +91,7 @@ export default class BaseService {
       return statusText;
     }
 
-    const error = new Error(
-      `Status: ${response.status}, message: ${data.error.message}`
-    );
+    const error = new Error(data.error.message);
     return Promise.reject(error);
   }
 }
