@@ -11,7 +11,8 @@
     "back": "Back",
     "register": "Register",
     "statusText": "Yey! Successfully signed up!",
-    "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!"
+    "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!",
+    "backendErrorMessage": "Sorry, registration failed"
   },
   "login": {
     "bandingCenter": "Center for Ringing Birds at the Academy of Sciences of the Republic of Belarus",
@@ -21,7 +22,8 @@
     "sign-up": "Sign Up",
     "forgotPassword": "Forgot password",
     "goToLogin": "Go to login",
-    "close": "Close"
+    "close": "Close",
+    "backendErrorMessage": "Error with password or login, try one more time, please"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",

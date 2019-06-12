@@ -39,10 +39,7 @@ const Login = props => {
         }
       })
       .catch(err => {
-        const backendErrorMessage =
-          "Error with password or login, try one more time, please";
-
-        setError(err.message || backendErrorMessage);
+        setError(err.message || translate("login.backendErrorMessage"));
         modalRef.current.open();
       });
   };

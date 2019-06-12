@@ -78,8 +78,7 @@ const Registration = props => {
         }
       })
       .catch(err => {
-        const backendErrorMessage = "Sorry, registration failed";
-        setError(err.message || backendErrorMessage);
+        setError(err.message || translate("registration.backendErrorMessage"));
         modalRef.current.open();
       });
   };
