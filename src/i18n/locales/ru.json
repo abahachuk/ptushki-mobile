@@ -92,7 +92,8 @@
     "deleteObservationInputLabel": "Причина",
     "undoAction": "Отмена",
     "deleteObservation": "Удалить",
-    "editObservation": "Редактировать"
+    "editObservation": "Редактировать",
+    "errorOnDelete": "Ошибка при удалении, попробуйте позже"
   },
   "topLevelMenu": {
     "observationTitle": "Наблюдения",

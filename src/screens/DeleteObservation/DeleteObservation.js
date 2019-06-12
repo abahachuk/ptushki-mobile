@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { View, KeyboardAvoidingView } from "react-native";
+import { View, KeyboardAvoidingView, Alert } from "react-native";
 import { Overlay, Button, Text, Input } from "react-native-elements";
 /* eslint-disable-next-line */
 import { ObservationService } from "api";
@@ -26,20 +26,18 @@ const DeleteObservation = props => {
   };
 
   const onDeletePress = () => {
-    console.log(navigation.state.params.ObservationItem.id);
-
     service
       .deleteObservation(
         navigation.state.params.ObservationItem.id,
         deleteDescription
       )
       .then(response => {
-        console.log(response);
         setModalVisible(false);
         navigation.navigate("Observations");
       })
       .catch(err => {
-        console.log(err);
+        console.log("DeleteObservation error: ", err);
+        Alert.alert(translate("deleteObservation.errorOnDelete"));
       });
   };
 
