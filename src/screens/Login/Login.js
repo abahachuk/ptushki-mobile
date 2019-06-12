@@ -7,6 +7,7 @@ import Modal from "react-native-modalbox";
 import { Button, Input } from "components";
 import { translate } from "../../i18n";
 import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
+import { modalWindowStyles } from "utils/modalWindowStyles";
 import { styles } from "./styles";
 import { AuthService } from "api";
 
@@ -120,16 +121,16 @@ const Login = props => {
         />
       </View>
       <Modal
-        style={[styles.modal]}
+        style={[modalWindowStyles.modal]}
         backdrop={false}
         position="top"
         ref={modalRef}
       >
-        <Text style={[styles.modalText]}>{backendErrorMessage}</Text>
+        <Text style={[modalWindowStyles.modalText]}>{backendErrorMessage}</Text>
         <Button
           caption={translate("login.close")}
           onPress={closeModal}
-          wrapperStyles={styles.modalBtn}
+          wrapperStyles={modalWindowStyles.modalBtn}
           appearance="Borderless"
         />
       </Modal>
