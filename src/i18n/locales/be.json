@@ -20,7 +20,8 @@
     "sign-in": "Увайсці",
     "sign-up": "Рэгістрацыя",
     "forgotPassword": "Забыліся пароль",
-    "goToLogin": "Перайсці да ўваходу"
+    "goToLogin": "Перайсці да ўваходу",
+    "close": "Зачынiць"
   },
   "validationError": {
     "email": "E-mail павінен адпавядаць фармату `name@email.com`",

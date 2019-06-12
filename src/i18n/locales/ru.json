@@ -20,7 +20,8 @@
     "sign-in": "Войти",
     "sign-up": "Регистрация",
     "forgotPassword": "Забыли пароль",
-    "goToLogin": "Перейти ко входу"
+    "goToLogin": "Перейти ко входу",
+    "close": "Закрыть"
   },
   "validationError": {
     "email": "E-mail должен соответствовать формату `name@email.com`",

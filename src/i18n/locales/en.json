@@ -20,7 +20,8 @@
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
     "forgotPassword": "Forgot password",
-    "goToLogin": "Go to login"
+    "goToLogin": "Go to login",
+    "close": "Close"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
