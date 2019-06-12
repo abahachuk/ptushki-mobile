@@ -29,7 +29,7 @@
     "lastName": "Поле Фамилия не должно быть пустым",
     "phone": "Поле Телефон не должно быть пустым"
   },
-  "editObservation": {
+  "addEditObservation": {
     "editing": "Редактирование",
     "birdHeader": "Птица",
     "birdDescription": "Опишите птицу и обстоятельства, в которых вы её увидели.",
@@ -44,6 +44,9 @@
     "searchOnMap": "НА КАРТЕ",
     "time": "Время",
     "sendObservation": "ОТПРАВИТЬ НАБЛЮДЕНИЕ",
+    "updateObservation": "ОТПРАВИТЬ ИЗМЕНЕНИЯ",
+    "navHeaderTitleAdd": "Добавление наблюдения",
+    "navHeaderTitleEdit": "Редактирование",
     "currentDateTime": "ТЕКУЩЕЕ ВРЕМЯ И ДАТА",
     "country": "Страна",
     "region": "Область район",
@@ -70,7 +73,24 @@
     "gallery": "ГАЛЕРЕЯ",
     "makePhoto": "СДЕЛАТЬ ФОТО",
     "close": "ЗАКРЫТЬ",
-    "delete": "УДАЛИТЬ"
+    "delete": "УДАЛИТЬ",
+    "declineChangesTitle": "Выйти без изменений?",
+    "declineChangesDescription": "Вы уверены, что хотите выйти, не отправив изменения на сервер?",
+    "applyDeclineChanges": "ВЫЙТИ",
+    "cancelDeclineChanges": "ОТМЕНА"
+  },
+  "observationCreated": {
+    "observationCreatedTitle": "Вы успешно добавили наблюдение",
+    "observationCreatedDescription": 
+      "Вы успешно добавили наблюдение в базу, ваша запись будет промодерирована и добавлена в национальную и европейскую базы наблюдений окольцованных птиц.",
+    "observationCreatedDate": "Время наблюдения",
+    "observationLocation": "Место наблюдения",
+    "birdSex": "Пол",
+    "birdAge": "Возраст",
+    "birdObstacles": "Обстоятельства",
+    "moveToRecord": "Перейти к записи",
+    "complete": "Завершить",
+    "creatingObservation": "Добавление наблюдения"
   },
   "passwordRecovery": {
     "recovery": "Восстановление пароля",
