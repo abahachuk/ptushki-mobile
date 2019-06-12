@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, KeyboardAvoidingView, Alert } from "react-native";
+import { View, Text, Image, KeyboardAvoidingView } from "react-native";
+import Modal from "react-native-modalbox";
 
 /* eslint-disable */
 import { Button, Input } from "components";
@@ -23,7 +24,9 @@ const Login = props => {
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
   const [passwordError, setPasswordError] = useState("");
+  const modalRef = useRef(null);
   const authService = new AuthService();
+  let backendErrorMessage;
 
   const onLoginPress = () => {
     authService
@@ -33,9 +36,9 @@ const Login = props => {
           navigation.navigate("mainPage");
         }
       })
-      .catch(() => {
-        // TODO: show message for user
-        Alert.alert(`Sorry, there's a problem with your data`);
+      .catch(err => {
+        backendErrorMessage = err.message;
+        modalRef.current.open();
       });
   };
 
@@ -45,6 +48,9 @@ const Login = props => {
   };
   const onPasswordForgot = () => {
     navigation.navigate("passwordReset");
+  };
+  const closeModal = () => {
+    modalRef.current.close();
   };
 
   const validateEmail = makeValidatorEmail(translate("validationError.email"));
@@ -113,6 +119,20 @@ const Login = props => {
           wrapperStyles={styles.restorePswBtn}
         />
       </View>
+      <Modal
+        style={[styles.modal]}
+        backdrop={false}
+        position="top"
+        ref={modalRef}
+      >
+        <Text style={[styles.modalText]}>{backendErrorMessage}</Text>
+        <Button
+          caption={translate("login.close")}
+          onPress={closeModal}
+          wrapperStyles={styles.modalBtn}
+          appearance="Borderless"
+        />
+      </Modal>
     </KeyboardAvoidingView>
   );
 };
