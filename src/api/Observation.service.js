@@ -10,20 +10,22 @@ export default class ObservationService extends BaseService {
     return super
       .sendRequest(GET_OBSERVATIONS_ENDPOINT, "GET", token)
       .then(response => {
-        return response.json()
+        return response.json();
       });
   }
 
   async deleteObservation(id, description) {
     const token = await AsyncStorage.getItem("token");
-    console.log(DELETE_OBSERVATIONS_ENDPOINT(id, description))
 
     return super
-      .sendRequest(DELETE_OBSERVATIONS_ENDPOINT(id, description), "DELETE", token)
+      .sendRequest(
+        DELETE_OBSERVATIONS_ENDPOINT(id, description),
+        "DELETE",
+        token
+      )
 
       .then(response => {
-        console.log(response)
-        return response.json()
+        return response.json();
       });
   }
 }

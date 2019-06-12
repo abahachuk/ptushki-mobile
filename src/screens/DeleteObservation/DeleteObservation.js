@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { View, KeyboardAvoidingView } from "react-native";
 import { Overlay, Button, Text, Input } from "react-native-elements";
+/* eslint-disable-next-line */
+import { ObservationService } from "api";
 import Popup from "./Popup";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
-import { ObservationService  } from "api";
 
 const service = new ObservationService();
 
@@ -18,24 +19,28 @@ const DeleteObservation = props => {
     if (index !== 0) {
       setModalVisible(true);
     }
-  }
+  };
 
   const onBackPress = () => {
     setModalVisible(false);
   };
 
   const onDeletePress = () => {
-    console.log(navigation.state.params.ObservationItem.id)
+    console.log(navigation.state.params.ObservationItem.id);
 
-    service.deleteObservation(navigation.state.params.ObservationItem.id, deleteDescription).then((response) => {
-      console.log(response)
-      setModalVisible(false);
-      navigation.navigate("Observations");
-    })
-    .catch((err) => {
-      console.log(err)
-
-    })
+    service
+      .deleteObservation(
+        navigation.state.params.ObservationItem.id,
+        deleteDescription
+      )
+      .then(response => {
+        console.log(response);
+        setModalVisible(false);
+        navigation.navigate("Observations");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   return (

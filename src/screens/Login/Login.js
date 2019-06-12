@@ -27,7 +27,7 @@ const Login = props => {
 
   const onLoginPress = () => {
     authService
-      .logIn('admin@mail.com', '1234')//(email, password)
+      .logIn(email, password)
       .then(data => {
         if (data) {
           navigation.navigate("mainPage");
@@ -37,7 +37,6 @@ const Login = props => {
         // TODO: show message for user
         Alert.alert(`Sorry, there's a problem with your data`);
       });
-      // navigation.navigate("mainPage");
   };
 
   const onRegisterPress = () => {
