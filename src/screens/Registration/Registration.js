@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import { Text, ScrollView, KeyboardAvoidingView, Alert } from "react-native";
+import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
+import Modal from "react-native-modalbox";
 
 import {
   makeValidatorEmail,
   makeValidatorPassword,
   makeRequiredValidator
 } from "../../utils/validators";
+import { modalWindowStyles } from "../../utils/modalWindowStyles";
 import { styles } from "./styles";
 import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
@@ -22,6 +24,7 @@ const fields = {
 
 const Registration = props => {
   const {
+    error: errorFromProps,
     emailDefault,
     passwordDefault,
     firstNameDefault,
@@ -43,6 +46,7 @@ const Registration = props => {
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [error, setError] = useState(errorFromProps);
 
   const validateEmail = makeValidatorEmail(translate("validationError.email"));
   const validatePassword = makeValidatorPassword(
@@ -57,6 +61,7 @@ const Registration = props => {
   const validatePhone = makeRequiredValidator(
     translate("validationError.phone")
   );
+  const modalRef = useRef(null);
   const authService = new AuthService();
 
   const setRegistrationDataCommon = field => value =>
@@ -72,9 +77,10 @@ const Registration = props => {
           });
         }
       })
-      .catch(() => {
-        // TODO: show message for user
-        Alert.alert(`Sorry, registration failed`);
+      .catch(err => {
+        const backendErrorMessage = "Sorry, registration failed";
+        setError(err.message || backendErrorMessage);
+        modalRef.current.open();
       });
   };
   const onBackPress = () => {
@@ -92,6 +98,9 @@ const Registration = props => {
   };
   const onPhoneBlur = () => {
     setPhoneError(validatePhone(phone));
+  };
+  const closeModal = () => {
+    modalRef.current.close();
   };
 
   return (
@@ -161,6 +170,20 @@ const Registration = props => {
           appearance="Borderless"
           wrapperStyles={styles.footerBtn}
         />
+        <Modal
+          style={[modalWindowStyles.modal]}
+          backdrop={false}
+          position="top"
+          ref={modalRef}
+        >
+          <Text style={[modalWindowStyles.modalText]}>{error}</Text>
+          <Button
+            caption={translate("login.close")}
+            onPress={closeModal}
+            wrapperStyles={modalWindowStyles.modalBtn}
+            appearance="Borderless"
+          />
+        </Modal>
       </KeyboardAvoidingView>
     </ScrollView>
   );
@@ -176,6 +199,7 @@ Registration.propTypes = {
   firstNameDefault: PropTypes.string,
   lastNameDefault: PropTypes.string,
   phoneDefault: PropTypes.string,
+  error: PropTypes.string,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
     goBack: PropTypes.func
@@ -186,7 +210,8 @@ Registration.defaultProps = {
   passwordDefault: "",
   firstNameDefault: "",
   lastNameDefault: "",
-  phoneDefault: ""
+  phoneDefault: "",
+  error: ""
 };
 
 export default Registration;
