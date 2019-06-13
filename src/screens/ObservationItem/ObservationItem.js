@@ -1,69 +1,63 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, ActivityIndicator, ScrollView } from "react-native";
-import { Image } from "react-native-elements";
+import { View, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import getInformationBlock from "./sections/InformationBlock";
 import DeleteObservation from "../DeleteObservation";
-
+import HeaderImage from "./sections/HeaderImage";
+import Gallery from "./sections/Gallery";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 
+const getLocalizedText = (obj, locale) => {
+  let text = "";
+
+  switch (locale) {
+    case "en":
+      text = obj.desc_eng;
+      break;
+    case "be":
+      text = obj.desc_byn;
+      break;
+    case "ru":
+      text = obj.desc_rus;
+      break;
+    default:
+      text = obj.desc_rus && obj.desc_eng && obj.desc_byn;
+  }
+
+  return text;
+};
+
 const ObservationItem = props => {
-  const { navigation } = props;
+  const {
+    navigation,
+    screenProps: { currentLocale }
+  } = props;
   const {
     speciesMentioned: { species },
     ring: { identificationNumber },
     placeName,
     date,
-    sexMentioned: { desc_rus: sex },
-    ageMentioned: { desc_rus: age },
-    status: { desc_rus: status },
+    sexMentioned,
+    ageMentioned,
+    status,
     remarks,
     photos
   } = navigation.state.params.ObservationItem;
 
-  const getHeaderImage = () => {
-    return (
-      photos &&
-      photos.length && (
-        <View style={styles.backImageWrap}>
-          <Image
-            style={styles.backImage}
-            source={{ uri: photos[0] }}
-            PlaceholderContent={<ActivityIndicator />}
-          />
-        </View>
-      )
-    );
-  };
-
-  const getGallery = () => {
-    return (
-      photos &&
-      photos.length && (
-        <View style={styles.images}>
-          {photos.map((photoUri) => (
-            <Image
-              style={styles.image}
-              source={{ uri: photoUri }}
-              key={photoUri}
-              PlaceholderContent={<ActivityIndicator />}
-            />
-          ))}
-        </View>
-      )
-    );
-  };
+  const sex = getLocalizedText(sexMentioned, currentLocale);
+  const age = getLocalizedText(ageMentioned, currentLocale);
+  const itemStatus = getLocalizedText(status, currentLocale);
 
   return (
     <View>
       <ScrollView style={styles.ObservationItem}>
-        {getHeaderImage()}
+        <HeaderImage photos={photos} />
         <View style={styles.wrap}>
           <Text style={styles.species}>{species}</Text>
         </View>
-        {getGallery()}
+        <Gallery photos={photos} />
         <View style={styles.wrap}>
           <Text style={styles.header}>
             {translate("observationItem.rings")}
@@ -95,7 +89,7 @@ const ObservationItem = props => {
         {getInformationBlock(translate("observationItem.ageHeader"), age)}
         {getInformationBlock(
           translate("observationItem.lifeStatusHeader"),
-          status
+          itemStatus
         )}
         <View style={styles.line} />
         {getInformationBlock(
@@ -143,6 +137,9 @@ ObservationItem.propTypes = {
         })
       })
     })
+  }).isRequired,
+  screenProps: PropTypes.shape({
+    currentLocale: PropTypes.string
   }).isRequired
 };
 
