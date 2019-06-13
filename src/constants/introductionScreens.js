@@ -1,4 +1,4 @@
-export const FIRST_INTRO_SCREEN = "first";
-export const SECOND_INTRO_SCREEN = "second";
-export const THIRD_INTRO_SCREEN = "third";
-export const FOURTH_INTRO_SCREEN = "fourth";
+export const FIRST_INTRO_SCREEN = "FIRST_INTRO_SCREEN";
+export const SECOND_INTRO_SCREEN = "SECOND_INTRO_SCREEN";
+export const THIRD_INTRO_SCREEN = "THIRD_INTRO_SCREEN";
+export const FOURTH_INTRO_SCREEN = "FOURTH_INTRO_SCREEN";

@@ -63,13 +63,16 @@ const Login = props => {
     setEmailError(validateEmail(email));
     setPasswordError(validatePassword(password));
   };
+  const navigateToIntro = () => {
+    navigation.navigate(FIRST_INTRO_SCREEN);
+  };
 
   return (
     <KeyboardAvoidingView style={styles.container} enabled>
       <View style={styles.loginContainer}>
         <View style={styles.headerContainer}>
           <View style={styles.infoImgContainer}>
-            <TouchableHighlight onPress={() => { navigation.navigate(FIRST_INTRO_SCREEN); }}>
+            <TouchableHighlight onPress={navigateToIntro}>
               <Image style={styles.infoImg} source={infoImg} />
             </TouchableHighlight>
           </View>
