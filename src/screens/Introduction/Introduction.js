@@ -62,6 +62,62 @@ const getImageSource = introductionId =>
     [FOURTH_INTRO_SCREEN]: fourthIntroImg
   });
 
+// eslint-disable-next-line no-shadow
+const Circle = ({ selected, styles }) => (
+  <View
+    style={{
+      width: 10,
+      height: 10,
+      borderRadius: 10 / 2,
+      backgroundColor: selected ? "#fff" : "none",
+      borderWidth: 1,
+      borderColor: "#fff",
+      zIndex: 100,
+      ...styles
+    }}
+  />
+);
+
+Circle.propTypes = {
+  selected: PropTypes.bool.isRequired,
+  styles: PropTypes.object.isRequired
+};
+
+// eslint-disable-next-line no-shadow
+const Indicator = ({ selectedIndex, styles }) => (
+  <View
+    style={{
+      width: "100%",
+      backgroundColor: "transparent",
+      flexDirection: "row",
+      justifyContent: "center",
+      paddingTop: 10,
+      paddingBottom: 10,
+      ...styles
+    }}
+  >
+    {[
+      FIRST_INTRO_SCREEN,
+      SECOND_INTRO_SCREEN,
+      THIRD_INTRO_SCREEN,
+      FOURTH_INTRO_SCREEN
+    ].map(index => (
+      <Circle
+        key={index}
+        styles={{
+          marginRight: 5
+        }}
+        selected={selectedIndex === index}
+      />
+    ))}
+  </View>
+);
+
+Indicator.propTypes = {
+  selectedIndex: PropTypes.string.isRequired,
+  styles: PropTypes.object.isRequired
+};
+
 // TODO: add navigation by swipe?
 const Introduction = props => {
   const { navigation } = props;
@@ -76,7 +132,18 @@ const Introduction = props => {
       <View style={styles.main}>
         <View style={styles.imageContainer}>
           {/* TODO: Temporary solution until image assets will be provided */}
-          <Image resizeMode="stretch" style={styles.image} source={getImageSource(introductionId)} />
+          <Image
+            resizeMode="cover"
+            style={styles.image}
+            source={getImageSource(introductionId)}
+          />
+          <Indicator
+            styles={{
+              position: "absolute",
+              bottom: 0
+            }}
+            selectedIndex={introductionId}
+          />
         </View>
         <View style={styles.descriptionContainer}>
           <Text style={styles.screenTitle}>

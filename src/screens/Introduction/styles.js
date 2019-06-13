@@ -12,7 +12,9 @@ export const styles = StyleSheet.create({
     alignItems: "center"
   },
   main: {},
-  imageContainer: {},
+  imageContainer: {
+    position: "relative"
+  },
   image: {
     width: "100%",
     height: 200
