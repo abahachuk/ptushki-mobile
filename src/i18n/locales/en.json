@@ -1,4 +1,7 @@
 {
+  "backendError": {
+    "401": "Error with password or login, try one more time, please"
+  },
   "registration": {
     "password": "Password",
     "email": "E-mail",
@@ -23,7 +26,7 @@
     "forgotPassword": "Forgot password",
     "goToLogin": "Go to login",
     "close": "Close",
-    "backendErrorMessage": "Error with password or login, try one more time, please"
+    "backendErrorMessage": "Error with login, check your internet connectiond, if it's ok, check login and password"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
