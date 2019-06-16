@@ -5,6 +5,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {
   Observations,
   AddObservation,
+  EditObservation,
   ObservationItem,
   ObservationCreated
 } from "../../screens";
@@ -26,6 +27,9 @@ const ObservationStackNavigator = createStackNavigator(
     },
     ObservationCreated: {
       screen: ObservationCreated
+    },
+    EditObservation: {
+      screen: EditObservation
     }
     // TODO: add createObservation and ExistingObservation here
   },

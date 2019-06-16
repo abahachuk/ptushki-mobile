@@ -16,7 +16,12 @@ class DeleteObservation extends Component {
   }
 
   onPopupPress(event, index) {
-    if (index !== 0) {
+    if (index === 0) {
+      // eslint-disable-next-line react/destructuring-assignment, react/prop-types
+      this.props.navigation.navigate("EditObservation");
+    }
+
+    if (index === 1) {
       this.setModalVisible(true);
     }
   }

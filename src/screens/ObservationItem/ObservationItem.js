@@ -15,7 +15,7 @@ export default class ObservationItem extends PureComponent {
     static navigationOptions = ({ navigation }) => ({
         title: navigation.state.params.ObservationItem.speciesMentioned.species,
         headerRight: (
-            <DeleteObservation />
+            <DeleteObservation navigation={navigation} />
         ),
         headerLeft: (
             <Icon
