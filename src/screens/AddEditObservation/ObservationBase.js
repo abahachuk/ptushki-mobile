@@ -14,6 +14,7 @@ import {
   PhotoCarousel,
   DeclineChangesPopup
 } from "./sections";
+import ObservationService from "../../api/Observation.service";
 
 const ObservationBase = props => {
   const {
@@ -77,18 +78,60 @@ const ObservationBase = props => {
     }));
 
   const [rings, setRingsValues] = useState(ringsDefaultValues);
+  const service = new ObservationService();
 
-  const onSubmitPress = () => {
-    // TODO: make api call to create observation
-    props.navigation.navigate("ObservationCreated", {
+  const sendEditObservation = () => {
+    service
+      .addObservations()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const sendAddObservation = () => {
+    const body = {
       birdSpecies,
-      dateTime,
-      observationLocation: `${country} ${region}`,
       birdSex,
       birdAge,
-      birdObstacles
-    });
+      birdObstacles,
+      country,
+      region,
+      coordinates,
+      comment,
+      dateTime,
+      dateTimeInaccuracy,
+      birdPhotos
+    };
+
+    service
+      .addObservations(JSON.stringify(body))
+      .then(response => {
+        console.log(response);
+        props.navigation.navigate("ObservationCreated", {
+          birdSpecies,
+          dateTime,
+          observationLocation: `${country} ${region}`,
+          birdSex,
+          birdAge,
+          birdObstacles
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
+
+  const onSubmitPress = () => {
+    const { routeName } = props.navigation.state;
+
+    return routeName === "AddObservation"
+      ? sendAddObservation()
+      : sendEditObservation();
+  };
+
   const onCurrentPositionPress = () => {
     props.onCurrentPosition();
   };
@@ -198,6 +241,7 @@ ObservationBase.propTypes = {
   onSearchOnMap: PropTypes.func,
   onCurrentDateTime: PropTypes.func,
   navigation: PropTypes.shape({
+    state: PropTypes.object,
     goBack: PropTypes.func,
     navigate: PropTypes.func
   }).isRequired
@@ -230,8 +274,14 @@ ObservationBase.defaultProps = {
   onCurrentDateTime: () => {}
 };
 ObservationBase.navigationOptions = ({ navigation }) => {
+  const { routeName } = navigation.state;
+  const title =
+    routeName === "AddObservation"
+      ? translate("addEditObservation.navHeaderTitleAdd")
+      : translate("addEditObservation.navHeaderTitleEdit");
+
   return {
-    title: translate("addEditObservation.navHeaderTitleEdit"),
+    title,
     headerLeft: (
       <Icon
         name="arrowleft"
