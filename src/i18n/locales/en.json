@@ -29,7 +29,7 @@
     "lastName": "Surname shouldn't be empty",
     "phone": "Phone Number shouldn't be empty"
   },
-  "editObservation": {
+  "addEditObservation": {
     "editing": "Edit",
     "birdHeader": "Bird",
     "birdDescription": "Describe the bird and the circumstances in which you saw it.",
@@ -44,6 +44,9 @@
     "searchOnMap": "ON THE MAP",
     "time": "Time",
     "sendObservation": "SEND OBSERVATION",
+    "updateObservation": "APPLY UPDATES",
+    "navHeaderTitleAdd": "Adding observation",
+    "navHeaderTitleEdit": "Updating",
     "currentDateTime": "CURRENT DATE AND TIME",
     "country": "Country",
     "region": "Region",
@@ -70,7 +73,24 @@
     "gallery": "GALLERY",
     "makePhoto": "MAKE PHOTO",
     "close": "CLOSE",
-    "delete": "REMOVE"
+    "delete": "REMOVE",
+    "declineChangesTitle": "Exit without changes?",
+    "declineChangesDescription": "Are you sure you want to exit and lose your changes?",
+    "applyDeclineChanges": "EXIT",
+    "cancelDeclineChanges": "CANCEL"
+  },
+  "observationCreated": {
+    "observationCreatedTitle": "Observation has been successfully added",
+    "observationCreatedDescription": 
+      "Observation has been successfully added to the database, your record will be moderized and then added to the national and european bases of ringed birds.",
+    "observationCreatedDate": "Observation time",
+    "observationLocation": "Observation location",
+    "birdSex": "Sex",
+    "birdAge": "Age",
+    "birdObstacles": "Obstacles",
+    "moveToRecord": "Go to the record",
+    "complete": "Complete",
+    "creatingObservation": "Creating observation"
   },
   "passwordRecovery": {
     "recovery": "E-mail recovery",

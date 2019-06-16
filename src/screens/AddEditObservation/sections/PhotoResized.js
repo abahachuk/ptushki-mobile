@@ -16,7 +16,7 @@ const PhotoResized = props => {
         style={styles.resizedPhotoButton}
       >
         <Text style={styles.resizedPhotoButtonText}>
-          {translate("editObservation.close")}
+          {translate("addEditObservation.close")}
         </Text>
       </TouchableOpacity>
       <Image style={styles.birdPhotoResized} source={photoForResizing} />
@@ -25,7 +25,7 @@ const PhotoResized = props => {
         style={styles.resizedPhotoButton}
       >
         <Text style={styles.resizedPhotoButtonText}>
-          {translate("editObservation.delete")}
+          {translate("addEditObservation.delete")}
         </Text>
       </TouchableOpacity>
     </Overlay>

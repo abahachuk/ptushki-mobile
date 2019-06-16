@@ -5,14 +5,15 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
 
 const SettingsRadioButton = props => {
-  const { state, text } = props;
+  const { isOn, text, onPress } = props;
 
   return (
     <View>
       <Icon.Button
-        name={`md-radio-button-${state}`}
+        name={`md-radio-button-${isOn ? "on" : "off"}`}
         color="black"
-        backgroundColor="transparent"
+        backgroundColor="white"
+        onPress={onPress}
       >
         <Text style={styles.radioText}>{text}</Text>
       </Icon.Button>
@@ -21,11 +22,9 @@ const SettingsRadioButton = props => {
 };
 
 SettingsRadioButton.propTypes = {
-  state: PropTypes.string,
-  text: PropTypes.string.isRequired
-};
-SettingsRadioButton.defaultProps = {
-  state: "off"
+  isOn: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired
 };
 
 export default SettingsRadioButton;

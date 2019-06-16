@@ -8,9 +8,10 @@ import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
 import { styles } from "./styles";
 
 const LanguageButton = props => {
-  const { title, langKey, navigation } = props;
-  /* eslint-disable-next-line */
+  const { title, langKey, navigation, screenProps, navigationRoute } = props;
+
   const onPress = key => {
+    screenProps.onLocaleChange(key);
     navigation.navigate(FIRST_INTRO_SCREEN);
   };
 
@@ -28,8 +29,12 @@ const LanguageButton = props => {
 LanguageButton.propTypes = {
   title: PropTypes.string.isRequired,
   langKey: PropTypes.string.isRequired,
+  navigationRoute: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func
+  }).isRequired,
+  screenProps: PropTypes.shape({
+    onLocaleChange: PropTypes.func
   }).isRequired
 };
 

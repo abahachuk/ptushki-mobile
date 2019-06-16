@@ -1,16 +1,14 @@
+/* eslint-disable */
 import React from "react";
-import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
+import { ScrollView, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles";
 import { translate } from "../../i18n";
-import SettingsButton from "./SettingsButton";
-import SettingsInput from "./SettingsInput";
-import SettingsRadioButton from "./SettingsRadioButton";
+// import SettingsInput from "./SettingsInput";
+// import SettingsRadioButton from "./SettingsRadioButton";
+// import LanguageButton from "../../components/LanguageButton/LanguageButton.js";
+import LanguageSettingsSection from './LanguageSettingsSection'
 
-const Settings = () => {
-  const emailRefresh = () => {};
-  const passwordRefresh = () => {};
-  const personalInfoRefresh = () => {};
-  const langRefresh = () => {};
+const Settings = props => {
 
   return (
     <ScrollView
@@ -19,7 +17,7 @@ const Settings = () => {
       enabled
     >
       <KeyboardAvoidingView style={styles.container} enabled>
-        <Text style={styles.headerText}>
+        {/* <Text style={styles.headerText}>
           {translate("settings.profileSettings")}
         </Text>
 
@@ -43,14 +41,10 @@ const Settings = () => {
         <SettingsButton
           titleKey="refresh"
           updateCallback={personalInfoRefresh}
-        />
+        /> */}
 
-        <Text style={styles.hintText}>{translate("settings.language")}</Text>
-        <SettingsRadioButton state="on" text="Русский" />
-        <SettingsRadioButton state="off" text="Беларуская мова" />
-        <SettingsRadioButton state="off" text="English" />
+        <LanguageSettingsSection {...props} />
 
-        <SettingsButton titleKey="apply" updateCallback={langRefresh} />
       </KeyboardAvoidingView>
     </ScrollView>
   );

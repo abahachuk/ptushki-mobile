@@ -51,7 +51,6 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         paddingHorizontal: 5,
         paddingVertical: 2,
-        backgroundColor: colors.firebrick, // example color
         alignSelf: "flex-end",
         shadowColor: colors.black,
         shadowOffset: {
@@ -67,7 +66,6 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         paddingHorizontal: 5,
         paddingVertical: 2,
-        backgroundColor: colors.firebrick, // example color
         alignSelf: "flex-end",
         shadowColor: colors.black,
         shadowOffset: {
@@ -87,5 +85,20 @@ export const styles = StyleSheet.create({
     line: {
         borderBottomColor: colors.textBlack,
         borderBottomWidth: 1,
-    }
+    },
+    toolbar: {
+        flexDirection: "row",
+        alignItems: "center",
+        height: 56,
+        backgroundColor: "#546e7a",
+        paddingLeft: 16
+      },
+      toolbarTitle: {
+        fontSize: 20,
+        fontFamily: "Roboto",
+        color: "white"
+      },
+      backButton: {
+        marginRight: 32
+      },
 });
