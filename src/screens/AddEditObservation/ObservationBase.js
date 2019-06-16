@@ -81,8 +81,24 @@ const ObservationBase = props => {
   const service = new ObservationService();
 
   const sendEditObservation = () => {
+    const body = {
+      birdSpecies,
+      birdSex,
+      birdAge,
+      birdObstacles,
+      country,
+      region,
+      coordinates,
+      comment,
+      dateTime,
+      dateTimeInaccuracy,
+      birdPhotos
+    };
+
+    const id = "";
+
     service
-      .addObservations()
+      .editObservations(body, id)
       .then(response => {
         console.log(response);
       })
