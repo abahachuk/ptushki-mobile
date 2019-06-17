@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, KeyboardAvoidingView } from "react-native";
+import { View, Text, Image, KeyboardAvoidingView, TouchableHighlight } from "react-native";
 import Modal from "react-native-modalbox";
 
 /* eslint-disable */
@@ -10,6 +10,7 @@ import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { modalWindowStyles } from "utils/modalWindowStyles";
 import { styles } from "./styles";
 import { AuthService } from "api";
+import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
 
 const logoImg = require("assets/logotype/logotype2x.png");
 const infoImg = require("assets/ic_info/ic_info2x.png");
@@ -63,13 +64,18 @@ const Login = props => {
     setEmailError(validateEmail(email));
     setPasswordError(validatePassword(password));
   };
+  const navigateToIntro = () => {
+    navigation.navigate(FIRST_INTRO_SCREEN);
+  };
 
   return (
     <KeyboardAvoidingView style={styles.container} enabled>
       <View style={styles.loginContainer}>
         <View style={styles.headerContainer}>
           <View style={styles.infoImgContainer}>
-            <Image style={styles.infoImg} source={infoImg} />
+            <TouchableHighlight onPress={navigateToIntro}>
+              <Image style={styles.infoImg} source={infoImg} />
+            </TouchableHighlight>
           </View>
           <View style={styles.header}>
             <Image

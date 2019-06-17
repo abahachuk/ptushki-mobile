@@ -70,21 +70,21 @@ const ObstaclesSection = props => {
 
     setDateTimeValue({
       dateTimeValue: newDateTimeValue,
-      dateTimeInaccuracyValue: translate("editObservation.preciseTime")
+      dateTimeInaccuracyValue: translate("addEditObservation.preciseTime")
     });
   };
 
   return (
     <KeyboardAvoidingView style={styles.obstaclesSectionContainer}>
       {getDescriptionBlock(
-        translate("editObservation.obstaclesHeader"),
-        translate("editObservation.obstaclesDescription")
+        translate("addEditObservation.obstaclesHeader"),
+        translate("addEditObservation.obstaclesDescription")
       )}
       <View style={styles.geolocationButtons}>
         <Button
           wrapperStyles={styles.geolocationButton}
           onPress={onSearchOnMapPress}
-          caption={translate("editObservation.searchOnMap")}
+          caption={translate("addEditObservation.searchOnMap")}
           appearance="Borderless"
         />
         <TouchableOpacity
@@ -93,19 +93,19 @@ const ObstaclesSection = props => {
         >
           <IconFA name="map-marker" size={30} color={colors.green} />
           <Text style={styles.buttonWithIconText}>
-            {translate("editObservation.currentGeoposition")}
+            {translate("addEditObservation.currentGeoposition")}
           </Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.sectionTitle}>
-        {translate("editObservation.place")}
+        {translate("addEditObservation.place")}
       </Text>
       <CustomPicker
         wrappedStyles={styles.countryPicker}
         selectedValue={country}
         onValueChange={itemValue => setFieldValue({ country: itemValue })}
         items={countryValues}
-        caption={translate("editObservation.country")}
+        caption={translate("addEditObservation.country")}
       />
       <Input
         onChangeText={value => setFieldValue({ region: value })}
@@ -113,7 +113,7 @@ const ObstaclesSection = props => {
         customTextStyles={styles.customText}
         wrapperStyles={styles.customInput}
         value={region}
-        label={translate("editObservation.region")}
+        label={translate("addEditObservation.region")}
       />
       <Input
         onChangeText={value => setFieldValue({ coordinates: value })}
@@ -121,10 +121,10 @@ const ObstaclesSection = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={coordinatesValue}
-        label={translate("editObservation.coordinates")}
+        label={translate("addEditObservation.coordinates")}
       />
       <Text style={styles.sectionTitle}>
-        {translate("editObservation.time")}
+        {translate("addEditObservation.time")}
       </Text>
       <TouchableOpacity
         style={[styles.buttonWithIcon, styles.currentDateTimeButton]}
@@ -132,7 +132,7 @@ const ObstaclesSection = props => {
       >
         <IconII name="md-time" size={30} color={colors.green} />
         <Text style={[styles.buttonWithIconText, styles.currentDateTimeText]}>
-          {translate("editObservation.currentDateTime")}
+          {translate("addEditObservation.currentDateTime")}
         </Text>
       </TouchableOpacity>
       <Input
@@ -141,7 +141,7 @@ const ObstaclesSection = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={dateTimeValue}
-        label={translate("editObservation.dateTime")}
+        label={translate("addEditObservation.dateTime")}
       />
       <Input
         onChangeText={value => setFieldValue({ dateTimeInaccuracy: value })}
@@ -149,13 +149,13 @@ const ObstaclesSection = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={dateTimeInaccuracyValue}
-        label={translate("editObservation.dateTimeInaccuracy")}
+        label={translate("addEditObservation.dateTimeInaccuracy")}
       />
       <Text style={styles.sectionTitle}>
-        {translate("editObservation.comment")}
+        {translate("addEditObservation.comment")}
       </Text>
       <Text style={styles.sectionDescription}>
-        {translate("editObservation.commentBlockDescription")}
+        {translate("addEditObservation.commentBlockDescription")}
       </Text>
       <Input
         onChangeText={value => setFieldValue({ comment: value })}
@@ -163,7 +163,7 @@ const ObstaclesSection = props => {
         customViewStyles={styles.commentField}
         customTextStyles={styles.customText}
         value={comment}
-        label={translate("editObservation.comment")}
+        label={translate("addEditObservation.comment")}
       />
     </KeyboardAvoidingView>
   );

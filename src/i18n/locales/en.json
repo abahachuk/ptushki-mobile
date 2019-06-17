@@ -35,7 +35,7 @@
     "lastName": "Surname shouldn't be empty",
     "phone": "Phone Number shouldn't be empty"
   },
-  "editObservation": {
+  "addEditObservation": {
     "editing": "Edit",
     "birdHeader": "Bird",
     "birdDescription": "Describe the bird and the circumstances in which you saw it.",
@@ -50,6 +50,9 @@
     "searchOnMap": "ON THE MAP",
     "time": "Time",
     "sendObservation": "SEND OBSERVATION",
+    "updateObservation": "APPLY UPDATES",
+    "navHeaderTitleAdd": "Adding observation",
+    "navHeaderTitleEdit": "Updating",
     "currentDateTime": "CURRENT DATE AND TIME",
     "country": "Country",
     "region": "Region",
@@ -76,7 +79,24 @@
     "gallery": "GALLERY",
     "makePhoto": "MAKE PHOTO",
     "close": "CLOSE",
-    "delete": "REMOVE"
+    "delete": "REMOVE",
+    "declineChangesTitle": "Exit without changes?",
+    "declineChangesDescription": "Are you sure you want to exit and lose your changes?",
+    "applyDeclineChanges": "EXIT",
+    "cancelDeclineChanges": "CANCEL"
+  },
+  "observationCreated": {
+    "observationCreatedTitle": "Observation has been successfully added",
+    "observationCreatedDescription": 
+      "Observation has been successfully added to the database, your record will be moderized and then added to the national and european bases of ringed birds.",
+    "observationCreatedDate": "Observation time",
+    "observationLocation": "Observation location",
+    "birdSex": "Sex",
+    "birdAge": "Age",
+    "birdObstacles": "Obstacles",
+    "moveToRecord": "Go to the record",
+    "complete": "Complete",
+    "creatingObservation": "Creating observation"
   },
   "passwordRecovery": {
     "recovery": "E-mail recovery",
@@ -139,5 +159,20 @@
     "commentHeader": "Comments",
     "addSameBird": "Add the same bird",
     "addSameBirdObservation": "Add observation of the same bird"
+  },
+  "introduction": {
+    "back": "Back",
+    "next": "Next",
+    "understandably": "Understandably",
+    "clear": "Clear",
+    "begin": "Let's begin!",
+    "firstScreenTitle": "What it is?",
+    "secondScreenTitle": "Why is this necessary?",
+    "thirdScreenTitle": "What did I do?",
+    "fourthScreenTitle": "What kind",
+    "firstScreenText": "Application for collecting data on ringed birds found on the territory of the Republic of Belarus",
+    "secondScreenText": "Scientists ornithologists mark birds with special plastic or metal rings to register the bird's location in different places and draw conclusions about the development of the population.\n\nDepending on the data obtained, environmentalists make decisions to maintain populations at the required level.",
+    "thirdScreenText": "If you find a bird with rings on one paw, or on both, or maybe on the neck, you can replenish the statistics of observations of this bird through this application.\n\nIf you found just a ring, this information is also very useful to us!",
+    "fourthScreenText": "There are various sets of rings, they can be on the paws, neck and even on the wings, so now you know what to look for.\n\nSo welcome to our humble scientific community of ringers and observers!"
   }
 }
