@@ -2,32 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
+import { getLocalizedText } from "utils/localization";
 import getInformationBlock from "./sections/InformationBlock";
 import DeleteObservation from "../DeleteObservation";
 import HeaderImage from "./sections/HeaderImage";
 import Gallery from "./sections/Gallery";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
-
-const getLocalizedText = (obj, locale) => {
-  let text = "";
-
-  switch (locale) {
-    case "en":
-      text = obj.desc_eng;
-      break;
-    case "be":
-      text = obj.desc_byn;
-      break;
-    case "ru":
-      text = obj.desc_rus;
-      break;
-    default:
-      text = obj.desc_rus && obj.desc_eng && obj.desc_byn;
-  }
-
-  return text;
-};
 
 const ObservationItem = props => {
   const {
