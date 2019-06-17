@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, BackHandler } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
 import { translate } from "../../i18n";
@@ -107,6 +107,31 @@ const ObservationBase = props => {
     navigation.setParams({ isDeclineChangesPopupOpened: false });
     navigation.goBack();
   };
+
+  useEffect(() => {
+    const isDeclineChangesSet = () =>
+      navigation.state.params &&
+      navigation.state.params.isDeclineChangesPopupOpened;
+
+    const onBackButtonPressAndroid = () => {
+      if (isDeclineChangesSet()) {
+        // returning false to prevent android back button event
+        return false;
+      }
+      navigation.setParams({ isDeclineChangesPopupOpened: true });
+      return true;
+    };
+
+    BackHandler.addEventListener("hardwareBackPress", onBackButtonPressAndroid);
+
+    return () => {
+      BackHandler.removeEventListener(
+        "hardwareBackPress",
+        onBackButtonPressAndroid
+      );
+    };
+  });
+
   return (
     <View style={styles.rootContainer}>
       {navigation.state.params &&

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import AsyncStorage from "@react-native-community/async-storage";
 import { GET_OBSERVATIONS_ENDPOINT, DELETE_OBSERVATIONS_ENDPOINT } from "config";
-import { BaseService } from "api";
+import BaseService  from "./Base.service";
 /* eslint-enable */
 
 export default class ObservationService extends BaseService {

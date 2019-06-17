@@ -6,7 +6,7 @@ import {
   AUTH_RESET_PASSWORD_ENDPOINT,
   AUTH_LOGOUT_ENDPOINT
 } from "config";
-import { BaseService } from "api";
+import BaseService  from "./Base.service";
 /* eslint-enable */
 
 export default class AuthService extends BaseService {
