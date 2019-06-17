@@ -5,6 +5,7 @@ import {
   PasswordRecovery,
   RegistrationEmailSent
 } from "../../screens";
+import IntroSlidesNavigator from './IntroSlidesNavigator';
 
 const RegistrationNavigator = createStackNavigator({
   login: {
@@ -21,7 +22,8 @@ const RegistrationNavigator = createStackNavigator({
   },
   registrationSuccess: {
     screen: RegistrationEmailSent
-  }
+  },
+  IntroSlidesNavigator
 });
 
 export default RegistrationNavigator;
