@@ -1,4 +1,7 @@
 {
+  "backendError": {
+    "401": "Error with password or login, try one more time, please"
+  },
   "registration": {
     "password": "Password",
     "email": "E-mail",
@@ -11,7 +14,8 @@
     "back": "Back",
     "register": "Register",
     "statusText": "Yey! Successfully signed up!",
-    "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!"
+    "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!",
+    "backendErrorMessage": "Sorry, registration failed"
   },
   "login": {
     "bandingCenter": "Center for Ringing Birds at the Academy of Sciences of the Republic of Belarus",
@@ -20,7 +24,9 @@
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
     "forgotPassword": "Forgot password",
-    "goToLogin": "Go to login"
+    "goToLogin": "Go to login",
+    "close": "Close",
+    "backendErrorMessage": "Error with login, check your internet connectiond, if it's ok, check login and password"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",

@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  Text,
-  Image,
-  KeyboardAvoidingView,
-  Alert,
-  TouchableHighlight
-} from "react-native";
+import { View, Text, Image, KeyboardAvoidingView, TouchableHighlight } from "react-native";
+import Modal from "react-native-modalbox";
 
 /* eslint-disable */
 import { Button, Input } from "components";
 import { translate } from "../../i18n";
 import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
+import { modalWindowStyles } from "utils/modalWindowStyles";
 import { styles } from "./styles";
 import { AuthService } from "api";
 import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
@@ -25,12 +20,15 @@ const Login = props => {
   const {
     email: emailFromProps,
     password: passwordFromProps,
+    error: errorFromProps,
     navigation
   } = props;
   const [email, setEmail] = useState(emailFromProps);
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
+  const [error, setError] = useState(errorFromProps);
   const [passwordError, setPasswordError] = useState("");
+  const modalRef = useRef(null);
   const authService = new AuthService();
 
   const onLoginPress = () => {
@@ -41,9 +39,9 @@ const Login = props => {
           navigation.navigate("mainPage");
         }
       })
-      .catch(() => {
-        // TODO: show message for user
-        Alert.alert(`Sorry, there's a problem with your data`);
+      .catch(err => {
+        setError(err.message || translate("login.backendErrorMessage"));
+        modalRef.current.open();
       });
   };
 
@@ -53,6 +51,9 @@ const Login = props => {
   };
   const onPasswordForgot = () => {
     navigation.navigate("passwordReset");
+  };
+  const closeModal = () => {
+    modalRef.current.close();
   };
 
   const validateEmail = makeValidatorEmail(translate("validationError.email"));
@@ -126,6 +127,20 @@ const Login = props => {
           wrapperStyles={styles.restorePswBtn}
         />
       </View>
+      <Modal
+        style={[modalWindowStyles.modal]}
+        backdrop={false}
+        position="top"
+        ref={modalRef}
+      >
+        <Text style={[modalWindowStyles.modalText]}>{error}</Text>
+        <Button
+          caption={translate("login.close")}
+          onPress={closeModal}
+          wrapperStyles={modalWindowStyles.modalBtn}
+          appearance="Borderless"
+        />
+      </Modal>
     </KeyboardAvoidingView>
   );
 };
@@ -137,6 +152,7 @@ Login.navigationOptions = () => ({
 Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
+  error: PropTypes.string,
   onRegister: PropTypes.func,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
@@ -146,6 +162,7 @@ Login.propTypes = {
 Login.defaultProps = {
   email: "",
   password: "",
+  error: "",
   onRegister: () => {}
 };
 
