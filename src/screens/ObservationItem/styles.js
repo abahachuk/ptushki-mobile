@@ -13,9 +13,6 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 24
   },
-  backImage: {
-    height: 220
-  },
   images: {
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -103,5 +100,9 @@ export const styles = StyleSheet.create({
   },
   backButton: {
     marginRight: 32
+  },
+  backImage: {
+    height: 220
   }
 });
+
