@@ -1,84 +1,99 @@
-import React, { Component } from "react";
-import { View, KeyboardAvoidingView } from "react-native";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { View, KeyboardAvoidingView, Alert } from "react-native";
 import { Overlay, Button, Text, Input } from "react-native-elements";
+/* eslint-disable-next-line */
+import { ObservationService } from "api";
 import Popup from "./Popup";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 
-class DeleteObservation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalVisible: false
-    };
+const service = new ObservationService();
 
-    this.onPopupPress = this.onPopupPress.bind(this);
-  }
+const DeleteObservation = props => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [deleteDescription, setDeleteDescription] = useState("none");
 
-  onPopupPress(event, index) {
+  const { navigation } = props;
+  const onPopupPress = (event, index) => {
     if (index !== 0) {
-      this.setModalVisible(true);
+      setModalVisible(true);
     }
-  }
+  };
 
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
+  const onBackPress = () => {
+    setModalVisible(false);
+  };
 
-  render() {
-    const { modalVisible } = this.state;
-    const onBackPress = () => {
-      this.setModalVisible(false);
-    };
-    const onDeletePress = () => {
-      this.setModalVisible(false);
-    };
+  const onDeletePress = () => {
+    service
+      .deleteObservation(
+        navigation.state.params.ObservationItem.id,
+        deleteDescription
+      )
+      .then(response => {
+        setModalVisible(false);
+        navigation.navigate("Observations");
+      })
+      .catch(err => {
+        console.log("DeleteObservation error: ", err);
+        Alert.alert(translate("deleteObservation.errorOnDelete"));
+      });
+  };
 
-    return (
-      <View>
-        <Overlay
-          isVisible={modalVisible}
-          windowBackgroundColor="rgba(0, 0, 0, .5)"
-        >
-          <KeyboardAvoidingView style={styles.container} enabled>
-            <Text h4 style={styles.headerText}>
-              {translate("deleteObservation.deleteObservationHeader")}
-            </Text>
-            <Text style={styles.hintText}>
-              {translate("deleteObservation.deleteObservationReason")}
-            </Text>
-            <Input
-              label={translate("deleteObservation.deleteObservationInputLabel")}
-              textContentType="emailAddress"
-              containerStyle={styles.input}
+  return (
+    <View>
+      <Overlay
+        isVisible={modalVisible}
+        windowBackgroundColor="rgba(0, 0, 0, .5)"
+        overlayStyle={styles.overlay}
+      >
+        <KeyboardAvoidingView style={styles.container} enabled>
+          <Text h4 style={styles.headerText}>
+            {translate("deleteObservation.deleteObservationHeader")}
+          </Text>
+          <Text style={styles.hintText}>
+            {translate("deleteObservation.deleteObservationReason")}
+          </Text>
+          <Input
+            label={translate("deleteObservation.deleteObservationInputLabel")}
+            onChangeText={setDeleteDescription}
+            textContentType="none"
+            containerStyle={styles.input}
+          />
+          <View style={styles.buttonsContainer}>
+            <Button
+              title={translate("deleteObservation.undoAction")}
+              onPress={onBackPress}
+              type="clear"
+              titleStyle={styles.buttonText}
+              buttonStyle={styles.dismissButtonStyle}
             />
-            <View style={styles.buttonsContainer}>
-              <Button
-                title={translate("deleteObservation.undoAction")}
-                onPress={onBackPress}
-                type="clear"
-                titleStyle={styles.buttonsText}
-              />
-              <Button
-                title={translate("deleteObservation.deleteObservation")}
-                onPress={onDeletePress}
-                type="clear"
-                titleStyle={styles.buttonsText}
-              />
-            </View>
-          </KeyboardAvoidingView>
-        </Overlay>
+            <Button
+              title={translate("deleteObservation.deleteObservation")}
+              onPress={onDeletePress}
+              titleStyle={styles.actionButtonText}
+              buttonStyle={styles.actionButtonStyle}
+            />
+          </View>
+        </KeyboardAvoidingView>
+      </Overlay>
 
-        <Popup
-          actions={[
-            translate("deleteObservation.editObservation"),
-            translate("deleteObservation.deleteObservation")
-          ]}
-          onPress={this.onPopupPress}
-        />
-      </View>
-    );
-  }
-}
+      <Popup
+        actions={[
+          translate("deleteObservation.editObservation"),
+          translate("deleteObservation.deleteObservation")
+        ]}
+        onPress={onPopupPress}
+      />
+    </View>
+  );
+};
+
+DeleteObservation.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func
+  }).isRequired
+};
 
 export default DeleteObservation;

@@ -118,7 +118,8 @@
     "deleteObservationInputLabel": "Reason",
     "undoAction": "Cancel",
     "deleteObservation": "Delete observation",
-    "editObservation": "Edit Observation"
+    "editObservation": "Edit Observation",
+    "errorOnDelete": "Error when deleting observation, please try again later"
   },
   "topLevelMenu": {
     "observationTitle": "Observations",

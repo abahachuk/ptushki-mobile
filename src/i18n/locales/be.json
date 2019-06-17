@@ -118,7 +118,8 @@
     "deleteObservationInputLabel": "Прычына",
     "undoAction": "Адмена",
     "deleteObservation": "Выдаліць",
-    "editObservation": "Рэдагаваць"
+    "editObservation": "Рэдагаваць",
+    "errorOnDelete": "Выдаленне не ўдалося, паспрабуйце пазней"
   },
   "topLevelMenu": {
     "observationTitle": "Назіранні",

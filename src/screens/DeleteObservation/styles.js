@@ -2,34 +2,56 @@ import { StyleSheet } from "react-native";
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
+  overlay: {
+    height: 300,
+    padding: 20
+  },
   container: {
     flex: 1
   },
   headerText: {
-    fontFamily: "Roboto",
-    fontSize: 20,
-    fontWeight: "500",
-    marginBottom: 10
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "black",
+    letterSpacing: 1
   },
   hintText: {
     color: "#626262",
     fontFamily: "Roboto",
-    fontSize: 18,
-    letterSpacing: 0.15,
-    lineHeight: 26
+    fontSize: 20,
+    lineHeight: 30
   },
   input: {
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 20,
+    marginBottom: 20
   },
   buttonsContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "flex-end"
   },
-  buttonsText: {
+  buttonText: {
     fontWeight: "500",
     color: "#5A737F",
     textTransform: "uppercase"
+  },
+  actionButtonText: {
+    color: "white",
+    textTransform: "uppercase",
+    fontWeight: "500"
+  },
+  actionButtonStyle: {
+    backgroundColor: "#546E7A",
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  dismissButtonStyle: {
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 10,
+    paddingBottom: 10
   }
 });
