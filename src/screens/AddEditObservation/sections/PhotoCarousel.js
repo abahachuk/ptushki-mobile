@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { TouchableHighlight, Image, ScrollView } from "react-native";
+import { TouchableOpacity, Image, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 
 import PhotoResized from "./PhotoResized";
-import PhotoChooseWindow from "./PhotoChooseWindow";
+import PhotoChooseWindowPopup from "./PhotoChooseWindowPopup";
 import { styles } from "../styles";
 
 const photoPlaceholder = require("../../../assets/photoPlaceholder.png");
@@ -60,22 +60,22 @@ const PhotoCarousel = props => {
         />
       ) : null}
       {isUploadPhotoVisible ? (
-        <PhotoChooseWindow
+        <PhotoChooseWindowPopup
           onPhotoChosen={onPhotoChosen}
           onCloseHandler={onChoosePhotoWindowClose}
         />
       ) : null}
       {birdPhotos.map(photoPath => (
-        <TouchableHighlight
+        <TouchableOpacity
           key={photoPath}
           onPress={() => resizePhoto(photoPath)}
         >
           <Image style={styles.birdPhoto} source={photoPath} />
-        </TouchableHighlight>
+        </TouchableOpacity>
       ))}
-      <TouchableHighlight onPress={onLoadPhotoPress}>
+      <TouchableOpacity onPress={onLoadPhotoPress}>
         <Image style={styles.birdPhoto} source={photoPlaceholder} />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </ScrollView>
   );
 };

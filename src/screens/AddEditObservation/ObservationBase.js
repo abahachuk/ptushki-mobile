@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { ScrollView, View } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
 
+import { translate } from "../../i18n";
 import { styles } from "./styles";
 import { Button } from "../../components";
-import { translate } from "../../i18n";
 import { pickerValuesArrayType } from "../../propTypes";
-import BirdSection from "./sections/BirdSection";
-import RingsSection from "./sections/RingsSection";
-import ObstaclesSection from "./sections/ObstaclesSection";
-import Toolbar from "./sections/Toolbar";
-import PhotoCarousel from "./sections/PhotoCarousel";
+import {
+  BirdSection,
+  RingsSection,
+  ObstaclesSection,
+  PhotoCarousel,
+  DeclineChangesPopup
+} from "./sections";
 
-const AddEditObservation = props => {
+const ObservationBase = props => {
   const {
+    submitButtonText,
     birdSpeciesDefault,
     birdSpeciesValues,
     birdSexDefault,
@@ -34,7 +38,8 @@ const AddEditObservation = props => {
     coordinatesDefault,
     commentDefault,
     dateTimeDefault,
-    dateTimeInaccuracyDefault
+    dateTimeInaccuracyDefault,
+    navigation
   } = props;
   const [
     {
@@ -74,10 +79,15 @@ const AddEditObservation = props => {
   const [rings, setRingsValues] = useState(ringsDefaultValues);
 
   const onSubmitPress = () => {
-    props.onSubmit();
-  };
-  const onBackPress = () => {
-    props.navigation.goBack();
+    // TODO: make api call to create observation
+    props.navigation.navigate("ObservationCreated", {
+      birdSpecies,
+      dateTime,
+      observationLocation: `${country} ${region}`,
+      birdSex,
+      birdAge,
+      birdObstacles
+    });
   };
   const onCurrentPositionPress = () => {
     props.onCurrentPosition();
@@ -89,9 +99,23 @@ const AddEditObservation = props => {
     props.onCurrentDateTime();
   };
 
+  const onCancel = () => {
+    navigation.setParams({ isDeclineChangesPopupOpened: false });
+  };
+
+  const onExit = () => {
+    navigation.setParams({ isDeclineChangesPopupOpened: false });
+    navigation.goBack();
+  };
   return (
     <View style={styles.rootContainer}>
-      <Toolbar onBackPress={onBackPress} />
+      {navigation.state.params &&
+      navigation.state.params.isDeclineChangesPopupOpened ? (
+        <DeclineChangesPopup
+          onExitHandler={onExit}
+          onCancelHandler={onCancel}
+        />
+      ) : null}
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -139,7 +163,7 @@ const AddEditObservation = props => {
             wrapperStyles={styles.submitButton}
             onPress={onSubmitPress}
             appearance="Dark"
-            caption={translate("editObservation.sendObservation")}
+            caption={submitButtonText}
           />
         </View>
       </ScrollView>
@@ -147,7 +171,8 @@ const AddEditObservation = props => {
   );
 };
 
-AddEditObservation.propTypes = {
+ObservationBase.propTypes = {
+  submitButtonText: PropTypes.string,
   birdSpeciesDefault: PropTypes.string,
   birdSpeciesValues: pickerValuesArrayType,
   birdSexDefault: PropTypes.string,
@@ -169,13 +194,16 @@ AddEditObservation.propTypes = {
   commentDefault: PropTypes.string,
   dateTimeDefault: PropTypes.string,
   dateTimeInaccuracyDefault: PropTypes.string,
-  onSubmit: PropTypes.func,
   onCurrentPosition: PropTypes.func,
   onSearchOnMap: PropTypes.func,
   onCurrentDateTime: PropTypes.func,
-  navigation: PropTypes.shape({ goBack: PropTypes.func }).isRequired
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func,
+    navigate: PropTypes.func
+  }).isRequired
 };
-AddEditObservation.defaultProps = {
+ObservationBase.defaultProps = {
+  submitButtonText: "",
   birdSpeciesDefault: "",
   birdSpeciesValues: [],
   birdSexDefault: "",
@@ -197,13 +225,25 @@ AddEditObservation.defaultProps = {
   commentDefault: "",
   dateTimeDefault: "",
   dateTimeInaccuracyDefault: "",
-  onSubmit: () => {},
   onCurrentPosition: () => {},
   onSearchOnMap: () => {},
   onCurrentDateTime: () => {}
 };
-AddEditObservation.navigationOptions = {
-  header: null
+ObservationBase.navigationOptions = ({ navigation }) => {
+  return {
+    title: translate("addEditObservation.navHeaderTitleEdit"),
+    headerLeft: (
+      <Icon
+        name="arrowleft"
+        size={30}
+        color="white"
+        style={{ padding: 15 }}
+        onPress={() =>
+          navigation.setParams({ isDeclineChangesPopupOpened: true })
+        }
+      />
+    )
+  };
 };
 
-export default AddEditObservation;
+export default ObservationBase;

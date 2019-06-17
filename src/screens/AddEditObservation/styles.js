@@ -15,13 +15,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  toolbar: {
-    flexDirection: "row",
-    alignItems: "center",
-    height: 56,
-    backgroundColor: "#546e7a",
-    paddingLeft: 16
-  },
   appLinkBlock: {
     marginTop: 30,
     fontSize: 16,
@@ -94,6 +87,9 @@ export const styles = StyleSheet.create({
   overlayCloseWindow: {
     marginTop: 30,
     width: 96
+  },
+  overlayCloseWindowText: {
+    textAlign: "right"
   },
   overlayCloseWindowContainer: {
     alignItems: "flex-end"
@@ -221,5 +217,36 @@ export const styles = StyleSheet.create({
   },
   submitButton: {
     marginTop: 30
+  },
+  declineChangesContent: {
+    padding: 0
+  },
+  declineChangesMainContent: {
+    flex: 1
+  },
+  declineChangesTitle: {
+    fontSize: 20,
+    fontWeight: "500",
+    color: "black",
+    marginTop: 10,
+    paddingLeft: 24
+  },
+  declineChangesDescription: {
+    marginTop: 10,
+    fontSize: 16,
+    paddingHorizontal: 24
+  },
+  declineChangesButtonsBlock: {
+    flexBasis: 36,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    margin: 8
+  },
+  declineChangesExitButton: {
+    width: 118,
+    marginRight: 6
+  },
+  declineChangesCancelButton: {
+    width: 106
   }
 });

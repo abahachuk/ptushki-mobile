@@ -4,8 +4,9 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {
   Observations,
-  AddEditObservation,
-  ObservationItem
+  AddObservation,
+  ObservationItem,
+  ObservationCreated
 } from "../../screens";
 import { translate } from "../../i18n";
 import headerStyles from "./headerStyles";
@@ -20,8 +21,11 @@ const ObservationStackNavigator = createStackNavigator(
     ObservationItem: {
       screen: ObservationItem
     },
-    AddEditObservation: {
-      screen: AddEditObservation
+    AddObservation: {
+      screen: AddObservation
+    },
+    ObservationCreated: {
+      screen: ObservationCreated
     }
     // TODO: add createObservation and ExistingObservation here
   },

@@ -62,8 +62,8 @@ const RingsSection = props => {
   return (
     <KeyboardAvoidingView style={styles.ringsSectionContainer}>
       {getDescriptionBlock(
-        translate("editObservation.ringHeader"),
-        translate("editObservation.ringDescription")
+        translate("addEditObservation.ringHeader"),
+        translate("addEditObservation.ringDescription")
       )}
       {Object.keys(rings)
         .sort(sortRingsGroup)
@@ -98,7 +98,7 @@ const RingsSection = props => {
       >
         <Icon name="plus" size={30} color={colors.green} />
         <Text style={styles.buttonWithIconText}>
-          {translate("editObservation.oneMoreRing")}
+          {translate("addEditObservation.oneMoreRing")}
         </Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
