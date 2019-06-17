@@ -10,7 +10,7 @@ const HeaderImage = props => {
   return (
     photos &&
     photos.length && (
-      <View style={styles.backImageWrap}>
+      <View>
         <Image
           style={styles.backImage}
           source={{ uri: photos[0] }}
