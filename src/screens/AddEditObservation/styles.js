@@ -221,6 +221,9 @@ export const styles = StyleSheet.create({
   declineChangesContent: {
     padding: 0
   },
+  declineChangesContainer: {
+    flex: 1
+  },
   declineChangesMainContent: {
     flex: 1
   },

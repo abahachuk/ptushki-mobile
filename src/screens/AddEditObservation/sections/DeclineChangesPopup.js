@@ -19,33 +19,36 @@ const DeclineChangesPopup = props => {
 
   return (
     <Overlay
+      isVisible
       height={218}
       width={280}
       borderRadius={6}
       overlayStyle={styles.declineChangesContent}
     >
-      <View style={styles.declineChangesMainContent}>
-        <Text style={styles.declineChangesTitle}>
-          {translate("addEditObservation.declineChangesTitle")}
-        </Text>
-        <Text style={styles.declineChangesDescription}>
-          {descriptionText}
-          {translate("addEditObservation.declineChangesDescription")}
-        </Text>
-      </View>
-      <View style={styles.declineChangesButtonsBlock}>
-        <Button
-          wrapperStyles={styles.declineChangesExitButton}
-          onPress={onExit}
-          caption={translate("addEditObservation.applyDeclineChanges")}
-          appearance="Borderless"
-        />
-        <Button
-          wrapperStyles={styles.declineChangesCancelButton}
-          onPress={onCancel}
-          caption={translate("addEditObservation.cancelDeclineChanges")}
-          appearance="Dark"
-        />
+      <View style={styles.declineChangesContainer}>
+        <View style={styles.declineChangesMainContent}>
+          <Text style={styles.declineChangesTitle}>
+            {translate("addEditObservation.declineChangesTitle")}
+          </Text>
+          <Text style={styles.declineChangesDescription}>
+            {descriptionText}
+            {translate("addEditObservation.declineChangesDescription")}
+          </Text>
+        </View>
+        <View style={styles.declineChangesButtonsBlock}>
+          <Button
+            wrapperStyles={styles.declineChangesExitButton}
+            onPress={onExit}
+            caption={translate("addEditObservation.applyDeclineChanges")}
+            appearance="Borderless"
+          />
+          <Button
+            wrapperStyles={styles.declineChangesCancelButton}
+            onPress={onCancel}
+            caption={translate("addEditObservation.cancelDeclineChanges")}
+            appearance="Dark"
+          />
+        </View>
       </View>
     </Overlay>
   );
