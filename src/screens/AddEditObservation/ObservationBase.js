@@ -35,7 +35,6 @@ const ObservationBase = props => {
     birdPhotosDefault,
     countryDefault,
     countryValues,
-    regionDefault,
     coordinatesDefault,
     commentDefault,
     dateTimeDefault,
@@ -49,7 +48,6 @@ const ObservationBase = props => {
       birdAge,
       birdObstacles,
       country,
-      region,
       coordinates,
       comment,
       dateTime,
@@ -64,7 +62,6 @@ const ObservationBase = props => {
     birdObstacles: birdObstaclesDefault,
     birdPhotos: birdPhotosDefault,
     country: countryDefault,
-    region: regionDefault,
     coordinates: coordinatesDefault,
     comment: commentDefault,
     dateTime: dateTimeDefault,
@@ -87,7 +84,6 @@ const ObservationBase = props => {
       birdAge,
       birdObstacles,
       country,
-      region,
       coordinates,
       comment,
       dateTime,
@@ -114,7 +110,6 @@ const ObservationBase = props => {
       birdAge,
       birdObstacles,
       country,
-      region,
       coordinates,
       comment,
       dateTime,
@@ -129,7 +124,7 @@ const ObservationBase = props => {
         props.navigation.navigate("ObservationCreated", {
           birdSpecies,
           dateTime,
-          observationLocation: `${country} ${region}`,
+          observationLocation: `${country}`,
           birdSex,
           birdAge,
           birdObstacles
@@ -211,7 +206,6 @@ const ObservationBase = props => {
             country={country}
             setFieldValue={updateFieldValue}
             countryValues={countryValues}
-            region={region}
             coordinates={coordinates}
             onCurrentDateTimePress={onCurrentDateTimePress}
             dateTime={dateTime}
@@ -248,7 +242,6 @@ ObservationBase.propTypes = {
   birdPhotosDefault: PropTypes.array,
   countryDefault: PropTypes.string,
   countryValues: pickerValuesArrayType,
-  regionDefault: PropTypes.string,
   coordinatesDefault: PropTypes.string,
   commentDefault: PropTypes.string,
   dateTimeDefault: PropTypes.string,
@@ -280,7 +273,6 @@ ObservationBase.defaultProps = {
   birdPhotosDefault: [],
   countryDefault: "",
   countryValues: [],
-  regionDefault: "",
   coordinatesDefault: "",
   commentDefault: "",
   dateTimeDefault: "",
