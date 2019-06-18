@@ -7,21 +7,12 @@ import {
     SECOND_INTRO_SCREEN,
     THIRD_INTRO_SCREEN,
     FOURTH_INTRO_SCREEN
-    // eslint-disable-next-line import/no-unresolved
   } from "constants/introductionScreens";
+  import { styles } from "./styles";
+
 // eslint-disable-next-line no-shadow
-const Indicator = ({ selectedIndex, styles }) => (
-    <View
-      style={{
-        width: "100%",
-        backgroundColor: "transparent",
-        flexDirection: "row",
-        justifyContent: "center",
-        paddingTop: 10,
-        paddingBottom: 10,
-        ...styles
-      }}
-    >
+const Indicator = ({ selectedIndex }) => (
+    <View style={styles.indicatorContainer}>
       {[
         FIRST_INTRO_SCREEN,
         SECOND_INTRO_SCREEN,
@@ -30,9 +21,6 @@ const Indicator = ({ selectedIndex, styles }) => (
       ].map(index => (
         <Circle
           key={index}
-          styles={{
-            marginRight: 5
-          }}
           selected={selectedIndex === index}
         />
       ))}
@@ -40,8 +28,7 @@ const Indicator = ({ selectedIndex, styles }) => (
   );
   
   Indicator.propTypes = {
-    selectedIndex: PropTypes.string.isRequired,
-    styles: PropTypes.object.isRequired
+    selectedIndex: PropTypes.string.isRequired
   };
 
   export default Indicator;

@@ -4,11 +4,15 @@ import IntroSlidesNavigator from './IntroSlidesNavigator';
 
 const IntroductionNavigator = createStackNavigator(
   {
-    languageSelect: {
-      screen: LanguageSelect
-    },
+    LanguageSelect,
     IntroSlidesNavigator
+  }, {
+    headerMode: "none"
   }
 );
+
+IntroductionNavigator.navigationOptions = {
+header: null
+};
 
 export default IntroductionNavigator;

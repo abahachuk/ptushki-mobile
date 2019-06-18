@@ -8,6 +8,7 @@ import {
 
 import { Introduction } from "../../screens";
 
+//TODO: use createAnimatedSwitchNavigator here: https://reactnavigation.org/docs/en/animated-switch-navigator.html#docsNav
 const IntroSlidesNavigator = createStackNavigator({
     [FIRST_INTRO_SCREEN]: {
         screen: Introduction,
@@ -25,8 +26,7 @@ const IntroSlidesNavigator = createStackNavigator({
         screen: Introduction,
         params: { introductionId: FOURTH_INTRO_SCREEN }
     }
-},
-    {
+}, {
         headerMode: "none"
     }
 );

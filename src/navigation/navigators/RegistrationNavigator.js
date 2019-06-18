@@ -23,7 +23,9 @@ const RegistrationNavigator = createStackNavigator({
   registrationSuccess: {
     screen: RegistrationEmailSent
   },
-  IntroSlidesNavigator
+  introduction: {
+    screen: IntroSlidesNavigator
+  },
 });
 
 export default RegistrationNavigator;
