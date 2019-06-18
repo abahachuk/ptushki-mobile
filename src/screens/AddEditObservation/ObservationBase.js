@@ -78,20 +78,9 @@ const ObservationBase = props => {
   const service = new ObservationService();
 
   const sendEditObservation = () => {
-    const body = {
-      birdSpecies,
-      birdSex,
-      birdAge,
-      birdObstacles,
-      country,
-      coordinates,
-      comment,
-      dateTime,
-      dateTimeInaccuracy,
-      birdPhotos
-    };
-
-    const id = "";
+    // TODO: change this mock data with props which are changed
+    const body = {};
+    const id = "43095a71-d0ba-4c79-b772-48513f3c3bb3";
 
     service
       .editObservations(body, id)
@@ -104,18 +93,8 @@ const ObservationBase = props => {
   };
 
   const sendAddObservation = () => {
-    const body = {
-      birdSpecies,
-      birdSex,
-      birdAge,
-      birdObstacles,
-      country,
-      coordinates,
-      comment,
-      dateTime,
-      dateTimeInaccuracy,
-      birdPhotos
-    };
+    // TODO: add here new observation containing all props
+    const body = {};
 
     service
       .addObservations(JSON.stringify(body))
