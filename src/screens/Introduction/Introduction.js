@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, Image } from "react-native";
-import Indicator from './Indicator';
-import * as utils from './utils';
 import { Button } from "components";
+import Indicator from "./Indicator";
+import * as utils from "./utils";
 import { styles } from "./styles";
 
 const Introduction = props => {
@@ -15,10 +15,10 @@ const Introduction = props => {
   } = navigation;
   const onBackPress = () => {
     if (screenProps.isFirstLaunch) {
-      //TODO: create utils file with routes names
-      navigation.navigate('LanguageSelect')
+      // TODO: create utils file with routes names
+      navigation.navigate("LanguageSelect");
     } else {
-      navigation.navigate('login');
+      navigation.navigate("login");
     }
   };
   const onNextPress = () => {
@@ -72,6 +72,9 @@ Introduction.propTypes = {
         introductionId: PropTypes.string
       })
     })
+  }).isRequired,
+  screenProps: PropTypes.shape({
+    isFirstLaunch: PropTypes.bool
   }).isRequired
 };
 

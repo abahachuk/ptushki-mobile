@@ -86,5 +86,5 @@ export const styles = StyleSheet.create({
   },
   buttonNext: {
     width: "70%"
-  },
+  }
 });
