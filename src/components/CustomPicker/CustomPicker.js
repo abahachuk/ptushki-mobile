@@ -15,7 +15,7 @@ const CustomPicker = props => {
         {items.map(item => (
           <Picker.Item
             style={styles.pickerItem}
-            key={item.value}
+            key={item.id}
             label={item.label}
             value={item.value}
           />
