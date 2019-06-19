@@ -40,11 +40,8 @@ const ObstaclesSection = props => {
     updateDate
   } = props;
 
-  const [
-    { dateTimeValue },
-    setDateTimeValue
-  ] = useState({
-    dateTimeValue: dateTime,
+  const [{ dateTimeValue }, setDateTimeValue] = useState({
+    dateTimeValue: dateTime
   });
   const [coordinatesValue, setCoordinatesValue] = useState(coordinates);
 

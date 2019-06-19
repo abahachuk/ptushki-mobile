@@ -7,7 +7,6 @@ import { translate } from "../../../i18n";
 import { styles } from "../styles";
 import { Input } from "../../../components";
 
-
 const RingsSection = props => {
   const { rings, setRingsValues } = props;
 

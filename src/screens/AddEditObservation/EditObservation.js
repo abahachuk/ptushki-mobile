@@ -28,31 +28,29 @@ const EditObservation = props => {
   const birdAge = refObject.ageMentioned.desc_rus;
   const birdObstacles = refObject.status.desc_rus;
 
-
   const coordinates = refObject.latitude ? refObject.latitude : "";
 
   const [rings, setRingsValues] = useState(refObject.ringMentioned);
   const [region, changeRegion] = useState(refObject.placeName);
   const [comment, updateComment] = useState(refObject.remarks);
-  const [dateTime, updateDate] = useState( refObject.date)
-
+  const [dateTime, updateDate] = useState(refObject.date);
 
   const valueFromChooseList = navigation.getParam("newValue");
   // TODO: it's not Text, it is Object
-  //TODO: oh just ignore those labels and values, those are to refactor later
-  let birdSpeciesText = { 
+  // TODO: oh just ignore those labels and values, those are to refactor later
+  let birdSpeciesText = {
     value: birdSpecies,
     label: birdSpecies
   };
-  let birdSexText = { 
+  let birdSexText = {
     value: birdSex,
     label: birdSex
   };
-  let birdAgeText = { 
+  let birdAgeText = {
     value: birdAge,
     label: birdAge
   };
-  let birdObstaclesText = { 
+  let birdObstaclesText = {
     value: birdObstacles,
     label: birdObstacles
   };
@@ -75,6 +73,7 @@ const EditObservation = props => {
 
   const onSubmitPress = () => {
     sendEditObservation();
+    navigation.navigate('Observations');
   };
 
   const onCurrentPositionPress = () => {
@@ -88,7 +87,7 @@ const EditObservation = props => {
   };
 
   const sendEditObservation = () => {
-    // TODO: birdSpecies is readOnly property! What am I gonna dooo
+    // TODO: birdSpecies is readOnly property! What am I gonna dooo, added it to birdSpeciesText
 
     const body = {
       birdSpecies: birdSpeciesText.value,
@@ -96,10 +95,8 @@ const EditObservation = props => {
       birdAge: birdAgeText.value,
       birdObstacles: birdObstacles.value,
       region,
-      coordinates,
       comment,
       dateTime,
-      dateTimeInaccuracy
     };
 
     const id = "";
@@ -108,6 +105,7 @@ const EditObservation = props => {
       .editObservations(body, id)
       .then(response => {
         console.log(response);
+        //TODO: add alert on smth on success
       })
       .catch(err => {
         console.log(err);
@@ -129,10 +127,7 @@ const EditObservation = props => {
             birdSpeciesText={birdSpeciesText}
             birdObstaclesText={birdObstaclesText}
           />
-          <RingsSectionEdit 
-          rings={rings} 
-          setRingsValues={setRingsValues} 
-          />
+          <RingsSectionEdit rings={rings} setRingsValues={setRingsValues} />
           <ObstacleSectionEdit
             onCurrentPositionPress={onCurrentPositionPress}
             onSearchOnMapPress={onSearchOnMapPress}
@@ -141,7 +136,6 @@ const EditObservation = props => {
             onCurrentDateTimePress={onCurrentDateTimePress}
             dateTime={dateTime}
             comment={comment}
-
             changeRegion={changeRegion}
             updateComment={updateComment}
             updateDate={updateDate}
@@ -182,7 +176,7 @@ EditObservation.navigationOptions = ({ navigation }) => {
         color="white"
         style={{ padding: 15 }}
         onPress={() =>
-          navigation.setParams({ isDeclineChangesPopupOpened: true })
+          navigation.goBack()
         }
       />
     )
