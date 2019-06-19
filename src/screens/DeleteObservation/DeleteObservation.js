@@ -15,9 +15,15 @@ const DeleteObservation = props => {
   const [deleteDescription, setDeleteDescription] = useState("none");
 
   const { navigation } = props;
+  const ObservationItem = navigation.state.params.ObservationItem;
+
   const onPopupPress = (event, index) => {
-    if (index !== 0) {
-      setModalVisible(true);
+    if (index === 0) {
+     navigation.navigate("EditObservation", { ObservationItem });
+    }
+
+    if (index === 1) {
+      this.setModalVisible(true);
     }
   };
 
@@ -28,7 +34,7 @@ const DeleteObservation = props => {
   const onDeletePress = () => {
     service
       .deleteObservation(
-        navigation.state.params.ObservationItem.id,
+        ObservationItem.id,
         deleteDescription
       )
       .then(response => {

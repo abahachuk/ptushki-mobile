@@ -5,11 +5,13 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import {
   Observations,
   AddObservation,
+  EditObservation,
   ObservationItem,
   ObservationCreated
 } from "../../screens";
 import { translate } from "../../i18n";
 import headerStyles from "./headerStyles";
+import ListItemPicker from './../../screens/AddEditObservation/ListItemPicker'
 
 /* eslint react/display-name: 0 */
 
@@ -26,8 +28,13 @@ const ObservationStackNavigator = createStackNavigator(
     },
     ObservationCreated: {
       screen: ObservationCreated
+    },
+    EditObservation: {
+      screen: EditObservation
+    },
+    chooseOption: {
+      screen: ListItemPicker
     }
-    // TODO: add createObservation and ExistingObservation here
   },
   {
     defaultNavigationOptions: ({ navigation }) => {

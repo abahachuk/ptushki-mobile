@@ -1,7 +1,7 @@
 /* eslint-disable */
 import AsyncStorage from "@react-native-community/async-storage";
-import { GET_OBSERVATIONS_ENDPOINT, DELETE_OBSERVATIONS_ENDPOINT } from "config";
-import BaseService  from "./Base.service";
+import { OBSERVATIONS_ENDPOINT, GET_OBSERVATIONS_ENDPOINT, DELETE_OBSERVATIONS_ENDPOINT } from "config";
+import BaseService from "./Base.service";
 /* eslint-enable */
 
 export default class ObservationService extends BaseService {
@@ -12,6 +12,22 @@ export default class ObservationService extends BaseService {
       .then(response => {
         return response.json();
       });
+  }
+
+  async addObservations(data) {
+    const token = await AsyncStorage.getItem("token");
+
+    return super
+      .sendRequest(OBSERVATIONS_ENDPOINT, "POST", token, data)
+      .then(response => response.json());
+  }
+
+  async editObservations(data, id) {
+    const token = await AsyncStorage.getItem("token");
+
+    return super
+      .sendRequest(`${OBSERVATIONS_ENDPOINT}/${id}`, "PUT", token, data)
+      .then(response => response.json());
   }
 
   async deleteObservation(id, description) {

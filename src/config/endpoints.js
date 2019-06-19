@@ -7,3 +7,4 @@ export const GET_OBSERVATIONS_ENDPOINT = "/observations";
 // TODO: for now backend doesn't support description
 /*eslint-disable*/
 export const DELETE_OBSERVATIONS_ENDPOINT = (id, description) => `/observations/${id}`;
+export const OBSERVATIONS_ENDPOINT = "/observations";
