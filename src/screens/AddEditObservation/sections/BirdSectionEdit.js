@@ -68,7 +68,7 @@ const BirdSectionEdit = props => {
         <Text>{translate("addEditObservation.linkToAppThirdPart")}</Text>
       </Text>
   
-      {getItem2("Bird species", birdSexText, "birdSex")}
+      {getItem2("Bird sex", birdSexText, "birdSex")}
 
       {getItem2("Bird age", birdAgeText, "birdAge")}
 

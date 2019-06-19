@@ -2,26 +2,15 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { ScrollView, View, BackHandler } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
-import { ListItem  } from 'react-native-elements'
 
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 import { Button } from "../../components";
 import { pickerValuesArrayType } from "../../propTypes";
-import {
-  // BirdSection,
-  RingsSection,
-  ObstaclesSection,
-  PhotoCarousel,
-  DeclineChangesPopup,
-
-  
-} from "./sections";
-
-import  BirdSectionEdit  from './sections/BirdSectionEdit'
+import RingsSectionEdit from './sections/RingsSectionEdit'
+import BirdSectionEdit from './sections/BirdSectionEdit'
+import ObstacleSectionEdit from './sections/ObstacleSectionEdit'
 import ObservationService from "../../api/Observation.service";
-
-
 
 const EditObservation = props => {
   const { navigation } = props;
@@ -29,64 +18,50 @@ const EditObservation = props => {
 
   if (navigation.getParam('ObservationItem')) {
     refObject = navigation.getParam('ObservationItem')
+    console.log(refObject)
   }
 
   //TODO: getLocalizedText() from /utils
   const birdSpecies = refObject.speciesMentioned.species;
   const birdSex = refObject.sexMentioned.desc_rus;
-
   const birdAge = refObject.ageMentioned.desc_rus;
-  const birdAgeValues =  [];
   const birdObstacles = refObject.status.desc_rus;
-  const setFieldsValue = () => {};
-  const submitButtonText = 'hi'
+
+  const setFieldsValue = () => { };
+  const submitButtonText = 'Обновить'
+
   const birdPhotos = [];
-  const country = "";
-  const region = '';
-      const coordinates = '';
-      const comment = '';
-      const dateTime = '';
-      const dateTimeInaccuracy = '';
-      const countryValues = [
-        { label: "Брестская область", value: 'hi'},
-        { label: "Витебская область", value: 'hi'},
-        { label: "Гомельская область", value: 'hi'},
-        { label: "Гродненская область", value: 'hi'},
-        { label: "Минская область", value: 'hi'},
-        { label: "Могилевская область", value: 'hi'},
-        { label: "Брестская область",value: 'hi'}
-      ]
+  const country = refObject.placeName;
+  const region = refObject.placeName;
+  const coordinates = refObject.latitude ? refObject.latitude : '';
+  const comment = refObject.remarks;
+  const dateTime = refObject.date;
+  const dateTimeInaccuracy = refObject.accuracyOfDate.id;
+
   //some chaos
 
-     let ringsDefaultValues;
-     let ringTypeValues;
-     let ringMaterialValues;
-     let ringColorValues;
-     let ringLocationValues;
-
-     
-     let valueFromChooseList = navigation.getParam('newValue');
-     //TODO: it's not Text, it is Object
-     let birdSpeciesText = birdSpecies;
-     let birdSexText = birdSex;
-     let birdAgeText = birdAge;
-     let birdObstaclesText =birdObstacles;
-     if (valueFromChooseList) {
-      switch (valueFromChooseList.mod) {
-        case 'birdSpecies':
-            birdSpeciesText = valueFromChooseList;
-            break;
-        case 'birdSex':
-            birdSexText = valueFromChooseList
-            break;
-        case 'birdAge':
-            birdAgeText = valueFromChooseList
-            break;
-          case 'birdObstacles':
-              birdObstaclesText = valueFromChooseList
-            break;
+  let valueFromChooseList = navigation.getParam('newValue');
+  //TODO: it's not Text, it is Object
+  let birdSpeciesText = birdSpecies;
+  let birdSexText = birdSex;
+  let birdAgeText = birdAge;
+  let birdObstaclesText = birdObstacles;
+  if (valueFromChooseList) {
+    switch (valueFromChooseList.mod) {
+      case 'birdSpecies':
+        birdSpeciesText = valueFromChooseList;
+        break;
+      case 'birdSex':
+        birdSexText = valueFromChooseList
+        break;
+      case 'birdAge':
+        birdAgeText = valueFromChooseList
+        break;
+      case 'birdObstacles':
+        birdObstaclesText = valueFromChooseList
+        break;
     }
-     }
+  }
 
   const updateFieldValue = fieldForMerge =>
     setFieldsValue(prevState => ({
@@ -94,7 +69,7 @@ const EditObservation = props => {
       ...fieldForMerge
     }));
 
-  const [rings, setRingsValues] = useState(ringsDefaultValues);
+  const [rings, setRingsValues] = useState(refObject.ringMentioned);
   const service = new ObservationService();
 
   const sendEditObservation = () => {
@@ -138,65 +113,34 @@ const EditObservation = props => {
     props.onCurrentDateTime();
   };
 
-  const onCancel = () => {
-    navigation.setParams({ isDeclineChangesPopupOpened: false });
-  };
 
-  const onExit = () => {
-    navigation.setParams({ isDeclineChangesPopupOpened: false });
-    navigation.goBack();
-  };
-
-  // console.log(refObject, birdSpecies)
-
-  //TODO: birdSpecies is readOnly! What am I gonna dooo
+  //TODO: birdSpecies is readOnly property! What am I gonna dooo
   return (
     <View style={styles.rootContainer}>
-      {navigation.state.params &&
-        navigation.state.params.isDeclineChangesPopupOpened ? (
-          <DeclineChangesPopup
-            onExitHandler={onExit}
-            onCancelHandler={onCancel}
-          />
-        ) : null}
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.container}>
-          
+
           <BirdSectionEdit
-            // birdSpecies={birdSpecies}
-            // birdSex={birdSex}
-            // birdAge={birdAge}
-            // birdAgeValues={birdAgeValues}
-            // birdObstacles={birdObstacles}
             navigation={navigation}
             birdSexText={birdSexText}
-            birdAgeText ={birdAgeText}
-            birdSpeciesText ={birdSpeciesText}
-            birdObstaclesText ={birdObstaclesText}
+            birdAgeText={birdAgeText}
+            birdSpeciesText={birdSpeciesText}
+            birdObstaclesText={birdObstaclesText}
           />
-          <PhotoCarousel
-            updateFieldValue={updateFieldValue}
-            birdPhotos={birdPhotos}
-            setFieldValue={updateFieldValue}
-          />
-          <RingsSection
+    
+          <RingsSectionEdit
             rings={rings}
-            ringTypeValues={ringTypeValues}
-            ringMaterialValues={ringMaterialValues}
-            ringColorValues={ringColorValues}
-            ringLocationValues={ringLocationValues}
             setRingsValues={setRingsValues}
           />
-          <ObstaclesSection
+          <ObstacleSectionEdit
             onCurrentPositionPress={onCurrentPositionPress}
             onSearchOnMapPress={onSearchOnMapPress}
             country={country}
             setFieldValue={updateFieldValue}
-            countryValues={countryValues}
             region={region}
             coordinates={coordinates}
             onCurrentDateTimePress={onCurrentDateTimePress}

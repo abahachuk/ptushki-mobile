@@ -53,13 +53,11 @@ const ListItemPicker = props => {
     const opt = props.navigation.getParam('option');
 
     const [option, changeOption] = useState({
-        value: props.navigation.getParam('option') && props.navigation.getParam('option').value,
-        label: opt.label  && props.navigation.getParam('option'),
+        value: opt.value,
+        label: opt.label,
         mod
     });
     let refArray = [];
-
-    console.log( opt, opt.label || opt, opt.label && opt)
 
     switch (props.navigation.getParam('mod')) {
         case 'birdSpecies':
@@ -85,8 +83,7 @@ const ListItemPicker = props => {
                         value: text,
                         label: text,
                         mod
-                    }
-                    )
+                    })
                 }}
             />
             <Button
@@ -123,7 +120,7 @@ const ListItemPicker = props => {
 };
 
 ListItemPicker.navigationOptions = ({ navigation }) => ({
-    title: "Выбрать все что угодно",
+    title: "Выбрать ",
     headerLeft: (
         <Icon
             name="arrowleft"
