@@ -17,7 +17,10 @@ class AddObservation extends PureComponent {
       this.setState({
         birdSexValues: extractDataByProperty(data.sex, "id"),
         birdAgeValues: extractDataByProperty(data.age, "id"),
-        birdSpeciesValues: extractDataByProperty(data.species, "species")
+        birdSpeciesValues: extractDataByProperty(data.species, "species"),
+        birdObstaclesValues: extractDataByProperty(data.condition, "desc_eng"),
+        ringTypeValues: extractDataByProperty(data.ringingScheme, "id"),
+        countryValues: extractDataByProperty(data.placeCode, "country")
       });
     });
   }
@@ -28,6 +31,9 @@ class AddObservation extends PureComponent {
         birdSexValues={this.state.birdSexValues}
         birdAgeValues={this.state.birdAgeValues}
         birdSpeciesValues={this.state.birdSpeciesValues}
+        birdObstaclesValues={this.state.birdObstaclesValues}
+        ringTypeValues={this.state.ringTypeValues}
+        countryValues={this.state.countryValues}
         {...this.props}
         submitButtonText={translate("addEditObservation.sendObservation")}
       />

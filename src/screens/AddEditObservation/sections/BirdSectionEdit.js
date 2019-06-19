@@ -68,7 +68,7 @@ const BirdSectionEdit = props => {
 
       {getItem2("Bird age", birdAgeText, "birdAge")}
 
-      {getItem2("Птица была ", birdObstaclesText, "birdObstacles")}
+      {getItem2("Состояние птица ", birdObstaclesText, "birdObstacles")}
     </KeyboardAvoidingView>
   );
 };
