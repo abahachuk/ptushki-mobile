@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import { Alert, Text, View } from "react-native";
+import {  View } from "react-native";
 import { ListItem, Input, Button } from 'react-native-elements'
 import Icon from "react-native-vector-icons/AntDesign";
 
@@ -31,6 +31,13 @@ const birdAgeValues = [
     { value: '2', label: '' },
     { value: '3', label: ' ' },
 ]
+
+const birdObstaclesValues = [
+    { value: 'NA', label: 'Не определен' },
+    { value: '1', label: '' },
+    { value: '2', label: '' },
+    { value: '3', label: ' ' },
+]
 const countryValues = [
     { label: "Брестская область", value: 'hi'},
     { label: "Витебская область", value: 'hi'},
@@ -42,11 +49,17 @@ const countryValues = [
   ]
 
 const ListItemPicker = props => {
+    const mod = props.navigation.getParam('mod');
+    const opt = props.navigation.getParam('option');
+
     const [option, changeOption] = useState({
-        value: '',
-        label: props.navigation.getParam('birdSpecies')
+        value: props.navigation.getParam('option') && props.navigation.getParam('option').value,
+        label: opt.label  && props.navigation.getParam('option'),
+        mod
     });
     let refArray = [];
+
+    console.log( opt, opt.label || opt, opt.label && opt)
 
     switch (props.navigation.getParam('mod')) {
         case 'birdSpecies':
@@ -58,17 +71,20 @@ const ListItemPicker = props => {
         case 'birdAge':
             refArray = birdAgeValues
             break;
+        case 'birdObstacles':
+            refArray = birdObstaclesValues;
     }
 
     //TODO: add sorting
     return (
         <View style={styles.container}>
             <Input
-                placeholder={option.label}
+                placeholder={opt.label || opt}
                 onChangeText={(text) => {
                     changeOption({
                         value: text,
-                        label: text
+                        label: text,
+                        mod
                     }
                     )
                 }}
@@ -94,7 +110,8 @@ const ListItemPicker = props => {
                             onPress={() => {
                                 changeOption({
                                     value: l.value,
-                                    label: l.label
+                                    label: l.label,
+                                    mod
                                 })
                             }}
                         />

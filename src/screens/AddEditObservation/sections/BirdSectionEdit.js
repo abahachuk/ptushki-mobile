@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardAvoidingView, Text, Linking } from "react-native";
+import { KeyboardAvoidingView, Text, Linking, View } from "react-native";
 import PropTypes from "prop-types";
 import { ListItem } from 'react-native-elements'
 
@@ -12,33 +12,43 @@ const birdsGuideAppLink = "market://details?id=com.apbbirdsguide.app";
 
 const BirdSectionEdit = props => {
   const {
-    birdSpecies,
-    birdSex,
-    birdAge,
-    birdObstacles,
-    navigation
+    // birdSpecies,
+    // birdSex,
+    // birdAge,
+    // birdObstacles,
+    navigation,
+    birdSexText,
+    birdAgeText,
+    birdSpeciesText,
+    birdObstaclesText,
   } = props;
-  console.log(props)
 
   const onOpenBirdsGuideApp = () => {
     Linking.openURL(birdsGuideAppLink);
   };
 
-  const getItem = (title, subtitle, mod) => {
-    return (
-      <ListItem
-        title={title}
-        subtitle={subtitle}
-        onPress={() => {
-          navigation.navigate('chooseOption', {
-            birdSpecies,
-            mod
-          })
-        }}
-        chevronColor="black"
-        chevron
-      />
+  const getItem2 = (title, obj, mod) => {
 
+    let label = obj.length ? obj : obj.label
+    let value = obj.length ? obj : obj.value 
+
+    return (
+      <View style={{marginTop: 10}}>
+        <Text style={styles.toolbarSubTitle}>{title}</Text>
+        <ListItem
+          title={label}
+          subtitle={value}
+          onPress={() => {
+            navigation.navigate('chooseOption', {
+              option: birdSpeciesText,
+              mod
+            })
+          }}
+          chevronColor="black"
+          chevron
+        />
+
+      </View>
     )
   }
 
@@ -48,19 +58,8 @@ const BirdSectionEdit = props => {
         translate("addEditObservation.birdHeader"),
         translate("addEditObservation.birdDescription")
       )}
-      {/* <ListItem
-        title="Тип птицы"
-        subtitle={birdSpecies}
-        onPress={() => {
-          navigation.navigate('chooseOption', {
-            birdSpecies,
-            mod: 'birdSpecies'
-          })
-        }}
-        chevronColor="black"
-        chevron
-      /> */}
-      {getItem("Bird species", birdSpecies, "birdSpecies")}
+
+      {getItem2("Bird species", birdSpeciesText, "birdSpecies")}
       <Text style={styles.appLinkBlock}>
         <Text>{`${translate("addEditObservation.linkToAppFirstPart")} `}</Text>
         <Text style={styles.appLinkBlockLink} onPress={onOpenBirdsGuideApp}>
@@ -68,47 +67,12 @@ const BirdSectionEdit = props => {
         </Text>
         <Text>{translate("addEditObservation.linkToAppThirdPart")}</Text>
       </Text>
-      {/* <ListItem
-        title="Полптицы"
-        subtitle={birdSex}
-        onPress={() => {
-          navigation.navigate('chooseOption', {
-            birdSex,
-            mod: 'birdSex'
-          })
-        }}
-        chevronColor="black"
-        chevron
-      /> */}
-      {getItem("Полптицы", birdSex, "birdSex")}
+  
+      {getItem2("Bird species", birdSexText, "birdSex")}
 
-      {/* <ListItem
-        title="Возраст птицы"
-        subtitle={birdAgeValues}
-        onPress={() => {
-          navigation.navigate('chooseOption', {
-            birdAge,
-            mod: 'birdAge'
-          })
-        }}
-        chevronColor="black"
-        chevron
-      /> */}
-      {getItem("Bird age", birdAge, "birdAge")}
+      {getItem2("Bird age", birdAgeText, "birdAge")}
 
-      {/* <ListItem
-        title="Птица была птицы"
-        subtitle={birdAgeValues}
-        onPress={() => {
-          navigation.navigate('chooseOption', {
-            birdObstacles,
-            mod: 'birdObstacles'
-          })
-        }}
-        chevronColor="black"
-        chevron
-      /> */}
-      {getItem("Птица была ", birdObstacles, "birdObstacles")}
+      {getItem2("Птица была ", birdObstaclesText, "birdObstacles")}
 
     </KeyboardAvoidingView>
   );

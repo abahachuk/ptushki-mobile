@@ -31,8 +31,6 @@ const EditObservation = props => {
     refObject = navigation.getParam('ObservationItem')
   }
 
-  console.log(navigation, navigation.getParam('newValue'))
-
   //TODO: getLocalizedText() from /utils
   const birdSpecies = refObject.speciesMentioned.species;
   const birdSex = refObject.sexMentioned.desc_rus;
@@ -66,27 +64,29 @@ const EditObservation = props => {
      let ringColorValues;
      let ringLocationValues;
 
+     
      let valueFromChooseList = navigation.getParam('newValue');
+     //TODO: it's not Text, it is Object
+     let birdSpeciesText = birdSpecies;
+     let birdSexText = birdSex;
+     let birdAgeText = birdAge;
+     let birdObstaclesText =birdObstacles;
      if (valueFromChooseList) {
       switch (valueFromChooseList.mod) {
         case 'birdSpecies':
-            birdSpecies = valueFromChooseList;
+            birdSpeciesText = valueFromChooseList;
             break;
         case 'birdSex':
-            birdSex = valueFromChooseList
+            birdSexText = valueFromChooseList
             break;
         case 'birdAge':
-            birdAge = valueFromChooseList
+            birdAgeText = valueFromChooseList
             break;
           case 'birdObstacles':
-              birdObstacles = valueFromChooseList
+              birdObstaclesText = valueFromChooseList
             break;
     }
-
      }
-
-
-  // console.log(birdSpecies)
 
   const updateFieldValue = fieldForMerge =>
     setFieldsValue(prevState => ({
@@ -149,7 +149,7 @@ const EditObservation = props => {
 
   // console.log(refObject, birdSpecies)
 
-
+  //TODO: birdSpecies is readOnly! What am I gonna dooo
   return (
     <View style={styles.rootContainer}>
       {navigation.state.params &&
@@ -167,12 +167,16 @@ const EditObservation = props => {
         <View style={styles.container}>
           
           <BirdSectionEdit
-            birdSpecies={birdSpecies}
-            birdSex={birdSex}
-            birdAge={birdAge}
-            birdAgeValues={birdAgeValues}
-            birdObstacles={birdObstacles}
+            // birdSpecies={birdSpecies}
+            // birdSex={birdSex}
+            // birdAge={birdAge}
+            // birdAgeValues={birdAgeValues}
+            // birdObstacles={birdObstacles}
             navigation={navigation}
+            birdSexText={birdSexText}
+            birdAgeText ={birdAgeText}
+            birdSpeciesText ={birdSpeciesText}
+            birdObstaclesText ={birdObstaclesText}
           />
           <PhotoCarousel
             updateFieldValue={updateFieldValue}
