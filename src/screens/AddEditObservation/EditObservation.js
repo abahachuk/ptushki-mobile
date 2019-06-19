@@ -1,102 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { ScrollView, View, BackHandler } from "react-native";
+import { ScrollView, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 import { Button } from "../../components";
-import { pickerValuesArrayType } from "../../propTypes";
-import RingsSectionEdit from './sections/RingsSectionEdit'
-import BirdSectionEdit from './sections/BirdSectionEdit'
-import ObstacleSectionEdit from './sections/ObstacleSectionEdit'
+import RingsSectionEdit from "./sections/RingsSectionEdit";
+import BirdSectionEdit from "./sections/BirdSectionEdit";
+import ObstacleSectionEdit from "./sections/ObstacleSectionEdit";
 import ObservationService from "../../api/Observation.service";
 
 const EditObservation = props => {
+  const service = new ObservationService();
+  const submitButtonText = translate("addEditObservation.updateObservation");
   const { navigation } = props;
   let refObject;
 
-  if (navigation.getParam('ObservationItem')) {
-    refObject = navigation.getParam('ObservationItem')
-    console.log(refObject)
+  if (navigation.getParam("ObservationItem")) {
+    refObject = navigation.getParam("ObservationItem");
+    // console.log(refObject);
   }
 
-  //TODO: getLocalizedText() from /utils
+  // TODO: getLocalizedText() from /utils
   const birdSpecies = refObject.speciesMentioned.species;
   const birdSex = refObject.sexMentioned.desc_rus;
   const birdAge = refObject.ageMentioned.desc_rus;
   const birdObstacles = refObject.status.desc_rus;
 
-  const setFieldsValue = () => { };
-  const submitButtonText = 'Обновить'
 
-  const birdPhotos = [];
-  const country = refObject.placeName;
-  const region = refObject.placeName;
-  const coordinates = refObject.latitude ? refObject.latitude : '';
-  const comment = refObject.remarks;
-  const dateTime = refObject.date;
-  const dateTimeInaccuracy = refObject.accuracyOfDate.id;
-
-  //some chaos
-
-  let valueFromChooseList = navigation.getParam('newValue');
-  //TODO: it's not Text, it is Object
-  let birdSpeciesText = birdSpecies;
-  let birdSexText = birdSex;
-  let birdAgeText = birdAge;
-  let birdObstaclesText = birdObstacles;
-  if (valueFromChooseList) {
-    switch (valueFromChooseList.mod) {
-      case 'birdSpecies':
-        birdSpeciesText = valueFromChooseList;
-        break;
-      case 'birdSex':
-        birdSexText = valueFromChooseList
-        break;
-      case 'birdAge':
-        birdAgeText = valueFromChooseList
-        break;
-      case 'birdObstacles':
-        birdObstaclesText = valueFromChooseList
-        break;
-    }
-  }
-
-  const updateFieldValue = fieldForMerge =>
-    setFieldsValue(prevState => ({
-      ...prevState,
-      ...fieldForMerge
-    }));
+  const coordinates = refObject.latitude ? refObject.latitude : "";
 
   const [rings, setRingsValues] = useState(refObject.ringMentioned);
-  const service = new ObservationService();
+  const [region, changeRegion] = useState(refObject.placeName);
+  const [comment, updateComment] = useState(refObject.remarks);
+  const [dateTime, updateDate] = useState( refObject.date)
 
-  const sendEditObservation = () => {
-    const body = {
-      birdSpecies,
-      birdSex,
-      birdAge,
-      birdObstacles,
-      country,
-      region,
-      coordinates,
-      comment,
-      dateTime,
-      dateTimeInaccuracy,
-      birdPhotos
-    };
 
-    const id = "";
-
-    service
-      .editObservations(body, id)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const valueFromChooseList = navigation.getParam("newValue");
+  // TODO: it's not Text, it is Object
+  //TODO: oh just ignore those labels and values, those are to refactor later
+  let birdSpeciesText = { 
+    value: birdSpecies,
+    label: birdSpecies
+  };
+  let birdSexText = { 
+    value: birdSex,
+    label: birdSex
+  };
+  let birdAgeText = { 
+    value: birdAge,
+    label: birdAge
+  };
+  let birdObstaclesText = { 
+    value: birdObstacles,
+    label: birdObstacles
+  };
+  if (valueFromChooseList) {
+    switch (valueFromChooseList.mod) {
+      case "birdSpecies":
+        birdSpeciesText = valueFromChooseList;
+        break;
+      case "birdSex":
+        birdSexText = valueFromChooseList;
+        break;
+      case "birdAge":
+        birdAgeText = valueFromChooseList;
+        break;
+      case "birdObstacles":
+        birdObstaclesText = valueFromChooseList;
+        break;
+    }
   }
 
   const onSubmitPress = () => {
@@ -113,8 +87,33 @@ const EditObservation = props => {
     props.onCurrentDateTime();
   };
 
+  const sendEditObservation = () => {
+    // TODO: birdSpecies is readOnly property! What am I gonna dooo
 
-  //TODO: birdSpecies is readOnly property! What am I gonna dooo
+    const body = {
+      birdSpecies: birdSpeciesText.value,
+      birdSex: birdSexText.value,
+      birdAge: birdAgeText.value,
+      birdObstacles: birdObstacles.value,
+      region,
+      coordinates,
+      comment,
+      dateTime,
+      dateTimeInaccuracy
+    };
+
+    const id = "";
+
+    service
+      .editObservations(body, id)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <View style={styles.rootContainer}>
       <ScrollView
@@ -123,7 +122,6 @@ const EditObservation = props => {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.container}>
-
           <BirdSectionEdit
             navigation={navigation}
             birdSexText={birdSexText}
@@ -131,22 +129,22 @@ const EditObservation = props => {
             birdSpeciesText={birdSpeciesText}
             birdObstaclesText={birdObstaclesText}
           />
-    
-          <RingsSectionEdit
-            rings={rings}
-            setRingsValues={setRingsValues}
+          <RingsSectionEdit 
+          rings={rings} 
+          setRingsValues={setRingsValues} 
           />
           <ObstacleSectionEdit
             onCurrentPositionPress={onCurrentPositionPress}
             onSearchOnMapPress={onSearchOnMapPress}
-            country={country}
-            setFieldValue={updateFieldValue}
             region={region}
             coordinates={coordinates}
             onCurrentDateTimePress={onCurrentDateTimePress}
             dateTime={dateTime}
-            dateTimeInaccuracy={dateTimeInaccuracy}
             comment={comment}
+
+            changeRegion={changeRegion}
+            updateComment={updateComment}
+            updateDate={updateDate}
           />
           <Button
             wrapperStyles={styles.submitButton}
@@ -162,62 +160,12 @@ const EditObservation = props => {
 
 EditObservation.propTypes = {
   submitButtonText: PropTypes.string,
-  birdSpeciesDefault: PropTypes.string,
-  birdSpeciesValues: pickerValuesArrayType,
-  birdSexDefault: PropTypes.string,
-  birdSexValues: pickerValuesArrayType,
-  birdAgeDefault: PropTypes.string,
-  birdAgeValues: pickerValuesArrayType,
-  birdObstaclesDefault: PropTypes.string,
-  birdObstaclesValues: pickerValuesArrayType,
-  ringsDefaultValues: PropTypes.object,
-  ringTypeValues: pickerValuesArrayType,
-  ringMaterialValues: pickerValuesArrayType,
-  ringColorValues: pickerValuesArrayType,
-  ringLocationValues: pickerValuesArrayType,
-  birdPhotosDefault: PropTypes.array,
-  countryDefault: PropTypes.string,
-  countryValues: pickerValuesArrayType,
-  regionDefault: PropTypes.string,
-  coordinatesDefault: PropTypes.string,
-  commentDefault: PropTypes.string,
-  dateTimeDefault: PropTypes.string,
-  dateTimeInaccuracyDefault: PropTypes.string,
-  onCurrentPosition: PropTypes.func,
-  onSearchOnMap: PropTypes.func,
-  onCurrentDateTime: PropTypes.func,
   navigation: PropTypes.shape({
     goBack: PropTypes.func,
     navigate: PropTypes.func
   }).isRequired
 };
-EditObservation.defaultProps = {
-  submitButtonText: "",
-  birdSpeciesDefault: "",
-  birdSpeciesValues: [],
-  birdSexDefault: "",
-  birdSexValues: [],
-  birdAgeDefault: "",
-  birdAgeValues: [],
-  birdObstaclesDefault: "",
-  birdObstaclesValues: [],
-  ringsDefaultValues: { "1": {} },
-  ringTypeValues: [],
-  ringMaterialValues: [],
-  ringColorValues: [],
-  ringLocationValues: [],
-  birdPhotosDefault: [],
-  countryDefault: "",
-  countryValues: [],
-  regionDefault: "",
-  coordinatesDefault: "",
-  commentDefault: "",
-  dateTimeDefault: "",
-  dateTimeInaccuracyDefault: "",
-  onCurrentPosition: () => { },
-  onSearchOnMap: () => { },
-  onCurrentDateTime: () => { }
-};
+
 EditObservation.navigationOptions = ({ navigation }) => {
   const { routeName } = navigation.state;
   const title =
@@ -243,8 +191,7 @@ EditObservation.navigationOptions = ({ navigation }) => {
 
 export default EditObservation;
 
-
-/*import React, { PureComponent } from "react";
+/* import React, { PureComponent } from "react";
 import ObservationBase from "./ObservationBase";
 import { translate } from "../../i18n";
 
@@ -259,4 +206,4 @@ class EditObservation extends PureComponent {
   }
 }
 EditObservation.navigationOptions = ObservationBase.navigationOptions;
-export default EditObservation;*/
+export default EditObservation; */

@@ -11,7 +11,7 @@ import {
 } from "../../screens";
 import { translate } from "../../i18n";
 import headerStyles from "./headerStyles";
-import ListItemPicker from './../../screens/AddEditObservation/ListItemPicker'
+import ListItemPicker from "../../screens/AddEditObservation/ListItemPicker";
 
 /* eslint react/display-name: 0 */
 

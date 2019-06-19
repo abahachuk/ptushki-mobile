@@ -1,7 +1,7 @@
 import React from "react";
 import { KeyboardAvoidingView, Text, Linking, View } from "react-native";
 import PropTypes from "prop-types";
-import { ListItem } from 'react-native-elements'
+import { ListItem } from "react-native-elements";
 
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../../i18n";
@@ -9,18 +9,15 @@ import { styles } from "../styles";
 import { pickerValuesArrayType } from "../../../propTypes";
 
 const birdsGuideAppLink = "market://details?id=com.apbbirdsguide.app";
+const birdImg = require("./../../../assets/bird/bird.png");
 
 const BirdSectionEdit = props => {
   const {
-    // birdSpecies,
-    // birdSex,
-    // birdAge,
-    // birdObstacles,
     navigation,
     birdSexText,
     birdAgeText,
     birdSpeciesText,
-    birdObstaclesText,
+    birdObstaclesText
   } = props;
 
   const onOpenBirdsGuideApp = () => {
@@ -28,29 +25,28 @@ const BirdSectionEdit = props => {
   };
 
   const getItem2 = (title, obj, mod) => {
-
-    let label = obj.length ? obj : obj.label
-    let value = obj.length ? obj : obj.value 
+    const label = obj.length ? obj : obj.label;
+    const value = obj.length ? obj : obj.value;
 
     return (
-      <View style={{marginTop: 10}}>
+      <View style={{ marginTop: 10 }}>
         <Text style={styles.toolbarSubTitle}>{title}</Text>
         <ListItem
           title={label}
           subtitle={value}
           onPress={() => {
-            navigation.navigate('chooseOption', {
-              option: birdSpeciesText,
+            navigation.navigate("chooseOption", {
+              option: obj,
               mod
-            })
+            });
           }}
           chevronColor="black"
           chevron
+          leftAvatar={mod === "birdSpecies" ? { source: birdImg } : null}
         />
-
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <KeyboardAvoidingView>
@@ -67,13 +63,12 @@ const BirdSectionEdit = props => {
         </Text>
         <Text>{translate("addEditObservation.linkToAppThirdPart")}</Text>
       </Text>
-  
+
       {getItem2("Bird sex", birdSexText, "birdSex")}
 
       {getItem2("Bird age", birdAgeText, "birdAge")}
 
       {getItem2("Птица была ", birdObstaclesText, "birdObstacles")}
-
     </KeyboardAvoidingView>
   );
 };
@@ -98,7 +93,7 @@ BirdSectionEdit.defaultProps = {
   birdAgeValues: [],
   birdObstacles: "",
   birdObstaclesValues: [],
-  setFieldValue: () => { }
+  setFieldValue: () => {}
 };
 
 export default BirdSectionEdit;

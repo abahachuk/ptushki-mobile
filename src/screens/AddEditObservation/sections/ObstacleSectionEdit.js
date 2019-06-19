@@ -10,40 +10,41 @@ import IconFA from "react-native-vector-icons/FontAwesome";
 import IconII from "react-native-vector-icons/Ionicons";
 
 import * as colors from "../../../constants/colors";
-import { Button, Input, CustomPicker } from "../../../components";
+import { Button, Input } from "../../../components";
 import getDescriptionBlock from "./DescriptionBlock";
 import { translate } from "../../../i18n";
 import { styles } from "../styles";
 import { pickerValuesArrayType } from "../../../propTypes";
 
 const countryValues = [
-    { label: "Брестская область", value: 'hi' },
-    { label: "Витебская область", value: 'hi' },
-    { label: "Гомельская область", value: 'hi' },
-    { label: "Гродненская область", value: 'hi' },
-    { label: "Минская область", value: 'hi' },
-    { label: "Могилевская область", value: 'hi' },
-    { label: "Брестская область", value: 'hi' }
-  ]
+  { label: "Брестская область", value: "hi" },
+  { label: "Витебская область", value: "hi" },
+  { label: "Гомельская область", value: "hi" },
+  { label: "Гродненская область", value: "hi" },
+  { label: "Минская область", value: "hi" },
+  { label: "Могилевская область", value: "hi" },
+  { label: "Брестская область", value: "hi" }
+];
 
 const ObstaclesSection = props => {
   const {
     onSearchOnMapPress,
-    // country,
     setFieldValue,
     region,
     coordinates,
     dateTime,
-    dateTimeInaccuracy,
-    comment
+    // dateTimeInaccuracy,
+    comment,
+    changeRegion,
+    updateComment,
+    updateDate
   } = props;
 
   const [
-    { dateTimeValue, dateTimeInaccuracyValue },
+    { dateTimeValue },
     setDateTimeValue
   ] = useState({
     dateTimeValue: dateTime,
-    dateTimeInaccuracyValue: dateTimeInaccuracy
   });
   const [coordinatesValue, setCoordinatesValue] = useState(coordinates);
 
@@ -109,29 +110,23 @@ const ObstaclesSection = props => {
       <Text style={styles.sectionTitle}>
         {translate("addEditObservation.place")}
       </Text>
-      {/* <CustomPicker
-        wrappedStyles={styles.countryPicker}
-        selectedValue={country}
-        onValueChange={itemValue => setFieldValue({ country: itemValue })}
-        items={countryValues}
-        caption={translate("addEditObservation.country")}
-      /> */}
+
       <Input
-        onChangeText={value => setFieldValue({ region: value })}
+        onChangeText={value => changeRegion(value)}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         wrapperStyles={styles.customInput}
         value={region}
         label={translate("addEditObservation.region")}
       />
-      <Input
+      {/* <Input
         onChangeText={value => setFieldValue({ coordinates: value })}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={coordinatesValue}
         label={translate("addEditObservation.coordinates")}
-      />
+      /> */}
       <Text style={styles.sectionTitle}>
         {translate("addEditObservation.time")}
       </Text>
@@ -145,21 +140,14 @@ const ObstaclesSection = props => {
         </Text>
       </TouchableOpacity>
       <Input
-        onChangeText={value => setFieldValue({ dateTime: value })}
+        onChangeText={value => updateDate(value)}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={dateTimeValue}
         label={translate("addEditObservation.dateTime")}
       />
-      <Input
-        onChangeText={value => setFieldValue({ dateTimeInaccuracy: value })}
-        wrapperStyles={styles.customInput}
-        customViewStyles={styles.customView}
-        customTextStyles={styles.customText}
-        value={dateTimeInaccuracyValue}
-        label={translate("addEditObservation.dateTimeInaccuracy")}
-      />
+
       <Text style={styles.sectionTitle}>
         {translate("addEditObservation.comment")}
       </Text>
@@ -167,7 +155,7 @@ const ObstaclesSection = props => {
         {translate("addEditObservation.commentBlockDescription")}
       </Text>
       <Input
-        onChangeText={value => setFieldValue({ comment: value })}
+        onChangeText={value => updateComment(value)}
         customLabel={styles.customLabel}
         customViewStyles={styles.commentField}
         customTextStyles={styles.customText}
@@ -176,29 +164,6 @@ const ObstaclesSection = props => {
       />
     </KeyboardAvoidingView>
   );
-};
-
-ObstaclesSection.propTypes = {
-  onSearchOnMapPress: PropTypes.func,
-  country: PropTypes.string,
-  setFieldValue: PropTypes.func,
-  countryValues: pickerValuesArrayType,
-  region: PropTypes.string,
-  coordinates: PropTypes.string,
-  dateTime: PropTypes.string,
-  dateTimeInaccuracy: PropTypes.string,
-  comment: PropTypes.string
-};
-ObstaclesSection.defaultProps = {
-  onSearchOnMapPress: () => {},
-  country: "",
-  setFieldValue: () => {},
-  countryValues: [],
-  region: "",
-  coordinates: "",
-  dateTime: "",
-  dateTimeInaccuracy: "",
-  comment: ""
 };
 
 export default ObstaclesSection;
