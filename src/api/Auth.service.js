@@ -6,7 +6,7 @@ import {
   AUTH_RESET_PASSWORD_ENDPOINT,
   AUTH_LOGOUT_ENDPOINT
 } from "config";
-import { BaseService } from "api";
+import BaseService  from "./Base.service";
 /* eslint-enable */
 
 export default class AuthService extends BaseService {
@@ -29,7 +29,7 @@ export default class AuthService extends BaseService {
       })
       .catch(err => {
         console.info("Login failed:", err);
-        throw err;
+        throw new Error(err);
       });
   }
 
@@ -55,7 +55,7 @@ export default class AuthService extends BaseService {
       })
       .catch(err => {
         console.info("Auth registration error", err);
-        throw err;
+        throw new Error(err);
       });
   }
 
@@ -66,7 +66,7 @@ export default class AuthService extends BaseService {
       })
       .catch(err => {
         console.info("Auth reset password error", err);
-        throw err;
+        throw new Error(err);
       });
   }
 

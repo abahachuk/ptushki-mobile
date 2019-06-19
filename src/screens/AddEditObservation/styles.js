@@ -42,6 +42,11 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     color: "white"
   },
+  toolbarSubTitle: {
+    fontSize: 16,
+    fontFamily: "Roboto",
+    color: "grey"
+  },
   ringItemTitle: {
     marginTop: 20
   },
@@ -220,6 +225,9 @@ export const styles = StyleSheet.create({
   },
   declineChangesContent: {
     padding: 0
+  },
+  declineChangesContainer: {
+    flex: 1
   },
   declineChangesMainContent: {
     flex: 1

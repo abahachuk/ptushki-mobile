@@ -1,6 +1,10 @@
 import React from "react";
 import { Button } from "react-native-elements";
 import PropTypes from "prop-types";
+
+// eslint-disable-next-line import/no-unresolved
+import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
+
 import { styles } from "./styles";
 
 const LanguageButton = props => {
@@ -8,7 +12,7 @@ const LanguageButton = props => {
 
   const onPress = key => {
     screenProps.onLocaleChange(key);
-    navigation.navigate(navigationRoute);
+    navigation.navigate(FIRST_INTRO_SCREEN);
   };
 
   return (

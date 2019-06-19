@@ -1,6 +1,7 @@
 /* eslint-disable */
 import AsyncStorage from "@react-native-community/async-storage";
 import { config, AUTH_REFRESH_ENDPOINT, AUTH_LOGOUT_ENDPOINT } from "config";
+import { translate } from "../i18n";
 /* eslint-enable */
 /* eslint-disable class-methods-use-this */
 
@@ -82,18 +83,20 @@ export default class BaseService {
   }
 
   async parseError(response) {
-    const { statusText } = response;
-    let data;
+    const { status } = response;
+    const message = this.getMessage(status);
 
-    try {
-      data = await response.json();
-    } catch (err) {
-      return statusText;
+    return !message
+      ? Promise.reject(response.message)
+      : Promise.reject(message);
+  }
+
+  getMessage(status) {
+    switch (status) {
+      case 401:
+        return translate("backendError.401");
+      default:
+        return undefined;
     }
-
-    const error = new Error(
-      `Status: ${response.status}, message: ${data.error.message}`
-    );
-    return Promise.reject(error);
   }
 }

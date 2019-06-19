@@ -5,12 +5,20 @@ import { styles } from "./styles";
 const img = require("./mockData/bird.jpg");
 
 const Observation = props => {
-  
-  const { showObservation, observationItem: {speciesMentioned: { species }, ring: { identificationNumber }, placeName, date }} = props;
+  const {
+    showObservation,
+    observationItem: {
+      speciesMentioned: { species },
+      ring: { identificationNumber },
+      placeName,
+      date
+    }
+  } = props;
   return (
     <TouchableOpacity
-    style={styles.observation}
-    onPress={() => showObservation(props.observationItem)}>
+      style={styles.observation}
+      onPress={() => showObservation(props.observationItem)}
+    >
       <Text style={styles.species}>{species}</Text>
       <View style={styles.ringNumberWrap}>
         <Text style={styles.ringNumber}>{identificationNumber}</Text>

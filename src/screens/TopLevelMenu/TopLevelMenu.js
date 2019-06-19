@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { DrawerItems } from "react-navigation";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  Image,
-  AsyncStorage
-} from "react-native";
+import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 import { Divider } from "react-native-elements";
+import userRoles from "constants/userRoles";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 import LogoutButton from "./LogoutButton";
-import userRoles from "constants/userRoles";
 
 const logo = require("./../../assets/logotype/logotype2x.png");
 

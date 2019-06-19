@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 /* eslint-disable-next-line */
 import * as colors from "constants/colors";
 
-const { firebrick, white, borderBlack, textBlack } = colors;
+const { firebrick, white, borderBlack } = colors;
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({

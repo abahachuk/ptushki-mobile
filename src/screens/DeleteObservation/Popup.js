@@ -1,16 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  UIManager,
-  findNodeHandle,
-  TouchableOpacity,
-  Image
-} from "react-native";
-
-/*eslint-disable */
-const dotsIcon = require("assets/three-dots-menu/dots-vertical-black.png");
-/* eslint-enable */
+import { View, UIManager, findNodeHandle } from "react-native";
+import Entypo from "react-native-vector-icons/Entypo";
 
 export default class PopupMenu extends Component {
   constructor(props) {
@@ -52,9 +43,14 @@ export default class PopupMenu extends Component {
     /* eslint-enable */
     return (
       <View>
-        <TouchableOpacity onPress={onPress}>
-          <Image resizeMode="contain" source={dotsIcon} ref={onRef} />
-        </TouchableOpacity>
+        <Entypo.Button
+          name="dots-three-vertical"
+          size={24}
+          color="white"
+          backgroundColor="transparent"
+          onPress={onPress}
+          ref={onRef}
+        />
       </View>
     );
   }

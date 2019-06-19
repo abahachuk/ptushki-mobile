@@ -5,3 +5,6 @@ export const AUTH_REGISTRATION_ENDPOINT = "/auth/signup";
 export const AUTH_RESET_PASSWORD_ENDPOINT = "/auth/change-password";
 export const OBSERVATIONS_ENDPOINT = "/observations";
 export const INITIAL_DATA_ENDPOINT = "/initial-data";
+// TODO: for now backend doesn't support description
+/*eslint-disable*/
+export const DELETE_OBSERVATIONS_ENDPOINT = (id, description) => `/observations/${id}`;

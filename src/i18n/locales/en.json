@@ -1,4 +1,7 @@
 {
+  "backendError": {
+    "401": "Error with password or login, try one more time, please"
+  },
   "registration": {
     "password": "Password",
     "email": "E-mail",
@@ -11,7 +14,8 @@
     "back": "Back",
     "register": "Register",
     "statusText": "Yey! Successfully signed up!",
-    "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!"
+    "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!",
+    "backendErrorMessage": "Sorry, registration failed"
   },
   "login": {
     "bandingCenter": "Center for Ringing Birds at the Academy of Sciences of the Republic of Belarus",
@@ -20,7 +24,9 @@
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
     "forgotPassword": "Forgot password",
-    "goToLogin": "Go to login"
+    "goToLogin": "Go to login",
+    "close": "Close",
+    "backendErrorMessage": "Error with login, check your internet connectiond, if it's ok, check login and password"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
@@ -111,7 +117,8 @@
     "deleteObservationInputLabel": "Reason",
     "undoAction": "Cancel",
     "deleteObservation": "Delete observation",
-    "editObservation": "Edit Observation"
+    "editObservation": "Edit Observation",
+    "errorOnDelete": "Error when deleting observation, please try again later"
   },
   "topLevelMenu": {
     "observationTitle": "Observations",
@@ -152,5 +159,20 @@
     "commentHeader": "Comments",
     "addSameBird": "Add the same bird",
     "addSameBirdObservation": "Add observation of the same bird"
+  },
+  "introduction": {
+    "back": "Back",
+    "next": "Next",
+    "understandably": "Understandably",
+    "clear": "Clear",
+    "begin": "Let's begin!",
+    "firstScreenTitle": "What it is?",
+    "secondScreenTitle": "Why is this necessary?",
+    "thirdScreenTitle": "What did I do?",
+    "fourthScreenTitle": "What kind",
+    "firstScreenText": "Application for collecting data on ringed birds found on the territory of the Republic of Belarus",
+    "secondScreenText": "Scientists ornithologists mark birds with special plastic or metal rings to register the bird's location in different places and draw conclusions about the development of the population.\n\nDepending on the data obtained, environmentalists make decisions to maintain populations at the required level.",
+    "thirdScreenText": "If you find a bird with rings on one paw, or on both, or maybe on the neck, you can replenish the statistics of observations of this bird through this application.\n\nIf you found just a ring, this information is also very useful to us!",
+    "fourthScreenText": "There are various sets of rings, they can be on the paws, neck and even on the wings, so now you know what to look for.\n\nSo welcome to our humble scientific community of ringers and observers!"
   }
 }
