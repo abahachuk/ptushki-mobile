@@ -36,6 +36,7 @@ export default class AuthService extends BaseService {
   register(email, password, firstName, lastName, phone) {
     return super
       .sendRequest(AUTH_REGISTRATION_ENDPOINT, "POST", null, {
+        rememberPassword: true,
         email,
         password,
         firstName,
