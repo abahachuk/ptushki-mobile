@@ -93,25 +93,45 @@ const ObservationBase = props => {
   };
 
   const sendAddObservation = () => {
+    props.navigation.navigate("ObservationCreated", {
+      birdSpecies,
+      dateTime,
+      observationLocation: `${country}`,
+      birdSex,
+      birdAge,
+      birdObstacles
+    });
     // TODO: add here new observation containing all props
-    const body = {};
+    // const body = {};
+    // console.log({
+    //   birdSpecies,
+    //   birdSex,
+    //   birdAge,
+    //   birdObstacles,
+    //   country,
+    //   coordinates,
+    //   comment,
+    //   dateTime,
+    //   dateTimeInaccuracy,
+    //   birdPhotos
+    // })
 
-    service
-      .addObservations(JSON.stringify(body))
-      .then(response => {
-        console.log(response);
-        props.navigation.navigate("ObservationCreated", {
-          birdSpecies,
-          dateTime,
-          observationLocation: `${country}`,
-          birdSex,
-          birdAge,
-          birdObstacles
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // service
+    //   .addObservations(JSON.stringify(body))
+    //   .then(response => {
+    //     console.log(response);
+    //     props.navigation.navigate("ObservationCreated", {
+    //       birdSpecies,
+    //       dateTime,
+    //       observationLocation: `${country}`,
+    //       birdSex,
+    //       birdAge,
+    //       birdObstacles
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   };
 
   const onSubmitPress = () => {

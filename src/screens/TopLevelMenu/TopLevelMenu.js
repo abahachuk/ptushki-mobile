@@ -8,7 +8,7 @@ import { translate } from "../../i18n";
 import { styles } from "./styles";
 import LogoutButton from "./LogoutButton";
 
-const logo = require("./../../assets/logotype/logotype2x.png");
+const logo = require("./../../assets/logotype/logo.png");
 
 const TopLevelMenu = props => {
   const [name, setName] = useState("");

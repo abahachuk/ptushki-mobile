@@ -62,7 +62,7 @@ exports[`Login screen renders correctly 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "testUri": "../../../src/assets/logotype/logotype2x.png",
+              "testUri": "../../../src/assets/logotype/logo.png",
             }
           }
           style={

@@ -12,7 +12,7 @@ import { styles } from "./styles";
 import { AuthService } from "api";
 import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
 
-const logoImg = require("assets/logotype/logotype2x.png");
+const logoImg = require("assets/logotype/logo.png");
 const infoImg = require("assets/ic_info/ic_info2x.png");
 /* eslint-enable */
 
