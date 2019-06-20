@@ -41,7 +41,7 @@ export default class Observations extends PureComponent {
   render() {
     const { observations, loading } = this.state;
     return (!loading && 
-      <View>
+      <View style={styles.wrapper}>
         <FlatList
           contentContainerStyle={styles.container}
           data={observations}
