@@ -13,9 +13,7 @@ const primaryNavigator = createSwitchNavigator({
 });
 
 const extendedNavigator = createSwitchNavigator({
-  introduction: {
-    screen: IntroductionNavigator
-  },
+  IntroductionNavigator,
   primaryNavigator
 });
 
