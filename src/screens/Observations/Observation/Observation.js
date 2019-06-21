@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
-const img = require("./mockData/bird.jpg");
+const img = require("../../../assets/introduction/gaga.jpg");
 
 const Observation = props => {
   const {

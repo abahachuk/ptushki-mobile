@@ -33,31 +33,30 @@ export default class Observations extends PureComponent {
       observations: [
         {
           "id": "ed4fe805-8745-4df0-b9b8-50905b40fc45",
-      "ringMentioned": "PQUP.56205",
-      "photos": null,
-      "distance": 41293,
-      "direction": 15,
-      "elapsedTime": 59779,
-      "colorRing": "inventore quia culpa",
-      "date": "Wed Jul 11 2018 16:38:24 GMT+0300 (Moscow Standard Time)",
-      "latitude": null,
-      "longitude": null,
-      "placeName": "Nevada Sabinashire",
-      "remarks": "eum distinctio rem",
-      "verified": true,
-      "ring": {
-        "id": "b01e19fc-46b9-4919-b502-6dba523b9c72",
-        "identificationNumber": "PQUP.56205",
-        "latitude": null,
-        "longitude": null,
-        "date": "Mon Jan 14 2019 15:59:04 GMT+0300 (Moscow Standard Time)",
-        "remarks": "similique dolor dolorem",
-        "ringingScheme": {
-          "id": "IAB",
-          "status": null,
-          "country": "Tokelau",
-          "center": "Utah"
-        },
+          "ringMentioned": "CYC",
+          "photos": null,
+          "distance": 41293,
+          "direction": 15,
+          "elapsedTime": 59779,
+          "colorRing": "inventore quia culpa",
+          "date": "Fri Jun 21 2019 17:59:04 GMT+0300 (Moscow Standard Time)",
+          "latitude": null,
+          "longitude": null,
+          "placeName": "Мозырь, Беларусь",
+          "remarks": "Была на дереве",
+          "verified": true,
+          "ring": {
+          "id": "b01e19fc-46b9-4919-b502-6dba523b9c72",
+          "identificationNumber": "CYC-3428",
+          "latitude": null,
+          "longitude": null,
+          "date": "Fri Jun 21 2019 17:59:04 GMT+0300 (Moscow Standard Time)",
+          "ringingScheme": {
+            "id": "CYC",
+            "status": null,
+            "country": "Мозырь",
+            "center": "Utah"
+          },
         "primaryIdentificationMethod": {
           "id": "R0",
           "desc_eng": "Dolores rerum quo voluptas architecto corrupti aut odit recusandae velit.",
@@ -85,7 +84,7 @@ export default class Observations extends PureComponent {
         "speciesMentioned": {
           "id": "00007",
           "letterCode": "SRTGSK",
-          "species": "non facere reprehenderit",
+          "species": "сибирская гага",
           "ordo": "et",
           "family": "minus quis atque",
           "desc_eng": null,
@@ -95,7 +94,7 @@ export default class Observations extends PureComponent {
         "speciesConcluded": {
           "id": "00081",
           "letterCode": "NRPYCO",
-          "species": "fugit architecto incidunt",
+          "species": "сибирская гага",
           "ordo": "sit",
           "family": "quasi dolorem pariatur",
           "desc_eng": null,
@@ -127,25 +126,25 @@ export default class Observations extends PureComponent {
           "desc_byn": "Ut eum voluptatem ratione et incidunt commodi ut pariatur."
         },
         "sexMentioned": {
-          "id": "F",
+          "id": "Женский",
           "desc_eng": "Quia id omnis est ea aut aut magnam porro.",
-          "desc_rus": "Cum voluptatibus totam qui velit voluptatem sit in.",
+          "desc_rus": "Женский",
           "desc_byn": "Dolores architecto ut consequatur illo adipisci."
         },
         "sexConcluded": {
-          "id": "M",
+          "id": "Женский",
           "desc_eng": "Molestias dolorem optio enim sed quia quo quasi.",
           "desc_rus": "Voluptas modi delectus ex quo et commodi.",
           "desc_byn": "Quae enim error."
         },
         "ageMentioned": {
-          "id": "8",
+          "id": "2",
           "desc_eng": "Beatae dolor laborum commodi.",
           "desc_rus": "Voluptatem quis aut quis voluptatem sed ut iusto et.",
           "desc_byn": "Error odit repellat."
         },
         "ageConcluded": {
-          "id": "A",
+          "id": "2",
           "desc_eng": "Consequatur totam esse error reprehenderit dolor quaerat qui totam.",
           "desc_rus": "Fuga accusamus praesentium rem cumque quis.",
           "desc_byn": "Provident eos eum voluptas."
@@ -176,8 +175,8 @@ export default class Observations extends PureComponent {
         },
         "placeCode": {
           "id": "MPNaN",
-          "country": "Western Sahara",
-          "region": "Minnesota"
+          "country": "Беларсь",
+          "region": "Мозырь"
         },
         "accuracyOfCoordinates": {
           "id": 9,
@@ -187,9 +186,9 @@ export default class Observations extends PureComponent {
         },
         "condition": {
           "id": 7,
-          "desc_eng": "In ut non dolorem occaecati architecto similique laborum.",
-          "desc_rus": "Reprehenderit earum nihil sapiente.",
-          "desc_byn": "Ipsum totam repellat velit ea nisi modi qui et."
+          "desc_eng": "Запуталась в естественных условиях.",
+          "desc_rus": "Запуталась в естественных условиях.",
+          "desc_byn": "Запуталась в естественных условиях."
         },
         "circumstances": {
           "id": "42",
@@ -240,7 +239,7 @@ export default class Observations extends PureComponent {
       "speciesMentioned": {
         "id": "00030",
         "letterCode": "LABQSB",
-        "species": "quia ab voluptas",
+        "species": "сибирская гага",
         "ordo": "nobis",
         "family": "magnam sit veniam",
         "desc_eng": null,
@@ -250,7 +249,7 @@ export default class Observations extends PureComponent {
       "speciesConcluded": {
         "id": "00061",
         "letterCode": "CIMSBV",
-        "species": "optio sint in",
+        "species": "сибирская гага",
         "ordo": "quia",
         "family": "repellendus sunt facilis",
         "desc_eng": null,
@@ -260,7 +259,7 @@ export default class Observations extends PureComponent {
       "sexMentioned": {
         "id": "F",
         "desc_eng": "Quia id omnis est ea aut aut magnam porro.",
-        "desc_rus": "Cum voluptatibus totam qui velit voluptatem sit in.",
+        "desc_rus": "Женский",
         "desc_byn": "Dolores architecto ut consequatur illo adipisci."
       },
       "sexConcluded": {
@@ -270,13 +269,13 @@ export default class Observations extends PureComponent {
         "desc_byn": "Quae enim error."
       },
       "ageMentioned": {
-        "id": "F",
+        "id": "2",
         "desc_eng": "Aut architecto sed neque sunt cum quis perspiciatis numquam rerum.",
-        "desc_rus": "Ipsa consequatur qui architecto nobis.",
+        "desc_rus": "2",
         "desc_byn": "Recusandae nemo quae nesciunt."
       },
       "ageConcluded": {
-        "id": "D",
+        "id": "2",
         "desc_eng": "Doloremque consequatur vel explicabo quis.",
         "desc_rus": "Dolorum quisquam similique.",
         "desc_byn": "Quia consequatur eius ut ipsam eum."
@@ -320,7 +319,7 @@ export default class Observations extends PureComponent {
       "status": {
         "id": "N",
         "desc_eng": "Debitis tempore accusantium labore vel dolores assumenda mollitia.",
-        "desc_rus": "Magni sit et aut nihil.",
+        "desc_rus": "Запутанна в естественных условиях",
         "desc_byn": "Voluptate aliquid distinctio deleniti omnis consectetur aut praesentium sapiente in."
       },
       "pullusAge": {
@@ -337,9 +336,9 @@ export default class Observations extends PureComponent {
       },
       "condition": {
         "id": 0,
-        "desc_eng": "Dicta beatae eveniet nulla reprehenderit inventore natus exercitationem.",
-        "desc_rus": "Beatae repellat ipsa impedit esse exercitationem optio quod.",
-        "desc_byn": "Autem dignissimos sit quo."
+        "desc_eng": "Запуталась в естественных условиях.",
+        "desc_rus": "Запуталась в естественных условиях.",
+        "desc_byn": "Запуталась в естественных условиях."
       },
       "circumstances": {
         "id": "86",
