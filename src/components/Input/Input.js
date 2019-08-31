@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { TouchableHighlight, Text, TextInput, View, Image } from "react-native";
 import { styles } from "./styles";
 
-const icEyeHide = require("../../assets/ic_eye_hide/ic_eye_hide2x.png");
-const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show2x.png");
+const icEyeHide = require("../../assets/ic_eye_hide/ic_eye_hide.png");
+const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show.png");
 
 const Input = props => {
   const [isFocused, setFocusedState] = useState(false);

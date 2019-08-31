@@ -10,7 +10,7 @@ const LanguageSelect = props => {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image source={languageBird} resizeMethod="scale" />
-        <View style={{}}>
+        <View style={styles.buttonsContainer}>
           <LanguageButton
             title="Беларуская мова"
             langKey="be"

@@ -18,13 +18,17 @@ export const styles = StyleSheet.create({
     color: "#4f6e7c",
     marginLeft: 15
   },
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  buttonStyle: {
+    paddingVertical: 15,
+    marginVertical: 2
+  },
   buttonTitleStyle: {
     color: "#4f6e7c",
     textTransform: "uppercase",
     fontSize: 18
-  },
-  buttonStyle: {
-    paddingTop: 25,
-    paddingBottom: 25
   }
 });
