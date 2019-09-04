@@ -1,20 +1,31 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, KeyboardAvoidingView, TouchableHighlight } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Keyboard,
+  Animated
+} from "react-native";
 import Modal from "react-native-modalbox";
 
 /* eslint-disable */
 import { Button, Input } from "components";
+import { SCREEN_HEIGHT } from "constants/dimensions";
 import { translate } from "../../i18n";
 import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
 import { modalWindowStyles } from "utils/modalWindowStyles";
 import { styles } from "./styles";
 import { AuthService } from "api";
 import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
+import { showKeyboard, hideKeyboard } from "constants/keyboard";
 
 const logoImg = require("assets/logotype/logo.png");
-const infoImg = require("assets/ic_info/ic_info2x.png");
+const infoImg = require("assets/ic_info/ic_info.png");
 /* eslint-enable */
+
+const RESERVE_PLACE_FOR_BUTTON = 80;
 
 const Login = props => {
   const {
@@ -24,8 +35,11 @@ const Login = props => {
     navigation
   } = props;
   const [email, setEmail] = useState(emailFromProps);
+  // const [email, setEmail] = useState("tkaolgav@mail.ru");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
+  // const [password, setPassword] = useState("321172ptushki");
+
   const [error, setError] = useState(errorFromProps);
   const [passwordError, setPasswordError] = useState("");
   const modalRef = useRef(null);
@@ -68,57 +82,100 @@ const Login = props => {
     navigation.navigate(FIRST_INTRO_SCREEN);
   };
 
+  /** keyboard avoiding */
+
+  const keyboardHeight = useRef(0);
+  const offset = new Animated.Value(0);
+  let focusedInputYPosition = 0;
+  function toggleViewHeight(value = 0) {
+    if (
+      focusedInputYPosition + RESERVE_PLACE_FOR_BUTTON > SCREEN_HEIGHT - keyboardHeight.current
+    ) {
+      Animated.timing(offset, {
+        toValue: -value / 2.5,
+        duration: 200,
+        useNativeDriver: true
+      }).start();
+    }
+  }
+  function setFocusedInput(inputYPosition) {
+    focusedInputYPosition = inputYPosition;
+    toggleViewHeight(keyboardHeight.current);
+  }
+  useEffect(() => {
+    function onKeyboardShow(event) {
+      keyboardHeight.current = event.endCoordinates.height || 0;
+
+      toggleViewHeight(keyboardHeight.current);
+    }
+
+    function onKeyboardHide() {
+      toggleViewHeight(0);
+    }
+
+    const keyboardWillShowSub = Keyboard.addListener(
+      showKeyboard,
+      onKeyboardShow
+    );
+    const keyboardWillHideSub = Keyboard.addListener(
+      hideKeyboard,
+      onKeyboardHide
+    );
+
+    return () => {
+      keyboardWillShowSub.remove();
+      keyboardWillHideSub.remove();
+    };
+  });
+
   return (
-    <KeyboardAvoidingView style={styles.container} enabled>
-      <View style={styles.loginContainer}>
-        <View style={styles.headerContainer}>
-          <View style={styles.infoImgContainer}>
-            <TouchableHighlight onPress={navigateToIntro}>
-              <Image style={styles.infoImg} source={infoImg} />
-            </TouchableHighlight>
-          </View>
-          <View style={styles.header}>
-            <Image
-              style={styles.logoImg}
-              resizeMode="contain"
-              source={logoImg}
-            />
-            <Text style={styles.headerText}>
-              {translate("login.bandingCenter")}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.loginForm}>
-          <Input
-            value={email}
-            label={translate("login.email")}
-            textContentType="emailAddress"
-            onChangeText={setEmail}
-            error={emailError}
-            onTextInputBlur={onTextInputBlur}
-          />
-          <Input
-            value={password}
-            label={translate("login.password")}
-            textContentType="password"
-            onChangeText={setPassword}
-            error={passwordError}
-            onTextInputBlur={onTextInputBlur}
-            wrapperStyles={[styles.passwordInput]}
-          />
-          <Button
-            caption={translate("login.sign-in")}
-            onPress={onLoginPress}
-            appearance="Dark"
-            wrapperStyles={styles.signInBtn}
-          />
-        </View>
-      </View>
+    <View style={styles.container}>
+      <Animated.View
+        style={[styles.loginContainer, { transform: [{ translateY: offset }] }]}
+      >
+        <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
+        <Text style={styles.headerText}>
+          {translate("login.bandingCenter")}
+        </Text>
+        <TouchableOpacity
+          style={styles.infoImgContainer}
+          onPress={navigateToIntro}
+          activeOpacity={0.8}
+        >
+          <Image style={styles.infoImg} source={infoImg} />
+        </TouchableOpacity>
+        <Input
+          value={email}
+          label={translate("login.email")}
+          textContentType="emailAddress"
+          onChangeText={setEmail}
+          error={emailError}
+          onTextInputBlur={onTextInputBlur}
+          setFocusedInput={setFocusedInput}
+        />
+        <Input
+          value={password}
+          label={translate("login.password")}
+          textContentType="password"
+          onChangeText={setPassword}
+          error={passwordError}
+          onTextInputBlur={onTextInputBlur}
+          wrapperStyles={[styles.passwordInput]}
+          setFocusedInput={setFocusedInput}
+        />
+        <Button
+          caption={translate("login.sign-in")}
+          onPress={onLoginPress}
+          appearance="Dark"
+          wrapperStyles={styles.signInBtn}
+        />
+      </Animated.View>
       <View style={styles.footer}>
         <Button
           caption={translate("login.sign-up")}
           onPress={onRegisterPress}
           appearance="Light"
+          wrapperStyles={styles.signUpBtn}
         />
         <Button
           caption={translate("login.forgotPassword")}
@@ -141,7 +198,7 @@ const Login = props => {
           appearance="Borderless"
         />
       </Modal>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 

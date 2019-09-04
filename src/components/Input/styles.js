@@ -10,10 +10,9 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: 56,
-    position: "relative",
     paddingLeft: 15,
-    borderWidth: 0.5,
     borderColor: borderBlack,
+    borderWidth: 0.5,
     borderRadius: 4
   },
   containerWithErrors: {
@@ -27,20 +26,20 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     letterSpacing: 0.15,
     lineHeight: 24,
-    color: "rgba(0,0,0,0.6)"
+    color: "rgba(0,0,0,0.6)",
   },
   labelFocused: {
-    top: -15,
-    fontSize: 12,
+    top: -14,
     fontFamily: "Roboto",
-    backgroundColor: white,
-    paddingLeft: 5,
-    paddingRight: 5
+    fontSize: 12,
+    paddingHorizontal: 5,
+    backgroundColor: white
   },
   labelWithErrors: {
     color: firebrick
   },
   textInput: {
+    paddingVertical: 15,
     fontSize: 16,
     color: "rgba(0,0,0,0.6)"
   },
