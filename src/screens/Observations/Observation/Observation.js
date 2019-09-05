@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
-const img = require("../../../assets/introduction/gaga.jpg");
+const img = require("../../../assets/introduction/gaga.jpg"); // TODO remove after BE include bird image in the response
 
 const Observation = props => {
   const {
