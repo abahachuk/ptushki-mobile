@@ -11,6 +11,7 @@ export default class InitialDataService extends BaseService {
     return super
       .sendRequest(INITIAL_DATA_ENDPOINT, "GET", token)
       .then(response => response.json())
+      // eslint-disable-next-line no-console
       .catch(err => console.info("Getting initial data error", err));
   }
 }

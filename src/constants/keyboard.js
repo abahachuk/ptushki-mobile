@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { Platform } from "react-native";
 
 // eslint-disable-next-line import/prefer-default-export
 export const [showKeyboard, hideKeyboard] =

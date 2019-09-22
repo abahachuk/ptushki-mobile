@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { Dimensions } from "react-native";
 
 export const SCREEN_HEIGHT = Dimensions.get("window").height;
