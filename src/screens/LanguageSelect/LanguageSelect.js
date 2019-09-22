@@ -8,28 +8,26 @@ const languageBird = require("./../../assets/languageBird/Bird.png");
 const LanguageSelect = props => {
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image source={languageBird} resizeMethod="scale" />
-        <View style={styles.buttonsContainer}>
-          <LanguageButton
-            title="Беларуская мова"
-            langKey="be"
-            navigationRoute="auth"
-            {...props}
-          />
-          <LanguageButton
-            title="Русский язык"
-            langKey="ru"
-            navigationRoute="auth"
-            {...props}
-          />
-          <LanguageButton
-            title="English"
-            langKey="en"
-            navigationRoute="auth"
-            {...props}
-          />
-        </View>
+      <Image source={languageBird} style={styles.image} />
+      <View style={styles.buttonsContainer}>
+        <LanguageButton
+          title="Беларуская мова"
+          langKey="be"
+          navigationRoute="auth"
+          {...props}
+        />
+        <LanguageButton
+          title="Русский язык"
+          langKey="ru"
+          navigationRoute="auth"
+          {...props}
+        />
+        <LanguageButton
+          title="English"
+          langKey="en"
+          navigationRoute="auth"
+          {...props}
+        />
       </View>
     </View>
   );

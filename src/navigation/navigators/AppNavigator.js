@@ -1,9 +1,17 @@
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
+
+import Splash from "../../screens/Splash";
 import RegistrationNavigator from "./RegistrationNavigator";
 import MainPageNavigator from "./MainPageNavigator";
 import IntroductionNavigator from "./IntroductionNavigator";
 
-const primaryNavigator = createSwitchNavigator({
+const extendedNavigator = createSwitchNavigator({
+  splash: {
+    screen: Splash
+  },
+  introduction: {
+    screen: IntroductionNavigator
+  },
   auth: {
     screen: RegistrationNavigator
   },
@@ -12,12 +20,6 @@ const primaryNavigator = createSwitchNavigator({
   }
 });
 
-const extendedNavigator = createSwitchNavigator({
-  introduction: {
-    screen: IntroductionNavigator
-  },
-  primaryNavigator
-});
+const AppExtendedContainer = createAppContainer(extendedNavigator);
 
-export const AppPrimaryContainer = createAppContainer(primaryNavigator);
-export const AppExtendedContainer = createAppContainer(extendedNavigator);
+export default AppExtendedContainer;

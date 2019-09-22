@@ -123,7 +123,7 @@ const Introduction = props => {
   const { navigation } = props;
   const {
     state: {
-      params: { introductionId }
+      params: { introductionId, goBack }
     }
   } = navigation;
 
@@ -158,10 +158,15 @@ const Introduction = props => {
         <Button
           caption={translate("introduction.back")}
           onPress={() => {
-            navigation.goBack();
+            if (goBack) {
+              goBack();
+            } else {
+              navigation.goBack();
+            }
           }}
           appearance="Borderless"
           wrapperStyles={styles.buttonBack}
+          customTextStyles={styles.buttonBackText}
         />
         <Button
           caption={translate(

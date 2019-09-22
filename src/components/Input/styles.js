@@ -26,12 +26,14 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     letterSpacing: 0.15,
     lineHeight: 24,
-    color: "rgba(0,0,0,0.6)",
+    color: "rgba(0,0,0,0.6)"
   },
   labelFocused: {
-    top: -14,
+    top: -9,
     fontFamily: "Roboto",
     fontSize: 12,
+    lineHeight: 16,
+    letterSpacing: 0.4,
     paddingHorizontal: 5,
     backgroundColor: white
   },
@@ -41,7 +43,7 @@ export const styles = StyleSheet.create({
   textInput: {
     paddingVertical: 15,
     fontSize: 16,
-    color: "rgba(0,0,0,0.6)"
+    color: "rgba(0,0,0,0.87)"
   },
   error: {
     fontFamily: "Roboto",

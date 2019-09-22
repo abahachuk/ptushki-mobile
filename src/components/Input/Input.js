@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Text, TextInput, View, Image } from "react-native";
 import { styles } from "./styles";
@@ -8,23 +8,26 @@ const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show.png");
 
 const Input = props => {
   const yPosition = useRef(0);
+  const [isFocused, setFocusedState] = useState(false);
 
-  function getYPosition({ nativeEvent }) {
+  const getYPosition = useCallback(({ nativeEvent }) => {
     const {
       layout: { y, height }
     } = nativeEvent;
     yPosition.current = y + height;
-  }
+    if (isFocused) {
+      props.setFocusedInput(yPosition.current);
+    }
+  });
 
-  const [isFocused, setFocusedState] = useState(false);
-  const handleFocus = () => {
+  const handleFocus = useCallback(() => {
     setFocusedState(true);
     props.setFocusedInput(yPosition.current);
-  };
-  const handleBlur = () => {
+  });
+  const handleBlur = useCallback(() => {
     setFocusedState(false);
     props.onTextInputBlur();
-  };
+  });
   const [isPassVisible, setPassVisibility] = useState(false);
   const handleShowHidePassword = () => {
     setPassVisibility(prevState => !prevState);

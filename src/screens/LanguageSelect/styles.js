@@ -4,13 +4,14 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
-    backgroundColor: "white"
+    alignContent: "flex-start",
+    paddingVertical: 20
   },
-  imageContainer: {
-    flex: 1,
-    paddingTop: 20,
-    paddingBottom: 20
+  image: {
+    height: "50%",
+    width: undefined,
+    aspectRatio: 360 / 292, // assets image size
+    resizeMode: "contain"
   },
   headerText: {
     fontSize: 34,
@@ -20,15 +21,18 @@ export const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "space-around",
+    maxHeight: "50%",
+    marginVertical: 20
   },
   buttonStyle: {
     paddingVertical: 15,
     marginVertical: 2
   },
   buttonTitleStyle: {
-    color: "#4f6e7c",
+    color: "#546E7A",
     textTransform: "uppercase",
-    fontSize: 18
+    fontSize: 14,
+    lineHeight: 16
   }
 });

@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import {
   View,
   Text,
   Image,
   TouchableOpacity,
+  ScrollView,
   Keyboard,
   Animated
 } from "react-native";
@@ -42,6 +43,7 @@ const Login = props => {
 
   const [error, setError] = useState(errorFromProps);
   const [passwordError, setPasswordError] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const modalRef = useRef(null);
   const authService = new AuthService();
 
@@ -55,6 +57,7 @@ const Login = props => {
       })
       .catch(err => {
         setError(err.message || translate("login.backendErrorMessage"));
+        setIsVisible(true);
         modalRef.current.open();
       });
   };
@@ -67,6 +70,7 @@ const Login = props => {
     navigation.navigate("passwordReset");
   };
   const closeModal = () => {
+    setIsVisible(false);
     modalRef.current.close();
   };
 
@@ -79,29 +83,38 @@ const Login = props => {
     setPasswordError(validatePassword(password));
   };
   const navigateToIntro = () => {
-    navigation.navigate(FIRST_INTRO_SCREEN);
+    navigation.navigate(FIRST_INTRO_SCREEN, {
+      goBack: () => navigation.navigate("login") // TODO: clarify requirements
+    });
   };
 
   /** keyboard avoiding */
 
   const keyboardHeight = useRef(0);
-  const offset = new Animated.Value(0);
+  const scrollRef = useRef(null);
+  const offset = useRef(new Animated.Value(0));
+
   let focusedInputYPosition = 0;
-  function toggleViewHeight(value = 0) {
+
+  const toggleViewHeight = useCallback((value = 0) => {
     if (
-      focusedInputYPosition + RESERVE_PLACE_FOR_BUTTON > SCREEN_HEIGHT - keyboardHeight.current
+      !value ||
+      focusedInputYPosition + RESERVE_PLACE_FOR_BUTTON >
+        SCREEN_HEIGHT - keyboardHeight.current
     ) {
-      Animated.timing(offset, {
+      Animated.timing(offset.current, {
         toValue: -value / 2.5,
         duration: 200,
         useNativeDriver: true
       }).start();
     }
-  }
-  function setFocusedInput(inputYPosition) {
+  });
+
+  const setFocusedInput = useCallback(inputYPosition => {
     focusedInputYPosition = inputYPosition;
     toggleViewHeight(keyboardHeight.current);
-  }
+  });
+
   useEffect(() => {
     function onKeyboardShow(event) {
       keyboardHeight.current = event.endCoordinates.height || 0;
@@ -129,9 +142,17 @@ const Login = props => {
   });
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      ref={scrollRef}
+      style={styles.scrollContainer}
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
+    >
       <Animated.View
-        style={[styles.loginContainer, { transform: [{ translateY: offset }] }]}
+        style={[
+          styles.loginContainer,
+          { transform: [{ translateY: offset.current }] }
+        ]}
       >
         <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
         <Text style={styles.headerText}>
@@ -176,29 +197,34 @@ const Login = props => {
           onPress={onRegisterPress}
           appearance="Light"
           wrapperStyles={styles.signUpBtn}
+          customTextStyles={styles.buttonText}
+          borderColorStyle={styles.signUpBorder}
         />
         <Button
           caption={translate("login.forgotPassword")}
           onPress={onPasswordForgot}
           appearance="Borderless"
           wrapperStyles={styles.restorePswBtn}
+          customTextStyles={styles.buttonText}
         />
       </View>
-      <Modal
-        style={[modalWindowStyles.modal]}
-        backdrop={false}
-        position="top"
-        ref={modalRef}
-      >
-        <Text style={[modalWindowStyles.modalText]}>{error}</Text>
-        <Button
-          caption={translate("login.close")}
-          onPress={closeModal}
-          wrapperStyles={modalWindowStyles.modalBtn}
-          appearance="Borderless"
-        />
-      </Modal>
-    </View>
+      {isVisible && (
+        <Modal
+          style={[modalWindowStyles.modal]}
+          backdrop={false}
+          position="center"
+          ref={modalRef}
+        >
+          <Text style={[modalWindowStyles.modalText]}>{error}</Text>
+          <Button
+            caption={translate("login.close")}
+            onPress={closeModal}
+            wrapperStyles={modalWindowStyles.modalBtn}
+            appearance="Borderless"
+          />
+        </Modal>
+      )}
+    </ScrollView>
   );
 };
 
