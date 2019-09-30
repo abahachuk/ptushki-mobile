@@ -36,10 +36,8 @@ const Login = props => {
     navigation
   } = props;
   const [email, setEmail] = useState(emailFromProps);
-  // const [email, setEmail] = useState("tkaolgav@mail.ru");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState(passwordFromProps);
-  // const [password, setPassword] = useState("321172ptushki");
 
   const [error, setError] = useState(errorFromProps);
   const [passwordError, setPasswordError] = useState("");
