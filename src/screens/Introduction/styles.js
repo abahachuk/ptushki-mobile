@@ -19,6 +19,36 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: 200
   },
+  indicatorContainer: {
+    width: "100%",
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingTop: 10,
+    paddingBottom: 10,
+    position: "absolute",
+    bottom: 0
+  },
+  circle: {
+    width: 10,
+    height: 10,
+    borderRadius: 10 / 2,
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#fff",
+    zIndex: 100,
+    marginRight: 5
+  },
+  circleSelected: {
+    width: 10,
+    height: 10,
+    borderRadius: 10 / 2,
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#fff",
+    zIndex: 100,
+    marginRight: 5
+  },
   descriptionContainer: {
     marginTop: 23,
     paddingHorizontal: 18
