@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 /* eslint  import/prefer-default-export: 0 */
 export const modalWindowStyles = StyleSheet.create({
   modal: {
-    position: "relative",
     borderRadius: 4,
     paddingTop: 15,
     paddingBottom: 15,

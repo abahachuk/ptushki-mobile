@@ -18,7 +18,7 @@
     "backendErrorMessage": "К сожалению возникла ошибка при регистрации"
   },
   "login": {
-    "bandingCenter": "Центр Кольцевания Птиц при Академии наук Республики Беларусь",
+    "bandingCenter": "Центр Кольцевания Птиц\nпри Академии наук Республики Беларусь",
     "password": "Пароль",
     "email": "E-mail",
     "sign-in": "Войти",
@@ -54,8 +54,7 @@
     "navHeaderTitleAdd": "Добавление наблюдения",
     "navHeaderTitleEdit": "Редактирование",
     "currentDateTime": "ТЕКУЩЕЕ ВРЕМЯ И ДАТА",
-    "country": "Страна",
-    "region": "Область район",
+    "country": "Страна, область",
     "coordinates": "Координаты",
     "dateTime": "Время/Дата",
     "dateTimeInaccuracy": "Погрешность времени",
@@ -63,7 +62,7 @@
     "birdSpecies": "Тип птицы",
     "birdSex": "Пол",
     "birdAge": "Возраст",
-    "birdWas": "Птица была",
+    "birdWas": "Состояние птицы",
     "ringType": "Тип метки",
     "ringMaterial": "Материал метки",
     "ringColor": "Цвет",

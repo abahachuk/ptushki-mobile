@@ -14,6 +14,7 @@ import {
   PhotoCarousel,
   DeclineChangesPopup
 } from "./sections";
+import ObservationService from "../../api/Observation.service";
 
 const ObservationBase = props => {
   const {
@@ -34,7 +35,6 @@ const ObservationBase = props => {
     birdPhotosDefault,
     countryDefault,
     countryValues,
-    regionDefault,
     coordinatesDefault,
     commentDefault,
     dateTimeDefault,
@@ -48,7 +48,6 @@ const ObservationBase = props => {
       birdAge,
       birdObstacles,
       country,
-      region,
       coordinates,
       comment,
       dateTime,
@@ -63,7 +62,6 @@ const ObservationBase = props => {
     birdObstacles: birdObstaclesDefault,
     birdPhotos: birdPhotosDefault,
     country: countryDefault,
-    region: regionDefault,
     coordinates: coordinatesDefault,
     comment: commentDefault,
     dateTime: dateTimeDefault,
@@ -77,18 +75,73 @@ const ObservationBase = props => {
     }));
 
   const [rings, setRingsValues] = useState(ringsDefaultValues);
+  const service = new ObservationService();
 
-  const onSubmitPress = () => {
-    // TODO: make api call to create observation
+  const sendEditObservation = () => {
+    // TODO: change this mock data with props which are changed
+    const body = {};
+    const id = "43095a71-d0ba-4c79-b772-48513f3c3bb3";
+
+    service
+      .editObservations(body, id)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const sendAddObservation = () => {
     props.navigation.navigate("ObservationCreated", {
       birdSpecies,
       dateTime,
-      observationLocation: `${country} ${region}`,
+      observationLocation: `${country}`,
       birdSex,
       birdAge,
       birdObstacles
     });
+    // TODO: add here new observation containing all props
+    // const body = {};
+    // console.log({
+    //   birdSpecies,
+    //   birdSex,
+    //   birdAge,
+    //   birdObstacles,
+    //   country,
+    //   coordinates,
+    //   comment,
+    //   dateTime,
+    //   dateTimeInaccuracy,
+    //   birdPhotos
+    // })
+
+    // service
+    //   .addObservations(JSON.stringify(body))
+    //   .then(response => {
+    //     console.log(response);
+    //     props.navigation.navigate("ObservationCreated", {
+    //       birdSpecies,
+    //       dateTime,
+    //       observationLocation: `${country}`,
+    //       birdSex,
+    //       birdAge,
+    //       birdObstacles
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   };
+
+  const onSubmitPress = () => {
+    const { routeName } = props.navigation.state;
+
+    return routeName === "AddObservation"
+      ? sendAddObservation()
+      : sendEditObservation();
+  };
+
   const onCurrentPositionPress = () => {
     props.onCurrentPosition();
   };
@@ -177,7 +230,6 @@ const ObservationBase = props => {
             country={country}
             setFieldValue={updateFieldValue}
             countryValues={countryValues}
-            region={region}
             coordinates={coordinates}
             onCurrentDateTimePress={onCurrentDateTimePress}
             dateTime={dateTime}
@@ -214,7 +266,6 @@ ObservationBase.propTypes = {
   birdPhotosDefault: PropTypes.array,
   countryDefault: PropTypes.string,
   countryValues: pickerValuesArrayType,
-  regionDefault: PropTypes.string,
   coordinatesDefault: PropTypes.string,
   commentDefault: PropTypes.string,
   dateTimeDefault: PropTypes.string,
@@ -223,6 +274,7 @@ ObservationBase.propTypes = {
   onSearchOnMap: PropTypes.func,
   onCurrentDateTime: PropTypes.func,
   navigation: PropTypes.shape({
+    state: PropTypes.object,
     goBack: PropTypes.func,
     navigate: PropTypes.func
   }).isRequired
@@ -245,7 +297,6 @@ ObservationBase.defaultProps = {
   birdPhotosDefault: [],
   countryDefault: "",
   countryValues: [],
-  regionDefault: "",
   coordinatesDefault: "",
   commentDefault: "",
   dateTimeDefault: "",
@@ -255,8 +306,14 @@ ObservationBase.defaultProps = {
   onCurrentDateTime: () => {}
 };
 ObservationBase.navigationOptions = ({ navigation }) => {
+  const { routeName } = navigation.state;
+  const title =
+    routeName === "AddObservation"
+      ? translate("addEditObservation.navHeaderTitleAdd")
+      : translate("addEditObservation.navHeaderTitleEdit");
+
   return {
-    title: translate("addEditObservation.navHeaderTitleEdit"),
+    title,
     headerLeft: (
       <Icon
         name="arrowleft"

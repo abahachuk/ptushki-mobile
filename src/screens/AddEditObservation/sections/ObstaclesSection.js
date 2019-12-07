@@ -22,7 +22,6 @@ const ObstaclesSection = props => {
     country,
     setFieldValue,
     countryValues,
-    region,
     coordinates,
     dateTime,
     dateTimeInaccuracy,
@@ -108,14 +107,6 @@ const ObstaclesSection = props => {
         caption={translate("addEditObservation.country")}
       />
       <Input
-        onChangeText={value => setFieldValue({ region: value })}
-        customViewStyles={styles.customView}
-        customTextStyles={styles.customText}
-        wrapperStyles={styles.customInput}
-        value={region}
-        label={translate("addEditObservation.region")}
-      />
-      <Input
         onChangeText={value => setFieldValue({ coordinates: value })}
         wrapperStyles={styles.customInput}
         customViewStyles={styles.customView}
@@ -174,7 +165,6 @@ ObstaclesSection.propTypes = {
   country: PropTypes.string,
   setFieldValue: PropTypes.func,
   countryValues: pickerValuesArrayType,
-  region: PropTypes.string,
   coordinates: PropTypes.string,
   dateTime: PropTypes.string,
   dateTimeInaccuracy: PropTypes.string,
@@ -185,7 +175,6 @@ ObstaclesSection.defaultProps = {
   country: "",
   setFieldValue: () => {},
   countryValues: [],
-  region: "",
   coordinates: "",
   dateTime: "",
   dateTimeInaccuracy: "",

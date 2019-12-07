@@ -42,6 +42,11 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     color: "white"
   },
+  toolbarSubTitle: {
+    fontSize: 16,
+    fontFamily: "Roboto",
+    color: "grey"
+  },
   ringItemTitle: {
     marginTop: 20
   },

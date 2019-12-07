@@ -50,9 +50,8 @@ export const styles = StyleSheet.create({
     marginRight: 5
   },
   descriptionContainer: {
-    paddingTop: 20,
-    paddingRight: 20,
-    paddingLeft: 20
+    marginTop: 23,
+    paddingHorizontal: 18
   },
   screenTitle: {
     textAlign: "center",
@@ -64,7 +63,7 @@ export const styles = StyleSheet.create({
     color: "#375867"
   },
   screenText: {
-    paddingTop: 10,
+    marginTop: 8,
     textAlign: "center",
     fontFamily: "Roboto",
     fontSize: 14,
@@ -77,14 +76,16 @@ export const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingRight: 20,
-    paddingBottom: 20,
-    paddingLeft: 20
+    paddingHorizontal: 20,
+    paddingBottom: 20
   },
   buttonBack: {
-    width: "30%"
+    width: "28%"
   },
   buttonNext: {
-    width: "70%"
+    width: "68%"
+  },
+  buttonBackText: {
+    letterSpacing: 0
   }
 });

@@ -28,6 +28,7 @@ export default class AuthService extends BaseService {
         return data.user;
       })
       .catch(err => {
+        // eslint-disable-next-line no-console
         console.info("Login failed:", err);
         throw new Error(err);
       });
@@ -36,6 +37,7 @@ export default class AuthService extends BaseService {
   register(email, password, firstName, lastName, phone) {
     return super
       .sendRequest(AUTH_REGISTRATION_ENDPOINT, "POST", null, {
+        rememberPassword: true,
         email,
         password,
         firstName,
@@ -54,6 +56,7 @@ export default class AuthService extends BaseService {
         return data.user;
       })
       .catch(err => {
+        // eslint-disable-next-line no-console
         console.info("Auth registration error", err);
         throw new Error(err);
       });
@@ -65,6 +68,7 @@ export default class AuthService extends BaseService {
         email
       })
       .catch(err => {
+        // eslint-disable-next-line no-console
         console.info("Auth reset password error", err);
         throw new Error(err);
       });
