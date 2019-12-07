@@ -18,7 +18,7 @@
     "backendErrorMessage": "Sorry, registration failed"
   },
   "login": {
-    "bandingCenter": "Center for Ringing Birds at the Academy of Sciences of the Republic of Belarus",
+    "bandingCenter": "Center for Ringing Birds\nat the Academy of Sciences of the Republic of Belarus",
     "password": "Password",
     "email": "E-mail",
     "sign-in": "Sign In",
@@ -54,8 +54,7 @@
     "navHeaderTitleAdd": "Adding observation",
     "navHeaderTitleEdit": "Updating",
     "currentDateTime": "CURRENT DATE AND TIME",
-    "country": "Country",
-    "region": "Region",
+    "country": "Country, region",
     "coordinates": "Coordinates",
     "dateTime": "Time/Date",
     "dateTimeInaccuracy": "Time error",
@@ -63,7 +62,7 @@
     "birdSpecies": "Species",
     "birdSex": "Sex",
     "birdAge": "Age",
-    "birdWas": "Bird was",
+    "birdWas": "Bird condition",
     "ringType": "Ring type",
     "ringMaterial": "Material",
     "ringColor": "Color",

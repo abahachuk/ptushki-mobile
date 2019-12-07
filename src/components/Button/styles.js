@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
   button: {
     width: "100%",
     height: 36,
-    borderRadius: 4
+    paddingVertical: 10,
+    borderRadius: 5
   },
   buttonDark: {
     backgroundColor: dimGray
@@ -29,8 +30,7 @@ export const styles = StyleSheet.create({
     lineHeight: 16,
     color: dimGray,
     textAlign: "center",
-    textTransform: "uppercase",
-    paddingTop: 10
+    textTransform: "uppercase"
   },
   buttonTextDark: {
     color: white

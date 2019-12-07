@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AsyncStorage from "@react-native-community/async-storage";
-import {
-  AppExtendedContainer,
-  AppPrimaryContainer
-} from "./navigation/navigators/AppNavigator";
+import { NavigationActions } from "react-navigation";
+
+import AppExtendedContainer from "./navigation/navigators/AppNavigator";
+
 import TranslationProvider, {
   Translation
 } from "./components/TranslationProvider";
 import { changeLocale } from "./i18n";
 
 const AppLocalised = () => {
-  let AppContainer = AppPrimaryContainer;
   const [currentLocale, changeLocaleState] = useState("ru");
-  const [isFirstLaunch, setFirstLaunch] = useState(false);
+  const navigator = useRef(null);
   const onLocaleChange = localeKey => {
     changeLocale(localeKey);
     changeLocaleState(localeKey);
@@ -20,23 +19,24 @@ const AppLocalised = () => {
 
   useEffect(() => {
     AsyncStorage.getItem("lang").then(langSet => {
+      let initialRoute = "introduction";
       if (langSet) {
         onLocaleChange(langSet);
-      } else {
-        setFirstLaunch(true);
+        initialRoute = "auth";
       }
-    });
-  });
 
-  if (isFirstLaunch) {
-    AppContainer = AppExtendedContainer;
-  }
+      navigator.current.dispatch(
+        NavigationActions.navigate({ routeName: initialRoute })
+      );
+    });
+  }, []);
 
   return (
     <TranslationProvider locale={currentLocale}>
       <Translation.Consumer>
         {context => (
-          <AppContainer
+          <AppExtendedContainer
+            ref={navigator}
             {...context}
             screenProps={{
               currentLocale,

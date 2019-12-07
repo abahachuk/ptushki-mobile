@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
-import { TouchableHighlight, Text, TextInput, View, Image } from "react-native";
+import { TouchableOpacity, Text, TextInput, View, Image } from "react-native";
 import { styles } from "./styles";
 
-const icEyeHide = require("../../assets/ic_eye_hide/ic_eye_hide2x.png");
-const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show2x.png");
+const icEyeHide = require("../../assets/ic_eye_hide/ic_eye_hide.png");
+const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show.png");
 
 const Input = props => {
+  const yPosition = useRef(0);
   const [isFocused, setFocusedState] = useState(false);
-  const handleFocus = () => {
+
+  const getYPosition = useCallback(({ nativeEvent }) => {
+    const {
+      layout: { y, height }
+    } = nativeEvent;
+    yPosition.current = y + height;
+    if (isFocused) {
+      props.setFocusedInput(yPosition.current);
+    }
+  });
+
+  const handleFocus = useCallback(() => {
     setFocusedState(true);
-  };
-  const handleBlur = () => {
+    props.setFocusedInput(yPosition.current);
+  });
+  const handleBlur = useCallback(() => {
     setFocusedState(false);
     props.onTextInputBlur();
-  };
+  });
   const [isPassVisible, setPassVisibility] = useState(false);
   const handleShowHidePassword = () => {
     setPassVisibility(prevState => !prevState);
@@ -24,7 +37,6 @@ const Input = props => {
   const containerStyles = [styles.container];
   const labelStyles = [styles.label];
   const isPasswordInput = textContentType === "password";
-  const additionalProps = {};
 
   if (isFocused || value) {
     labelStyles.push(styles.labelFocused);
@@ -35,14 +47,10 @@ const Input = props => {
     labelStyles.push(styles.labelWithErrors);
   }
 
-  if (isPasswordInput && !isPassVisible) {
-    additionalProps.secureTextEntry = true;
-  }
-
   const { wrapperStyles } = props;
 
   return (
-    <View style={wrapperStyles}>
+    <View style={wrapperStyles} onLayout={getYPosition}>
       <View style={[containerStyles, rest.customViewStyles]}>
         <Text style={labelStyles}>{label}</Text>
         <TextInput
@@ -54,19 +62,20 @@ const Input = props => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           blurOnSubmit
+          secureTextEntry={isPasswordInput && !isPassVisible}
           {...rest}
-          {...additionalProps}
         />
         {isPasswordInput && (
-          <TouchableHighlight
-            style={[styles.showHidePassIcon]}
+          <TouchableOpacity
+            style={styles.showHidePassIcon}
             onPress={handleShowHidePassword}
+            activeOpacity={0.8}
           >
             <Image
-              style={[styles.inputIcon]}
+              style={styles.inputIcon}
               source={isPassVisible ? icEyeHide : icEyeShow}
             />
-          </TouchableHighlight>
+          </TouchableOpacity>
         )}
       </View>
       {error ? <Text style={styles.error}>{error}</Text> : null}
@@ -77,6 +86,7 @@ const Input = props => {
 Input.propTypes = {
   onChangeText: PropTypes.func,
   onTextInputBlur: PropTypes.func,
+  setFocusedInput: PropTypes.func,
   textContentType: PropTypes.string,
   value: PropTypes.string,
   label: PropTypes.string,
@@ -86,6 +96,7 @@ Input.propTypes = {
 Input.defaultProps = {
   onChangeText: () => {},
   onTextInputBlur: () => {},
+  setFocusedInput: () => {},
   textContentType: "none",
   value: "",
   label: "",

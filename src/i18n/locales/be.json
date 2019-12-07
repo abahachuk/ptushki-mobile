@@ -18,7 +18,7 @@
     "backendErrorMessage": "На жаль, рэгістрацыя не ўдалася"
   },
   "login": {
-    "bandingCenter": "Цэнтр Кальцавання Птушак пры Акадэміі навук Рэспублікі Беларусь",
+    "bandingCenter": "Цэнтр Кальцавання Птушак\nпры Акадэміі навук Рэспублікі Беларусь",
     "password": "Пароль",
     "email": "E-mail",
     "sign-in": "Увайсці",
@@ -54,8 +54,7 @@
     "navHeaderTitleAdd": "Даданне назірання",
     "navHeaderTitleEdit": "Рэдагаванне",
     "currentDateTime": "АКТУАЛЬНЫ ЧАС И ДАТА",
-    "country": "Краiна",
-    "region": "Вобласць раён",
+    "country": "Краiна, вобласць",
     "coordinates": "Каардынаты",
     "dateTime": "Час/Дата",
     "dateTimeInaccuracy": "Хiбнасць часу",
@@ -63,7 +62,7 @@
     "birdSpecies": "Тып птушкі",
     "birdSex": "Пол",
     "birdAge": "Ўзрост",
-    "birdWas": "Птушка была",
+    "birdWas": "Састаянне птушки",
     "ringType": "Тып пазнакі",
     "ringMaterial": "Матэрыял пазнакі",
     "ringColor": "Колер",

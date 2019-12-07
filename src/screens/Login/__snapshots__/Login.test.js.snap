@@ -5,6 +5,7 @@ exports[`Login screen renders correctly 1`] = `
   onLayout={[Function]}
   style={
     Object {
+      "alignItems": "center",
       "flex": 1,
       "justifyContent": "space-between",
       "paddingLeft": 20,
@@ -16,7 +17,7 @@ exports[`Login screen renders correctly 1`] = `
   <View
     style={
       Object {
-        "bottom": 0,
+        "width": "100%",
       }
     }
   >
@@ -24,7 +25,6 @@ exports[`Login screen renders correctly 1`] = `
       style={
         Object {
           "flexDirection": "row",
-          "width": "100%",
         }
       }
     >
@@ -36,19 +36,27 @@ exports[`Login screen renders correctly 1`] = `
           }
         }
       >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../src/assets/ic_info/ic_info2x.png",
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={null}
+        >
+          <Image
+            source="\\"ic_info.png\\""
+            style={
+              Object {
+                "height": 22,
+                "width": 22,
+              }
             }
-          }
-          style={
-            Object {
-              "height": 30,
-              "width": 30,
-            }
-          }
-        />
+          />
+        </View>
       </View>
       <View
         style={
@@ -60,24 +68,26 @@ exports[`Login screen renders correctly 1`] = `
       >
         <Image
           resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../src/assets/logotype/logotype2x.png",
-            }
-          }
+          source="\\"logo.png\\""
           style={
             Object {
               "alignSelf": "center",
-              "height": 200,
-              "width": "100%",
+              "height": 104,
+              "width": 186,
             }
           }
         />
         <Text
           style={
             Object {
-              "fontSize": 20,
+              "color": "#546e7a",
+              "fontFamily": "Roboto",
+              "fontSize": 14,
+              "fontWeight": "400",
+              "letterSpacing": 0.1,
+              "lineHeight": 18,
               "paddingBottom": 15,
+              "paddingTop": 15,
               "textAlign": "center",
             }
           }
@@ -86,23 +96,27 @@ exports[`Login screen renders correctly 1`] = `
         </Text>
       </View>
     </View>
-    <View>
+    <View
+      style={Object {}}
+    >
       <View
         style={Array []}
       >
         <View
           style={
             Array [
-              Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
-                "width": "100%",
-              },
+              Array [
+                Object {
+                  "borderColor": "#000000",
+                  "borderRadius": 4,
+                  "borderWidth": 0.5,
+                  "height": 56,
+                  "paddingLeft": 15,
+                  "position": "relative",
+                  "width": "100%",
+                },
+              ],
+              undefined,
             ]
           }
         >
@@ -110,11 +124,14 @@ exports[`Login screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
@@ -131,10 +148,13 @@ exports[`Login screen renders correctly 1`] = `
             onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontSize": 16,
+                },
+                undefined,
+              ]
             }
             textContentType="emailAddress"
             underlineColorAndroid="transparent"
@@ -142,16 +162,6 @@ exports[`Login screen renders correctly 1`] = `
             wrapperStyles={Array []}
           />
         </View>
-        <Text
-          style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
-            }
-          }
-        >
-          
-        </Text>
       </View>
       <View
         style={
@@ -165,16 +175,18 @@ exports[`Login screen renders correctly 1`] = `
         <View
           style={
             Array [
-              Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
-                "width": "100%",
-              },
+              Array [
+                Object {
+                  "borderColor": "#000000",
+                  "borderRadius": 4,
+                  "borderWidth": 0.5,
+                  "height": 56,
+                  "paddingLeft": 15,
+                  "position": "relative",
+                  "width": "100%",
+                },
+              ],
+              undefined,
             ]
           }
         >
@@ -182,11 +194,14 @@ exports[`Login screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
@@ -204,10 +219,13 @@ exports[`Login screen renders correctly 1`] = `
             rejectResponderTermination={true}
             secureTextEntry={true}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontSize": 16,
+                },
+                undefined,
+              ]
             }
             textContentType="password"
             underlineColorAndroid="transparent"
@@ -234,38 +252,24 @@ exports[`Login screen renders correctly 1`] = `
                 Object {
                   "position": "absolute",
                   "right": 15,
-                  "top": 20,
+                  "top": 15,
                 },
               ]
             }
           >
             <Image
-              source={
-                Object {
-                  "testUri": "../../../src/assets/ic_eye_show/ic_eye_show2x.png",
-                }
-              }
+              source="\\"ic_eye_show.png\\""
               style={
                 Array [
                   Object {
-                    "height": 35,
-                    "width": 35,
+                    "height": 24,
+                    "width": 24,
                   },
                 ]
               }
             />
           </View>
         </View>
-        <Text
-          style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
-            }
-          }
-        >
-          
-        </Text>
       </View>
       <View
         accessible={true}
@@ -277,17 +281,14 @@ exports[`Login screen renders correctly 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "borderRadius": 6,
-              "paddingBottom": 13,
-              "paddingTop": 13,
-              "width": "100%",
-            },
-            Object {
-              "backgroundColor": "#546e7a",
-            },
-          ]
+          Object {
+            "backgroundColor": "#546e7a",
+            "borderRadius": 4,
+            "height": 36,
+            "marginTop": 20,
+            "opacity": 1,
+            "width": "100%",
+          }
         }
       >
         <Text
@@ -295,11 +296,16 @@ exports[`Login screen renders correctly 1`] = `
             Array [
               Object {
                 "color": "#546e7a",
-                "fontSize": 18,
+                "fontFamily": "Roboto",
+                "fontSize": 14,
                 "fontWeight": "500",
+                "letterSpacing": 1.25,
+                "lineHeight": 16,
+                "paddingTop": 10,
                 "textAlign": "center",
                 "textTransform": "uppercase",
               },
+              Array [],
               Object {
                 "color": "#ffffff",
               },
@@ -310,90 +316,100 @@ exports[`Login screen renders correctly 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <View
-      style={Object {}}
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#546e7a",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "height": 36,
+          "opacity": 1,
+          "width": "100%",
+        }
+      }
     >
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
           Array [
             Object {
-              "borderRadius": 6,
-              "paddingBottom": 13,
-              "paddingTop": 13,
-              "width": "100%",
+              "color": "#546e7a",
+              "fontFamily": "Roboto",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.25,
+              "lineHeight": 16,
+              "paddingTop": 10,
+              "textAlign": "center",
+              "textTransform": "uppercase",
             },
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderColor": "#546e7a",
-              "borderWidth": 1,
-            },
+            Array [],
+            undefined,
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#546e7a",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "textAlign": "center",
-                "textTransform": "uppercase",
-              },
-              undefined,
-            ]
-          }
-        >
-          [missing "en.login.sign-up" translation]
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        [missing "en.login.sign-up" translation]
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": 36,
+          "marginBottom": 10,
+          "marginTop": 10,
+          "opacity": 1,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
         style={
           Array [
             Object {
-              "borderRadius": 6,
-              "paddingBottom": 13,
-              "paddingTop": 13,
-              "width": "100%",
+              "color": "#546e7a",
+              "fontFamily": "Roboto",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.25,
+              "lineHeight": 16,
+              "paddingTop": 10,
+              "textAlign": "center",
+              "textTransform": "uppercase",
             },
-            Object {},
+            Array [],
+            undefined,
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#546e7a",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "textAlign": "center",
-                "textTransform": "uppercase",
-              },
-              undefined,
-            ]
-          }
-        >
-          [missing "en.login.forgotPassword" translation]
-        </Text>
-      </View>
+        [missing "en.login.forgotPassword" translation]
+      </Text>
     </View>
   </View>
+  <View />
 </View>
 `;

@@ -7,19 +7,16 @@ import * as utils from "./utils";
 import { styles } from "./styles";
 
 const Introduction = props => {
-  const { navigation, screenProps } = props;
+  const { navigation } = props;
   const {
     state: {
-      params: { introductionId }
+      params: { introductionId, goBack }
     }
   } = navigation;
   const onBackPress = () => {
-    if (screenProps.isFirstLaunch) {
-      // TODO: create utils file with routes names
-      navigation.navigate("LanguageSelect");
-    } else {
-      navigation.navigate("login");
-    }
+    if (goBack) goBack();
+    else navigation.goBack();
+
   };
   const onNextPress = () => {
     navigation.navigate(utils.getNavigationNextStep(introductionId));
@@ -51,6 +48,7 @@ const Introduction = props => {
           onPress={onBackPress}
           appearance="Borderless"
           wrapperStyles={styles.buttonBack}
+          customTextStyles={styles.buttonBackText}
         />
         <Button
           caption={utils.getNextBtnCaption(introductionId)}
@@ -72,9 +70,6 @@ Introduction.propTypes = {
         introductionId: PropTypes.string
       })
     })
-  }).isRequired,
-  screenProps: PropTypes.shape({
-    isFirstLaunch: PropTypes.bool
   }).isRequired
 };
 

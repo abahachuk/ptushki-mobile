@@ -106,9 +106,8 @@ const Registration = props => {
     <ScrollView
       contentContainerStyle={styles.scrollContainer}
       showsVerticalScrollIndicator={false}
-      enabled
     >
-      <KeyboardAvoidingView style={styles.container} enabled>
+      <KeyboardAvoidingView style={styles.container}>
         <Text style={styles.headerText}>
           {translate("registration.sign-up")}
         </Text>

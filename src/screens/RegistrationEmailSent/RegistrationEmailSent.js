@@ -13,7 +13,7 @@ import { translate } from "../../i18n";
 import { styles } from "./styles";
 /* eslint react/jsx-one-expression-per-line: 0 */
 
-const logoImg = require("../../assets/logotype/logotype2x.png");
+const logoImg = require("../../assets/logotype/logo.png");
 
 const RegistrationEmailSent = props => {
   const { navigation } = props;
