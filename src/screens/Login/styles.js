@@ -2,13 +2,16 @@ import { StyleSheet } from "react-native";
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1
+  },
   container: {
-    width: "100%",
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "space-between",
     alignItems: "center",
-    paddingRight: 20,
-    paddingLeft: 20
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    paddingBottom: 20
   },
   loginContainer: {
     width: "100%"
@@ -17,31 +20,28 @@ export const styles = StyleSheet.create({
     flexDirection: "row"
   },
   infoImgContainer: {
-    flex: 1,
-    paddingTop: 20
-  },
-  header: {
-    flex: 10,
-    paddingTop: 10
+    position: "absolute",
+    top: 20,
+    left: 0
   },
   infoImg: {
     width: 22,
     height: 22
   },
   logoImg: {
-    width: 186,
-    height: 104,
+    marginTop: 20,
+    aspectRatio: 290 / 153, // assets image size
+    height: 80,
     alignSelf: "center"
   },
   headerText: {
+    paddingVertical: 18,
     fontFamily: "Roboto",
-    fontSize: 14,
     fontWeight: "400",
+    fontSize: 14,
     letterSpacing: 0.1,
     lineHeight: 18,
     textAlign: "center",
-    paddingTop: 15,
-    paddingBottom: 15,
     color: "#546e7a"
   },
   footer: {
@@ -50,13 +50,19 @@ export const styles = StyleSheet.create({
   passwordInput: {
     marginTop: 15
   },
-  loginForm: {},
   signInBtn: {
     marginTop: 20
   },
-  signUpBtn: {},
+  signUpBtn: {
+    marginTop: 15
+  },
+  signUpBorder: {
+    borderColor: "rgba(0,0,0,0.12)"
+  },
   restorePswBtn: {
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: 10
+  },
+  buttonText: {
+    letterSpacing: 0
   }
 });

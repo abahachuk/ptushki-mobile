@@ -9,12 +9,18 @@ const Button = props => {
     caption,
     appearance,
     wrapperStyles,
-    customTextStyles
+    customTextStyles,
+    borderColorStyle
   } = props;
 
   return (
     <TouchableOpacity
-      style={[styles.button, wrapperStyles, styles[`button${appearance}`]]}
+      style={[
+        styles.button,
+        wrapperStyles,
+        styles[`button${appearance}`],
+        borderColorStyle
+      ]}
       onPress={onPress}
     >
       <Text
@@ -35,14 +41,19 @@ Button.propTypes = {
   caption: PropTypes.string,
   appearance: PropTypes.oneOf(["Dark", "Light", "Borderless"]),
   wrapperStyles: PropTypes.any,
-  customTextStyles: PropTypes.any
+  customTextStyles: PropTypes.any,
+  borderColorStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.oneOf([null])
+  ])
 };
 Button.defaultProps = {
   onPress: () => {},
   caption: "",
   appearance: "Borderless",
   wrapperStyles: [],
-  customTextStyles: []
+  customTextStyles: [],
+  borderColorStyle: null
 };
 
 export default Button;
