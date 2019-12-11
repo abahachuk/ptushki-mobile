@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 /* eslint-disable-next-line */
 import * as colors from "constants/colors";
 
-const { dimGray, white } = colors;
+const { dimGray, white, blue } = colors;
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderRadius: 5
   },
   buttonDark: {
-    backgroundColor: dimGray
+    backgroundColor: blue
   },
   buttonLight: {
     backgroundColor: white,

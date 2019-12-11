@@ -3,7 +3,12 @@
         "es6": true,
         "node": true
     },
-    "extends": ["airbnb", "plugin:react/recommended", "prettier"],
+    "extends": [
+        "airbnb",
+        "plugin:react/recommended",
+        "prettier",
+        "plugin:flowtype/recommended"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
@@ -18,12 +23,13 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "flowtype"
     ],
     "rules": {
         "prettier/prettier": "error",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "import/no-extraneous-dependencies": 1,
+        "import/no-extraneous-dependencies": ["error", {"packageDir": "./"}],
         "react/forbid-prop-types": 1
     }
 }

@@ -1,91 +1,30 @@
 import { StyleSheet } from "react-native";
 
-// eslint-disable-next-line import/no-unresolved
-import { dimGray } from "constants/colors";
-
-/* eslint  import/prefer-default-export: 0 */
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     width: "100%",
     flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: "space-between"
   },
-  main: {},
-  imageContainer: {
-    position: "relative"
-  },
-  image: {
-    width: "100%",
-    height: 200
-  },
-  indicatorContainer: {
-    width: "100%",
-    backgroundColor: "transparent",
-    flexDirection: "row",
-    justifyContent: "center",
-    paddingTop: 10,
-    paddingBottom: 10,
+  closeBtnContainer: {
     position: "absolute",
-    bottom: 0
+    top: 50,
+    right: 20,
+    zIndex: 100
   },
-  circle: {
-    width: 10,
-    height: 10,
-    borderRadius: 10 / 2,
-    backgroundColor: "transparent",
-    borderWidth: 1,
-    borderColor: "#fff",
-    zIndex: 100,
-    marginRight: 5
-  },
-  circleSelected: {
-    width: 10,
-    height: 10,
-    borderRadius: 10 / 2,
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#fff",
-    zIndex: 100,
-    marginRight: 5
-  },
-  descriptionContainer: {
-    marginTop: 23,
-    paddingHorizontal: 18
-  },
-  screenTitle: {
-    textAlign: "center",
-    fontFamily: "Roboto",
-    fontWeight: "500",
-    fontSize: 20,
-    lineHeight: 24,
-    letterSpacing: 0.25,
-    color: "#375867"
-  },
-  screenText: {
-    marginTop: 8,
-    textAlign: "center",
-    fontFamily: "Roboto",
-    fontSize: 14,
-    fontWeight: "300",
-    letterSpacing: 0.1,
-    lineHeight: 18,
-    color: dimGray
+  closeBtnImage: {
+    width: 20,
+    height: 20
   },
   footer: {
     width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    paddingHorizontal: 20,
-    paddingBottom: 20
-  },
-  buttonBack: {
-    width: "28%"
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 30
   },
   buttonNext: {
-    width: "68%"
-  },
-  buttonBackText: {
-    letterSpacing: 0
+    width: "auto"
   }
 });
+
+export default styles;

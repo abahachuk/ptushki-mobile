@@ -1,11 +1,11 @@
 import { createStackNavigator } from "react-navigation";
 import { LanguageSelect } from "../../screens";
-import IntroSlidesNavigator from "./IntroSlidesNavigator";
+import { Introduction } from "../../screens";
 
 const IntroductionNavigator = createStackNavigator(
   {
     LanguageSelect,
-    IntroSlidesNavigator
+    Introduction
   },
   {
     headerMode: "none"

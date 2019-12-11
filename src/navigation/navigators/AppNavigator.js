@@ -5,21 +5,17 @@ import RegistrationNavigator from "./RegistrationNavigator";
 import MainPageNavigator from "./MainPageNavigator";
 import IntroductionNavigator from "./IntroductionNavigator";
 
-const extendedNavigator = createSwitchNavigator({
-  splash: {
-    screen: Splash
-  },
-  introduction: {
-    screen: IntroductionNavigator
-  },
-  auth: {
-    screen: RegistrationNavigator
-  },
-  mainPage: {
-    screen: MainPageNavigator
-  }
-});
-
-const AppExtendedContainer = createAppContainer(extendedNavigator);
-
-export default AppExtendedContainer;
+export default createAppContainer(
+  createSwitchNavigator({
+    Splash,
+    auth: {
+      screen: RegistrationNavigator
+    },
+    mainPage: {
+      screen: MainPageNavigator
+    },
+    introduction: {
+      screen: IntroductionNavigator
+    }
+  })
+);
