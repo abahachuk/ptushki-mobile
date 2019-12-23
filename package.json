@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint ./src/**/*.js App.js",
+    "lint": "tsc --noEmit --skipLibCheck && eslint --ext .js,.jsx,.ts,.tsx ./ --fix",
     "lint:fix": "eslint ./src/**/*.js App.js --fix",
     "android": "node node_modules/react-native/local-cli/cli.js run-android --appIdSuffix 'debug' -- --reset-cache",
     "android-clean-osx": "cd android && ./gradlew clean && cd ..",
@@ -15,8 +15,13 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "1.3.3",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.16",
+    "@types/react-native": "^0.60.25",
+    "@types/react-test-renderer": "^16.9.1",
     "EventEmitter": "1.0.0",
     "i18n-js": "3.2.1",
+    "prop-types": "15.7.2",
     "ramda": "0.26.1",
     "react": "16.8.6",
     "react-native": "0.59.8",
@@ -26,17 +31,19 @@
     "react-native-modalbox": "1.7.1",
     "react-native-vector-icons": "6.4.2",
     "react-navigation": "3.6.1",
-    "prop-types": "15.7.2"
+    "typescript": "^3.7.3"
   },
   "devDependencies": {
     "@babel/core": "7.4.0",
     "@babel/runtime": "7.4.2",
     "@react-native-community/eslint-config": "0.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
     "babel-jest": "24.5.0",
-    "eslint": "5.15.3",
-    "eslint-config-airbnb": "17.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "4.1.0",
-    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "6.2.1",
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
@@ -48,7 +55,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint:fix"
     }
   }
 }
