@@ -1,4 +1,4 @@
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import {
   FIRST_INTRO_SCREEN,
   SECOND_INTRO_SCREEN,
