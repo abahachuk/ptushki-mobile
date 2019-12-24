@@ -7,7 +7,9 @@ import IntroductionNavigator from "./IntroductionNavigator";
 
 export default createAppContainer(
   createSwitchNavigator({
-    Splash,
+    splash: {
+      screen: Splash
+    },
     auth: {
       screen: RegistrationNavigator
     },
