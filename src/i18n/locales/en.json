@@ -131,6 +131,7 @@
     },
     "birds": "Birds",
     "settings": "Settings",
+    "aboutApp": "О приложении",
     "exit": "Log out"
   },
   "settings": {
@@ -176,6 +177,16 @@
     "fourthScreenText": "There are various sets of rings, they can be on the paws, neck and even on the wings, so now you know what to look for.\n\nSo welcome to our humble scientific community of ringers and observers!"
   },
   "aboutApp": {
-    "version": "version"
+    "aboutApp": "О приложении",
+    "version": "Версия",
+    "description": "Приложение для сбора данных об окольцованных птицах, найденных на территории Республики Беларусь",
+    "readMore": "Узнать больше",
+    "aboutCenter": "О центре кольцевания",
+    "aboutCenterDescription": "Входит в состав лаборатории организации ГНПО НПЦ НАН Беларуси по биоресурсам и координирует работу в области кольцевания птиц в Беларуси.\n\nВ центре, с помощью кольцевания, мы отслеживаем миграции, мониторим численность, и даем оценки выживаемости и продолжительности жизни птиц в Беларуси.",
+    "contactDetails": "Контактные данные",
+    "phone": "Телефон",
+    "email": "Email",
+    "developmentTitle": "Разработка приложения",
+    "developmentDescription": "Идея прииложения была обозначена и частично реализована во время хакатона Engeneering Jam, в ходе которого приложение получило приз зрительских симпатий. После победы в хакатоне, приложение взяли разработчики, в рамках практики на учебном курсе FrontSpot Hub, внутри компании EPAM."
   }
 }

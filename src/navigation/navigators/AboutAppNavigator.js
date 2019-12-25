@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Octicons from "react-native-vector-icons/Octicons";
 import { AboutApp } from "../../screens";
@@ -11,8 +11,11 @@ const AboutAppStackNavigator = createStackNavigator(
     AboutApp
   },
   {
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
+    navigationOptions: () => ({
+      drawerLabel: translate("topLevelMenu.aboutApp"),
+      drawerIcon: () => <Octicons name="issue-opened" size={24} color="black" />,
+    }),
+    defaultNavigationOptions: ({ navigation }) => ({
         headerLeft: (
           <Ionicons
             name="md-menu"
@@ -24,14 +27,8 @@ const AboutAppStackNavigator = createStackNavigator(
         ),
         title: translate("aboutApp.aboutApp"),
         ...headerStyles
-      };
-    }
+    })
   }
 );
-
-AboutAppStackNavigator.navigationOptions = () => ({
-  drawerIcon: () => <Octicons name="issue-opened" size={24} color="black" />,
-  drawerLabel: translate("topLevelMenu.aboutApp")
-});
 
 export default AboutAppStackNavigator;

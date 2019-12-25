@@ -6,28 +6,38 @@ import { Button } from "../../components";
 import styles from "./styles";
 
 const logo = require("../../assets/logotype/Logo.png");
+const epamLogo = require("../../assets/logotype/epam-logo.png");
 
-const AboutApp = ({ version, phone, email }) => (
+interface AboutAppProps {
+  version: string,
+  phone: string,
+  email: string,
+}
+
+const AboutApp: React.FC<AboutAppProps> = ({ version, phone, email }) => (
   <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-    <View style={styles.logo}>
-      <Image resizeMode="contain" style={styles.image} source={logo} />
-      <Text style={styles.version}>
-        {`${translate("aboutApp.version")} ${version}`}
-      </Text>
-    </View>
-    <Text style={styles.text}>{translate("aboutApp.description")}</Text>
-    <Button
-      caption={translate("aboutApp.readMore")}
-      appearance="Light"
-      wrapperStyles={styles.buttonWrapper}
-      borderColorStyle={styles.signUpBorder}
-      onPress={() => {}}
-    />
-    <View style={styles.article}>
-      <Text style={styles.title}>{translate("aboutApp.aboutCenter")}</Text>
-      <Text style={styles.text}>
-        {translate("aboutApp.aboutCenterDescription")}
-      </Text>
+    <View style={styles.margin}>
+      <View style={styles.logo}>
+        <Image resizeMode="contain" style={styles.image} source={logo}/>
+        <Text style={styles.version}>
+          {`${translate("aboutApp.version")} ${version}`}
+        </Text>
+      </View>
+      <Text style={styles.text}>{translate("aboutApp.description")}</Text>
+      <Button
+        caption={translate("aboutApp.readMore")}
+        appearance="Light"
+        wrapperStyles={styles.buttonWrapper}
+        onPress={() => {
+          // TODO add logic when we will know what exactly should do current button
+        }}
+      />
+      <View style={styles.article}>
+        <Text style={styles.title}>{translate("aboutApp.aboutCenter")}</Text>
+        <Text style={styles.text}>
+          {translate("aboutApp.aboutCenterDescription")}
+        </Text>
+      </View>
     </View>
     <View style={styles.contactDetails}>
       <Text style={styles.contactDetailsTitle}>
@@ -45,6 +55,8 @@ const AboutApp = ({ version, phone, email }) => (
         </Text>
         <Text style={styles.contactDetailsInput}>{email}</Text>
       </View>
+    </View>
+    <View style={styles.developApp}>
       <View style={styles.article}>
         <Text style={styles.title}>
           {translate("aboutApp.developmentTitle")}
@@ -53,6 +65,7 @@ const AboutApp = ({ version, phone, email }) => (
           {translate("aboutApp.developmentDescription")}
         </Text>
       </View>
+      <Image resizeMode="contain" style={styles.epamLogo} source={epamLogo}/>
     </View>
   </ScrollView>
 );

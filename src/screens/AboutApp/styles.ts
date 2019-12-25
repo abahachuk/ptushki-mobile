@@ -1,21 +1,52 @@
-import { StyleSheet } from "react-native";
+import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native";
 import { black87, black06, blue, gray } from "../../constants/colors";
 
-const styles = StyleSheet.create({
+
+interface Styles {
+  container: ViewStyle;
+  margin: ViewStyle;
+  logo: ViewStyle;
+  developApp: ViewStyle;
+  image: ImageStyle,
+  epamLogo: ImageStyle,
+  version: TextStyle,
+  buttonWrapper: ViewStyle,
+  text: TextStyle,
+  title: TextStyle,
+  article: ViewStyle,
+  contactDetails: ViewStyle,
+  contactDetailsTitle: TextStyle,
+  contactDetailsItem: ViewStyle,
+  contactDetailsLabel: TextStyle,
+  contactDetailsInput: TextStyle,
+}
+
+const styles = StyleSheet.create<Styles>({
   container: {
-    margin: 20
+
+  },
+  margin: {
+    paddingTop: 30,
+    marginHorizontal: 20
   },
   logo: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    paddingBottom: 10
   },
   image: {
     marginBottom: 20,
     width: 185,
     height: 100
   },
+  epamLogo: {
+    marginTop: 17,
+    height: 24,
+    width: 68
+  },
   version: {
-    fontSize: 12
+    fontSize: 12,
+    marginTop: 3
   },
   buttonWrapper: {
     marginTop: 20
@@ -38,11 +69,13 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     lineHeight: 30
   },
-  signUpBorder: {
-    borderColor: "rgba(0,0,0,0.12)"
-  },
   contactDetails: {
-    marginTop: 20
+    marginTop: 20,
+    marginLeft: 20
+  },
+  developApp: {
+    marginLeft: 20,
+    marginBottom: 35,
   },
   contactDetailsTitle: {
     color: black06,
