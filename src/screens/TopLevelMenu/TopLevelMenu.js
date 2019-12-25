@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { DrawerItems } from "react-navigation";
+import { DrawerItems } from "react-navigation-drawer";
 import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
 import AsyncStorage from "@react-native-community/async-storage";
 import { Divider } from "react-native-elements";
