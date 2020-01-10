@@ -1,18 +1,23 @@
 import { StyleSheet } from "react-native";
+import {
+  black87,
+  black06,
+  black,
+  firebrick,
+  white
+} from "../../constants/colors";
 
-/* eslint-disable-next-line */
-import * as colors from "constants/colors";
-
-const { firebrick, white, borderBlack } = colors;
-
-/* eslint  import/prefer-default-export: 0 */
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: 56,
     paddingLeft: 15,
-    borderColor: borderBlack,
-    borderWidth: 0.5,
+    borderBottomColor: black,
+    borderBottomWidth: 1.5
+  },
+  border: {
+    borderColor: black,
+    borderWidth: 1.5,
     borderRadius: 4
   },
   containerWithErrors: {
@@ -26,7 +31,7 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     letterSpacing: 0.15,
     lineHeight: 24,
-    color: "rgba(0,0,0,0.6)"
+    color: black06
   },
   labelFocused: {
     top: -9,
@@ -43,9 +48,10 @@ export const styles = StyleSheet.create({
   textInput: {
     paddingVertical: 15,
     fontSize: 16,
-    color: "rgba(0,0,0,0.87)"
+    color: black87
   },
   error: {
+    paddingLeft: 15,
     fontFamily: "Roboto",
     fontSize: 12,
     letterSpacing: 0.4,
@@ -63,3 +69,5 @@ export const styles = StyleSheet.create({
     height: 24
   }
 });
+
+export default styles;

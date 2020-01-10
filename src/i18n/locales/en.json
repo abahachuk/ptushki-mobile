@@ -146,7 +146,9 @@
     "lastName": "Surname",
     "phone": "Phone number",
     "language": "Language",
-    "apply": "Apply"
+    "apply": "Apply",
+    "russian": "Русский",
+    "english": "English"
   },
   "observationItem": {
     "rings": "Rings",

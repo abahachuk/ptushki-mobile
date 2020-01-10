@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Text, TextInput, View, Image } from "react-native";
-import { styles } from "./styles";
+import styles from "./styles";
 
 const icEyeHide = require("../../assets/ic_eye_hide/ic_eye_hide.png");
 const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show.png");
@@ -33,8 +33,7 @@ const Input = props => {
     setPassVisibility(prevState => !prevState);
   };
 
-  const { error, onChangeText, textContentType, value, label, ...rest } = props;
-  const containerStyles = [styles.container];
+  const { error, onChangeText, textContentType, value, label, isShowBorder, customViewStyles,  ...rest } = props;
   const labelStyles = [styles.label];
   const isPasswordInput = textContentType === "password";
 
@@ -43,15 +42,19 @@ const Input = props => {
   }
 
   if (error) {
-    containerStyles.push(styles.containerWithErrors);
     labelStyles.push(styles.labelWithErrors);
   }
 
   const { wrapperStyles } = props;
-
+  const getContainerStyles = () => [
+    styles.container,
+    customViewStyles,
+    error ? styles.containerWithErrors : null,
+    isShowBorder ? styles.border : null
+  ];
   return (
     <View style={wrapperStyles} onLayout={getYPosition}>
-      <View style={[containerStyles, rest.customViewStyles]}>
+      <View style={getContainerStyles()}>
         <Text style={labelStyles}>{label}</Text>
         <TextInput
           value={value}
@@ -91,7 +94,9 @@ Input.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string,
   error: PropTypes.string,
-  wrapperStyles: PropTypes.any
+  isShowBorder: PropTypes.bool,
+  wrapperStyles: PropTypes.any,
+  customViewStyles: PropTypes.any
 };
 Input.defaultProps = {
   onChangeText: () => {},
@@ -101,6 +106,7 @@ Input.defaultProps = {
   value: "",
   label: "",
   error: "",
+  isShowBorder: true,
   wrapperStyles: []
 };
 

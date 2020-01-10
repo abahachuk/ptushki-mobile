@@ -4,7 +4,7 @@ import {
   Registration,
   PasswordRecovery,
   RegistrationEmailSent,
-  AboutApp
+  AboutApp,
 } from "../../screens";
 import headerStyles from "./headerStyles";
 import { translate } from "../../i18n";
