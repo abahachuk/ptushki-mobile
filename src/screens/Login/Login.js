@@ -80,11 +80,7 @@ const Login = props => {
     setEmailError(validateEmail(email));
     setPasswordError(validatePassword(password));
   };
-  const navigateToIntro = () => {
-    navigation.navigate(FIRST_INTRO_SCREEN, {
-      goBack: () => navigation.navigate("login") // TODO: clarify requirements
-    });
-  };
+  const navigateToAboutApp = () => navigation.navigate("aboutApp");
 
   /** keyboard avoiding */
 
@@ -158,7 +154,7 @@ const Login = props => {
         </Text>
         <TouchableOpacity
           style={styles.infoImgContainer}
-          onPress={navigateToIntro}
+          onPress={navigateToAboutApp}
           activeOpacity={0.8}
         >
           <Image style={styles.infoImg} source={infoImg} />

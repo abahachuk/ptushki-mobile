@@ -3,9 +3,11 @@ import {
   Login,
   Registration,
   PasswordRecovery,
-  RegistrationEmailSent
+  RegistrationEmailSent,
+  AboutApp
 } from "../../screens";
-import IntroSlidesNavigator from "./IntroSlidesNavigator";
+import headerStyles from "./headerStyles";
+import { translate } from "../../i18n";
 
 const RegistrationNavigator = createStackNavigator({
   login: {
@@ -23,8 +25,12 @@ const RegistrationNavigator = createStackNavigator({
   registrationSuccess: {
     screen: RegistrationEmailSent
   },
-  introduction: {
-    screen: IntroSlidesNavigator
+  aboutApp: {
+    screen: AboutApp,
+    navigationOptions: () => ({
+      title: translate("aboutApp.aboutApp"),
+      ...headerStyles
+    })
   }
 });
 
