@@ -4,7 +4,6 @@ import { blackOpacity, blueLight, blue } from "../../constants/colors";
 interface Styles {
   container: ViewStyle;
   closeBtnContainer: ViewStyle;
-  closeBtnImage: ImageStyle,
   footer: ViewStyle,
   slideContainer: ViewStyle,
   slideImgContainer: ViewStyle,
@@ -28,10 +27,6 @@ const styles = StyleSheet.create<Styles>({
     top: 30,
     right: 18,
     zIndex: 100
-  },
-  closeBtnImage: {
-    width: 16,
-    height: 16
   },
   footer: {
     width: "100%",

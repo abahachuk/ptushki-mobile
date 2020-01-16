@@ -9,33 +9,35 @@ interface SlidesProps {
   onSliderChanged: (index: number) => void
 }
 
+const slides = [
+  {
+    id: "Slides/historyScreen",
+    image: require("../../assets/introduction/history_screen.png"),
+    title: "introduction.historyScreenTitle",
+    description: "introduction.historyScreenText"
+  },
+  {
+    id: "Slides/informationScreen",
+    image: require("../../assets/introduction/information_screen.png"),
+    title: "introduction.informationScreenTitle",
+    description: "introduction.informationScreenText"
+  },
+  {
+    id: "Slides/reasonScreen",
+    image: require("../../assets/introduction/reason_screen.png"),
+    title: "introduction.reasonScreenTitle",
+    description: "introduction.reasonScreenText"
+  },
+  {
+    id: "Slides/tagsScreen",
+    image: require("../../assets/introduction/tags_screen.png"),
+    title: "introduction.tagsScreenTitle",
+    description: "introduction.tagsScreenText"
+  }
+];
+
 const Slides: React.FC<SlidesProps> = ({ sliderRef, onSliderChanged }) => {
-  const slides = [
-    {
-      id: "Slides/historyScreen",
-      image: require("../../assets/introduction/history_screen.png"),
-      title: translate("introduction.historyScreenTitle"),
-      description: translate("introduction.historyScreenText")
-    },
-    {
-      id: "Slides/informationScreen",
-      image: require("../../assets/introduction/information_screen.png"),
-      title: translate("introduction.informationScreenTitle"),
-      description: translate("introduction.informationScreenText")
-    },
-    {
-      id: "Slides/reasonScreen",
-      image: require("../../assets/introduction/reason_screen.png"),
-      title: translate("introduction.reasonScreenTitle"),
-      description: translate("introduction.reasonScreenText")
-    },
-    {
-      id: "Slides/tagsScreen",
-      image: require("../../assets/introduction/tags_screen.png"),
-      title: translate("introduction.tagsScreenTitle"),
-      description: translate("introduction.tagsScreenText")
-    }
-  ];
+
   return (
     <Swiper
       ref={sliderRef}
@@ -50,8 +52,8 @@ const Slides: React.FC<SlidesProps> = ({ sliderRef, onSliderChanged }) => {
         <Fragment key={slide.id}>
           <SlideView
             image={slide.image}
-            title={slide.title}
-            description={slide.description}
+            title={translate(slide.title)}
+            description={translate(slide.description)}
           />
         </Fragment>
       ))}
