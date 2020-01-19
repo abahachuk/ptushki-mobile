@@ -7,18 +7,11 @@ import { Button, Input } from "../../components";
 import { translate } from "../../i18n";
 import { styles } from "./styles";
 import { AuthService } from "api";
-/* eslint-enable */
-
-const fields = {
-  email: "email"
-};
 
 const PasswordRecovery = props => {
   const { emailDefault } = props;
 
-  const [{ email }] = useState({
-    [fields.email]: emailDefault
-  });
+  const [email, setEmail] = useState(emailDefault);
 
   const authService = new AuthService();
 
@@ -32,9 +25,8 @@ const PasswordRecovery = props => {
           });
         }
       })
-      .catch(() => {
-        // TODO: show message for user
-        Alert.alert(`Sorry, recovery failed`);
+      .catch(error => {
+        Alert.alert(error.message);
       });
   };
   const onBackPress = () => {
@@ -54,6 +46,7 @@ const PasswordRecovery = props => {
           value={email}
           label={translate("passwordRecovery.email")}
           textContentType="emailAddress"
+          onChangeText={setEmail}
         />
         <Button
           caption={translate("passwordRecovery.sendNewPassword")}

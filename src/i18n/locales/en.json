@@ -98,7 +98,7 @@
     "creatingObservation": "Creating observation"
   },
   "passwordRecovery": {
-    "recovery": "E-mail recovery",
+    "recovery": "Password\nrecovery",
     "sendNewPassword": "Sent new password",
     "statusText": "We just sent you a new password!",
     "instructionText": "Enter your E-mail, so we could send you a new password",
@@ -131,6 +131,7 @@
     },
     "birds": "Birds",
     "settings": "Settings",
+    "aboutApp": "О приложении",
     "exit": "Log out"
   },
   "settings": {
@@ -145,7 +146,9 @@
     "lastName": "Surname",
     "phone": "Phone number",
     "language": "Language",
-    "apply": "Apply"
+    "apply": "Apply",
+    "russian": "Русский",
+    "english": "English"
   },
   "observationItem": {
     "rings": "Rings",
@@ -174,5 +177,18 @@
     "informationScreenText": "informationScreenText",
     "reasonScreenText": "reasonScreenText",
     "tagsScreenText": "tagsScreenText"
+  },
+  "aboutApp": {
+    "aboutApp": "О приложении",
+    "version": "Версия",
+    "description": "Приложение для сбора данных об окольцованных птицах, найденных на территории Республики Беларусь",
+    "readMore": "Узнать больше",
+    "aboutCenter": "О центре кольцевания",
+    "aboutCenterDescription": "Входит в состав лаборатории организации ГНПО НПЦ НАН Беларуси по биоресурсам и координирует работу в области кольцевания птиц в Беларуси.\n\nВ центре, с помощью кольцевания, мы отслеживаем миграции, мониторим численность, и даем оценки выживаемости и продолжительности жизни птиц в Беларуси.",
+    "contactDetails": "Контактные данные",
+    "phone": "Телефон",
+    "email": "Email",
+    "developmentTitle": "Разработка приложения",
+    "developmentDescription": "Идея прииложения была обозначена и частично реализована во время хакатона Engeneering Jam, в ходе которого приложение получило приз зрительских симпатий. После победы в хакатоне, приложение взяли разработчики, в рамках практики на учебном курсе FrontSpot Hub, внутри компании EPAM."
   }
 }

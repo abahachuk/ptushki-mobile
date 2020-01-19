@@ -1,4 +1,4 @@
-import { green } from "../../constants/colors";
+import { green, white } from "../../constants/colors";
 
 export default {
   headerStyle: {
@@ -9,5 +9,6 @@ export default {
   },
   headerTintStyle: {
     color: "white"
-  }
+  },
+  headerTintColor: white
 };
