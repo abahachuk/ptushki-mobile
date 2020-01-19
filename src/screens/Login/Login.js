@@ -4,18 +4,19 @@ import { View, Text, Image, TouchableOpacity, ScrollView, Keyboard, Animated } f
 import Modal from 'react-native-modalbox';
 
 /* eslint-disable */
-import { Button, Input } from "components";
-import { SCREEN_HEIGHT } from "constants/dimensions";
-import { translate } from "../../i18n";
-import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
-import { modalWindowStyles } from "utils/modalWindowStyles";
-import { styles } from "./styles";
-import { AuthService } from "api";
-import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
-import { showKeyboard, hideKeyboard } from "constants/keyboard";
+import { Input } from 'components';
+import Button, { ButtonType } from 'components/PaperUIKit/Button';
+import { SCREEN_HEIGHT } from 'constants/dimensions';
+import { translate } from '../../i18n';
+import { makeValidatorEmail, makeValidatorPassword } from 'utils/validators';
+import { modalWindowStyles } from 'utils/modalWindowStyles';
+import { styles } from './styles';
+import { AuthService } from 'api';
+import { FIRST_INTRO_SCREEN } from 'constants/introductionScreens';
+import { showKeyboard, hideKeyboard } from 'constants/keyboard';
 
-const logoImg = require("assets/logotype/Logo.png");
-const infoImg = require("assets/ic_info/ic_info.png");
+const logoImg = require('assets/logotype/Logo.png');
+const infoImg = require('assets/ic_info/ic_info.png');
 /* eslint-enable */
 
 const RESERVE_PLACE_FOR_BUTTON = 80;
@@ -129,7 +130,7 @@ const Login = props => {
         style={[styles.loginContainer, { transform: [{ translateY: offset.current }] }]}
       >
         <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-        <Text style={styles.headerText}>{translate('login.bandingCenter')}</Text>
+        <Text style={styles.headerText}>{translate('bandingCenter')}</Text>
         <TouchableOpacity
           style={styles.infoImgContainer}
           onPress={navigateToAboutApp}
@@ -145,6 +146,7 @@ const Login = props => {
           error={emailError}
           onTextInputBlur={onTextInputBlur}
           setFocusedInput={setFocusedInput}
+          isUnderlined={false}
         />
         <Input
           value={password}
@@ -155,45 +157,39 @@ const Login = props => {
           onTextInputBlur={onTextInputBlur}
           wrapperStyles={[styles.passwordInput]}
           setFocusedInput={setFocusedInput}
+          isUnderlined={false}
         />
         <Button
-          caption={translate('login.sign-in')}
+          type={ButtonType.CONTAINED}
+          title={translate('login.sign-in')}
+          labelStyle={styles.signInBtnText}
+          containerStyle={styles.signInBtn}
           onPress={onLoginPress}
-          appearance="Dark"
-          wrapperStyles={styles.signInBtn}
         />
       </Animated.View>
       <View style={styles.footer}>
         <Button
-          caption={translate('login.sign-up')}
+          type={ButtonType.OUTLINED}
+          title={translate('login.sign-up')}
+          containerStyle={styles.signUpBtn}
           onPress={onRegisterPress}
-          appearance="Light"
-          wrapperStyles={styles.signUpBtn}
-          customTextStyles={styles.buttonText}
-          borderColorStyle={styles.signUpBorder}
         />
         <Button
-          caption={translate('login.forgotPassword')}
+          type={ButtonType.TEXT}
+          title={translate('login.forgotPassword')}
+          containerStyle={styles.restorePswBtn}
           onPress={onPasswordForgot}
-          appearance="Borderless"
-          wrapperStyles={styles.restorePswBtn}
-          customTextStyles={styles.buttonText}
         />
       </View>
       {isVisible && (
         // eslint-disable-next-line prettier/prettier
-        <Modal
-          style={[modalWindowStyles.modal]}
-          backdrop={false}
-          position="center"
-          ref={modalRef}
-        >
+        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="center" ref={modalRef}>
           <Text style={[modalWindowStyles.modalText]}>{error}</Text>
           <Button
-            caption={translate('login.close')}
+            type={ButtonType.OUTLINED}
+            title={translate('login.close')}
+            containerStyle={modalWindowStyles.modalBtn}
             onPress={closeModal}
-            wrapperStyles={modalWindowStyles.modalBtn}
-            appearance="Borderless"
           />
         </Modal>
       )}

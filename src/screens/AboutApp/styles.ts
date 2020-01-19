@@ -1,5 +1,5 @@
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { black87, black06, blue, gray } from '../../constants/colors';
+import { black087, black06, blue, gray } from '../../constants/colors';
 
 interface Styles {
   container: ViewStyle;
@@ -50,7 +50,7 @@ const styles = StyleSheet.create<Styles>({
   },
   text: {
     marginTop: 10,
-    color: black87,
+    color: black087,
     fontFamily: 'Roboto',
     fontSize: 14,
     lineHeight: 20,
@@ -61,9 +61,8 @@ const styles = StyleSheet.create<Styles>({
   },
   title: {
     color: blue,
-    fontFamily: 'Lato',
+    fontFamily: 'Lato-Semibold',
     fontSize: 25,
-    fontWeight: '600',
     lineHeight: 30,
   },
   contactDetails: {
@@ -89,7 +88,7 @@ const styles = StyleSheet.create<Styles>({
     borderBottomWidth: 1,
   },
   contactDetailsLabel: {
-    color: black87,
+    color: black087,
     fontFamily: 'Roboto',
     fontSize: 16,
     lineHeight: 24,

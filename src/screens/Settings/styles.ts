@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { black87, black06 } from '../../constants/colors';
+import { black087, black06 } from '../../constants/colors';
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -14,17 +14,16 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 25,
-    fontWeight: '600',
     lineHeight: 30,
-    color: black87,
-    fontFamily: 'Lato',
+    color: black087,
+    fontFamily: 'Lato-Semibold',
   },
   section: {
     marginTop: 10,
     marginBottom: 5,
   },
   title: {
-    color: black87,
+    color: black087,
     fontFamily: 'Roboto',
     fontSize: 16,
     lineHeight: 24,

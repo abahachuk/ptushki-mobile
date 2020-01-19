@@ -1,16 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { black87, black06, black, firebrick, white } from '../../constants/colors';
+import { black087, black06, black032, black, firebrick, white } from '../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 56,
     paddingLeft: 15,
+  },
+  underlined: {
     borderBottomColor: black,
     borderBottomWidth: 1.5,
   },
   border: {
-    borderColor: black,
+    borderColor: black032,
     borderWidth: 1.5,
     borderRadius: 4,
   },
@@ -21,10 +23,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 15,
     left: 15,
-    fontSize: 16,
     fontFamily: 'Roboto',
-    letterSpacing: 0.15,
+    fontSize: 16,
     lineHeight: 24,
+    letterSpacing: 0.15,
     color: black06,
   },
   labelFocused: {
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   textInput: {
     paddingVertical: 15,
     fontSize: 16,
-    color: black87,
+    color: black087,
   },
   error: {
     paddingLeft: 15,

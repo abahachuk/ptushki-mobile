@@ -1,12 +1,13 @@
 /* eslint-disable */
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import {Alert, Text, View} from "react-native";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Alert, Text, View } from 'react-native';
 
-import { Button, Input } from "../../components";
-import { translate } from "../../i18n";
-import { styles } from "./styles";
-import { AuthService } from "api";
+import Button, { ButtonType } from 'components/PaperUIKit/Button';
+import { Input } from 'components';
+import { translate } from '../../i18n';
+import { styles } from './styles';
+import { AuthService } from 'api';
 
 const PasswordRecovery = props => {
   const { emailDefault } = props;
@@ -20,8 +21,8 @@ const PasswordRecovery = props => {
       .resetPassword(email)
       .then(data => {
         if (data) {
-          props.navigation.navigate("passwordResetDone", {
-            origin: "passwordRecovery"
+          props.navigation.navigate('passwordResetDone', {
+            origin: 'passwordRecovery',
           });
         }
       })
@@ -36,31 +37,29 @@ const PasswordRecovery = props => {
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <Text style={styles.headerText}>
-          {translate("passwordRecovery.recovery")}
-        </Text>
-        <Text style={styles.hintText}>
-          {translate("passwordRecovery.instructionText")}
-        </Text>
+        <Text style={styles.headerText}>{translate('passwordRecovery.recovery')}</Text>
+        <Text style={styles.hintText}>{translate('passwordRecovery.instructionText')}</Text>
         <Input
           value={email}
-          label={translate("passwordRecovery.email")}
+          label={translate('passwordRecovery.email')}
           textContentType="emailAddress"
           onChangeText={setEmail}
+          isUnderlined={false}
         />
         <Button
-          caption={translate("passwordRecovery.sendNewPassword")}
+          type={ButtonType.CONTAINED}
+          title={translate('passwordRecovery.sendNewPassword')}
           onPress={onRecoveryPress}
-          appearance="Dark"
-          wrapperStyles={styles.resetPswBtn}
+          containerStyle={styles.resetPswBtn}
+          labelStyle={styles.resetPswBtnText}
         />
       </View>
       <View style={styles.footer}>
         <Button
-          caption={translate("passwordRecovery.back")}
+          type={ButtonType.TEXT}
+          title={translate('passwordRecovery.back')}
           onPress={onBackPress}
-          appearance="Borderless"
-          wrapperStyles={styles.backButton}
+          containerStyle={styles.backButton}
         />
       </View>
     </View>
@@ -68,19 +67,19 @@ const PasswordRecovery = props => {
 };
 
 PasswordRecovery.navigationOptions = {
-  title: translate("passwordRecovery.recovery"),
-  header: null
+  title: translate('passwordRecovery.recovery'),
+  header: null,
 };
 
 PasswordRecovery.propTypes = {
   emailDefault: PropTypes.string,
   navigation: PropTypes.shape({
     goBack: PropTypes.func,
-    navigate: PropTypes.func
-  }).isRequired
+    navigate: PropTypes.func,
+  }).isRequired,
 };
 PasswordRecovery.defaultProps = {
-  emailDefault: ""
+  emailDefault: '',
 };
 
 export default PasswordRecovery;

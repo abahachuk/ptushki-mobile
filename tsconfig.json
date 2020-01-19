@@ -12,7 +12,10 @@
     "target": "esnext",
     "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
     "paths": {
+      "src": ["src"],
+      "src/*": ["src/*"],
       "constants/*": ["src/constants/*"],
+      "navigation/*": ["src/navigation/*"]
       // "store": ["app/store"],
       // "store/*": ["app/store/*"],
       // "features": ["app/features"],
@@ -27,7 +30,6 @@
       // "clients": ["app/clients"],
       // "utils/*": ["app/utils/*"]
     },
-    "checkJs": false
   },
   "exclude": [
     "node_modules",

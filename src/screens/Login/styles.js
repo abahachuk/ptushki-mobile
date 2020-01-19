@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import * as colors from 'constants/colors';
+
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   scrollContainer: {
@@ -29,20 +31,18 @@ export const styles = StyleSheet.create({
     height: 22,
   },
   logoImg: {
-    marginTop: 20,
+    marginTop: 30,
     aspectRatio: 290 / 153, // assets image size
     height: 80,
     alignSelf: 'center',
   },
   headerText: {
     paddingVertical: 18,
-    fontFamily: 'Roboto',
-    fontWeight: '400',
-    fontSize: 14,
-    letterSpacing: 0.1,
-    lineHeight: 18,
+    fontSize: 12,
+    letterSpacing: 0.4,
+    lineHeight: 16,
     textAlign: 'center',
-    color: '#546e7a',
+    color: colors.black06,
   },
   footer: {
     width: '100%',
@@ -52,6 +52,10 @@ export const styles = StyleSheet.create({
   },
   signInBtn: {
     marginTop: 20,
+    paddingVertical: 1,
+  },
+  signInBtnText: {
+    letterSpacing: 1.25,
   },
   signUpBtn: {
     marginTop: 15,

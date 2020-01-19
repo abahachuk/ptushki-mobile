@@ -1,23 +1,26 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { NavigationStackProp } from 'react-navigation-stack';
+
+import { AppLanguages } from 'src/entities';
+import { INTRODUCTION_STACK_ROUTE } from 'navigation/navigators/IntroductionNavigator/constants';
 import Button, { ButtonType } from '../../components/PaperUIKit/Button';
 import { styles } from './styles';
 
-// TODO Add type for navigation props after update React navigation
-// import { NavigationStackProp } from 'react-navigation-stack';
-
-// TODO Remove that after PR redesign introduction screen
-import { FIRST_INTRO_SCREEN } from '../../constants/introductionScreens';
-
-interface LanguageSelectProps {
-  navigation: any;
+type ScreenProps = {
+  onLocaleChange: (key: string) => void;
 }
 
-const LanguageSelect: React.FC<LanguageSelectProps> = ({ navigation }) => {
-  const onPressLanguage = key => {
-    // screenProps.onLocaleChange(key);
+interface LanguageSelectProps {
+  navigation: NavigationStackProp<{ navigate: (route: string) => void }>;
+  screenProps: ScreenProps;
+}
 
-    navigation.navigate(FIRST_INTRO_SCREEN);
+const LanguageSelect: React.FC<LanguageSelectProps> = ({ navigation, screenProps }) => {
+  const onPressLanguage = (key: string): void => {
+    screenProps.onLocaleChange(key);
+
+    navigation.navigate(INTRODUCTION_STACK_ROUTE);
   };
 
   return (
@@ -30,13 +33,13 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({ navigation }) => {
           title="Русский язык"
           type={ButtonType.OUTLINED}
           containerStyle={styles.buttonStyle}
-          onPress={() => onPressLanguage('ru')}
+          onPress={() => onPressLanguage(AppLanguages.RUSSIAN)}
         />
         <Button
           title="English"
           type={ButtonType.OUTLINED}
           containerStyle={styles.buttonStyle}
-          onPress={() => onPressLanguage('en')}
+          onPress={() => onPressLanguage(AppLanguages.ENGLISH)}
         />
       </View>
     </View>

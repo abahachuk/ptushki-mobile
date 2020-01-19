@@ -64,8 +64,7 @@ const styles = StyleSheet.create<Styles>({
   },
   title: {
     textAlign: 'center',
-    fontFamily: 'Lato',
-    fontWeight: '600',
+    fontFamily: 'Lato-Semibold',
     fontSize: 24,
     lineHeight: 26,
     color: blue,

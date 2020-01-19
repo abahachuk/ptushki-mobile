@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import * as colors from 'constants/colors';
+
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   container: {
@@ -7,8 +9,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingRight: 20,
-    paddingLeft: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
   },
   main: {
     width: '100%',
@@ -19,16 +21,23 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   headerText: {
-    fontSize: 34,
+    fontFamily: 'Lato-Semibold',
+    fontSize: 32,
+    lineHeight: 39,
+    letterSpacing: 0.24,
+    color: colors.blue,
     textAlign: 'left',
   },
   hintText: {
-    paddingTop: 10,
-    paddingBottom: 15,
+    marginTop: 20,
+    marginBottom: 25,
   },
   resetPswBtn: {
-    width: '100%',
     marginTop: 15,
+    paddingVertical: 1,
+  },
+  resetPswBtnText: {
+    letterSpacing: 1.25,
   },
   footer: {
     width: '100%',

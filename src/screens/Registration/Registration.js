@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Modal from 'react-native-modalbox';
 
+import Button, { ButtonType } from 'components/PaperUIKit/Button';
+import { Input } from 'components';
 import {
   makeValidatorEmail,
   makeValidatorPassword,
@@ -10,7 +12,6 @@ import {
 } from '../../utils/validators';
 import { modalWindowStyles } from '../../utils/modalWindowStyles';
 import { styles } from './styles';
-import { Button, Input } from '../../components';
 import { translate } from '../../i18n';
 import { AuthService } from '../../api';
 
@@ -102,6 +103,7 @@ const Registration = props => {
           onChangeText={setRegistrationDataCommon(fields.email)}
           error={emailError}
           onTextInputBlur={onAuthFieldBlur}
+          isUnderlined={false}
         />
         <Input
           value={password}
@@ -111,6 +113,7 @@ const Registration = props => {
           error={passwordError}
           onTextInputBlur={onAuthFieldBlur}
           wrapperStyles={[styles.belowInput]}
+          isUnderlined={false}
         />
         <Text style={styles.hintText}>{translate('registration.communicationDataHint')}</Text>
         <Input
@@ -120,6 +123,7 @@ const Registration = props => {
           onChangeText={setRegistrationDataCommon(fields.firstName)}
           error={firstNameError}
           onTextInputBlur={onFirstNameBlur}
+          isUnderlined={false}
         />
         <Input
           value={lastName}
@@ -129,6 +133,7 @@ const Registration = props => {
           error={lastNameError}
           onTextInputBlur={onLastNameBlur}
           wrapperStyles={[styles.belowInput]}
+          isUnderlined={false}
         />
         <Input
           value={phone}
@@ -138,17 +143,19 @@ const Registration = props => {
           error={phoneError}
           onTextInputBlur={onPhoneBlur}
           wrapperStyles={[styles.belowInput, styles.lastInput]}
+          isUnderlined={false}
         />
         <Button
-          caption={translate('registration.register')}
+          type={ButtonType.CONTAINED}
+          title={translate('registration.register')}
           onPress={onRegisterPress}
-          appearance="Dark"
+          containerStyle={styles.footerBtn}
         />
         <Button
-          caption={translate('registration.back').toUpperCase()}
+          type={ButtonType.TEXT}
+          title={translate('registration.back').toUpperCase()}
           onPress={onBackPress}
-          appearance="Borderless"
-          wrapperStyles={styles.footerBtn}
+          containerStyle={styles.footerBtn}
         />
         <Modal style={[modalWindowStyles.modal]} backdrop={false} position="top" ref={modalRef}
         >

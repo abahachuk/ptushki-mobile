@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
-import { translate } from '../../i18n';
-import { Button } from '../../components';
 
+import Button, { ButtonType } from 'components/PaperUIKit/Button';
+import { translate } from '../../i18n';
 import styles from './styles';
 
 const logo = require('../../assets/logotype/Logo.png');
@@ -23,9 +23,9 @@ const AboutApp: React.FC<AboutAppProps> = ({ version, phone, email }) => (
       </View>
       <Text style={styles.text}>{translate('aboutApp.description')}</Text>
       <Button
-        caption={translate('aboutApp.readMore')}
-        appearance="Light"
-        wrapperStyles={styles.buttonWrapper}
+        type={ButtonType.OUTLINED}
+        title={translate('aboutApp.readMore')}
+        containerStyle={styles.buttonWrapper}
         onPress={() => {
           // TODO add logic when we will know what exactly should do current button
         }}

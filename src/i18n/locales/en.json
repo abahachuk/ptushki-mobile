@@ -98,7 +98,7 @@
     "creatingObservation": "Creating observation"
   },
   "passwordRecovery": {
-    "recovery": "E-mail recovery",
+    "recovery": "Password\nrecovery",
     "sendNewPassword": "Sent new password",
     "statusText": "We just sent you a new password!",
     "instructionText": "Enter your E-mail, so we could send you a new password",

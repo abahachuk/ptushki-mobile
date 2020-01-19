@@ -8,6 +8,11 @@ export enum AppScreens {
   LOGIN = 'login',
 }
 
+export enum AppLanguages {
+  RUSSIAN = 'ru',
+  ENGLISH = 'en',
+}
+
 export enum LanguagesType {
   RUSSIAN = 'lang/russian',
   ENGLISH = 'lang/english',

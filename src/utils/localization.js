@@ -1,15 +1,14 @@
+import { AppLanguages } from 'src/entities.ts';
+
 /* eslint  import/prefer-default-export: 0 */
 export const getLocalizedText = (obj, locale) => {
   let text = '';
 
   switch (locale) {
-    case 'en':
+    case AppLanguages.ENGLISH:
       text = obj.desc_eng;
       break;
-    case 'be':
-      text = obj.desc_byn;
-      break;
-    case 'ru':
+    case AppLanguages.RUSSIAN:
       text = obj.desc_rus;
       break;
     default:

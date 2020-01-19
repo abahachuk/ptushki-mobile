@@ -23,9 +23,8 @@ export const styles = StyleSheet.create({
   },
   buttonBorderless: {},
   buttonText: {
-    fontFamily: 'Roboto',
+    fontFamily: 'sans-serif-medium',
     fontSize: 14,
-    fontWeight: '500',
     letterSpacing: 1.25,
     lineHeight: 16,
     color: dimGray,

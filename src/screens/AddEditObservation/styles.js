@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   resizedPhotoButtonText: {
     color: 'coral',
     fontSize: 18,
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
   },
   toolbarTitle: {
     fontSize: 20,
@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
   },
   overlayTitle: {
     fontSize: 24,
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
     color: 'black',
   },
   overlayDescription: {
@@ -234,7 +234,7 @@ export const styles = StyleSheet.create({
   },
   declineChangesTitle: {
     fontSize: 20,
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
     color: 'black',
     marginTop: 10,
     paddingLeft: 24,

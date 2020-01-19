@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   title: {
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
     fontSize: 24,
     color: 'black',
   },
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   birdSpecies: {
     color: 'black',
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
     fontSize: 24,
   },
   buttonsBlock: {

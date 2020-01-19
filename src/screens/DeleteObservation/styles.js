@@ -32,14 +32,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   buttonText: {
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
     color: '#5A737F',
     textTransform: 'uppercase',
   },
   actionButtonText: {
     color: 'white',
     textTransform: 'uppercase',
-    fontWeight: '500',
+    fontFamily: 'sans-serif-medium',
   },
   actionButtonStyle: {
     backgroundColor: '#546E7A',

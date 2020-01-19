@@ -3,7 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import Splash from '../../screens/Splash';
 import RegistrationNavigator from './RegistrationNavigator';
 import MainPageNavigator from './MainPageNavigator';
-import IntroductionNavigator from './IntroductionNavigator';
+import IntroductionNavigator from './IntroductionNavigator/IntroductionNavigator';
 
 export default createAppContainer(
   createSwitchNavigator({

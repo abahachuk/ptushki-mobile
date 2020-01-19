@@ -1,15 +1,17 @@
 import { StyleSheet } from 'react-native';
-import { hexGray, blue } from '../../../constants/colors';
+import { black012, blue } from '../../../constants/colors';
 
 const styles = StyleSheet.create({
   label: {
-    fontSize: 16,
+    fontSize: 14,
+    lineHeight: 16,
+    fontFamily: 'sans-serif-medium'
   },
   colorBlue: {
     color: blue,
   },
   border: {
-    borderColor: hexGray,
+    borderColor: black012,
     borderWidth: 1,
   },
 });

@@ -8,7 +8,19 @@ const icEyeShow = require('../../assets/ic_eye_show/ic_eye_show.png');
 
 const Input = props => {
   const yPosition = useRef(0);
-  const { setFocusedInput, onTextInputBlur } = props;
+  const {
+    error,
+    onChangeText,
+    textContentType,
+    value,
+    label,
+    isShowBorder,
+    customViewStyles,
+    setFocusedInput,
+    onTextInputBlur,
+    isUnderlined,
+    ...rest
+  } = props;
   const [isFocused, setFocusedState] = useState(false);
 
   const getYPosition = useCallback(
@@ -37,16 +49,7 @@ const Input = props => {
     setPassVisibility(prevState => !prevState);
   };
 
-  const {
-    error,
-    onChangeText,
-    textContentType,
-    value,
-    label,
-    isShowBorder,
-    customViewStyles,
-    ...rest
-  } = props;
+
   const labelStyles = [styles.label];
   const isPasswordInput = textContentType === 'password';
 
@@ -62,8 +65,9 @@ const Input = props => {
   const getContainerStyles = () => [
     styles.container,
     customViewStyles,
-    error ? styles.containerWithErrors : null,
+    isUnderlined ? styles.underlined : null,
     isShowBorder ? styles.border : null,
+    error ? styles.containerWithErrors : null,
   ];
 
   return (
@@ -108,6 +112,7 @@ Input.propTypes = {
   isShowBorder: PropTypes.bool,
   wrapperStyles: PropTypes.any,
   customViewStyles: PropTypes.any,
+  isUnderlined: PropTypes.bool,
 };
 Input.defaultProps = {
   onChangeText: () => {},
@@ -120,6 +125,7 @@ Input.defaultProps = {
   isShowBorder: true,
   wrapperStyles: [],
   customViewStyles: {},
+  isUnderlined: true,
 };
 
 export default Input;
