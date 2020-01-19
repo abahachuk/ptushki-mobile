@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import AsyncStorage from "@react-native-community/async-storage";
-import { NavigationActions } from "react-navigation";
 
 import AppExtendedContainer from "./navigation/navigators/AppNavigator";
 
@@ -19,15 +18,7 @@ const AppLocalised = () => {
 
   useEffect(() => {
     AsyncStorage.getItem("lang").then(langSet => {
-      let initialRoute = "introduction";
-      if (langSet) {
-        onLocaleChange(langSet);
-        initialRoute = "auth";
-      }
-
-      navigator.current.dispatch(
-        NavigationActions.navigate({ routeName: initialRoute })
-      );
+      if (langSet) onLocaleChange(langSet);
     });
   }, []);
 
@@ -40,7 +31,7 @@ const AppLocalised = () => {
             {...context}
             screenProps={{
               currentLocale,
-              onLocaleChange,
+              onLocaleChange
             }}
           />
         )}

@@ -1,8 +1,9 @@
-export const dimGray = "#546e7a";
 export const white = "#ffffff";
 export const firebrick = "#b00020";
-export const borderBlack = "#000000";
 export const textBlack = "#090a10";
 export const black = "#000000";
+export const blackOpacity = "rgba(0,0,0,0.87)";
 export const hexGray = "#666666";
 export const green = "#546e7a";
+export const blue = "#0A3651";
+export const blueLight = "#9EC2E3";
