@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
-import { View, Image, TouchableHighlight } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { View, TouchableHighlight, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Button from '../../components/Button';
 import Slides from './Slides';
 import { translate } from '../../i18n';
 import { AppScreens } from '../../entities';
 
-import styles from './styles';
+import { styles, hitSlop } from './styles';
 
 const MAX_COUNT_SLIDER_ITEMS = 4;
 const imageClose = require('../../assets/cross.png');
@@ -35,11 +36,9 @@ const Introduction: React.FC<IntroductionProps> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.closeBtnContainer}>
-        <TouchableHighlight onPress={onPressClose}>
-          <Image style={styles.closeBtnImage} source={imageClose} />
-        </TouchableHighlight>
-      </View>
+      <TouchableOpacity style={styles.closeBtnContainer} hitSlop={hitSlop} onPress={onPressClose}>
+        <Icon name="md-close" style={styles.closeIcon} />
+      </TouchableOpacity>
       <Slides sliderRef={sliderRef} onSliderChanged={onSliderChanged} />
       <View style={styles.footer}>
         <Button caption={translate('introduction.next')} onPress={onPressNext} appearance="Dark" />

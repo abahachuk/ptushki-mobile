@@ -2,7 +2,7 @@ import React, { Fragment, RefObject } from 'react';
 import Swiper from 'react-native-swiper';
 import SlideView from './SlideView';
 import { translate } from '../../i18n';
-import styles from './styles';
+import { styles } from './styles';
 
 interface SlidesProps {
   sliderRef: RefObject<Swiper>;

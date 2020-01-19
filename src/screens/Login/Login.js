@@ -15,7 +15,7 @@ import { AuthService } from 'api';
 import { FIRST_INTRO_SCREEN } from 'constants/introductionScreens';
 import { showKeyboard, hideKeyboard } from 'constants/keyboard';
 
-const logoImg = require('assets/logotype/Logo.png');
+const logoImg = require('assets/logotype/logo.png');
 const infoImg = require('assets/ic_info/ic_info.png');
 /* eslint-enable */
 

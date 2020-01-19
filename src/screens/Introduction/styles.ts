@@ -1,10 +1,10 @@
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { blackOpacity, blueLight, blue } from '../../constants/colors';
+import * as colors from '../../constants/colors';
 
 interface Styles {
   container: ViewStyle;
   closeBtnContainer: ViewStyle;
-  closeBtnImage: ImageStyle;
+  closeIcon: TextStyle,
   footer: ViewStyle;
   slideContainer: ViewStyle;
   slideImgContainer: ViewStyle;
@@ -25,13 +25,17 @@ const styles = StyleSheet.create<Styles>({
   },
   closeBtnContainer: {
     position: 'absolute',
-    top: 30,
-    right: 18,
+    top: 20,
+    right: 12,
     zIndex: 100,
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  closeBtnImage: {
-    width: 16,
-    height: 16,
+  closeIcon: {
+    fontSize: 24,
+    color: colors.black054,
   },
   footer: {
     width: '100%',
@@ -67,7 +71,7 @@ const styles = StyleSheet.create<Styles>({
     fontFamily: 'Lato-Semibold',
     fontSize: 24,
     lineHeight: 26,
-    color: blue,
+    color: colors.blue,
   },
   descriptionContainer: {
     paddingTop: 5,
@@ -81,7 +85,7 @@ const styles = StyleSheet.create<Styles>({
     fontSize: 12,
     letterSpacing: 0.4,
     lineHeight: 16,
-    color: blackOpacity,
+    color: colors.black087,
   },
   dot: {
     width: 6,
@@ -89,14 +93,16 @@ const styles = StyleSheet.create<Styles>({
     marginRight: 9,
     marginLeft: 9,
     borderRadius: 5,
-    backgroundColor: blueLight,
+    backgroundColor: colors.blueLight,
   },
   backgroundActive: {
-    backgroundColor: blue,
+    backgroundColor: colors.blue,
   },
   pagination: {
     bottom: 20,
   },
 });
 
-export default styles;
+const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 };
+
+export { styles, hitSlop };

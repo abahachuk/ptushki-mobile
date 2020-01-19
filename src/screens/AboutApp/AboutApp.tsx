@@ -5,7 +5,7 @@ import Button, { ButtonType } from 'components/PaperUIKit/Button';
 import { translate } from '../../i18n';
 import styles from './styles';
 
-const logo = require('../../assets/logotype/Logo.png');
+const logo = require('../../assets/logotype/logo.png');
 const epamLogo = require('../../assets/logotype/epam-logo.png');
 
 interface AboutAppProps {
