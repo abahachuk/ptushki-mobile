@@ -4,7 +4,7 @@ export default function extractDataByProperty(arr, property) {
       return {
         id: item.id,
         label: item[property],
-        value: item[property]
+        value: item[property],
       };
     });
   }
@@ -13,7 +13,7 @@ export default function extractDataByProperty(arr, property) {
     return {
       id: item,
       label: item,
-      value: item
+      value: item,
     };
   });
 }

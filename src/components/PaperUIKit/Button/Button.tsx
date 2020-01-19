@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button as ButtonUIPaper } from 'react-native-paper';
-import {  blueLight, blueMedium } from "../../../constants/colors";
-import styles from "./styles";
+import { blueLight, blueMedium } from '../../../constants/colors';
+import styles from './styles';
 
 export enum ButtonType {
   OUTLINED = 'outlined',
@@ -10,10 +10,10 @@ export enum ButtonType {
 }
 
 interface ButtonProps {
-  type: ButtonType,
-  title: string,
-  containerStyle?: object,
-  onPress: () => void
+  type: ButtonType;
+  title: string;
+  containerStyle?: object;
+  onPress: () => void;
 }
 
 const getLabelStyleByType = (type: ButtonType): object => {
@@ -24,7 +24,7 @@ const getLabelStyleByType = (type: ButtonType): object => {
     case ButtonType.CONTAINED:
       return { ...styles.label };
     default:
-      return {}
+      return {};
   }
 };
 
@@ -36,11 +36,11 @@ const getColorByType = (type: ButtonType): string => {
     case ButtonType.CONTAINED:
       return blueMedium;
     default:
-      return ''
+      return '';
   }
 };
 
-const getContainerStyleByType = (type: ButtonType, containerStyle: object = {} ): object => {
+const getContainerStyleByType = (type: ButtonType, containerStyle: object = {}): object => {
   switch (type) {
     case ButtonType.OUTLINED:
       return { ...styles.border, ...containerStyle };
@@ -52,14 +52,14 @@ const getContainerStyleByType = (type: ButtonType, containerStyle: object = {} )
   }
 };
 
-
-const Button: React.FC<ButtonProps>  = ({ type, onPress, title, containerStyle }) => (
+const Button: React.FC<ButtonProps> = ({ type, onPress, title, containerStyle }) => (
   <ButtonUIPaper
     mode={type}
     labelStyle={getLabelStyleByType(type)}
     color={getColorByType(type)}
     style={getContainerStyleByType(type, containerStyle)}
-    onPress={onPress}>
+    onPress={onPress}
+  >
     {title}
   </ButtonUIPaper>
 );

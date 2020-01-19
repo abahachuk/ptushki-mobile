@@ -1,39 +1,50 @@
-import { ActionBaseType, ActionErrorType, ErrorType } from "../../entities";
+import { ActionBaseType, ActionErrorType, ErrorType } from '../../entities';
 import {
   UpdateEmailActionType,
   UpdatePasswordActionType,
   UpdatePersonalDataActionType,
-  UsersUpdateEmailSuccessActionType
-} from "./types";
+  UsersUpdateEmailSuccessActionType,
+} from './types';
 
-export const REQUEST_UPDATE_EMAIL: string = 'USER/REQUEST_UPDATE_EMAIL';
-export const REQUEST_UPDATE_EMAIL_SUCCESS: string = 'USER/REQUEST_UPDATE_EMAIL_SUCCESS';
-export const REQUEST_UPDATE_PASSWORD: string = 'USER/REQUEST_UPDATE_PASSWORD';
-export const REQUEST_UPDATE_PASSWORD_SUCCESS: string = 'USER/REQUEST_UPDATE_PASSWORD_SUCCESS';
-export const REQUEST_UPDATE_PERSONAL_DATA: string = 'USER/REQUEST_UPDATE_PERSONAL_DATA';
-export const REQUEST_UPDATE_PERSONAL_DATA_SUCCESS: string = 'USER/REQUEST_UPDATE_PERSONAL_DATA_SUCCESS';
+export const REQUEST_UPDATE_EMAIL = 'USER/REQUEST_UPDATE_EMAIL';
+export const REQUEST_UPDATE_EMAIL_SUCCESS = 'USER/REQUEST_UPDATE_EMAIL_SUCCESS';
+export const REQUEST_UPDATE_PASSWORD = 'USER/REQUEST_UPDATE_PASSWORD';
+export const REQUEST_UPDATE_PASSWORD_SUCCESS = 'USER/REQUEST_UPDATE_PASSWORD_SUCCESS';
+export const REQUEST_UPDATE_PERSONAL_DATA = 'USER/REQUEST_UPDATE_PERSONAL_DATA';
+export const REQUEST_UPDATE_PERSONAL_DATA_SUCCESS = 'USER/REQUEST_UPDATE_PERSONAL_DATA_SUCCESS';
 
-export const SET_USER_ERROR: string = 'USER/SET_USER_ERROR';
-export const CLEAR_USER_ERROR: string = 'USER/CLEAR_USER_ERROR';
+export const SET_USER_ERROR = 'USER/SET_USER_ERROR';
+export const CLEAR_USER_ERROR = 'USER/CLEAR_USER_ERROR';
 
-export const requestUpdateUserPersonalData = (firstName: string, lastName: string, phone: string): UpdatePersonalDataActionType => ({
+export const requestUpdateUserPersonalData = (
+  firstName: string,
+  lastName: string,
+  phone: string,
+): UpdatePersonalDataActionType => ({
   type: REQUEST_UPDATE_PERSONAL_DATA,
   firstName,
   lastName,
-  phone
+  phone,
 });
 
-export const requestUpdateUserPersonalDataSuccess = (firstName: string, lastName: string, phone: string): UpdatePersonalDataActionType => ({
+export const requestUpdateUserPersonalDataSuccess = (
+  firstName: string,
+  lastName: string,
+  phone: string,
+): UpdatePersonalDataActionType => ({
   type: REQUEST_UPDATE_PERSONAL_DATA_SUCCESS,
   firstName,
   lastName,
-  phone
+  phone,
 });
 
-export const requestUpdateUserPassword = (password: string, newPassword: string): UpdatePasswordActionType => ({
+export const requestUpdateUserPassword = (
+  password: string,
+  newPassword: string,
+): UpdatePasswordActionType => ({
   type: REQUEST_UPDATE_PASSWORD,
   password,
-  newPassword
+  newPassword,
 });
 
 export const requestUpdateUserPasswordSuccess = (): ActionBaseType => ({
@@ -43,12 +54,14 @@ export const requestUpdateUserPasswordSuccess = (): ActionBaseType => ({
 export const requestUpdateUserEmail = (email: string, password: string): UpdateEmailActionType => ({
   type: REQUEST_UPDATE_EMAIL,
   email,
-  password
+  password,
 });
 
-export const requestUpdateUserEmailSuccess = (email: string): UsersUpdateEmailSuccessActionType => ({
+export const requestUpdateUserEmailSuccess = (
+  email: string,
+): UsersUpdateEmailSuccessActionType => ({
   type: REQUEST_UPDATE_EMAIL_SUCCESS,
-  email
+  email,
 });
 
 export const setUserError = (error: ErrorType): ActionErrorType => ({

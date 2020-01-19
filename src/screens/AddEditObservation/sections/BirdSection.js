@@ -1,14 +1,14 @@
-import React from "react";
-import { KeyboardAvoidingView, Text, Linking } from "react-native";
-import PropTypes from "prop-types";
+import React from 'react';
+import { KeyboardAvoidingView, Text, Linking } from 'react-native';
+import PropTypes from 'prop-types';
 
-import getDescriptionBlock from "./DescriptionBlock";
-import { translate } from "../../../i18n";
-import { styles } from "../styles";
-import { pickerValuesArrayType } from "../../../propTypes";
-import { CustomPicker } from "../../../components";
+import getDescriptionBlock from './DescriptionBlock';
+import { translate } from '../../../i18n';
+import { styles } from '../styles';
+import { pickerValuesArrayType } from '../../../propTypes';
+import { CustomPicker } from '../../../components';
 
-const birdsGuideAppLink = "market://details?id=com.apbbirdsguide.app";
+const birdsGuideAppLink = 'market://details?id=com.apbbirdsguide.app';
 
 const BirdSection = props => {
   const {
@@ -20,7 +20,7 @@ const BirdSection = props => {
     birdAgeValues,
     birdObstacles,
     birdObstaclesValues,
-    setFieldValue
+    setFieldValue,
   } = props;
 
   const onOpenBirdsGuideApp = () => {
@@ -30,39 +30,39 @@ const BirdSection = props => {
   return (
     <KeyboardAvoidingView>
       {getDescriptionBlock(
-        translate("addEditObservation.birdHeader"),
-        translate("addEditObservation.birdDescription")
+        translate('addEditObservation.birdHeader'),
+        translate('addEditObservation.birdDescription'),
       )}
       <CustomPicker
-        caption={translate("addEditObservation.birdSpecies")}
+        caption={translate('addEditObservation.birdSpecies')}
         wrappedStyles={styles.firstBirdPicker}
         selectedValue={birdSpecies}
         onValueChange={itemValue => setFieldValue({ birdSpecies: itemValue })}
         items={birdSpeciesValues}
       />
       <Text style={styles.appLinkBlock}>
-        <Text>{`${translate("addEditObservation.linkToAppFirstPart")} `}</Text>
+        <Text>{`${translate('addEditObservation.linkToAppFirstPart')} `}</Text>
         <Text style={styles.appLinkBlockLink} onPress={onOpenBirdsGuideApp}>
-          {`${translate("addEditObservation.linkToAppSecondPart")} `}
+          {`${translate('addEditObservation.linkToAppSecondPart')} `}
         </Text>
-        <Text>{translate("addEditObservation.linkToAppThirdPart")}</Text>
+        <Text>{translate('addEditObservation.linkToAppThirdPart')}</Text>
       </Text>
       <CustomPicker
-        caption={translate("addEditObservation.birdSex")}
+        caption={translate('addEditObservation.birdSex')}
         wrappedStyles={styles.restBirdPickers}
         selectedValue={birdSex}
         onValueChange={itemValue => setFieldValue({ birdSex: itemValue })}
         items={birdSexValues}
       />
       <CustomPicker
-        caption={translate("addEditObservation.birdAge")}
+        caption={translate('addEditObservation.birdAge')}
         wrappedStyles={styles.restBirdPickers}
         selectedValue={birdAge}
         onValueChange={itemValue => setFieldValue({ birdAge: itemValue })}
         items={birdAgeValues}
       />
       <CustomPicker
-        caption={translate("addEditObservation.birdWas")}
+        caption={translate('addEditObservation.birdWas')}
         wrappedStyles={styles.restBirdPickers}
         selectedValue={birdObstacles}
         onValueChange={itemValue => setFieldValue({ birdObstacles: itemValue })}
@@ -81,18 +81,18 @@ BirdSection.propTypes = {
   birdAgeValues: pickerValuesArrayType,
   birdObstacles: PropTypes.string,
   birdObstaclesValues: pickerValuesArrayType,
-  setFieldValue: PropTypes.func
+  setFieldValue: PropTypes.func,
 };
 BirdSection.defaultProps = {
-  birdSpecies: "",
+  birdSpecies: '',
   birdSpeciesValues: [],
-  birdSex: "",
+  birdSex: '',
   birdSexValues: [],
-  birdAge: "",
+  birdAge: '',
   birdAgeValues: [],
-  birdObstacles: "",
+  birdObstacles: '',
   birdObstaclesValues: [],
-  setFieldValue: () => {}
+  setFieldValue: () => {},
 };
 
 export default BirdSection;

@@ -25,7 +25,7 @@ exports[`Registration screen renders correctly 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "testUri": "../../../src/assets/logotype/logo.png",
+              "testUri": "../../../src/assets/logotype/Logo.png",
             }
           }
           style={

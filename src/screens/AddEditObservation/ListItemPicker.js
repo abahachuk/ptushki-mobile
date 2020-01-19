@@ -9,66 +9,66 @@ import { styles } from "./styles";
 /* eslint-enable */
 
 const birdSpeciesValues = [
-  { value: "Botaurus stellaris", label: "большая выпь" },
-  { value: "Ixobrychus minutus", label: "малая выпь" },
-  { value: "Ardea cinerea", label: "серая цапля" },
-  { value: "Ardea purpurea", label: "рыжая цапля" },
-  { value: "Ardea alba", label: "большая белая цапля" },
-  { value: "Egretta garzetta", label: "малая белая цапля" }
+  { value: 'Botaurus stellaris', label: 'большая выпь' },
+  { value: 'Ixobrychus minutus', label: 'малая выпь' },
+  { value: 'Ardea cinerea', label: 'серая цапля' },
+  { value: 'Ardea purpurea', label: 'рыжая цапля' },
+  { value: 'Ardea alba', label: 'большая белая цапля' },
+  { value: 'Egretta garzetta', label: 'малая белая цапля' },
 ];
 const birdSexValues = [
-  { value: "NA", label: "Не определен" },
-  { value: "F", label: "Женский" },
-  { value: "M", label: "Мужской" }
+  { value: 'NA', label: 'Не определен' },
+  { value: 'F', label: 'Женский' },
+  { value: 'M', label: 'Мужской' },
 ];
 
 const birdAgeValues = [
-  { value: "NA", label: "Не определен" },
-  { value: "<1", label: "" },
-  { value: "2", label: "" },
-  { value: "3", label: " " }
+  { value: 'NA', label: 'Не определен' },
+  { value: '<1', label: '' },
+  { value: '2', label: '' },
+  { value: '3', label: ' ' },
 ];
 
 const birdObstaclesValues = [
-  { value: "NA", label: "Не определен" },
-  { value: "1", label: "" },
-  { value: "2", label: "" },
-  { value: "3", label: " " }
+  { value: 'NA', label: 'Не определен' },
+  { value: '1', label: '' },
+  { value: '2', label: '' },
+  { value: '3', label: ' ' },
 ];
 const countryValues = [
-  { label: "Брестская область", value: "hi" },
-  { label: "Витебская область", value: "hi" },
-  { label: "Гомельская область", value: "hi" },
-  { label: "Гродненская область", value: "hi" },
-  { label: "Минская область", value: "hi" },
-  { label: "Могилевская область", value: "hi" },
-  { label: "Брестская область", value: "hi" }
+  { label: 'Брестская область', value: 'hi' },
+  { label: 'Витебская область', value: 'hi' },
+  { label: 'Гомельская область', value: 'hi' },
+  { label: 'Гродненская область', value: 'hi' },
+  { label: 'Минская область', value: 'hi' },
+  { label: 'Могилевская область', value: 'hi' },
+  { label: 'Брестская область', value: 'hi' },
 ];
 
-const birdImg = require("./../../assets/bird/bird.png");
+const birdImg = require('./../../assets/bird/bird.png');
 
 const ListItemPicker = props => {
-  const mod = props.navigation.getParam("mod");
-  const opt = props.navigation.getParam("option");
+  const mod = props.navigation.getParam('mod');
+  const opt = props.navigation.getParam('option');
 
   const [option, changeOption] = useState({
     value: opt.value,
     label: opt.label,
-    mod
+    mod,
   });
   let refArray = [];
 
-  switch (props.navigation.getParam("mod")) {
-    case "birdSpecies":
+  switch (props.navigation.getParam('mod')) {
+    case 'birdSpecies':
       refArray = birdSpeciesValues;
       break;
-    case "birdSex":
+    case 'birdSex':
       refArray = birdSexValues;
       break;
-    case "birdAge":
+    case 'birdAge':
       refArray = birdAgeValues;
       break;
-    case "birdObstacles":
+    case 'birdObstacles':
       refArray = birdObstaclesValues;
   }
 
@@ -81,15 +81,15 @@ const ListItemPicker = props => {
           changeOption({
             value: text,
             label: text,
-            mod
+            mod,
           });
         }}
       />
       <Button
         title="Выбрать"
         onPress={() => {
-          props.navigation.navigate("EditObservation", {
-            newValue: option
+          props.navigation.navigate('EditObservation', {
+            newValue: option,
           });
         }}
       />
@@ -97,17 +97,17 @@ const ListItemPicker = props => {
         {refArray.map((l, i) => (
           <ListItem
             containerStyle={{
-              borderBottomColor: "black"
+              borderBottomColor: 'black',
             }}
             key={i}
             title={l.label}
             subtitle={l.value}
-            leftAvatar={mod === "birdSpecies" ? { source: birdImg } : null}
+            leftAvatar={mod === 'birdSpecies' ? { source: birdImg } : null}
             onPress={() => {
               changeOption({
                 value: l.value,
                 label: l.label,
-                mod
+                mod,
               });
             }}
           />
@@ -118,7 +118,7 @@ const ListItemPicker = props => {
 };
 
 ListItemPicker.navigationOptions = ({ navigation }) => ({
-  title: "Выбрать ",
+  title: 'Выбрать ',
   headerLeft: (
     <Icon
       name="arrowleft"
@@ -127,7 +127,7 @@ ListItemPicker.navigationOptions = ({ navigation }) => ({
       style={{ padding: 15 }}
       onPress={() => navigation.goBack()}
     />
-  )
+  ),
 });
 
 export default ListItemPicker;

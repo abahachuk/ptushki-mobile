@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-import {
-  KeyboardAvoidingView,
-  View,
-  Text,
-  TouchableOpacity
-} from "react-native";
-import PropTypes from "prop-types";
-import IconFA from "react-native-vector-icons/FontAwesome";
-import IconII from "react-native-vector-icons/Ionicons";
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, View, Text, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
+import IconFA from 'react-native-vector-icons/FontAwesome';
+import IconII from 'react-native-vector-icons/Ionicons';
 
-import * as colors from "../../../constants/colors";
-import { Button, Input, CustomPicker } from "../../../components";
-import getDescriptionBlock from "./DescriptionBlock";
-import { translate } from "../../../i18n";
-import { styles } from "../styles";
-import { pickerValuesArrayType } from "../../../propTypes";
+import * as colors from '../../../constants/colors';
+import { Button, Input, CustomPicker } from '../../../components';
+import getDescriptionBlock from './DescriptionBlock';
+import { translate } from '../../../i18n';
+import { styles } from '../styles';
+import { pickerValuesArrayType } from '../../../propTypes';
 
 const ObstaclesSection = props => {
   const {
@@ -25,15 +20,12 @@ const ObstaclesSection = props => {
     coordinates,
     dateTime,
     dateTimeInaccuracy,
-    comment
+    comment,
   } = props;
 
-  const [
-    { dateTimeValue, dateTimeInaccuracyValue },
-    setDateTimeValue
-  ] = useState({
+  const [{ dateTimeValue, dateTimeInaccuracyValue }, setDateTimeValue] = useState({
     dateTimeValue: dateTime,
-    dateTimeInaccuracyValue: dateTimeInaccuracy
+    dateTimeInaccuracyValue: dateTimeInaccuracy,
   });
   const [coordinatesValue, setCoordinatesValue] = useState(coordinates);
 
@@ -42,10 +34,7 @@ const ObstaclesSection = props => {
 
     // eslint-disable-next-line
     navigator.geolocation.getCurrentPosition(value => {
-      const longitude = `${value.coords.longitude}`.slice(
-        0,
-        coordsSymbolsLimit
-      );
+      const longitude = `${value.coords.longitude}`.slice(0, coordsSymbolsLimit);
       const latitude = `${value.coords.latitude}`.slice(0, coordsSymbolsLimit);
       setCoordinatesValue(`${longitude}, ${latitude}`);
     });
@@ -57,33 +46,31 @@ const ObstaclesSection = props => {
 
   const onCurrentDateTimePress = () => {
     const fullDate = new Date();
-    const date = `${refineDateTimeValue(
-      fullDate.getDate()
-    )}.${refineDateTimeValue(
-      fullDate.getMonth() + 1
+    const date = `${refineDateTimeValue(fullDate.getDate())}.${refineDateTimeValue(
+      fullDate.getMonth() + 1,
     )}.${fullDate.getFullYear()}`;
-    const time = `${refineDateTimeValue(
-      fullDate.getHours()
-    )}:${refineDateTimeValue(fullDate.getMinutes())}`;
+    const time = `${refineDateTimeValue(fullDate.getHours())}:${refineDateTimeValue(
+      fullDate.getMinutes(),
+    )}`;
     const newDateTimeValue = `${date} ${time}`;
 
     setDateTimeValue({
       dateTimeValue: newDateTimeValue,
-      dateTimeInaccuracyValue: translate("addEditObservation.preciseTime")
+      dateTimeInaccuracyValue: translate('addEditObservation.preciseTime'),
     });
   };
 
   return (
     <KeyboardAvoidingView style={styles.obstaclesSectionContainer}>
       {getDescriptionBlock(
-        translate("addEditObservation.obstaclesHeader"),
-        translate("addEditObservation.obstaclesDescription")
+        translate('addEditObservation.obstaclesHeader'),
+        translate('addEditObservation.obstaclesDescription'),
       )}
       <View style={styles.geolocationButtons}>
         <Button
           wrapperStyles={styles.geolocationButton}
           onPress={onSearchOnMapPress}
-          caption={translate("addEditObservation.searchOnMap")}
+          caption={translate('addEditObservation.searchOnMap')}
           appearance="Borderless"
         />
         <TouchableOpacity
@@ -92,19 +79,17 @@ const ObstaclesSection = props => {
         >
           <IconFA name="map-marker" size={30} color={colors.green} />
           <Text style={styles.buttonWithIconText}>
-            {translate("addEditObservation.currentGeoposition")}
+            {translate('addEditObservation.currentGeoposition')}
           </Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.sectionTitle}>
-        {translate("addEditObservation.place")}
-      </Text>
+      <Text style={styles.sectionTitle}>{translate('addEditObservation.place')}</Text>
       <CustomPicker
         wrappedStyles={styles.countryPicker}
         selectedValue={country}
         onValueChange={itemValue => setFieldValue({ country: itemValue })}
         items={countryValues}
-        caption={translate("addEditObservation.country")}
+        caption={translate('addEditObservation.country')}
       />
       <Input
         onChangeText={value => setFieldValue({ coordinates: value })}
@@ -112,18 +97,16 @@ const ObstaclesSection = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={coordinatesValue}
-        label={translate("addEditObservation.coordinates")}
+        label={translate('addEditObservation.coordinates')}
       />
-      <Text style={styles.sectionTitle}>
-        {translate("addEditObservation.time")}
-      </Text>
+      <Text style={styles.sectionTitle}>{translate('addEditObservation.time')}</Text>
       <TouchableOpacity
         style={[styles.buttonWithIcon, styles.currentDateTimeButton]}
         onPress={onCurrentDateTimePress}
       >
         <IconII name="md-time" size={30} color={colors.green} />
         <Text style={[styles.buttonWithIconText, styles.currentDateTimeText]}>
-          {translate("addEditObservation.currentDateTime")}
+          {translate('addEditObservation.currentDateTime')}
         </Text>
       </TouchableOpacity>
       <Input
@@ -132,7 +115,7 @@ const ObstaclesSection = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={dateTimeValue}
-        label={translate("addEditObservation.dateTime")}
+        label={translate('addEditObservation.dateTime')}
       />
       <Input
         onChangeText={value => setFieldValue({ dateTimeInaccuracy: value })}
@@ -140,13 +123,11 @@ const ObstaclesSection = props => {
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={dateTimeInaccuracyValue}
-        label={translate("addEditObservation.dateTimeInaccuracy")}
+        label={translate('addEditObservation.dateTimeInaccuracy')}
       />
-      <Text style={styles.sectionTitle}>
-        {translate("addEditObservation.comment")}
-      </Text>
+      <Text style={styles.sectionTitle}>{translate('addEditObservation.comment')}</Text>
       <Text style={styles.sectionDescription}>
-        {translate("addEditObservation.commentBlockDescription")}
+        {translate('addEditObservation.commentBlockDescription')}
       </Text>
       <Input
         onChangeText={value => setFieldValue({ comment: value })}
@@ -154,7 +135,7 @@ const ObstaclesSection = props => {
         customViewStyles={styles.commentField}
         customTextStyles={styles.customText}
         value={comment}
-        label={translate("addEditObservation.comment")}
+        label={translate('addEditObservation.comment')}
       />
     </KeyboardAvoidingView>
   );
@@ -168,17 +149,17 @@ ObstaclesSection.propTypes = {
   coordinates: PropTypes.string,
   dateTime: PropTypes.string,
   dateTimeInaccuracy: PropTypes.string,
-  comment: PropTypes.string
+  comment: PropTypes.string,
 };
 ObstaclesSection.defaultProps = {
   onSearchOnMapPress: () => {},
-  country: "",
+  country: '',
   setFieldValue: () => {},
   countryValues: [],
-  coordinates: "",
-  dateTime: "",
-  dateTimeInaccuracy: "",
-  comment: ""
+  coordinates: '',
+  dateTime: '',
+  dateTimeInaccuracy: '',
+  comment: '',
 };
 
 export default ObstaclesSection;

@@ -1,12 +1,12 @@
 const makeSimpleValidator = regExp => errorMsg => value => {
   if (!value) {
-    return "";
+    return '';
   }
 
-  return regExp.test(value) ? "" : errorMsg;
+  return regExp.test(value) ? '' : errorMsg;
 };
 export const makeRequiredValidator = errorMsg => value => {
-  return !value ? errorMsg : "";
+  return !value ? errorMsg : '';
 };
 /* eslint-disable-next-line */
 const emailRegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

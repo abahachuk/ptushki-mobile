@@ -6,14 +6,14 @@ import { BaseService } from "api";
 
 export default class InitialDataService extends BaseService {
   async getData() {
-    const token = await AsyncStorage.getItem("token");
+    const token = await AsyncStorage.getItem('token');
 
     return (
       super
-        .sendRequest(INITIAL_DATA_ENDPOINT, "GET", token)
+        .sendRequest(INITIAL_DATA_ENDPOINT, 'GET', token)
         .then(response => response.json())
         // eslint-disable-next-line no-console
-        .catch(err => console.info("Getting initial data error", err))
+        .catch(err => console.info('Getting initial data error', err))
     );
   }
 }

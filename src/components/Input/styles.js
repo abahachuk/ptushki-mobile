@@ -1,73 +1,67 @@
-import { StyleSheet } from "react-native";
-import {
-  black87,
-  black06,
-  black,
-  firebrick,
-  white
-} from "../../constants/colors";
+import { StyleSheet } from 'react-native';
+import { black87, black06, black, firebrick, white } from '../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: '100%',
     height: 56,
     paddingLeft: 15,
     borderBottomColor: black,
-    borderBottomWidth: 1.5
+    borderBottomWidth: 1.5,
   },
   border: {
     borderColor: black,
     borderWidth: 1.5,
-    borderRadius: 4
+    borderRadius: 4,
   },
   containerWithErrors: {
-    borderColor: firebrick
+    borderColor: firebrick,
   },
   label: {
-    position: "absolute",
+    position: 'absolute',
     top: 15,
     left: 15,
     fontSize: 16,
-    fontFamily: "Roboto",
+    fontFamily: 'Roboto',
     letterSpacing: 0.15,
     lineHeight: 24,
-    color: black06
+    color: black06,
   },
   labelFocused: {
     top: -9,
-    fontFamily: "Roboto",
+    fontFamily: 'Roboto',
     fontSize: 12,
     lineHeight: 16,
     letterSpacing: 0.4,
     paddingHorizontal: 5,
-    backgroundColor: white
+    backgroundColor: white,
   },
   labelWithErrors: {
-    color: firebrick
+    color: firebrick,
   },
   textInput: {
     paddingVertical: 15,
     fontSize: 16,
-    color: black87
+    color: black87,
   },
   error: {
     paddingLeft: 15,
-    fontFamily: "Roboto",
+    fontFamily: 'Roboto',
     fontSize: 12,
     letterSpacing: 0.4,
     lineHeight: 16,
     color: firebrick,
-    paddingTop: 2
+    paddingTop: 2,
   },
   showHidePassIcon: {
-    position: "absolute",
+    position: 'absolute',
     top: 15,
-    right: 15
+    right: 15,
   },
   inputIcon: {
     width: 24,
-    height: 24
-  }
+    height: 24,
+  },
 });
 
 export default styles;

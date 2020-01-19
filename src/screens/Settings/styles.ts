@@ -1,52 +1,52 @@
-import { StyleSheet } from "react-native";
-import { black87, black06 } from "../../constants/colors";
+import { StyleSheet } from 'react-native';
+import { black87, black06 } from '../../constants/colors';
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    width: "100%"
+    width: '100%',
   },
   container: {
     flex: 1,
     marginLeft: 15,
     marginRight: 15,
     paddingTop: 10,
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   header: {
     fontSize: 25,
-    fontWeight: "600",
+    fontWeight: '600',
     lineHeight: 30,
     color: black87,
-    fontFamily: "Lato"
+    fontFamily: 'Lato',
   },
   section: {
     marginTop: 10,
-    marginBottom: 5
+    marginBottom: 5,
   },
   title: {
     color: black87,
-    fontFamily: "Roboto",
+    fontFamily: 'Roboto',
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0.15,
-    marginBottom: 15
+    marginBottom: 15,
   },
   label: {
     color: black06,
-    fontFamily: "Roboto",
+    fontFamily: 'Roboto',
     fontSize: 12,
     padding: 0,
     marginTop: 10,
   },
   input: {
-    marginBottom: 13
+    marginBottom: 13,
   },
   buttonContainer: {
     marginBottom: 10,
     marginTop: 15,
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "flex-end",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
   buttonStyle: {
     width: 150,

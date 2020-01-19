@@ -1,20 +1,13 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import {
-  View,
-  TextInput,
-  FlatList,
-  Text,
-  TouchableNativeFeedback,
-  Keyboard
-} from "react-native";
-import PropTypes from "prop-types";
+import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { View, TextInput, FlatList, Text, TouchableNativeFeedback, Keyboard } from 'react-native';
+import PropTypes from 'prop-types';
 
-import styles from "./styles";
+import styles from './styles';
 
 const valuePropType = {
   id: PropTypes.number,
   label: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 const Autosuggest = ({ onChangeText, onSelect, items, value, ...props }) => {
@@ -26,12 +19,13 @@ const Autosuggest = ({ onChangeText, onSelect, items, value, ...props }) => {
   const hideList = useCallback(() => {
     setOpen(false);
     inputRef.current.blur();
-  }, [isOpened]);
+  }, []);
 
   useEffect(() => {
-    Keyboard.addListener("keyboardDidHide", hideList);
-    return () => Keyboard.removeListener("keyboardDidHide", hideList);
-  }, [isOpened]);
+    Keyboard.addListener('keyboardDidHide', hideList);
+
+    return () => Keyboard.removeListener('keyboardDidHide', hideList);
+  }, [hideList, isOpened]);
 
   const onSelectValue = useCallback(
     val => {
@@ -40,28 +34,23 @@ const Autosuggest = ({ onChangeText, onSelect, items, value, ...props }) => {
       Keyboard.dismiss();
       setOpen(false);
     },
-    [isOpened]
+    [items, onSelect],
   );
 
   const onChangeValue = useCallback(
     text => {
       onChangeText(text);
       setCollection(
-        items.filter(
-          item => item.value.toLowerCase().indexOf(text.toLowerCase()) !== -1
-        )
+        items.filter(item => item.value.toLowerCase().indexOf(text.toLowerCase()) !== -1),
       );
     },
-    [collection, onChangeText, value]
+    [items, onChangeText],
   );
 
-  const handleFocus = useCallback(() => setOpen(true), [isOpened]);
+  const handleFocus = useCallback(() => setOpen(true), []);
 
   const renderItem = ({ item }) => (
-    <TouchableNativeFeedback
-      value={item.value}
-      onPress={() => onSelectValue(item.value)}
-    >
+    <TouchableNativeFeedback value={item.value} onPress={() => onSelectValue(item.value)}>
       <View style={styles.listItem}>
         <Text style={styles.itemText}>{item.label}</Text>
       </View>
@@ -69,7 +58,7 @@ const Autosuggest = ({ onChangeText, onSelect, items, value, ...props }) => {
   );
 
   renderItem.propTypes = {
-    item: PropTypes.shape(valuePropType).isRequired
+    item: PropTypes.shape(valuePropType).isRequired,
   };
 
   const keyExtractor = item => `${item.id}`;
@@ -104,14 +93,14 @@ Autosuggest.propTypes = {
   onChangeText: PropTypes.func,
   onSelect: PropTypes.func,
   items: PropTypes.arrayOf(PropTypes.shape(valuePropType)),
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 Autosuggest.defaultProps = {
   onSelect: () => {},
   onChangeText: () => {},
-  value: "",
-  items: []
+  value: '',
+  items: [],
 };
 
 export default Autosuggest;

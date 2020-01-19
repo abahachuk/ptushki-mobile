@@ -8,9 +8,14 @@ import {
   REQUEST_UPDATE_PASSWORD,
   requestUpdateUserPasswordSuccess,
   REQUEST_UPDATE_PERSONAL_DATA,
-  requestUpdateUserPersonalDataSuccess
-} from "./actions";
-import { UpdateUserEmailType, UpdateUserPasswordType, UpdateUserPersonalDataType, UsersSagasType } from "./types";
+  requestUpdateUserPersonalDataSuccess,
+} from './actions';
+import {
+  UpdateUserEmailType,
+  UpdateUserPasswordType,
+  UpdateUserPersonalDataType,
+  UsersSagasType,
+} from './types';
 
 function userSagas(): UsersSagasType {
   function* updateUserEmail({ email, password }: UpdateUserEmailType): SagaIterator {
@@ -24,17 +29,28 @@ function userSagas(): UsersSagasType {
 
   function* updateUserPassword({ password, newPassword }: UpdateUserPasswordType): SagaIterator {
     try {
-      yield call([instanceAuthService, instanceAuthService.updatePassword], { password, newPassword });
+      yield call([instanceAuthService, instanceAuthService.updatePassword], {
+        password,
+        newPassword,
+      });
       yield put(requestUpdateUserPasswordSuccess());
     } catch (e) {
       yield put(setUserError(e));
     }
   }
 
-  function* updateUserPersonalData({ firstName, lastName, phone }: UpdateUserPersonalDataType): SagaIterator {
+  function* updateUserPersonalData({
+    firstName,
+    lastName,
+    phone,
+  }: UpdateUserPersonalDataType): SagaIterator {
     try {
-      yield call([instanceAuthService, instanceAuthService.updatePersonalData], { firstName, lastName, phone  });
-      yield put(requestUpdateUserPersonalDataSuccess(firstName, lastName, phone ));
+      yield call([instanceAuthService, instanceAuthService.updatePersonalData], {
+        firstName,
+        lastName,
+        phone,
+      });
+      yield put(requestUpdateUserPersonalDataSuccess(firstName, lastName, phone));
     } catch (e) {
       yield put(setUserError(e));
     }
@@ -46,6 +62,7 @@ function userSagas(): UsersSagasType {
     yield takeLatest(REQUEST_UPDATE_PASSWORD, updateUserPassword);
     yield takeLatest(REQUEST_UPDATE_PERSONAL_DATA, updateUserPersonalData);
   }
+
   return { watchActions };
 }
 

@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import { Text, View } from "react-native";
-import Input from "../../components/Input";
-import Button, { ButtonType } from "../../components/PaperUIKit/Button";
-import { makeValidatorEmail, makeValidatorPassword } from "../../utils/validators";
-import { translate } from "../../i18n";
-import styles from "./styles";
-
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
+import Input from '../../components/Input';
+import Button, { ButtonType } from '../../components/PaperUIKit/Button';
+import { makeValidatorEmail, makeValidatorPassword } from '../../utils/validators';
+import { translate } from '../../i18n';
+import styles from './styles';
 
 interface SettingsEmailProps {
-  email: string,
-  updateUserEmail: (email: string, password: string) => void,
+  email: string;
+  updateUserEmail: (email: string, password: string) => void;
 }
 
-
-const SettingsEmail: React.FC<SettingsEmailProps> = (props) => {
+const SettingsEmail: React.FC<SettingsEmailProps> = props => {
   const [email, setEmail] = useState<string>(props.email);
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const validatorEmail = makeValidatorEmail(translate("validationError.email"));
-  const validatePassword = makeValidatorPassword(translate("validationError.password"));
+  const validatorEmail = makeValidatorEmail(translate('validationError.email'));
+  const validatePassword = makeValidatorPassword(translate('validationError.password'));
 
   const onUpdateEmail = () => {
     const validationErrorEmail = validatorEmail(email);
@@ -32,10 +30,10 @@ const SettingsEmail: React.FC<SettingsEmailProps> = (props) => {
 
   return (
     <View style={styles.section}>
-      <Text style={styles.title}>{translate("settings.email")}</Text>
+      <Text style={styles.title}>{translate('settings.email')}</Text>
       <Input
         value={email}
-        label={translate("settings.email")}
+        label={translate('settings.email')}
         textContentType="emailAddress"
         error={emailError}
         isShowBorder={false}
@@ -43,7 +41,7 @@ const SettingsEmail: React.FC<SettingsEmailProps> = (props) => {
       />
       <Input
         value={password}
-        label={translate("settings.password")}
+        label={translate('settings.password')}
         isShowBorder={false}
         error={passwordError}
         onChangeText={value => setPassword(value)}

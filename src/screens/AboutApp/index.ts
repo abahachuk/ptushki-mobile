@@ -1,3 +1,3 @@
-import AboutApp from "./AboutApp";
+import AboutApp from './AboutApp';
 
 export default AboutApp;

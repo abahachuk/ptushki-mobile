@@ -1,24 +1,24 @@
-import React from "react";
-import { Button } from "react-native-elements";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Button } from 'react-native-elements';
+import PropTypes from 'prop-types';
 
 // eslint-disable-next-line import/no-unresolved
-import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
+import { FIRST_INTRO_SCREEN } from 'constants/introductionScreens';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 const LanguageButton = props => {
   const { title, langKey, navigation, screenProps, navigationRoute } = props;
 
-  const onPress = key => {
-    screenProps.onLocaleChange(key);
+  function onPress() {
+    screenProps.onLocaleChange(langKey);
     navigation.navigate(FIRST_INTRO_SCREEN);
-  };
+  }
 
   return (
     <Button
       title={title}
-      onPress={() => onPress(langKey)}
+      onPress={onPress}
       type="clear"
       buttonStyle={styles.buttonStyle}
       titleStyle={styles.buttonTitleStyle}
@@ -31,11 +31,11 @@ LanguageButton.propTypes = {
   langKey: PropTypes.string.isRequired,
   navigationRoute: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
-    navigate: PropTypes.func
+    navigate: PropTypes.func,
   }).isRequired,
   screenProps: PropTypes.shape({
-    onLocaleChange: PropTypes.func
-  }).isRequired
+    onLocaleChange: PropTypes.func,
+  }).isRequired,
 };
 
 export default LanguageButton;

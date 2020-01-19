@@ -1,7 +1,7 @@
 /* eslint-disable */
-import AsyncStorage from "@react-native-community/async-storage";
-import { config, AUTH_REFRESH_ENDPOINT, AUTH_LOGOUT_ENDPOINT } from "config";
-import { translate } from "../i18n";
+import AsyncStorage from '@react-native-community/async-storage';
+import { config, AUTH_REFRESH_ENDPOINT, AUTH_LOGOUT_ENDPOINT } from 'config';
+import { translate } from '../i18n';
 /* eslint-enable */
 /* eslint-disable class-methods-use-this */
 
@@ -23,32 +23,30 @@ export default class BaseService {
   }
 
   async updateToken(response, url, options) {
-    const refreshToken = await AsyncStorage.getItem("refreshToken");
+    const refreshToken = await AsyncStorage.getItem('refreshToken');
 
     if (refreshToken) {
-      const refreshOptions = this.createRequestOptions("POST", null, {
-        refreshToken
+      const refreshOptions = this.createRequestOptions('POST', null, {
+        refreshToken,
       });
 
       return this.makeCall(AUTH_REFRESH_ENDPOINT, refreshOptions).then(res => {
         if (res.ok && res.status === 200) {
           res.json().then(async data => {
-            const dataToStore = [
-              ["token", data.token],
-              ["refreshToken", data.refreshToken]
-            ];
+            const dataToStore = [['token', data.token], ['refreshToken', data.refreshToken]];
 
             AsyncStorage.multiSet(dataToStore);
+
             return this.makeCall(url, options);
           });
         }
 
         this.makeCall(
           AUTH_LOGOUT_ENDPOINT,
-          this.createRequestOptions("POST", null, {
+          this.createRequestOptions('POST', null, {
             closeAllSessions: true,
-            refreshToken
-          })
+            refreshToken,
+          }),
         );
 
         return this.parseError(res);
@@ -65,10 +63,10 @@ export default class BaseService {
   createRequestOptions(method, token, data) {
     const options = {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      method
+      method,
     };
 
     if (token) {
@@ -86,17 +84,15 @@ export default class BaseService {
     const { status } = response;
     const message = this.getMessage(status);
 
-    return !message
-      ? Promise.reject(response.message)
-      : Promise.reject(message);
+    return !message ? Promise.reject(response.message) : Promise.reject(message);
   }
 
   getMessage(status) {
     switch (status) {
       case 401:
-        return translate("backendError.401");
+        return translate('backendError.401');
       case 404:
-        return translate("backendError.404");
+        return translate('backendError.404');
       default:
         return undefined;
     }

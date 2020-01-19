@@ -1,37 +1,37 @@
-import { createStackNavigator } from "react-navigation-stack";
+import { createStackNavigator } from 'react-navigation-stack';
 import {
   Login,
   Registration,
   PasswordRecovery,
   RegistrationEmailSent,
   AboutApp,
-} from "../../screens";
-import headerStyles from "./headerStyles";
-import { translate } from "../../i18n";
+} from '../../screens';
+import headerStyles from './headerStyles';
+import { translate } from '../../i18n';
 
 const RegistrationNavigator = createStackNavigator({
   login: {
-    screen: Login
+    screen: Login,
   },
   registration: {
-    screen: Registration
+    screen: Registration,
   },
   passwordReset: {
-    screen: PasswordRecovery
+    screen: PasswordRecovery,
   },
   passwordResetDone: {
-    screen: RegistrationEmailSent
+    screen: RegistrationEmailSent,
   },
   registrationSuccess: {
-    screen: RegistrationEmailSent
+    screen: RegistrationEmailSent,
   },
   aboutApp: {
     screen: AboutApp,
     navigationOptions: () => ({
-      title: translate("aboutApp.aboutApp"),
-      ...headerStyles
-    })
-  }
+      title: translate('aboutApp.aboutApp'),
+      ...headerStyles,
+    }),
+  },
 });
 
 export default RegistrationNavigator;

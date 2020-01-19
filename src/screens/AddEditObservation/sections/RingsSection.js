@@ -1,19 +1,19 @@
-import React from "react";
-import { KeyboardAvoidingView, TouchableOpacity, Text } from "react-native";
-import PropTypes from "prop-types";
-import Icon from "react-native-vector-icons/AntDesign";
+import React from 'react';
+import { KeyboardAvoidingView, TouchableOpacity, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-import * as colors from "../../../constants/colors";
-import getDescriptionBlock from "./DescriptionBlock";
-import { translate } from "../../../i18n";
-import { styles } from "../styles";
-import { pickerValuesArrayType } from "../../../propTypes";
-import RingsCommonFields from "./RingsCommonFields";
+import * as colors from '../../../constants/colors';
+import getDescriptionBlock from './DescriptionBlock';
+import { translate } from '../../../i18n';
+import { styles } from '../styles';
+import { pickerValuesArrayType } from '../../../propTypes';
+import RingsCommonFields from './RingsCommonFields';
 
 const getEmptyPickerValue = () => {
   return {
-    label: "",
-    value: ""
+    label: '',
+    value: '',
   };
 };
 const getEmptyRingFieldsGroup = () => {
@@ -22,7 +22,7 @@ const getEmptyRingFieldsGroup = () => {
     material: getEmptyPickerValue(),
     color: getEmptyPickerValue(),
     location: getEmptyPickerValue(),
-    ringId: ""
+    ringId: '',
   };
 };
 
@@ -33,28 +33,21 @@ const RingsSection = props => {
     ringTypeValues,
     ringMaterialValues,
     ringColorValues,
-    ringLocationValues
+    ringLocationValues,
   } = props;
 
   const getNewRingId = () => `${Object.keys(rings).length + 1}`;
 
   const onAddOneMoreRing = () =>
-    setRingsValues(
-      Object.assign({}, rings, {
-        [getNewRingId()]: getEmptyRingFieldsGroup()
-      })
-    );
+    setRingsValues({ ...rings, [getNewRingId()]: getEmptyRingFieldsGroup() });
 
   const onFieldValueChange = ringKey => fieldName => itemValue => {
     const ringQuantity = `${ringKey || 1}`;
 
-    setRingsValues(
-      Object.assign({}, rings, {
-        [ringQuantity]: Object.assign({}, rings[ringQuantity], {
-          [fieldName]: itemValue
-        })
-      })
-    );
+    setRingsValues({
+      ...rings,
+      [ringQuantity]: { ...rings[ringQuantity], [fieldName]: itemValue },
+    });
   };
 
   const sortRingsGroup = (a, b) => (+a < +b ? -1 : 1);
@@ -62,19 +55,16 @@ const RingsSection = props => {
   return (
     <KeyboardAvoidingView style={styles.ringsSectionContainer}>
       {getDescriptionBlock(
-        translate("addEditObservation.ringHeader"),
-        translate("addEditObservation.ringDescription")
+        translate('addEditObservation.ringHeader'),
+        translate('addEditObservation.ringDescription'),
       )}
       {Object.keys(rings)
         .sort(sortRingsGroup)
         .map(ringKey => {
-          const {
-            type = "",
-            material = "",
-            color = "",
-            location = "",
-            ringId = ""
-          } = rings[ringKey];
+          const { type = '', material = '', color = '', location = '', ringId = '' } = rings[
+            ringKey
+          ];
+
           return (
             <RingsCommonFields
               key={ringKey}
@@ -97,9 +87,7 @@ const RingsSection = props => {
         onPress={onAddOneMoreRing}
       >
         <Icon name="plus" size={30} color={colors.green} />
-        <Text style={styles.buttonWithIconText}>
-          {translate("addEditObservation.oneMoreRing")}
-        </Text>
+        <Text style={styles.buttonWithIconText}>{translate('addEditObservation.oneMoreRing')}</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );
@@ -111,14 +99,14 @@ RingsSection.propTypes = {
   ringTypeValues: pickerValuesArrayType,
   ringMaterialValues: pickerValuesArrayType,
   ringColorValues: pickerValuesArrayType,
-  ringLocationValues: pickerValuesArrayType
+  ringLocationValues: pickerValuesArrayType,
 };
 RingsSection.defaultProps = {
-  rings: { "1": {} },
+  rings: { '1': {} },
   ringTypeValues: [],
   ringMaterialValues: [],
   ringColorValues: [],
-  ringLocationValues: []
+  ringLocationValues: [],
 };
 
 export default RingsSection;

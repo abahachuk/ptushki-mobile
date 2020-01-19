@@ -9,7 +9,25 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
+    "paths": {
+      "constants/*": ["src/constants/*"],
+      // "store": ["app/store"],
+      // "store/*": ["app/store/*"],
+      // "features": ["app/features"],
+      // "features/*": ["app/features/*"],
+      // "components": ["app/components"],
+      // "components/*": ["app/components/*"],
+      // "modules": ["app/modules"],
+      // "modules/*": ["app/modules/*"],
+      // "styles": ["app/styles"],
+      // "images": ["app/images"],
+      // "services": ["app/services"],
+      // "clients": ["app/clients"],
+      // "utils/*": ["app/utils/*"]
+    },
+    "checkJs": false
   },
   "exclude": [
     "node_modules",

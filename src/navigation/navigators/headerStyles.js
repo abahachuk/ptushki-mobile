@@ -1,14 +1,14 @@
-import { green, white } from "../../constants/colors";
+import { green, white } from '../../constants/colors';
 
 export default {
   headerStyle: {
-    backgroundColor: green
+    backgroundColor: green,
   },
   headerTitleStyle: {
-    color: "white"
+    color: 'white',
   },
   headerTintStyle: {
-    color: "white"
+    color: 'white',
   },
-  headerTintColor: white
+  headerTintColor: white,
 };

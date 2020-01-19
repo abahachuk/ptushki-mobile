@@ -1,24 +1,24 @@
-import React, { useState, PureComponent } from "react";
-import PropTypes from "prop-types";
-import { ScrollView, View } from "react-native";
-import Icon from "react-native-vector-icons/AntDesign";
+import React, { useState, PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { ScrollView, View } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-import { translate } from "../../i18n";
-import { styles } from "./styles";
-import { Button } from "../../components";
-import RingsSectionEdit from "./sections/RingsSectionEdit";
-import BirdSectionEdit from "./sections/BirdSectionEdit";
-import ObstacleSectionEdit from "./sections/ObstacleSectionEdit";
-import ObservationService from "../../api/Observation.service";
+import { translate } from '../../i18n';
+import { styles } from './styles';
+import { Button } from '../../components';
+import RingsSectionEdit from './sections/RingsSectionEdit';
+import BirdSectionEdit from './sections/BirdSectionEdit';
+import ObstacleSectionEdit from './sections/ObstacleSectionEdit';
+import ObservationService from '../../api/Observation.service';
 
 const EditObservation = props => {
   const service = new ObservationService();
-  const submitButtonText = translate("addEditObservation.updateObservation");
+  const submitButtonText = translate('addEditObservation.updateObservation');
   const { navigation } = props;
   let refObject;
 
-  if (navigation.getParam("ObservationItem")) {
-    refObject = navigation.getParam("ObservationItem");
+  if (navigation.getParam('ObservationItem')) {
+    refObject = navigation.getParam('ObservationItem');
     // console.log(refObject);
   }
 
@@ -28,44 +28,44 @@ const EditObservation = props => {
   const birdAge = refObject.ageMentioned.desc_rus;
   const birdObstacles = refObject.status.desc_rus;
 
-  const coordinates = refObject.latitude ? refObject.latitude : "";
+  const coordinates = refObject.latitude ? refObject.latitude : '';
 
   const [rings, setRingsValues] = useState(refObject.ringMentioned);
   const [region, changeRegion] = useState(refObject.placeName);
   const [comment, updateComment] = useState(refObject.remarks);
   const [dateTime, updateDate] = useState(refObject.date);
 
-  const valueFromChooseList = navigation.getParam("newValue");
+  const valueFromChooseList = navigation.getParam('newValue');
   // TODO: it's not Text, it is Object
   // TODO: oh just ignore those labels and values, those are to refactor later
   let birdSpeciesText = {
     value: birdSpecies,
-    label: birdSpecies
+    label: birdSpecies,
   };
   let birdSexText = {
     value: birdSex,
-    label: birdSex
+    label: birdSex,
   };
   let birdAgeText = {
     value: birdAge,
-    label: birdAge
+    label: birdAge,
   };
   let birdObstaclesText = {
     value: birdObstacles,
-    label: birdObstacles
+    label: birdObstacles,
   };
   if (valueFromChooseList) {
     switch (valueFromChooseList.mod) {
-      case "birdSpecies":
+      case 'birdSpecies':
         birdSpeciesText = valueFromChooseList;
         break;
-      case "birdSex":
+      case 'birdSex':
         birdSexText = valueFromChooseList;
         break;
-      case "birdAge":
+      case 'birdAge':
         birdAgeText = valueFromChooseList;
         break;
-      case "birdObstacles":
+      case 'birdObstacles':
         birdObstaclesText = valueFromChooseList;
         break;
     }
@@ -99,13 +99,13 @@ const EditObservation = props => {
       dateTime,
     };
 
-    const id = "";
+    const id = '';
 
     service
       .editObservations(body, id)
       .then(response => {
         console.log(response);
-        //TODO: add alert on smth on success
+        // TODO: add alert on smth on success
       })
       .catch(err => {
         console.log(err);
@@ -156,16 +156,16 @@ EditObservation.propTypes = {
   submitButtonText: PropTypes.string,
   navigation: PropTypes.shape({
     goBack: PropTypes.func,
-    navigate: PropTypes.func
-  }).isRequired
+    navigate: PropTypes.func,
+  }).isRequired,
 };
 
 EditObservation.navigationOptions = ({ navigation }) => {
   const { routeName } = navigation.state;
   const title =
-    routeName === "AddObservation"
-      ? translate("addEditObservation.navHeaderTitleAdd")
-      : translate("addEditObservation.navHeaderTitleEdit");
+    routeName === 'AddObservation'
+      ? translate('addEditObservation.navHeaderTitleAdd')
+      : translate('addEditObservation.navHeaderTitleEdit');
 
   return {
     title,
@@ -175,11 +175,9 @@ EditObservation.navigationOptions = ({ navigation }) => {
         size={30}
         color="white"
         style={{ padding: 15 }}
-        onPress={() =>
-          navigation.goBack()
-        }
+        onPress={() => navigation.goBack()}
       />
-    )
+    ),
   };
 };
 

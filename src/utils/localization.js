@@ -1,15 +1,15 @@
 /* eslint  import/prefer-default-export: 0 */
 export const getLocalizedText = (obj, locale) => {
-  let text = "";
+  let text = '';
 
   switch (locale) {
-    case "en":
+    case 'en':
       text = obj.desc_eng;
       break;
-    case "be":
+    case 'be':
       text = obj.desc_byn;
       break;
-    case "ru":
+    case 'ru':
       text = obj.desc_rus;
       break;
     default:

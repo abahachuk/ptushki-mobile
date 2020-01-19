@@ -1,1 +1,1 @@
-export { default } from "./DeleteObservation";
+export { default } from './DeleteObservation';

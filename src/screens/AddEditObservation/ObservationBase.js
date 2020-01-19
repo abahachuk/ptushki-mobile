@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { ScrollView, View, BackHandler } from "react-native";
-import Icon from "react-native-vector-icons/AntDesign";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { ScrollView, View, BackHandler } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-import { translate } from "../../i18n";
-import { styles } from "./styles";
-import { Button } from "../../components";
-import { pickerValuesArrayType } from "../../propTypes";
+import { translate } from '../../i18n';
+import { styles } from './styles';
+import { Button } from '../../components';
+import { pickerValuesArrayType } from '../../propTypes';
 import {
   BirdSection,
   RingsSection,
   ObstaclesSection,
   PhotoCarousel,
-  DeclineChangesPopup
-} from "./sections";
-import ObservationService from "../../api/Observation.service";
+  DeclineChangesPopup,
+} from './sections';
+import ObservationService from '../../api/Observation.service';
 
 const ObservationBase = props => {
   const {
@@ -39,7 +39,7 @@ const ObservationBase = props => {
     commentDefault,
     dateTimeDefault,
     dateTimeInaccuracyDefault,
-    navigation
+    navigation,
   } = props;
   const [
     {
@@ -52,9 +52,9 @@ const ObservationBase = props => {
       comment,
       dateTime,
       dateTimeInaccuracy,
-      birdPhotos
+      birdPhotos,
     },
-    setFieldsValue
+    setFieldsValue,
   ] = useState({
     birdSpecies: birdSpeciesDefault,
     birdSex: birdSexDefault,
@@ -65,13 +65,13 @@ const ObservationBase = props => {
     coordinates: coordinatesDefault,
     comment: commentDefault,
     dateTime: dateTimeDefault,
-    dateTimeInaccuracy: dateTimeInaccuracyDefault
+    dateTimeInaccuracy: dateTimeInaccuracyDefault,
   });
 
   const updateFieldValue = fieldForMerge =>
     setFieldsValue(prevState => ({
       ...prevState,
-      ...fieldForMerge
+      ...fieldForMerge,
     }));
 
   const [rings, setRingsValues] = useState(ringsDefaultValues);
@@ -80,7 +80,7 @@ const ObservationBase = props => {
   const sendEditObservation = () => {
     // TODO: change this mock data with props which are changed
     const body = {};
-    const id = "43095a71-d0ba-4c79-b772-48513f3c3bb3";
+    const id = '43095a71-d0ba-4c79-b772-48513f3c3bb3';
 
     service
       .editObservations(body, id)
@@ -93,13 +93,13 @@ const ObservationBase = props => {
   };
 
   const sendAddObservation = () => {
-    props.navigation.navigate("ObservationCreated", {
+    props.navigation.navigate('ObservationCreated', {
       birdSpecies,
       dateTime,
       observationLocation: `${country}`,
       birdSex,
       birdAge,
-      birdObstacles
+      birdObstacles,
     });
     // TODO: add here new observation containing all props
     // const body = {};
@@ -137,9 +137,7 @@ const ObservationBase = props => {
   const onSubmitPress = () => {
     const { routeName } = props.navigation.state;
 
-    return routeName === "AddObservation"
-      ? sendAddObservation()
-      : sendEditObservation();
+    return routeName === 'AddObservation' ? sendAddObservation() : sendEditObservation();
   };
 
   const onCurrentPositionPress = () => {
@@ -163,8 +161,7 @@ const ObservationBase = props => {
 
   useEffect(() => {
     const isDeclineChangesSet = () =>
-      navigation.state.params &&
-      navigation.state.params.isDeclineChangesPopupOpened;
+      navigation.state.params && navigation.state.params.isDeclineChangesPopupOpened;
 
     const onBackButtonPressAndroid = () => {
       if (isDeclineChangesSet()) {
@@ -172,27 +169,21 @@ const ObservationBase = props => {
         return false;
       }
       navigation.setParams({ isDeclineChangesPopupOpened: true });
+
       return true;
     };
 
-    BackHandler.addEventListener("hardwareBackPress", onBackButtonPressAndroid);
+    BackHandler.addEventListener('hardwareBackPress', onBackButtonPressAndroid);
 
     return () => {
-      BackHandler.removeEventListener(
-        "hardwareBackPress",
-        onBackButtonPressAndroid
-      );
+      BackHandler.removeEventListener('hardwareBackPress', onBackButtonPressAndroid);
     };
   });
 
   return (
     <View style={styles.rootContainer}>
-      {navigation.state.params &&
-      navigation.state.params.isDeclineChangesPopupOpened ? (
-        <DeclineChangesPopup
-          onExitHandler={onExit}
-          onCancelHandler={onCancel}
-        />
+      {navigation.state.params && navigation.state.params.isDeclineChangesPopupOpened ? (
+        <DeclineChangesPopup onExitHandler={onExit} onCancelHandler={onCancel} />
       ) : null}
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
@@ -276,41 +267,41 @@ ObservationBase.propTypes = {
   navigation: PropTypes.shape({
     state: PropTypes.object,
     goBack: PropTypes.func,
-    navigate: PropTypes.func
-  }).isRequired
+    navigate: PropTypes.func,
+  }).isRequired,
 };
 ObservationBase.defaultProps = {
-  submitButtonText: "",
-  birdSpeciesDefault: "",
+  submitButtonText: '',
+  birdSpeciesDefault: '',
   birdSpeciesValues: [],
-  birdSexDefault: "",
+  birdSexDefault: '',
   birdSexValues: [],
-  birdAgeDefault: "",
+  birdAgeDefault: '',
   birdAgeValues: [],
-  birdObstaclesDefault: "",
+  birdObstaclesDefault: '',
   birdObstaclesValues: [],
-  ringsDefaultValues: { "1": {} },
+  ringsDefaultValues: { '1': {} },
   ringTypeValues: [],
   ringMaterialValues: [],
   ringColorValues: [],
   ringLocationValues: [],
   birdPhotosDefault: [],
-  countryDefault: "",
+  countryDefault: '',
   countryValues: [],
-  coordinatesDefault: "",
-  commentDefault: "",
-  dateTimeDefault: "",
-  dateTimeInaccuracyDefault: "",
+  coordinatesDefault: '',
+  commentDefault: '',
+  dateTimeDefault: '',
+  dateTimeInaccuracyDefault: '',
   onCurrentPosition: () => {},
   onSearchOnMap: () => {},
-  onCurrentDateTime: () => {}
+  onCurrentDateTime: () => {},
 };
 ObservationBase.navigationOptions = ({ navigation }) => {
   const { routeName } = navigation.state;
   const title =
-    routeName === "AddObservation"
-      ? translate("addEditObservation.navHeaderTitleAdd")
-      : translate("addEditObservation.navHeaderTitleEdit");
+    routeName === 'AddObservation'
+      ? translate('addEditObservation.navHeaderTitleAdd')
+      : translate('addEditObservation.navHeaderTitleEdit');
 
   return {
     title,
@@ -320,11 +311,9 @@ ObservationBase.navigationOptions = ({ navigation }) => {
         size={30}
         color="white"
         style={{ padding: 15 }}
-        onPress={() =>
-          navigation.setParams({ isDeclineChangesPopupOpened: true })
-        }
+        onPress={() => navigation.setParams({ isDeclineChangesPopupOpened: true })}
       />
-    )
+    ),
   };
 };
 

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { TouchableOpacity, Image, ScrollView } from "react-native";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import { TouchableOpacity, Image, ScrollView } from 'react-native';
+import PropTypes from 'prop-types';
 
-import PhotoResized from "./PhotoResized";
-import PhotoChooseWindowPopup from "./PhotoChooseWindowPopup";
-import { styles } from "../styles";
+import PhotoResized from './PhotoResized';
+import PhotoChooseWindowPopup from './PhotoChooseWindowPopup';
+import { styles } from '../styles';
 
-const photoPlaceholder = require("../../../assets/photoPlaceholder.png");
+const photoPlaceholder = require('../../../assets/photoPlaceholder.png');
 
 const PhotoCarousel = props => {
   const { updateFieldValue, birdPhotos, setFieldValue } = props;
@@ -40,18 +40,12 @@ const PhotoCarousel = props => {
   };
   const onDeletePhoto = () => {
     setPhotoResized(false);
-    const filteredPhotos = birdPhotos.filter(
-      photo => photo !== photoForResizing
-    );
+    const filteredPhotos = birdPhotos.filter(photo => photo !== photoForResizing);
     setFieldValue({ birdPhotos: filteredPhotos });
   };
 
   return (
-    <ScrollView
-      enabled
-      horizontal
-      contentContainerStyle={styles.photosContainer}
-    >
+    <ScrollView enabled horizontal contentContainerStyle={styles.photosContainer}>
       {isPhotoResized ? (
         <PhotoResized
           onCloseResizedPhoto={onCloseResizedPhoto}
@@ -66,10 +60,7 @@ const PhotoCarousel = props => {
         />
       ) : null}
       {birdPhotos.map(photoPath => (
-        <TouchableOpacity
-          key={photoPath}
-          onPress={() => resizePhoto(photoPath)}
-        >
+        <TouchableOpacity key={photoPath} onPress={() => resizePhoto(photoPath)}>
           <Image style={styles.birdPhoto} source={photoPath} />
         </TouchableOpacity>
       ))}
@@ -83,11 +74,11 @@ const PhotoCarousel = props => {
 PhotoCarousel.propTypes = {
   updateFieldValue: PropTypes.func.isRequired,
   birdPhotos: PropTypes.array,
-  setFieldValue: PropTypes.func
+  setFieldValue: PropTypes.func,
 };
 PhotoCarousel.defaultProps = {
   birdPhotos: [],
-  setFieldValue: () => {}
+  setFieldValue: () => {},
 };
 
 export default PhotoCarousel;

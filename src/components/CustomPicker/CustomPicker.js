@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Text, View, Picker } from "react-native";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Text, View, Picker } from 'react-native';
 
-import { styles } from "./styles";
-import { pickerValuesArrayType } from "../../propTypes";
+import { styles } from './styles';
+import { pickerValuesArrayType } from '../../propTypes';
 
 const CustomPicker = props => {
   const { items, onValueChange, selectedValue, caption, wrappedStyles } = props;
@@ -30,13 +30,13 @@ CustomPicker.propTypes = {
   onValueChange: PropTypes.func.isRequired,
   selectedValue: PropTypes.string,
   caption: PropTypes.string,
-  wrappedStyles: PropTypes.object
+  wrappedStyles: PropTypes.object,
 };
 CustomPicker.defaultProps = {
   items: [],
-  selectedValue: "",
-  caption: "",
-  wrappedStyles: {}
+  selectedValue: '',
+  caption: '',
+  wrappedStyles: {},
 };
 
 export default CustomPicker;

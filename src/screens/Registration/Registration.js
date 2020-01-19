@@ -1,25 +1,25 @@
-import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
-import { Text, ScrollView, KeyboardAvoidingView } from "react-native";
-import Modal from "react-native-modalbox";
+import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
+import { Text, ScrollView, KeyboardAvoidingView } from 'react-native';
+import Modal from 'react-native-modalbox';
 
 import {
   makeValidatorEmail,
   makeValidatorPassword,
-  makeRequiredValidator
-} from "../../utils/validators";
-import { modalWindowStyles } from "../../utils/modalWindowStyles";
-import { styles } from "./styles";
-import { Button, Input } from "../../components";
-import { translate } from "../../i18n";
-import { AuthService } from "../../api";
+  makeRequiredValidator,
+} from '../../utils/validators';
+import { modalWindowStyles } from '../../utils/modalWindowStyles';
+import { styles } from './styles';
+import { Button, Input } from '../../components';
+import { translate } from '../../i18n';
+import { AuthService } from '../../api';
 
 const fields = {
-  email: "email",
-  password: "password",
-  firstName: "firstName",
-  lastName: "lastName",
-  phone: "phone"
+  email: 'email',
+  password: 'password',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  phone: 'phone',
 };
 
 const Registration = props => {
@@ -29,38 +29,27 @@ const Registration = props => {
     passwordDefault,
     firstNameDefault,
     lastNameDefault,
-    phoneDefault
+    phoneDefault,
   } = props;
-  const [
-    { email, password, firstName, lastName, phone },
-    setRegistrationData
-  ] = useState({
+  const [{ email, password, firstName, lastName, phone }, setRegistrationData] = useState({
     [fields.email]: emailDefault,
     [fields.password]: passwordDefault,
     [fields.firstName]: firstNameDefault,
     [fields.lastName]: lastNameDefault,
-    [fields.phone]: phoneDefault
+    [fields.phone]: phoneDefault,
   });
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [firstNameError, setFirstNameError] = useState("");
-  const [lastNameError, setLastNameError] = useState("");
-  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [firstNameError, setFirstNameError] = useState('');
+  const [lastNameError, setLastNameError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [error, setError] = useState(errorFromProps);
 
-  const validateEmail = makeValidatorEmail(translate("validationError.email"));
-  const validatePassword = makeValidatorPassword(
-    translate("validationError.password")
-  );
-  const validateFirstName = makeRequiredValidator(
-    translate("validationError.firstName")
-  );
-  const validateLastName = makeRequiredValidator(
-    translate("validationError.lastName")
-  );
-  const validatePhone = makeRequiredValidator(
-    translate("validationError.phone")
-  );
+  const validateEmail = makeValidatorEmail(translate('validationError.email'));
+  const validatePassword = makeValidatorPassword(translate('validationError.password'));
+  const validateFirstName = makeRequiredValidator(translate('validationError.firstName'));
+  const validateLastName = makeRequiredValidator(translate('validationError.lastName'));
+  const validatePhone = makeRequiredValidator(translate('validationError.phone'));
   const modalRef = useRef(null);
   const authService = new AuthService();
 
@@ -72,13 +61,13 @@ const Registration = props => {
       .register(email, password, firstName, lastName, phone)
       .then(data => {
         if (data) {
-          props.navigation.navigate("registrationSuccess", {
-            origin: "registration"
+          props.navigation.navigate('registrationSuccess', {
+            origin: 'registration',
           });
         }
       })
       .catch(err => {
-        setError(err.message || translate("registration.backendErrorMessage"));
+        setError(err.message || translate('registration.backendErrorMessage'));
         modalRef.current.open();
       });
   };
@@ -103,17 +92,12 @@ const Registration = props => {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.scrollContainer}
-      showsVerticalScrollIndicator={false}
-    >
+    <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
       <KeyboardAvoidingView style={styles.container}>
-        <Text style={styles.headerText}>
-          {translate("registration.sign-up")}
-        </Text>
+        <Text style={styles.headerText}>{translate('registration.sign-up')}</Text>
         <Input
           value={email}
-          label={translate("registration.email")}
+          label={translate('registration.email')}
           textContentType="emailAddress"
           onChangeText={setRegistrationDataCommon(fields.email)}
           error={emailError}
@@ -121,19 +105,17 @@ const Registration = props => {
         />
         <Input
           value={password}
-          label={translate("registration.password")}
+          label={translate('registration.password')}
           textContentType="password"
           onChangeText={setRegistrationDataCommon(fields.password)}
           error={passwordError}
           onTextInputBlur={onAuthFieldBlur}
           wrapperStyles={[styles.belowInput]}
         />
-        <Text style={styles.hintText}>
-          {translate("registration.communicationDataHint")}
-        </Text>
+        <Text style={styles.hintText}>{translate('registration.communicationDataHint')}</Text>
         <Input
           value={firstName}
-          label={translate("registration.firstName")}
+          label={translate('registration.firstName')}
           textContentType="name"
           onChangeText={setRegistrationDataCommon(fields.firstName)}
           error={firstNameError}
@@ -141,7 +123,7 @@ const Registration = props => {
         />
         <Input
           value={lastName}
-          label={translate("registration.lastName")}
+          label={translate('registration.lastName')}
           textContentType="familyName"
           onChangeText={setRegistrationDataCommon(fields.lastName)}
           error={lastNameError}
@@ -150,7 +132,7 @@ const Registration = props => {
         />
         <Input
           value={phone}
-          label={translate("registration.phone")}
+          label={translate('registration.phone')}
           textContentType="telephoneNumber"
           onChangeText={setRegistrationDataCommon(fields.phone)}
           error={phoneError}
@@ -158,25 +140,21 @@ const Registration = props => {
           wrapperStyles={[styles.belowInput, styles.lastInput]}
         />
         <Button
-          caption={translate("registration.register")}
+          caption={translate('registration.register')}
           onPress={onRegisterPress}
           appearance="Dark"
         />
         <Button
-          caption={translate("registration.back").toUpperCase()}
+          caption={translate('registration.back').toUpperCase()}
           onPress={onBackPress}
           appearance="Borderless"
           wrapperStyles={styles.footerBtn}
         />
-        <Modal
-          style={[modalWindowStyles.modal]}
-          backdrop={false}
-          position="top"
-          ref={modalRef}
+        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="top" ref={modalRef}
         >
           <Text style={[modalWindowStyles.modalText]}>{error}</Text>
           <Button
-            caption={translate("login.close")}
+            caption={translate('login.close')}
             onPress={closeModal}
             wrapperStyles={modalWindowStyles.modalBtn}
             appearance="Borderless"
@@ -187,8 +165,8 @@ const Registration = props => {
   );
 };
 Registration.navigationOptions = {
-  title: "Регистрация",
-  header: null
+  title: 'Регистрация',
+  header: null,
 };
 
 Registration.propTypes = {
@@ -200,16 +178,16 @@ Registration.propTypes = {
   error: PropTypes.string,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
-    goBack: PropTypes.func
-  }).isRequired
+    goBack: PropTypes.func,
+  }).isRequired,
 };
 Registration.defaultProps = {
-  emailDefault: "",
-  passwordDefault: "",
-  firstNameDefault: "",
-  lastNameDefault: "",
-  phoneDefault: "",
-  error: ""
+  emailDefault: '',
+  passwordDefault: '',
+  firstNameDefault: '',
+  lastNameDefault: '',
+  phoneDefault: '',
+  error: '',
 };
 
 export default Registration;

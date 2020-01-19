@@ -1,24 +1,18 @@
-import React from "react";
-import { KeyboardAvoidingView, Text, Linking, View } from "react-native";
-import PropTypes from "prop-types";
-import { ListItem } from "react-native-elements";
+import React from 'react';
+import { KeyboardAvoidingView, Text, Linking, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { ListItem } from 'react-native-elements';
 
-import getDescriptionBlock from "./DescriptionBlock";
-import { translate } from "../../../i18n";
-import { styles } from "../styles";
-import { pickerValuesArrayType } from "../../../propTypes";
+import getDescriptionBlock from './DescriptionBlock';
+import { translate } from '../../../i18n';
+import { styles } from '../styles';
+import { pickerValuesArrayType } from '../../../propTypes';
 
-const birdsGuideAppLink = "market://details?id=com.apbbirdsguide.app";
-const birdImg = require("./../../../assets/bird/bird.png");
+const birdsGuideAppLink = 'market://details?id=com.apbbirdsguide.app';
+const birdImg = require('./../../../assets/bird/bird.png');
 
 const BirdSectionEdit = props => {
-  const {
-    navigation,
-    birdSexText,
-    birdAgeText,
-    birdSpeciesText,
-    birdObstaclesText
-  } = props;
+  const { navigation, birdSexText, birdAgeText, birdSpeciesText, birdObstaclesText } = props;
 
   const onOpenBirdsGuideApp = () => {
     Linking.openURL(birdsGuideAppLink);
@@ -35,14 +29,14 @@ const BirdSectionEdit = props => {
           title={label}
           subtitle={value}
           onPress={() => {
-            navigation.navigate("chooseOption", {
+            navigation.navigate('chooseOption', {
               option: obj,
-              mod
+              mod,
             });
           }}
           chevronColor="black"
           chevron
-          leftAvatar={mod === "birdSpecies" ? { source: birdImg } : null}
+          leftAvatar={mod === 'birdSpecies' ? { source: birdImg } : null}
         />
       </View>
     );
@@ -51,24 +45,24 @@ const BirdSectionEdit = props => {
   return (
     <KeyboardAvoidingView>
       {getDescriptionBlock(
-        translate("addEditObservation.birdHeader"),
-        translate("addEditObservation.birdDescription")
+        translate('addEditObservation.birdHeader'),
+        translate('addEditObservation.birdDescription'),
       )}
 
-      {getItem2("Bird species", birdSpeciesText, "birdSpecies")}
+      {getItem2('Bird species', birdSpeciesText, 'birdSpecies')}
       <Text style={styles.appLinkBlock}>
-        <Text>{`${translate("addEditObservation.linkToAppFirstPart")} `}</Text>
+        <Text>{`${translate('addEditObservation.linkToAppFirstPart')} `}</Text>
         <Text style={styles.appLinkBlockLink} onPress={onOpenBirdsGuideApp}>
-          {`${translate("addEditObservation.linkToAppSecondPart")} `}
+          {`${translate('addEditObservation.linkToAppSecondPart')} `}
         </Text>
-        <Text>{translate("addEditObservation.linkToAppThirdPart")}</Text>
+        <Text>{translate('addEditObservation.linkToAppThirdPart')}</Text>
       </Text>
 
-      {getItem2("Bird sex", birdSexText, "birdSex")}
+      {getItem2('Bird sex', birdSexText, 'birdSex')}
 
-      {getItem2("Bird age", birdAgeText, "birdAge")}
+      {getItem2('Bird age', birdAgeText, 'birdAge')}
 
-      {getItem2("Состояние птица ", birdObstaclesText, "birdObstacles")}
+      {getItem2('Состояние птица ', birdObstaclesText, 'birdObstacles')}
     </KeyboardAvoidingView>
   );
 };
@@ -82,18 +76,18 @@ BirdSectionEdit.propTypes = {
   birdAgeValues: pickerValuesArrayType,
   birdObstacles: PropTypes.string,
   birdObstaclesValues: pickerValuesArrayType,
-  setFieldValue: PropTypes.func
+  setFieldValue: PropTypes.func,
 };
 BirdSectionEdit.defaultProps = {
-  birdSpecies: "",
+  birdSpecies: '',
   birdSpeciesValues: [],
-  birdSex: "",
+  birdSex: '',
   birdSexValues: [],
-  birdAge: "",
+  birdAge: '',
   birdAgeValues: [],
-  birdObstacles: "",
+  birdObstacles: '',
   birdObstaclesValues: [],
-  setFieldValue: () => {}
+  setFieldValue: () => {},
 };
 
 export default BirdSectionEdit;

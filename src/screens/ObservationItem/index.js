@@ -1,1 +1,1 @@
-export { default } from "./ObservationItem";
+export { default } from './ObservationItem';

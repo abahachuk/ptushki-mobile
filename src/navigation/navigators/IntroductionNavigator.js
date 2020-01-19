@@ -1,19 +1,18 @@
-import { createStackNavigator } from "react-navigation-stack";
-import { LanguageSelect } from "../../screens";
-import { Introduction } from "../../screens";
+import { createStackNavigator } from 'react-navigation-stack';
+import { LanguageSelect, Introduction } from '../../screens';
 
 const IntroductionNavigator = createStackNavigator(
   {
     LanguageSelect,
-    Introduction
+    Introduction,
   },
   {
-    headerMode: "none"
-  }
+    headerMode: 'none',
+  },
 );
 
 IntroductionNavigator.navigationOptions = {
-  header: null
+  header: null,
 };
 
 export default IntroductionNavigator;

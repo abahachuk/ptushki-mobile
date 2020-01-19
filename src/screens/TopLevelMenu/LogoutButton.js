@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View, Text } from "react-native";
-import Icon from "react-native-vector-icons/SimpleLineIcons";
-import { AuthService } from "api";
-import { translate } from "../../i18n";
-import { styles } from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { AuthService } from 'api';
+import { translate } from '../../i18n';
+import { styles } from './styles';
 
 const authService = new AuthService();
 
@@ -12,7 +12,7 @@ const LogoutButton = props => {
   const onLogout = () => {
     authService
       .logOut()
-      .then(() => props.navigation.navigate("auth"))
+      .then(() => props.navigation.navigate('auth'))
       .catch(err => console.info(err));
   };
 
@@ -26,7 +26,7 @@ const LogoutButton = props => {
         onPress={onLogout}
         style={styles.icon}
       >
-        <Text style={styles.iconText}>{translate("topLevelMenu.exit")}</Text>
+        <Text style={styles.iconText}>{translate('topLevelMenu.exit')}</Text>
       </Icon.Button>
     </View>
   );
@@ -34,8 +34,8 @@ const LogoutButton = props => {
 
 LogoutButton.propTypes = {
   navigation: PropTypes.shape({
-    navigate: PropTypes.func
-  }).isRequired
+    navigate: PropTypes.func,
+  }).isRequired,
 };
 
 export default LogoutButton;

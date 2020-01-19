@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { View } from "react-native";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
-import { styles } from "./styles";
-import { setI18nConfig, localeChangedEvent, emitter } from "../../i18n";
+import { styles } from './styles';
+import { setI18nConfig, localeChangedEvent, emitter } from '../../i18n';
 
 export const Translation = React.createContext();
 
@@ -12,7 +12,7 @@ export default class TranslationProvider extends Component {
     super(props);
     const { locale } = props;
     this.state = {
-      locale
+      locale,
     };
     this.onLocaleChanged = this.onLocaleChanged.bind(this);
     setI18nConfig(locale); // set initial config
@@ -34,10 +34,11 @@ export default class TranslationProvider extends Component {
     /* eslint-disable-next-line */
     const { children } = this.props;
     const { locale } = this.state;
+
     return (
       <Translation.Provider
         value={{
-          locale
+          locale,
         }}
       >
         <View style={styles.container}>{children}</View>
@@ -47,8 +48,8 @@ export default class TranslationProvider extends Component {
 }
 
 TranslationProvider.propTypes = {
-  locale: PropTypes.string
+  locale: PropTypes.string,
 };
 TranslationProvider.defaultProps = {
-  locale: ""
+  locale: '',
 };
