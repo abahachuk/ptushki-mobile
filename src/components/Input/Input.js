@@ -46,15 +46,15 @@ const Input = props => {
   }
 
   const { wrapperStyles } = props;
-  const getContainerStyles = () => [
-    styles.container,
-    customViewStyles,
-    error ? styles.containerWithErrors : null,
-    isShowBorder ? styles.border : null
-  ];
+
   return (
     <View style={wrapperStyles} onLayout={getYPosition}>
-      <View style={getContainerStyles()}>
+      <View style={[
+        styles.container,
+        customViewStyles,
+        error ? styles.containerWithErrors : null,
+        isShowBorder ? styles.border : null
+      ]}>
         <Text style={labelStyles}>{label}</Text>
         <TextInput
           value={value}

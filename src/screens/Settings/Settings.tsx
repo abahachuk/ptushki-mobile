@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
-// TODO add after update react navigator
-//import { NavigationStackScreenComponent } from 'react-navigation-stack';
-import { ScrollView, KeyboardAvoidingView, Text, View } from "react-native";
+import { NavigationScreenComponent } from "react-navigation";
+import { ScrollView, KeyboardAvoidingView, Text } from "react-native";
 import { translate } from "../../i18n";
 import SettingsEmail from "./SettingsEmail";
 import SettingsPassword from "./SettingsPassword";
@@ -33,17 +32,16 @@ interface SettingsProps {
   updateUserPersonalData: (firstName: string, lastName: string, phone: string) => void,
 }
 
-// TODO after update react navigator should use NavigationStackScreenComponent<SettingsProps>
-const Settings: React.FC<SettingsProps> = ({ user, updateUserEmail, updateUserPassword, updateUserPersonalData, clearUserError }) => {
+const Settings: NavigationScreenComponent<{}, SettingsProps> = ({ name, user, updateUserEmail, updateUserPassword, updateUserPersonalData, clearUserError }) => {
   const { email, firstName, lastName, phone, loading, error } = user;
 
   return (
-    <View>
+    <>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
-        <KeyboardAvoidingView style={styles.container} enabled>
+        <KeyboardAvoidingView style={styles.container}>
           <Text style={styles.header}>
             {translate("settings.profileSettings")}
           </Text>
@@ -61,7 +59,7 @@ const Settings: React.FC<SettingsProps> = ({ user, updateUserEmail, updateUserPa
       </ScrollView>
       <ErrorModal error={error} action={clearUserError}/>
       <Loading visible={loading} />
-    </View>
+    </>
   );
 };
 
@@ -72,11 +70,12 @@ Settings.navigationOptions = () => ({
 const mapStateToProps = (state: SettingStateType) => ({
   user: state.user
 });
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  clearUserError: bindActionCreators(clearUserError, dispatch),
-  updateUserEmail: bindActionCreators(requestUpdateUserEmail, dispatch),
-  updateUserPassword: bindActionCreators(requestUpdateUserPassword, dispatch),
-  updateUserPersonalData: bindActionCreators(requestUpdateUserPersonalData, dispatch)
-});
+
+const mapDispatchToProps = (dispatch: Dispatch) => (bindActionCreators({
+  clearUserError,
+  updateUserEmail: requestUpdateUserEmail,
+  updateUserPassword: requestUpdateUserPassword,
+  updateUserPersonalData: requestUpdateUserPersonalData,
+}, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

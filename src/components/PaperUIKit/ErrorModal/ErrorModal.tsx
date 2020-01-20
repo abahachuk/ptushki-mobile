@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, Paragraph, Text } from 'react-native-paper';
 import { ErrorType } from "../../../entities";
-import { Button, ButtonType } from "../Button";
+import Button, { ButtonType } from "../Button";
 import styles from "./styles";
 
 

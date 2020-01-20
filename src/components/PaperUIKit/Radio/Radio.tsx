@@ -11,10 +11,11 @@ enum RadioStatus {
 
 interface RadioProps {
   value: string,
-  label?: string,
+  label: string,
   onChangeValue: () => void,
   isChecked: boolean,
 }
+
 const Radio: React.FC<RadioProps>  = ({ value, label, onChangeValue, isChecked }) => (
         <TouchableRipple
           rippleColor={grayMedium}

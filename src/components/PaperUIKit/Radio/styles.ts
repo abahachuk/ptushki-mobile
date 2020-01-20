@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   label: {
     flex: 1,
     flexWrap: 'wrap',
-    // color: black87,
+    color: black87,
     fontFamily: "Roboto",
     fontSize: 16,
     letterSpacing: 0.15,
