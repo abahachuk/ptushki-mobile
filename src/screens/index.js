@@ -12,3 +12,4 @@ export { default as Settings } from "./Settings";
 export { default as ObservationItem } from "./ObservationItem";
 export { default as LanguageSelect } from "./LanguageSelect";
 export { default as Introduction } from "./Introduction";
+export { default as AboutApp } from "./AboutApp";

@@ -1,10 +1,10 @@
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import {
   Login,
   Registration,
   PasswordRecovery,
   RegistrationEmailSent,
-  AboutApp,
+  AboutApp
 } from "../../screens";
 import headerStyles from "./headerStyles";
 import { translate } from "../../i18n";
@@ -25,14 +25,13 @@ const RegistrationNavigator = createStackNavigator({
   registrationSuccess: {
     screen: RegistrationEmailSent
   },
-  // TODO remove that after PR About App
-  // aboutApp: {
-  //   screen: AboutApp,
-  //   navigationOptions: () => ({
-  //     title: translate("aboutApp.aboutApp"),
-  //     ...headerStyles
-  //   })
-  // }
+  aboutApp: {
+    screen: AboutApp,
+    navigationOptions: () => ({
+      title: translate("aboutApp.aboutApp"),
+      ...headerStyles
+    })
+  }
 });
 
 export default RegistrationNavigator;

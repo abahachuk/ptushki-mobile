@@ -19,11 +19,11 @@ export default class TranslationProvider extends Component {
   }
 
   componentDidMount() {
-    emitter.addListener(localeChangedEvent, this.onLocaleChanged);
+    emitter.on(localeChangedEvent, this.onLocaleChanged);
   }
 
   componentWillUnmount() {
-    emitter.removeListener(localeChangedEvent, this.onLocaleChanged);
+    emitter.off(localeChangedEvent, this.onLocaleChanged);
   }
 
   onLocaleChanged(locale) {
