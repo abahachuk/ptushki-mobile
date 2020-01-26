@@ -30,7 +30,7 @@ const AppLocalised = () => {
             {...context}
             screenProps={{
               currentLocale,
-              onLocaleChange
+              onLocaleChange,
             }}
           />
         )}

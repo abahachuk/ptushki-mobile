@@ -9,7 +9,7 @@ import { styles } from './styles';
 
 type ScreenProps = {
   onLocaleChange: (key: string) => void;
-}
+};
 
 interface LanguageSelectProps {
   navigation: NavigationStackProp<{ navigate: (route: string) => void }>;

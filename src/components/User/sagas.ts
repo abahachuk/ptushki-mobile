@@ -2,12 +2,12 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from '@redux-saga/core';
 import { instanceAuthService } from '../../api/Auth.service';
 import {
-  REQUEST_UPDATE_EMAIL,
+  requestUpdateUserEmail,
   setUserError,
   requestUpdateUserEmailSuccess,
-  REQUEST_UPDATE_PASSWORD,
+  requestUpdateUserPassword,
   requestUpdateUserPasswordSuccess,
-  REQUEST_UPDATE_PERSONAL_DATA,
+  requestUpdateUserPersonalData,
   requestUpdateUserPersonalDataSuccess,
 } from './actions';
 import {
@@ -58,9 +58,9 @@ function userSagas(): UsersSagasType {
 
   // TODO fix typescript error
   function* watchActions() {
-    yield takeLatest(REQUEST_UPDATE_EMAIL, updateUserEmail);
-    yield takeLatest(REQUEST_UPDATE_PASSWORD, updateUserPassword);
-    yield takeLatest(REQUEST_UPDATE_PERSONAL_DATA, updateUserPersonalData);
+    yield takeLatest(requestUpdateUserEmail, updateUserEmail);
+    yield takeLatest(requestUpdateUserPassword, updateUserPassword);
+    yield takeLatest(requestUpdateUserPersonalData, updateUserPersonalData);
   }
 
   return { watchActions };

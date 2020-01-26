@@ -15,7 +15,6 @@ type SplashProps = {
 
 const getInitialRoute = async (): Promise<string> => {
   const isShowIntroduction: string | null = await AsyncStorage.getItem(INTRODUCTION_STORAGE);
-  console.log('isShowIntroduction', isShowIntroduction)
   if (!isShowIntroduction || isShowIntroduction === 'false') {
     AsyncStorage.setItem(INTRODUCTION_STORAGE, 'true');
 

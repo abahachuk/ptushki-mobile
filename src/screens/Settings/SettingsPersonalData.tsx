@@ -31,7 +31,7 @@ const SettingsPersonalData: React.FC<SettingsPersonalDataProps> = ({
   const validateLastName = makeRequiredValidator(translate('validationError.lastName'));
   const validatePhone = makeRequiredValidator(translate('validationError.phone'));
 
-  const onUpdatePersonalData = () => {
+  const onUpdatePersonalData = (): void => {
     const validationErrorFirstName = validateFirstName(firstName);
     setFirstNameError(validationErrorFirstName);
     const validationErrorLastName = validateLastName(lastName);
@@ -52,7 +52,7 @@ const SettingsPersonalData: React.FC<SettingsPersonalDataProps> = ({
         label={translate('settings.firstName')}
         isShowBorder={false}
         error={firstNameError}
-        onChangeText={value => setFirstName(value)}
+        onChangeText={setFirstName}
         customViewStyles={styles.input}
       />
       <Input
@@ -60,7 +60,7 @@ const SettingsPersonalData: React.FC<SettingsPersonalDataProps> = ({
         label={translate('settings.lastName')}
         isShowBorder={false}
         error={lastNameError}
-        onChangeText={value => setLastName(value)}
+        onChangeText={setLastName}
         customViewStyles={styles.input}
       />
       <Input
@@ -68,7 +68,7 @@ const SettingsPersonalData: React.FC<SettingsPersonalDataProps> = ({
         label={translate('settings.phone')}
         isShowBorder={false}
         error={phoneError}
-        onChangeText={value => setPhone(value)}
+        onChangeText={setPhone}
         customViewStyles={styles.input}
       />
       <View style={styles.buttonContainer}>

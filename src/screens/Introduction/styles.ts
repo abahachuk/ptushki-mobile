@@ -4,7 +4,7 @@ import * as colors from '../../constants/colors';
 interface Styles {
   container: ViewStyle;
   closeBtnContainer: ViewStyle;
-  closeIcon: TextStyle,
+  closeIcon: TextStyle;
   footer: ViewStyle;
   slideContainer: ViewStyle;
   slideImgContainer: ViewStyle;

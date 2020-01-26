@@ -1,5 +1,5 @@
 /* eslint-disable */
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from '@react-native-community/async-storage';
 import {
   AUTH_LOGIN_ENDPOINT,
   AUTH_REGISTRATION_ENDPOINT,
@@ -7,9 +7,9 @@ import {
   AUTH_LOGOUT_ENDPOINT,
   UPDATE_PASSWORD,
   UPDATE_EMAIL,
-  UPDATE_PERSONAL_DATA
-} from "../config";
-import BaseService from "./Base.service";
+  UPDATE_PERSONAL_DATA,
+} from '../config';
+import BaseService from './Base.service';
 /* eslint-enable */
 
 export default class AuthService extends BaseService {
@@ -123,4 +123,5 @@ export default class AuthService extends BaseService {
   }
 }
 const instanceAuthService = new AuthService();
+
 export { instanceAuthService };

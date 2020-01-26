@@ -38,7 +38,7 @@ const SettingsPassword: React.FC<SettingsPasswordProps> = ({ updateUserPassword 
         label={translate('settings.oldPassword')}
         isShowBorder={false}
         error={passwordError}
-        onChangeText={value => setPassword(value)}
+        onChangeText={setPassword}
         textContentType="password"
         customViewStyles={styles.input}
       />
@@ -47,7 +47,7 @@ const SettingsPassword: React.FC<SettingsPasswordProps> = ({ updateUserPassword 
         label={translate('settings.newPassword')}
         isShowBorder={false}
         error={newPasswordError}
-        onChangeText={value => setNewPassword(value)}
+        onChangeText={setNewPassword}
         textContentType="password"
       />
       <View style={styles.buttonContainer}>

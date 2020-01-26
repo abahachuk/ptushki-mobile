@@ -4,7 +4,7 @@ import { Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Modal from 'react-native-modalbox';
 
 import Button, { ButtonType } from 'components/PaperUIKit/Button';
-import { Input } from 'components';
+import Input from 'components/Input';
 import {
   makeValidatorEmail,
   makeValidatorPassword,
@@ -157,8 +157,7 @@ const Registration = props => {
           onPress={onBackPress}
           containerStyle={styles.footerBtn}
         />
-        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="top" ref={modalRef}
-        >
+        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="top" ref={modalRef}>
           <Text style={[modalWindowStyles.modalText]}>{error}</Text>
           <Button
             caption={translate('login.close')}

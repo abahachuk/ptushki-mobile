@@ -17,6 +17,10 @@ export default class Observations extends PureComponent {
     };
   }
 
+  static navigationOptions = () => ({
+    title: translate('topLevelMenu.observationTitle'),
+  });
+
   componentDidMount() {
     service
       .getObservations()
@@ -37,9 +41,11 @@ export default class Observations extends PureComponent {
     this.props.navigation.navigate('ObservationItem', { ObservationItem });
   };
 
-  static navigationOptions = () => ({
-    title: translate('topLevelMenu.observationTitle'),
-  });
+  renderItem = ({ item }) => (
+    <Observation observationItem={item} showObservation={this.showObservation} />
+  );
+
+  keyExtractor = item => item.id;
 
   render() {
     const { observations, loading } = this.state;
@@ -50,10 +56,8 @@ export default class Observations extends PureComponent {
           <FlatList
             contentContainerStyle={styles.container}
             data={observations}
-            renderItem={({ item }) => (
-              <Observation observationItem={item} showObservation={this.showObservation} />
-            )}
-            keyExtractor={item => item.id}
+            renderItem={this.renderItem}
+            keyExtractor={this.keyExtractor}
           />
           <TouchableOpacity style={styles.addObservation} onPress={this.addObservation}>
             <Text style={styles.buttonTextStyle}>+</Text>

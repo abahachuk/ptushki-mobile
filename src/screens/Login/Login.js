@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView, Keyboard, Animated } f
 import Modal from 'react-native-modalbox';
 
 /* eslint-disable */
-import { Input } from 'components';
+import Input from 'components/Input';
 import Button, { ButtonType } from 'components/PaperUIKit/Button';
 import { SCREEN_HEIGHT } from 'constants/dimensions';
 import { translate } from '../../i18n';
@@ -12,7 +12,6 @@ import { makeValidatorEmail, makeValidatorPassword } from 'utils/validators';
 import { modalWindowStyles } from 'utils/modalWindowStyles';
 import { styles } from './styles';
 import { AuthService } from 'api';
-import { FIRST_INTRO_SCREEN } from 'constants/introductionScreens';
 import { showKeyboard, hideKeyboard } from 'constants/keyboard';
 
 const logoImg = require('assets/logotype/logo.png');
@@ -183,7 +182,8 @@ const Login = props => {
       </View>
       {isVisible && (
         // eslint-disable-next-line prettier/prettier
-        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="center" ref={modalRef}>
+        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="center"
+ref={modalRef}>
           <Text style={[modalWindowStyles.modalText]}>{error}</Text>
           <Button
             type={ButtonType.OUTLINED}

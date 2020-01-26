@@ -29,7 +29,7 @@ export type UpdateUserPersonalDataType = {
 };
 
 export interface UsersSagasType {
-  watchActions: () => Generator<any, any, any>;
+  watchActions: () => Generator;
 }
 
 export interface UpdateEmailActionType extends ActionBaseType, UpdateUserEmailType {}

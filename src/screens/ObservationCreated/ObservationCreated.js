@@ -13,13 +13,6 @@ const navigationPropType = PropTypes.shape({
   }).isRequired,
 }).isRequired;
 
-const observationInfoBlock = (title, description) => (
-  <View style={styles.observationInfoUnit}>
-    <Text style={styles.observationInfoTitle}>{title}</Text>
-    <Text style={styles.observationInfoDescription}>{description}</Text>
-  </View>
-);
-
 class ObservationCreated extends PureComponent {
   constructor(props) {
     super(props);
@@ -34,6 +27,13 @@ class ObservationCreated extends PureComponent {
     const { navigation } = this.props;
     navigation.navigate('Observations');
   }
+
+  observationInfoBlock = (title, description) => (
+    <View style={styles.observationInfoUnit}>
+      <Text style={styles.observationInfoTitle}>{title}</Text>
+      <Text style={styles.observationInfoDescription}>{description}</Text>
+    </View>
+  );
 
   render() {
     const {
@@ -56,14 +56,17 @@ class ObservationCreated extends PureComponent {
         </View>
         <View style={styles.observationInfoContainer}>
           <Text style={styles.birdSpecies}>{birdSpecies}</Text>
-          {observationInfoBlock(translate('observationCreated.observationCreatedDate'), dateTime)}
-          {observationInfoBlock(
+          {this.observationInfoBlock(
+            translate('observationCreated.observationCreatedDate'),
+            dateTime,
+          )}
+          {this.observationInfoBlock(
             translate('observationCreated.observationLocation'),
             observationLocation,
           )}
-          {observationInfoBlock(translate('observationCreated.birdSex'), birdSex)}
-          {observationInfoBlock(translate('observationCreated.birdAge'), birdAge)}
-          {observationInfoBlock(translate('observationCreated.birdObstacles'), birdObstacles)}
+          {this.observationInfoBlock(translate('observationCreated.birdSex'), birdSex)}
+          {this.observationInfoBlock(translate('observationCreated.birdAge'), birdAge)}
+          {this.observationInfoBlock(translate('observationCreated.birdObstacles'), birdObstacles)}
         </View>
         <View style={styles.buttonsBlock}>
           <Button

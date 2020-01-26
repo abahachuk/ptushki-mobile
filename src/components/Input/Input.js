@@ -45,10 +45,9 @@ const Input = props => {
     onTextInputBlur();
   }, [onTextInputBlur]);
   const [isPassVisible, setPassVisibility] = useState(false);
-  const handleShowHidePassword = () => {
+  function handleShowHidePassword() {
     setPassVisibility(prevState => !prevState);
-  };
-
+  }
 
   const labelStyles = [styles.label];
   const isPasswordInput = textContentType === 'password';
@@ -62,17 +61,18 @@ const Input = props => {
   }
 
   const { wrapperStyles } = props;
-  const getContainerStyles = () => [
-    styles.container,
-    customViewStyles,
-    isUnderlined ? styles.underlined : null,
-    isShowBorder ? styles.border : null,
-    error ? styles.containerWithErrors : null,
-  ];
 
   return (
     <View style={wrapperStyles} onLayout={getYPosition}>
-      <View style={getContainerStyles()}>
+      <View
+        style={[
+          styles.container,
+          customViewStyles,
+          isUnderlined ? styles.underlined : null,
+          isShowBorder ? styles.border : null,
+          error ? styles.containerWithErrors : null,
+        ]}
+      >
         <Text style={labelStyles}>{label}</Text>
         <TextInput
           value={value}

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Alert, Text, View } from 'react-native';
 
 import Button, { ButtonType } from 'components/PaperUIKit/Button';
-import { Input } from 'components';
+import Input from 'components/Input';
 import { translate } from '../../i18n';
 import { styles } from './styles';
 import { AuthService } from 'api';
