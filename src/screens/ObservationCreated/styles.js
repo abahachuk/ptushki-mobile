@@ -1,52 +1,52 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   mainContent: {
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: 'space-between',
   },
   descriptionBlock: {
     marginLeft: 18,
-    marginTop: 20
+    marginTop: 20,
   },
   title: {
-    fontWeight: "500",
+    fontFamily: 'sans-serif-medium',
     fontSize: 24,
-    color: "black"
+    color: 'black',
   },
   description: {
     marginTop: 10,
     fontSize: 16,
-    lineHeight: 20
+    lineHeight: 20,
   },
   birdSpecies: {
-    color: "black",
-    fontWeight: "500",
-    fontSize: 24
+    color: 'black',
+    fontFamily: 'sans-serif-medium',
+    fontSize: 24,
   },
   buttonsBlock: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingHorizontal: 18,
-    marginBottom: 14
+    marginBottom: 14,
   },
   observationInfoContainer: {
     marginTop: 12,
-    paddingHorizontal: 14
+    paddingHorizontal: 14,
   },
   observationInfoUnit: {
-    marginTop: 8
+    marginTop: 8,
   },
   observationInfoTitle: {
-    color: "black",
-    fontSize: 20
+    color: 'black',
+    fontSize: 20,
   },
   observationInfoDescription: {
-    marginTop: 4
+    marginTop: 4,
   },
   button: {
     height: 36,
-    width: 158
-  }
+    width: 158,
+  },
 });

@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import { styles } from "./styles";
+import React from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { styles } from './styles';
 
-const img = require("../../../assets/introduction/gaga.jpg"); // TODO remove after BE include bird image in the response
+const img = require('../../../assets/introduction/gaga.jpg'); // TODO remove after BE include bird image in the response
 
 const Observation = props => {
   const {
@@ -11,9 +11,10 @@ const Observation = props => {
       speciesMentioned: { species },
       ring: { identificationNumber },
       placeName,
-      date
-    }
+      date,
+    },
   } = props;
+
   return (
     <TouchableOpacity
       style={styles.observation}

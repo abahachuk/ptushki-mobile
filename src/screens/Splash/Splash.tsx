@@ -1,24 +1,26 @@
-import React, { useEffect } from "react";
-import { NavigationParams, NavigationScreenProp, NavigationState } from "react-navigation";
-import { View, Image } from "react-native";
-import AsyncStorage from "@react-native-community/async-storage";
-import { AppSwitchNavigator } from "../../entities";
+import React, { useEffect } from 'react';
+import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import { View, Image } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+import { AppSwitchNavigator } from '../../entities';
 
-import styles from "./styles";
+import styles from './styles';
 
-const INTRODUCTION_STORAGE = "isIntroductionWasOpened";
-const splashImg = require("../../assets/splash/splash.png");
+const INTRODUCTION_STORAGE = 'isIntroductionWasOpened';
+const splashImg = require('../../assets/splash/splash.png');
 
 type SplashProps = {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
-}
+};
 
 const getInitialRoute = async (): Promise<string> => {
   const isShowIntroduction: string | null = await AsyncStorage.getItem(INTRODUCTION_STORAGE);
   if (!isShowIntroduction || isShowIntroduction === 'false') {
     AsyncStorage.setItem(INTRODUCTION_STORAGE, 'true');
+
     return AppSwitchNavigator.INTRODUCTION;
   }
+
   return AppSwitchNavigator.AUTH;
 };
 
@@ -29,7 +31,7 @@ const Splash: React.FC<SplashProps> = ({ navigation }) => {
       navigation.navigate(initialRoute);
     };
     navigateToScreen();
-  }, []);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>

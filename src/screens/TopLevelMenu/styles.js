@@ -1,48 +1,48 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: 'white',
   },
   imageContainer: {
     paddingLeft: 15,
     paddingTop: 10,
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   image: {
     height: 100,
-    width: 150
+    width: 150,
   },
   userNameText: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingLeft: 15,
-    color: "black",
-    marginBottom: 5
+    color: 'black',
+    marginBottom: 5,
   },
   userRoleText: {
     fontSize: 16,
     paddingLeft: 15,
-    color: "black"
+    color: 'black',
   },
   divider: {
-    backgroundColor: "#F5F5F5",
+    backgroundColor: '#F5F5F5',
     marginTop: 10,
     marginBottom: 15,
-    padding: 1
+    padding: 1,
   },
   icon: {
-    paddingLeft: 15
+    paddingLeft: 15,
   },
   iconText: {
-    fontWeight: "bold",
-    color: "black",
-    marginLeft: 23
+    fontWeight: 'bold',
+    color: 'black',
+    marginLeft: 23,
   },
   iconContainer: {
-    backgroundColor: "white",
-    alignSelf: "stretch"
-  }
+    backgroundColor: 'white',
+    alignSelf: 'stretch',
+  },
 });

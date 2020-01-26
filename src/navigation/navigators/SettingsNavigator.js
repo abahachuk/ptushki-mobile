@@ -1,16 +1,16 @@
-import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import Octicons from "react-native-vector-icons/Octicons";
+import React from 'react';
+import { createStackNavigator } from 'react-navigation-stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Octicons from 'react-native-vector-icons/Octicons';
 
-import headerStyles from "./headerStyles";
-import { Settings } from "../../screens";
-import { translate } from "../../i18n";
+import headerStyles from './headerStyles';
+import { Settings } from '../../screens';
+import { translate } from '../../i18n';
 /* eslint react/display-name: 0 */
 
 const SettingsStackNavigator = createStackNavigator(
   {
-    Settings
+    Settings,
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
@@ -24,15 +24,15 @@ const SettingsStackNavigator = createStackNavigator(
             onPress={() => navigation.openDrawer()}
           />
         ),
-        ...headerStyles
+        ...headerStyles,
       };
-    }
-  }
+    },
+  },
 );
 
 SettingsStackNavigator.navigationOptions = () => ({
   drawerIcon: () => <Octicons name="settings" size={24} color="black" />,
-  drawerLabel: translate("topLevelMenu.settings")
+  drawerLabel: translate('topLevelMenu.settings'),
 });
 
 export default SettingsStackNavigator;

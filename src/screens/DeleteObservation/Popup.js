@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { View, UIManager, findNodeHandle } from "react-native";
-import Entypo from "react-native-vector-icons/Entypo";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, UIManager, findNodeHandle } from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 export default class PopupMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      icon: null
+      icon: null,
     };
 
     this.onPress = () => {
@@ -15,20 +15,13 @@ export default class PopupMenu extends Component {
       const { actions, onPress } = this.props;
 
       if (icon) {
-        UIManager.showPopupMenu(
-          findNodeHandle(icon),
-          actions,
-          this.onError,
-          onPress
-        );
+        UIManager.showPopupMenu(findNodeHandle(icon), actions, this.onError, onPress);
       }
     };
   }
 
   onError() {
-    console.log(
-      "Popup Error: invalid arguments were passed to UIManager.showPopupMenu()"
-    );
+    console.log('Popup Error: invalid arguments were passed to UIManager.showPopupMenu()');
     this.setState({ icon: null });
   }
 
@@ -58,10 +51,10 @@ export default class PopupMenu extends Component {
 
 PopupMenu.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.string),
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
 };
 
 PopupMenu.defaultProps = {
-  actions: [""],
-  onPress: () => {}
+  actions: [''],
+  onPress: () => {},
 };

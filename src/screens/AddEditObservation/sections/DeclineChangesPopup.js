@@ -1,11 +1,11 @@
-import React from "react";
-import { Text, View } from "react-native";
-import PropTypes from "prop-types";
-import { Overlay } from "react-native-elements";
+import React from 'react';
+import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { Overlay } from 'react-native-elements';
 
-import { Button } from "../../../components";
-import { translate } from "../../../i18n";
-import { styles } from "../styles";
+import { Button } from '../../../components';
+import { translate } from '../../../i18n';
+import { styles } from '../styles';
 
 const DeclineChangesPopup = props => {
   const { onExitHandler, onCancelHandler, descriptionText } = props;
@@ -28,24 +28,24 @@ const DeclineChangesPopup = props => {
       <View style={styles.declineChangesContainer}>
         <View style={styles.declineChangesMainContent}>
           <Text style={styles.declineChangesTitle}>
-            {translate("addEditObservation.declineChangesTitle")}
+            {translate('addEditObservation.declineChangesTitle')}
           </Text>
           <Text style={styles.declineChangesDescription}>
             {descriptionText}
-            {translate("addEditObservation.declineChangesDescription")}
+            {translate('addEditObservation.declineChangesDescription')}
           </Text>
         </View>
         <View style={styles.declineChangesButtonsBlock}>
           <Button
             wrapperStyles={styles.declineChangesExitButton}
             onPress={onExit}
-            caption={translate("addEditObservation.applyDeclineChanges")}
+            caption={translate('addEditObservation.applyDeclineChanges')}
             appearance="Borderless"
           />
           <Button
             wrapperStyles={styles.declineChangesCancelButton}
             onPress={onCancel}
-            caption={translate("addEditObservation.cancelDeclineChanges")}
+            caption={translate('addEditObservation.cancelDeclineChanges')}
             appearance="Dark"
           />
         </View>
@@ -56,11 +56,11 @@ const DeclineChangesPopup = props => {
 DeclineChangesPopup.propTypes = {
   descriptionText: PropTypes.string,
   onExitHandler: PropTypes.func,
-  onCancelHandler: PropTypes.func
+  onCancelHandler: PropTypes.func,
 };
 DeclineChangesPopup.defaultProps = {
-  descriptionText: "",
+  descriptionText: '',
   onExitHandler: () => {},
-  onCancelHandler: () => {}
+  onCancelHandler: () => {},
 };
 export default DeclineChangesPopup;

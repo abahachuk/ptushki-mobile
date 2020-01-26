@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View, ActivityIndicator } from "react-native";
-import { Image } from "react-native-elements";
-import { styles } from "../styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { View, ActivityIndicator } from 'react-native';
+import { Image } from 'react-native-elements';
+import { styles } from '../styles';
 
 const Gallery = props => {
   const { photos } = props;
@@ -25,7 +25,7 @@ const Gallery = props => {
 };
 
 Gallery.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.string)
+  photos: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Gallery;

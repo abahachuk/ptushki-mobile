@@ -1,4 +1,4 @@
-import { UsersBaseActionType, UsersStateType } from "./types";
+import { UsersBaseActionType, UsersStateType } from './types';
 import {
   REQUEST_UPDATE_EMAIL,
   SET_USER_ERROR,
@@ -7,8 +7,8 @@ import {
   REQUEST_UPDATE_PASSWORD,
   REQUEST_UPDATE_PASSWORD_SUCCESS,
   REQUEST_UPDATE_PERSONAL_DATA,
-  REQUEST_UPDATE_PERSONAL_DATA_SUCCESS
-} from "./actions";
+  REQUEST_UPDATE_PERSONAL_DATA_SUCCESS,
+} from './actions';
 
 export const initialState: UsersStateType = {
   token: null,
@@ -16,10 +16,13 @@ export const initialState: UsersStateType = {
   lastName: '',
   email: '',
   phone: '',
-  loading: false
+  loading: false,
 };
 
-export default (state: UsersStateType = initialState, action: UsersBaseActionType): UsersStateType => {
+export default (
+  state: UsersStateType = initialState,
+  action: UsersBaseActionType,
+): UsersStateType => {
   const { type } = action;
   switch (type) {
     case REQUEST_UPDATE_EMAIL:
@@ -27,7 +30,13 @@ export default (state: UsersStateType = initialState, action: UsersBaseActionTyp
     case REQUEST_UPDATE_PERSONAL_DATA:
       return { ...state, loading: true };
     case REQUEST_UPDATE_PERSONAL_DATA_SUCCESS:
-      return { ...state, loading: false, lastName: action.lastName, firstName: action.firstName, phone: action.phone };
+      return {
+        ...state,
+        loading: false,
+        lastName: action.lastName,
+        firstName: action.firstName,
+        phone: action.phone,
+      };
     case REQUEST_UPDATE_PASSWORD_SUCCESS:
       return { ...state, loading: false };
     case REQUEST_UPDATE_EMAIL_SUCCESS:

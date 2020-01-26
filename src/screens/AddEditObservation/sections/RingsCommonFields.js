@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { KeyboardAvoidingView, Text } from "react-native";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { KeyboardAvoidingView, Text } from 'react-native';
 
-import { translate } from "../../../i18n";
-import { styles } from "../styles";
-import { Input, CustomPicker } from "../../../components";
-import { pickerValuesArrayType } from "../../../propTypes";
+import { translate } from '../../../i18n';
+import { styles } from '../styles';
+import { Input, CustomPicker } from '../../../components';
+import { pickerValuesArrayType } from '../../../propTypes';
 
 const RingsCommonFields = props => {
   const {
@@ -19,17 +19,17 @@ const RingsCommonFields = props => {
     // ringLocationSelectedValue,
     // ringLocationValues,
     ringIdFilledValue,
-    onFieldValueChange
+    onFieldValueChange,
   } = props;
 
   return (
     <KeyboardAvoidingView>
       <Text style={styles.ringItemTitle}>
-        {`${translate("addEditObservation.ring")} ${ringKey}`}
+        {`${translate('addEditObservation.ring')} ${ringKey}`}
       </Text>
       <CustomPicker
-        caption={translate("addEditObservation.ringType")}
-        onValueChange={onFieldValueChange("type")}
+        caption={translate('addEditObservation.ringType')}
+        onValueChange={onFieldValueChange('type')}
         selectedValue={ringTypeSelectedValue}
         items={ringTypeValues}
         wrappedStyles={styles.ringField}
@@ -70,12 +70,12 @@ const RingsCommonFields = props => {
         wrappedStyles={styles.ringField}
       /> */}
       <Input
-        onChangeText={onFieldValueChange("ringId")}
+        onChangeText={onFieldValueChange('ringId')}
         wrapperStyles={[styles.customInput, styles.ringField]}
         customViewStyles={styles.customView}
         customTextStyles={styles.customText}
         value={ringIdFilledValue}
-        label={translate("addEditObservation.ringNumber")}
+        label={translate('addEditObservation.ringNumber')}
       />
     </KeyboardAvoidingView>
   );
@@ -92,11 +92,11 @@ RingsCommonFields.propTypes = {
   // ringLocationSelectedValue: PropTypes.string,
   // ringLocationValues: pickerValuesArrayType,
   ringIdFilledValue: PropTypes.string,
-  onFieldValueChange: PropTypes.func.isRequired
+  onFieldValueChange: PropTypes.func.isRequired,
 };
 RingsCommonFields.defaultProps = {
-  ringKey: "1",
-  ringTypeSelectedValue: "",
+  ringKey: '1',
+  ringTypeSelectedValue: '',
   ringTypeValues: [],
   // ringMaterialSelectedValue: "",
   // ringMaterialValues: [],
@@ -104,7 +104,7 @@ RingsCommonFields.defaultProps = {
   // ringColorValues: [],
   // ringLocationSelectedValue: "",
   // ringLocationValues: [],
-  ringIdFilledValue: ""
+  ringIdFilledValue: '',
 };
 
 export default RingsCommonFields;

@@ -1,4 +1,3 @@
-
 export enum AppSwitchNavigator {
   AUTH = 'auth',
   MAIN = 'mainPage',
@@ -9,20 +8,25 @@ export enum AppScreens {
   LOGIN = 'login',
 }
 
+export enum AppLanguages {
+  RUSSIAN = 'ru',
+  ENGLISH = 'en',
+}
+
 export enum LanguagesType {
   RUSSIAN = 'lang/russian',
   ENGLISH = 'lang/english',
 }
 
 export type ErrorType = {
-  code?: number,
-  message: string,
+  message: string;
+  code?: number;
 };
 
 export interface ActionBaseType {
-  type: string
+  type: string;
 }
 
-export interface ActionErrorType extends ActionBaseType{
-  error: ErrorType,
+export interface ActionErrorType extends ActionBaseType {
+  error: ErrorType;
 }

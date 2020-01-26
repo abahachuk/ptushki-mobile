@@ -12,6 +12,7 @@ global.jasmine.getEnv().addReporter(
   }),
 ); */
 
+// eslint-disable-next-line no-console
 if (!console.debug) console.debug = console.log;
 
 const { NativeModules, Platform } = require('react-native');

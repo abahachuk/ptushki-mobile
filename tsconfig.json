@@ -9,7 +9,27 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
+    "paths": {
+      "src": ["src"],
+      "src/*": ["src/*"],
+      "constants/*": ["src/constants/*"],
+      "navigation/*": ["src/navigation/*"],
+      "components": ["src/components"],
+      "components/*": ["src/components/*"],
+      // "store": ["src/store"],
+      // "store/*": ["src/store/*"],
+      // "features": ["src/features"],
+      // "features/*": ["src/features/*"],
+      // "modules": ["src/modules"],
+      // "modules/*": ["src/modules/*"],
+      // "styles": ["src/styles"],
+      // "images": ["src/images"],
+      // "services": ["src/services"],
+      // "clients": ["src/clients"],
+      // "utils/*": ["src/utils/*"]
+    },
   },
   "exclude": [
     "node_modules",

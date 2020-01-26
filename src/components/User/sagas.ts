@@ -2,15 +2,20 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from '@redux-saga/core';
 import { instanceAuthService } from '../../api/Auth.service';
 import {
-  REQUEST_UPDATE_EMAIL,
+  requestUpdateUserEmail,
   setUserError,
   requestUpdateUserEmailSuccess,
-  REQUEST_UPDATE_PASSWORD,
+  requestUpdateUserPassword,
   requestUpdateUserPasswordSuccess,
-  REQUEST_UPDATE_PERSONAL_DATA,
-  requestUpdateUserPersonalDataSuccess
-} from "./actions";
-import { UpdateUserEmailType, UpdateUserPasswordType, UpdateUserPersonalDataType, UsersSagasType } from "./types";
+  requestUpdateUserPersonalData,
+  requestUpdateUserPersonalDataSuccess,
+} from './actions';
+import {
+  UpdateUserEmailType,
+  UpdateUserPasswordType,
+  UpdateUserPersonalDataType,
+  UsersSagasType,
+} from './types';
 
 function userSagas(): UsersSagasType {
   function* updateUserEmail({ email, password }: UpdateUserEmailType): SagaIterator {
@@ -24,17 +29,28 @@ function userSagas(): UsersSagasType {
 
   function* updateUserPassword({ password, newPassword }: UpdateUserPasswordType): SagaIterator {
     try {
-      yield call([instanceAuthService, instanceAuthService.updatePassword], { password, newPassword });
+      yield call([instanceAuthService, instanceAuthService.updatePassword], {
+        password,
+        newPassword,
+      });
       yield put(requestUpdateUserPasswordSuccess());
     } catch (e) {
       yield put(setUserError(e));
     }
   }
 
-  function* updateUserPersonalData({ firstName, lastName, phone }: UpdateUserPersonalDataType): SagaIterator {
+  function* updateUserPersonalData({
+    firstName,
+    lastName,
+    phone,
+  }: UpdateUserPersonalDataType): SagaIterator {
     try {
-      yield call([instanceAuthService, instanceAuthService.updatePersonalData], { firstName, lastName, phone  });
-      yield put(requestUpdateUserPersonalDataSuccess(firstName, lastName, phone ));
+      yield call([instanceAuthService, instanceAuthService.updatePersonalData], {
+        firstName,
+        lastName,
+        phone,
+      });
+      yield put(requestUpdateUserPersonalDataSuccess(firstName, lastName, phone));
     } catch (e) {
       yield put(setUserError(e));
     }
@@ -42,10 +58,11 @@ function userSagas(): UsersSagasType {
 
   // TODO fix typescript error
   function* watchActions() {
-    yield takeLatest(REQUEST_UPDATE_EMAIL, updateUserEmail);
-    yield takeLatest(REQUEST_UPDATE_PASSWORD, updateUserPassword);
-    yield takeLatest(REQUEST_UPDATE_PERSONAL_DATA, updateUserPersonalData);
+    yield takeLatest(requestUpdateUserEmail, updateUserEmail);
+    yield takeLatest(requestUpdateUserPassword, updateUserPassword);
+    yield takeLatest(requestUpdateUserPersonalData, updateUserPersonalData);
   }
+
   return { watchActions };
 }
 

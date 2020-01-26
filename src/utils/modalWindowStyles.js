@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 /* eslint  import/prefer-default-export: 0 */
 export const modalWindowStyles = StyleSheet.create({
@@ -8,18 +8,18 @@ export const modalWindowStyles = StyleSheet.create({
     paddingBottom: 15,
     marginTop: 10,
     height: 150,
-    backgroundColor: "#000000"
+    backgroundColor: '#000000',
   },
   modalText: {
     paddingLeft: 15,
-    color: "#ffffff",
-    fontSize: 18
+    color: '#ffffff',
+    fontSize: 18,
   },
   modalBtn: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 15,
     right: 10,
     width: 100,
-    fontSize: 22
-  }
+    fontSize: 22,
+  },
 });

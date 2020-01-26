@@ -1,13 +1,13 @@
-import React from "react";
-import { View, Text, Image, ImageSourcePropType } from "react-native";
+import React from 'react';
+import { View, Text, Image, ImageSourcePropType } from 'react-native';
 
-import styles from "./styles";
+import { styles } from './styles';
 
 type SlideProps = {
-  image: ImageSourcePropType,
-  title: string,
-  description: string
-}
+  image: ImageSourcePropType;
+  title: string;
+  description: string;
+};
 
 const SlideView: React.FC<SlideProps> = ({ image, title, description }) => (
   <View style={styles.slideContainer}>

@@ -1,41 +1,56 @@
-import React, { useState, useRef, useCallback } from "react";
-import PropTypes from "prop-types";
-import { TouchableOpacity, Text, TextInput, View, Image } from "react-native";
-import styles from "./styles";
+import React, { useState, useRef, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, Text, TextInput, View, Image } from 'react-native';
+import styles from './styles';
 
-const icEyeHide = require("../../assets/ic_eye_hide/ic_eye_hide.png");
-const icEyeShow = require("../../assets/ic_eye_show/ic_eye_show.png");
+const icEyeHide = require('../../assets/ic_eye_hide/ic_eye_hide.png');
+const icEyeShow = require('../../assets/ic_eye_show/ic_eye_show.png');
 
 const Input = props => {
   const yPosition = useRef(0);
+  const {
+    error,
+    onChangeText,
+    textContentType,
+    value,
+    label,
+    isShowBorder,
+    customViewStyles,
+    setFocusedInput,
+    onTextInputBlur,
+    isUnderlined,
+    ...rest
+  } = props;
   const [isFocused, setFocusedState] = useState(false);
 
-  const getYPosition = useCallback(({ nativeEvent }) => {
-    const {
-      layout: { y, height }
-    } = nativeEvent;
-    yPosition.current = y + height;
-    if (isFocused) {
-      props.setFocusedInput(yPosition.current);
-    }
-  });
+  const getYPosition = useCallback(
+    ({ nativeEvent }) => {
+      const {
+        layout: { y, height },
+      } = nativeEvent;
+      yPosition.current = y + height;
+      if (isFocused) {
+        setFocusedInput(yPosition.current);
+      }
+    },
+    [isFocused, setFocusedInput],
+  );
 
   const handleFocus = useCallback(() => {
     setFocusedState(true);
-    props.setFocusedInput(yPosition.current);
-  });
+    setFocusedInput(yPosition.current);
+  }, [setFocusedInput, yPosition]);
   const handleBlur = useCallback(() => {
     setFocusedState(false);
-    props.onTextInputBlur();
-  });
+    onTextInputBlur();
+  }, [onTextInputBlur]);
   const [isPassVisible, setPassVisibility] = useState(false);
-  const handleShowHidePassword = () => {
+  function handleShowHidePassword() {
     setPassVisibility(prevState => !prevState);
-  };
+  }
 
-  const { error, onChangeText, textContentType, value, label, isShowBorder, customViewStyles,  ...rest } = props;
   const labelStyles = [styles.label];
-  const isPasswordInput = textContentType === "password";
+  const isPasswordInput = textContentType === 'password';
 
   if (isFocused || value) {
     labelStyles.push(styles.labelFocused);
@@ -49,12 +64,15 @@ const Input = props => {
 
   return (
     <View style={wrapperStyles} onLayout={getYPosition}>
-      <View style={[
-        styles.container,
-        customViewStyles,
-        error ? styles.containerWithErrors : null,
-        isShowBorder ? styles.border : null
-      ]}>
+      <View
+        style={[
+          styles.container,
+          customViewStyles,
+          isUnderlined ? styles.underlined : null,
+          isShowBorder ? styles.border : null,
+          error ? styles.containerWithErrors : null,
+        ]}
+      >
         <Text style={labelStyles}>{label}</Text>
         <TextInput
           value={value}
@@ -74,10 +92,7 @@ const Input = props => {
             onPress={handleShowHidePassword}
             activeOpacity={0.8}
           >
-            <Image
-              style={styles.inputIcon}
-              source={isPassVisible ? icEyeHide : icEyeShow}
-            />
+            <Image style={styles.inputIcon} source={isPassVisible ? icEyeHide : icEyeShow} />
           </TouchableOpacity>
         )}
       </View>
@@ -96,18 +111,21 @@ Input.propTypes = {
   error: PropTypes.string,
   isShowBorder: PropTypes.bool,
   wrapperStyles: PropTypes.any,
-  customViewStyles: PropTypes.any
+  customViewStyles: PropTypes.any,
+  isUnderlined: PropTypes.bool,
 };
 Input.defaultProps = {
   onChangeText: () => {},
   onTextInputBlur: () => {},
   setFocusedInput: () => {},
-  textContentType: "none",
-  value: "",
-  label: "",
-  error: "",
+  textContentType: 'none',
+  value: '',
+  label: '',
+  error: '',
   isShowBorder: true,
-  wrapperStyles: []
+  wrapperStyles: [],
+  customViewStyles: {},
+  isUnderlined: true,
 };
 
 export default Input;

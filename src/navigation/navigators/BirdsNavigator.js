@@ -1,18 +1,18 @@
-import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { Image } from "react-native";
-import { Observations } from "../../screens";
-import { translate } from "../../i18n";
+import React from 'react';
+import { createStackNavigator } from 'react-navigation-stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Image } from 'react-native';
+import { Observations } from '../../screens';
+import { translate } from '../../i18n';
 
 /* eslint react/display-name: 0 */
-const birdImg = require("./../../assets/bird/bird.png");
+const birdImg = require('./../../assets/bird/bird.png');
 
 const BirdsStackNavigator = createStackNavigator(
   {
     Observations: {
-      screen: Observations
-    }
+      screen: Observations,
+    },
     // TODO: figure out how to use Observation for all birds AND for separate group of birds
   },
   {
@@ -26,15 +26,15 @@ const BirdsStackNavigator = createStackNavigator(
             style={{ padding: 15 }}
             onPress={() => navigation.openDrawer()}
           />
-        )
+        ),
       };
-    }
-  }
+    },
+  },
 );
 
 BirdsStackNavigator.navigationOptions = () => ({
   drawerIcon: () => <Image resizeMode="contain" source={birdImg} />,
-  drawerLabel: translate("topLevelMenu.birds")
+  drawerLabel: translate('topLevelMenu.birds'),
 });
 
 export default BirdsStackNavigator;

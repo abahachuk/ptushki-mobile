@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View, ActivityIndicator } from "react-native";
-import { Image } from "react-native-elements";
-import { styles } from "../styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { View, ActivityIndicator } from 'react-native';
+import { Image } from 'react-native-elements';
+import { styles } from '../styles';
 
 const HeaderImage = props => {
   const { photos } = props;
@@ -22,7 +22,7 @@ const HeaderImage = props => {
 };
 
 HeaderImage.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.string)
+  photos: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default HeaderImage;

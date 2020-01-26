@@ -1,20 +1,35 @@
-import { StyleSheet } from "react-native";
-import { ButtonType } from "./Button";
-import { hexGray, blue, blueLight, blueMedium } from "../../../constants/colors";
+import { StyleSheet } from 'react-native';
+import { ButtonType } from './Button';
+import { blue, blueLight, blueMedium, black012 } from '../../../constants/colors';
 
-export const getLabelStyleByType = (type: ButtonType): object => {
+const styles = StyleSheet.create({
+  label: {
+    fontSize: 14,
+    lineHeight: 16,
+    fontFamily: 'sans-serif-medium',
+  },
+  colorBlue: {
+    color: blue,
+  },
+  border: {
+    borderColor: black012,
+    borderWidth: 1,
+  },
+});
+
+const getLabelStyleByType = (type: ButtonType, labelStyle: object = {}): object => {
   switch (type) {
     case ButtonType.OUTLINED:
     case ButtonType.TEXT:
-      return { ...styles.colorBlue, ...styles.label };
+      return { ...styles.colorBlue, ...styles.label, ...labelStyle };
     case ButtonType.CONTAINED:
-      return { ...styles.label };
+      return { ...styles.label, ...labelStyle };
     default:
-      return {};
+      return { ...labelStyle };
   }
 };
 
-export const getColorByType = (type: ButtonType): string => {
+const getColorByType = (type: ButtonType): string => {
   switch (type) {
     case ButtonType.OUTLINED:
     case ButtonType.TEXT:
@@ -26,7 +41,7 @@ export const getColorByType = (type: ButtonType): string => {
   }
 };
 
-export const getContainerStyleByType = (type: ButtonType, containerStyle: object = {} ): object => {
+const getContainerStyleByType = (type: ButtonType, containerStyle: object = {}): object => {
   switch (type) {
     case ButtonType.OUTLINED:
       return { ...styles.border, ...containerStyle };
@@ -38,18 +53,4 @@ export const getContainerStyleByType = (type: ButtonType, containerStyle: object
   }
 };
 
-
-const styles = StyleSheet.create({
-  label: {
-    fontSize: 16
-  },
-  colorBlue: {
-    color: blue
-  },
-  border: {
-    borderColor: hexGray,
-    borderWidth: 1,
-  }
-});
-
-export default styles;
+export { styles, getLabelStyleByType, getColorByType, getContainerStyleByType };

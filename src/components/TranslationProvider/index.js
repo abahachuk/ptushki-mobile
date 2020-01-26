@@ -1,1 +1,1 @@
-export { default, Translation } from "./TranslationProvider";
+export { default, Translation } from './TranslationProvider';

@@ -1,13 +1,13 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { PureComponent } from "react";
-import ObservationBase from "./ObservationBase";
-import { translate } from "../../i18n";
-import InitialDataService from "../../api/InitialData.service";
-import extractDataByProperty from "./extractDataByProperty";
-import { birdSpecies } from "./mocks/birdSpecies";
-import { birdSex } from "./mocks/birdSex";
-import { birdCondition } from "./mocks/birdCondition";
-import { countries } from "./mocks/countries";
+import React, { PureComponent } from 'react';
+import ObservationBase from './ObservationBase';
+import { translate } from '../../i18n';
+import InitialDataService from '../../api/InitialData.service';
+import extractDataByProperty from './extractDataByProperty';
+import { birdSpecies } from './mocks/birdSpecies';
+import { birdSex } from './mocks/birdSex';
+import { birdCondition } from './mocks/birdCondition';
+import { countries } from './mocks/countries';
 
 class AddObservation extends PureComponent {
   constructor(props) {
@@ -28,10 +28,10 @@ class AddObservation extends PureComponent {
 
         birdSpeciesValues: extractDataByProperty(birdSpecies),
         birdSexValues: extractDataByProperty(birdSex),
-        birdAgeValues: extractDataByProperty(data.age, "id"),
+        birdAgeValues: extractDataByProperty(data.age, 'id'),
         birdObstaclesValues: extractDataByProperty(birdCondition),
-        ringTypeValues: extractDataByProperty(data.ringingScheme, "id"),
-        countryValues: extractDataByProperty(countries)
+        ringTypeValues: extractDataByProperty(data.ringingScheme, 'id'),
+        countryValues: extractDataByProperty(countries),
       });
     });
   }
@@ -46,7 +46,7 @@ class AddObservation extends PureComponent {
         ringTypeValues={this.state.ringTypeValues}
         countryValues={this.state.countryValues}
         {...this.props}
-        submitButtonText={translate("addEditObservation.sendObservation")}
+        submitButtonText={translate('addEditObservation.sendObservation')}
       />
     );
   }

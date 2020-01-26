@@ -1,29 +1,21 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import PropTypes from "prop-types";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-  Keyboard,
-  Animated
-} from "react-native";
-import Modal from "react-native-modalbox";
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { View, Text, Image, TouchableOpacity, ScrollView, Keyboard, Animated } from 'react-native';
+import Modal from 'react-native-modalbox';
 
 /* eslint-disable */
-import { Button, Input } from "components";
-import { SCREEN_HEIGHT } from "constants/dimensions";
-import { translate } from "../../i18n";
-import { makeValidatorEmail, makeValidatorPassword } from "utils/validators";
-import { modalWindowStyles } from "utils/modalWindowStyles";
-import { styles } from "./styles";
-import { AuthService } from "api";
-import { FIRST_INTRO_SCREEN } from "constants/introductionScreens";
-import { showKeyboard, hideKeyboard } from "constants/keyboard";
+import Input from 'components/Input';
+import Button, { ButtonType } from 'components/PaperUIKit/Button';
+import { SCREEN_HEIGHT } from 'constants/dimensions';
+import { translate } from '../../i18n';
+import { makeValidatorEmail, makeValidatorPassword } from 'utils/validators';
+import { modalWindowStyles } from 'utils/modalWindowStyles';
+import { styles } from './styles';
+import { AuthService } from 'api';
+import { showKeyboard, hideKeyboard } from 'constants/keyboard';
 
-const logoImg = require("assets/logotype/logo.png");
-const infoImg = require("assets/ic_info/ic_info.png");
+const logoImg = require('assets/logotype/logo.png');
+const infoImg = require('assets/ic_info/ic_info.png');
 /* eslint-enable */
 
 const RESERVE_PLACE_FOR_BUTTON = 80;
@@ -33,14 +25,14 @@ const Login = props => {
     email: emailFromProps,
     password: passwordFromProps,
     error: errorFromProps,
-    navigation
+    navigation,
   } = props;
   const [email, setEmail] = useState(emailFromProps);
-  const [emailError, setEmailError] = useState("");
+  const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState(passwordFromProps);
 
   const [error, setError] = useState(errorFromProps);
-  const [passwordError, setPasswordError] = useState("");
+  const [passwordError, setPasswordError] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const modalRef = useRef(null);
   const authService = new AuthService();
@@ -50,11 +42,11 @@ const Login = props => {
       .logIn(email, password)
       .then(data => {
         if (data) {
-          navigation.navigate("mainPage");
+          navigation.navigate('mainPage');
         }
       })
       .catch(err => {
-        setError(err.message || translate("login.backendErrorMessage"));
+        setError(err.message || translate('login.backendErrorMessage'));
         setIsVisible(true);
         modalRef.current.open();
       });
@@ -62,25 +54,23 @@ const Login = props => {
 
   const onRegisterPress = () => {
     props.onRegister();
-    navigation.navigate("registration");
+    navigation.navigate('registration');
   };
   const onPasswordForgot = () => {
-    navigation.navigate("passwordReset");
+    navigation.navigate('passwordReset');
   };
   const closeModal = () => {
     setIsVisible(false);
     modalRef.current.close();
   };
 
-  const validateEmail = makeValidatorEmail(translate("validationError.email"));
-  const validatePassword = makeValidatorPassword(
-    translate("validationError.password")
-  );
+  const validateEmail = makeValidatorEmail(translate('validationError.email'));
+  const validatePassword = makeValidatorPassword(translate('validationError.password'));
   const onTextInputBlur = () => {
     setEmailError(validateEmail(email));
     setPasswordError(validatePassword(password));
   };
-  const navigateToAboutApp = () => navigation.navigate("aboutApp");
+  const navigateToAboutApp = () => navigation.navigate('aboutApp');
 
   /** keyboard avoiding */
 
@@ -93,13 +83,12 @@ const Login = props => {
   const toggleViewHeight = useCallback((value = 0) => {
     if (
       !value ||
-      focusedInputYPosition + RESERVE_PLACE_FOR_BUTTON >
-        SCREEN_HEIGHT - keyboardHeight.current
+      focusedInputYPosition + RESERVE_PLACE_FOR_BUTTON > SCREEN_HEIGHT - keyboardHeight.current
     ) {
       Animated.timing(offset.current, {
         toValue: -value / 2.5,
         duration: 200,
-        useNativeDriver: true
+        useNativeDriver: true,
       }).start();
     }
   });
@@ -120,14 +109,8 @@ const Login = props => {
       toggleViewHeight(0);
     }
 
-    const keyboardWillShowSub = Keyboard.addListener(
-      showKeyboard,
-      onKeyboardShow
-    );
-    const keyboardWillHideSub = Keyboard.addListener(
-      hideKeyboard,
-      onKeyboardHide
-    );
+    const keyboardWillShowSub = Keyboard.addListener(showKeyboard, onKeyboardShow);
+    const keyboardWillHideSub = Keyboard.addListener(hideKeyboard, onKeyboardHide);
 
     return () => {
       keyboardWillShowSub.remove();
@@ -143,15 +126,10 @@ const Login = props => {
       showsVerticalScrollIndicator={false}
     >
       <Animated.View
-        style={[
-          styles.loginContainer,
-          { transform: [{ translateY: offset.current }] }
-        ]}
+        style={[styles.loginContainer, { transform: [{ translateY: offset.current }] }]}
       >
         <Image style={styles.logoImg} resizeMode="contain" source={logoImg} />
-        <Text style={styles.headerText}>
-          {translate("login.bandingCenter")}
-        </Text>
+        <Text style={styles.headerText}>{translate('bandingCenter')}</Text>
         <TouchableOpacity
           style={styles.infoImgContainer}
           onPress={navigateToAboutApp}
@@ -161,60 +139,57 @@ const Login = props => {
         </TouchableOpacity>
         <Input
           value={email}
-          label={translate("login.email")}
+          label={translate('login.email')}
           textContentType="emailAddress"
           onChangeText={setEmail}
           error={emailError}
           onTextInputBlur={onTextInputBlur}
           setFocusedInput={setFocusedInput}
+          isUnderlined={false}
         />
         <Input
           value={password}
-          label={translate("login.password")}
+          label={translate('login.password')}
           textContentType="password"
           onChangeText={setPassword}
           error={passwordError}
           onTextInputBlur={onTextInputBlur}
           wrapperStyles={[styles.passwordInput]}
           setFocusedInput={setFocusedInput}
+          isUnderlined={false}
         />
         <Button
-          caption={translate("login.sign-in")}
+          type={ButtonType.CONTAINED}
+          title={translate('login.sign-in')}
+          labelStyle={styles.signInBtnText}
+          containerStyle={styles.signInBtn}
           onPress={onLoginPress}
-          appearance="Dark"
-          wrapperStyles={styles.signInBtn}
         />
       </Animated.View>
       <View style={styles.footer}>
         <Button
-          caption={translate("login.sign-up")}
+          type={ButtonType.OUTLINED}
+          title={translate('login.sign-up')}
+          containerStyle={styles.signUpBtn}
           onPress={onRegisterPress}
-          appearance="Light"
-          wrapperStyles={styles.signUpBtn}
-          customTextStyles={styles.buttonText}
-          borderColorStyle={styles.signUpBorder}
         />
         <Button
-          caption={translate("login.forgotPassword")}
+          type={ButtonType.TEXT}
+          title={translate('login.forgotPassword')}
+          containerStyle={styles.restorePswBtn}
           onPress={onPasswordForgot}
-          appearance="Borderless"
-          wrapperStyles={styles.restorePswBtn}
-          customTextStyles={styles.buttonText}
         />
       </View>
       {isVisible && (
-        <Modal
-          style={[modalWindowStyles.modal]}
-          backdrop={false}
-          position="center"
-          ref={modalRef}
-        >
+        // eslint-disable-next-line prettier/prettier
+        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="center"
+ref={modalRef}>
           <Text style={[modalWindowStyles.modalText]}>{error}</Text>
           <Button
-            caption={translate("login.close")}
+            type={ButtonType.OUTLINED}
+            title={translate('login.close')}
+            containerStyle={modalWindowStyles.modalBtn}
             onPress={closeModal}
-            wrapperStyles={modalWindowStyles.modalBtn}
-            appearance="Borderless"
           />
         </Modal>
       )}
@@ -223,8 +198,8 @@ const Login = props => {
 };
 
 Login.navigationOptions = () => ({
-  title: translate("registration.sign-in"),
-  header: null
+  title: translate('registration.sign-in'),
+  header: null,
 });
 Login.propTypes = {
   email: PropTypes.string,
@@ -233,14 +208,14 @@ Login.propTypes = {
   onRegister: PropTypes.func,
   navigation: PropTypes.shape({
     navigate: PropTypes.func,
-    goBack: PropTypes.func
-  }).isRequired
+    goBack: PropTypes.func,
+  }).isRequired,
 };
 Login.defaultProps = {
-  email: "",
-  password: "",
-  error: "",
-  onRegister: () => {}
+  email: '',
+  password: '',
+  error: '',
+  onRegister: () => {},
 };
 
 export default Login;

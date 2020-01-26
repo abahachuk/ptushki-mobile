@@ -1,1 +1,1 @@
-export { default } from "./RegistrationEmailSent";
+export { default } from './RegistrationEmailSent';

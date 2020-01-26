@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button as ButtonUIPaper } from 'react-native-paper';
-import { getColorByType, getContainerStyleByType, getLabelStyleByType } from "./styles";
+import { getColorByType, getContainerStyleByType, getLabelStyleByType } from './styles';
 
 export enum ButtonType {
   OUTLINED = 'outlined',
@@ -9,19 +9,21 @@ export enum ButtonType {
 }
 
 interface ButtonProps {
-  type: ButtonType,
-  title: string,
-  containerStyle?: object,
-  onPress: () => void
+  type: ButtonType;
+  title: string;
+  containerStyle?: object;
+  labelStyle?: object;
+  onPress: () => void;
 }
 
-const Button: React.FC<ButtonProps>  = ({ type, onPress, title, containerStyle }) => (
+const Button: React.FC<ButtonProps> = ({ type, onPress, title, containerStyle, labelStyle }) => (
   <ButtonUIPaper
     mode={type}
     labelStyle={getLabelStyleByType(type)}
     color={getColorByType(type)}
     style={getContainerStyleByType(type, containerStyle)}
-    onPress={onPress}>
+    onPress={onPress}
+  >
     {title}
   </ButtonUIPaper>
 );

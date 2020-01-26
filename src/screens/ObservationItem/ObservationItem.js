@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { View, Text, ScrollView } from "react-native";
-import Icon from "react-native-vector-icons/AntDesign";
-import { getLocalizedText } from "utils/localization";
-import getInformationBlock from "./sections/InformationBlock";
-import DeleteObservation from "../DeleteObservation";
-import HeaderImage from "./sections/HeaderImage";
-import Gallery from "./sections/Gallery";
-import { translate } from "../../i18n";
-import { styles } from "./styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { View, Text, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import { getLocalizedText } from 'utils/localization';
+import getInformationBlock from './sections/InformationBlock';
+import DeleteObservation from '../DeleteObservation';
+import HeaderImage from './sections/HeaderImage';
+import Gallery from './sections/Gallery';
+import { translate } from '../../i18n';
+import { styles } from './styles';
 
 const ObservationItem = props => {
   const {
     navigation,
-    screenProps: { currentLocale }
+    screenProps: { currentLocale },
   } = props;
   const {
     speciesMentioned: { species },
@@ -24,7 +24,7 @@ const ObservationItem = props => {
     ageMentioned,
     status,
     remarks,
-    photos
+    photos,
   } = navigation.state.params.ObservationItem;
 
   const sex = getLocalizedText(sexMentioned, currentLocale);
@@ -40,43 +40,28 @@ const ObservationItem = props => {
         </View>
         <Gallery photos={photos} />
         <View style={styles.wrap}>
-          <Text style={styles.header}>
-            {translate("observationItem.rings")}
-          </Text>
+          <Text style={styles.header}>{translate('observationItem.rings')}</Text>
           <View style={styles.ring}>
-            <Text style={styles.text}>
-              {translate("observationItem.rightRing")}
-            </Text>
+            <Text style={styles.text}>{translate('observationItem.rightRing')}</Text>
             <View style={styles.rightNumberWrap}>
               <Text style={styles.rightNumber}>{identificationNumber}</Text>
             </View>
           </View>
           <View style={styles.ring}>
-            <Text style={styles.text}>
-              {translate("observationItem.leftRings")}
-            </Text>
+            <Text style={styles.text}>{translate('observationItem.leftRings')}</Text>
             <View style={styles.leftNumberWrap}>
               <Text style={styles.leftNumber}>{identificationNumber}</Text>
             </View>
           </View>
         </View>
-        {getInformationBlock(translate("observationItem.dateHeader"), date)}
-        {getInformationBlock(
-          translate("observationItem.countryHeader"),
-          placeName
-        )}
+        {getInformationBlock(translate('observationItem.dateHeader'), date)}
+        {getInformationBlock(translate('observationItem.countryHeader'), placeName)}
         <View style={styles.line} />
-        {getInformationBlock(translate("observationItem.genderHeader"), sex)}
-        {getInformationBlock(translate("observationItem.ageHeader"), age)}
-        {getInformationBlock(
-          translate("observationItem.lifeStatusHeader"),
-          itemStatus
-        )}
+        {getInformationBlock(translate('observationItem.genderHeader'), sex)}
+        {getInformationBlock(translate('observationItem.ageHeader'), age)}
+        {getInformationBlock(translate('observationItem.lifeStatusHeader'), itemStatus)}
         <View style={styles.line} />
-        {getInformationBlock(
-          translate("observationItem.commentHeader"),
-          remarks
-        )}
+        {getInformationBlock(translate('observationItem.commentHeader'), remarks)}
       </ScrollView>
     </View>
   );
@@ -93,7 +78,7 @@ ObservationItem.navigationOptions = ({ navigation }) => ({
       style={{ padding: 15 }}
       onPress={() => navigation.goBack()}
     />
-  )
+  ),
 });
 
 ObservationItem.propTypes = {
@@ -105,7 +90,7 @@ ObservationItem.propTypes = {
           ring: PropTypes.shape({
             id: PropTypes.string,
             identificationNumber: PropTypes.string,
-            date: PropTypes.string
+            date: PropTypes.string,
           }),
           placeName: PropTypes.string,
           date: PropTypes.string,
@@ -114,14 +99,14 @@ ObservationItem.propTypes = {
           status: PropTypes.objectOf(PropTypes.string),
           remarks: PropTypes.string,
           photos: PropTypes.arrayOf(PropTypes.string),
-          colorRing: PropTypes.string
-        })
-      })
-    })
+          colorRing: PropTypes.string,
+        }),
+      }),
+    }),
   }).isRequired,
   screenProps: PropTypes.shape({
-    currentLocale: PropTypes.string
-  }).isRequired
+    currentLocale: PropTypes.string,
+  }).isRequired,
 };
 
 export default ObservationItem;
