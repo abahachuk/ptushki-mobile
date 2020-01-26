@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { NavigationParams, NavigationScreenProp, NavigationState } from "react-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
-import { View, Image, TouchableHighlight } from "react-native";
+import { View, TouchableHighlight } from "react-native";
 import Swiper from "react-native-swiper";
 import Button from "../../components/Button";
 import Slides from "./Slides";

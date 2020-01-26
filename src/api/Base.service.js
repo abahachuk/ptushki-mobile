@@ -95,6 +95,8 @@ export default class BaseService {
     switch (status) {
       case 401:
         return translate("backendError.401");
+      case 404:
+        return translate("backendError.404");
       default:
         return undefined;
     }

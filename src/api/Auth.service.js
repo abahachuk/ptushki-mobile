@@ -4,9 +4,12 @@ import {
   AUTH_LOGIN_ENDPOINT,
   AUTH_REGISTRATION_ENDPOINT,
   AUTH_RESET_PASSWORD_ENDPOINT,
-  AUTH_LOGOUT_ENDPOINT
-} from "config";
-import BaseService  from "./Base.service";
+  AUTH_LOGOUT_ENDPOINT,
+  UPDATE_PASSWORD,
+  UPDATE_EMAIL,
+  UPDATE_PERSONAL_DATA
+} from "../config";
+import BaseService from "./Base.service";
 /* eslint-enable */
 
 export default class AuthService extends BaseService {
@@ -82,4 +85,40 @@ export default class AuthService extends BaseService {
       refreshToken
     });
   }
+
+  updateEmail({ email, password }) {
+    return super
+      .sendRequest(UPDATE_EMAIL, "PUT", null, {
+        newEmail: email,
+        password
+      }).catch(err => {
+        throw new Error(err);
+      });
+  }
+
+  updatePassword({ password, newPassword }) {
+    return super
+      .sendRequest(UPDATE_PASSWORD, "PUT", null, {
+        password,
+        newPassword
+      }).catch(err => {
+        throw new Error(err);
+      });
+  }
+
+  updatePersonalData({ firstName, lastName, phone }) {
+    return super
+      .sendRequest(UPDATE_PERSONAL_DATA, "PUT", null, {
+        firstName,
+        lastName,
+        phone
+      }).catch(err => {
+        throw new Error(err);
+      });
+  }
 }
+const instanceAuthService = new AuthService();
+export {
+  instanceAuthService
+};
+
