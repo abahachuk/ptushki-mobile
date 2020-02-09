@@ -16,7 +16,10 @@ interface LanguageSelectProps {
   screenProps: ScreenProps;
 }
 
-const LanguageSelect: React.FC<LanguageSelectProps> = ({ navigation, screenProps }) => {
+const LanguageSelect: React.FC<LanguageSelectProps> = ({
+  navigation,
+  screenProps,
+}): React.ReactElement => {
   const onPressLanguage = (key: string): void => {
     screenProps.onLocaleChange(key);
 

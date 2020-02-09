@@ -11,8 +11,9 @@ exports[`Registration screen renders correctly 1`] = `
         Array [
           Object {
             "flex": 1,
-            "flexDirection": "column",
             "justifyContent": "space-between",
+            "marginHorizontal": 15,
+            "marginTop": 42,
           },
           Object {
             "paddingBottom": 0,
@@ -20,67 +21,78 @@ exports[`Registration screen renders correctly 1`] = `
         ]
       }
     >
-      <View>
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../src/assets/logotype/logo.png",
-            }
+      <Image
+        resizeMode="contain"
+        source="\\"logo.png\\""
+        style={
+          Object {
+            "alignSelf": "center",
+            "aspectRatio": 1.8954248366013071,
           }
-          style={
-            Object {
-              "alignSelf": "center",
-              "height": 280,
-              "width": 300,
-            }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "rgba(0,0,0,0.6)",
+            "fontSize": 12,
+            "letterSpacing": 0.4,
+            "lineHeight": 16,
+            "marginVertical": 24,
+            "textAlign": "center",
           }
-        />
-        <Text
-          style={
-            Object {
-              "fontSize": 20,
-              "textAlign": "center",
-            }
+        }
+      >
+        Белорусский Центр Кольцевания Птиц
+Национальной Академии Наук Беларуси
+      </Text>
+      <Text>
+        [missing "ru.succes.statusText" translation]
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "rgba(0,0,0,0.6)",
+            "fontSize": 14,
+            "letterSpacing": 0.25,
+            "lineHeight": 20,
+            "marginHorizontal": 20,
+            "marginVertical": 24,
+            "textAlign": "center",
           }
-        >
-          [missing "en.login.bandingCenter" translation]
-        </Text>
-        <Text
-          style={
-            Object {
-              "fontFamily": "Roboto",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 24,
-              "marginLeft": 6,
-              "marginTop": 16,
-              "textAlign": "center",
-            }
+        }
+      >
+        [missing "ru.succes.hintText" translation]
+      </Text>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#1D455E",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 2,
+            "marginTop": 4,
+            "minWidth": 64,
+            "paddingVertical": 1,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0.75,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 1.5,
           }
-        >
-          succes
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#546E7A",
-              "fontFamily": "Roboto",
-              "fontSize": 14,
-              "lineHeight": 24,
-              "marginBottom": 16,
-              "marginLeft": 6,
-              "textAlign": "center",
-            }
-          }
-        >
-          succes
-        </Text>
-      </View>
-      <View>
+        }
+      >
         <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
           accessible={true}
+          focusable={true}
           isTVSelectable={true}
+          onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -90,35 +102,69 @@ exports[`Registration screen renders correctly 1`] = `
           style={
             Array [
               Object {
-                "borderRadius": 6,
-                "paddingBottom": 13,
-                "paddingTop": 13,
-                "width": "100%",
+                "overflow": "hidden",
               },
               Object {
-                "backgroundColor": "#546e7a",
+                "borderRadius": 4,
               },
             ]
           }
         >
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#546e7a",
-                  "fontSize": 18,
-                  "fontWeight": "500",
-                  "textAlign": "center",
-                  "textTransform": "uppercase",
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
                 },
-                Object {
-                  "color": "#ffffff",
-                },
+                undefined,
               ]
             }
           >
-            [missing "en.registrationEmailSent.goToLogin" translation]
-          </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "sans-serif-medium",
+                      "fontSize": 14,
+                      "letterSpacing": 1.25,
+                      "lineHeight": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              Перейти ко входу
+            </Text>
+          </View>
         </View>
       </View>
     </View>

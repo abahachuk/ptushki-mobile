@@ -1,5 +1,7 @@
 /* eslint-disable */
 import AsyncStorage from '@react-native-community/async-storage';
+import { get } from 'lodash';
+
 import { config, AUTH_REFRESH_ENDPOINT, AUTH_LOGOUT_ENDPOINT } from 'config';
 import { translate } from '../i18n';
 /* eslint-enable */
@@ -32,8 +34,12 @@ export default class BaseService {
 
       return this.makeCall(AUTH_REFRESH_ENDPOINT, refreshOptions).then(res => {
         if (res.ok && res.status === 200) {
-          res.json().then(async data => {
-            const dataToStore = [['token', data.token], ['refreshToken', data.refreshToken]];
+          return res.json().then(async data => {
+            const dataToStore = [
+              ['token', data.token],
+              ['refreshToken', data.refreshToken],
+              ['user', JSON.stringify(data.user)],
+            ];
 
             AsyncStorage.multiSet(dataToStore);
 
@@ -83,8 +89,14 @@ export default class BaseService {
   async parseError(response) {
     const { status } = response;
     const message = this.getMessage(status);
+    if (message) {
+      return Promise.reject(message);
+    }
 
-    return !message ? Promise.reject(response.message) : Promise.reject(message);
+    // eslint-disable-next-line prettier/prettier
+    const responseMessage = response.message || get((await response.json?.()), ['error'], '');
+
+    return Promise.reject(responseMessage);
   }
 
   getMessage(status) {

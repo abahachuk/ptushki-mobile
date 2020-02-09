@@ -11,7 +11,7 @@ import { translate } from '../../i18n';
 import { makeValidatorEmail, makeValidatorPassword } from 'utils/validators';
 import { modalWindowStyles } from 'utils/modalWindowStyles';
 import { styles } from './styles';
-import { AuthService } from 'api';
+import { instanceAuthService } from 'api';
 import { showKeyboard, hideKeyboard } from 'constants/keyboard';
 
 const logoImg = require('assets/logotype/logo.png');
@@ -35,10 +35,9 @@ const Login = props => {
   const [passwordError, setPasswordError] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const modalRef = useRef(null);
-  const authService = new AuthService();
 
   const onLoginPress = () => {
-    authService
+    instanceAuthService
       .logIn(email, password)
       .then(data => {
         if (data) {
@@ -154,7 +153,7 @@ const Login = props => {
           onChangeText={setPassword}
           error={passwordError}
           onTextInputBlur={onTextInputBlur}
-          wrapperStyles={[styles.passwordInput]}
+          wrapperStyles={styles.passwordInput}
           setFocusedInput={setFocusedInput}
           isUnderlined={false}
         />
@@ -182,15 +181,23 @@ const Login = props => {
       </View>
       {isVisible && (
         // eslint-disable-next-line prettier/prettier
-        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="center"
-ref={modalRef}>
-          <Text style={[modalWindowStyles.modalText]}>{error}</Text>
-          <Button
-            type={ButtonType.OUTLINED}
-            title={translate('login.close')}
-            containerStyle={modalWindowStyles.modalBtn}
-            onPress={closeModal}
-          />
+        <Modal
+          style={modalWindowStyles.modalContainer}
+          backdrop={true}
+          position="center"
+          ref={modalRef}
+        >
+          <View style={modalWindowStyles.modal}>
+            <Text style={modalWindowStyles.modalHeaderText}>{translate('login.errorHeader')}</Text>
+            <Text style={modalWindowStyles.modalText}>{error}</Text>
+            <Button
+              type={ButtonType.TEXT}
+              title={translate('login.close')}
+              containerStyle={modalWindowStyles.modalBtn}
+              labelStyle={modalWindowStyles.modalBtnText}
+              onPress={closeModal}
+            />
+          </View>
         </Modal>
       )}
     </ScrollView>
@@ -212,8 +219,8 @@ Login.propTypes = {
   }).isRequired,
 };
 Login.defaultProps = {
-  email: '',
-  password: '',
+  email: 'tkaolgav@mail.ru',
+  password: '321172ptushki',
   error: '',
   onRegister: () => {},
 };

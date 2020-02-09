@@ -10,9 +10,9 @@ interface SettingsLanguageProps {
   language?: LanguagesType;
 }
 
-const SettingsLanguage: React.FC<SettingsLanguageProps> = ({ language }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState<LanguagesType>(language);
-  const onUpdateLanguage = () => {};
+const SettingsLanguage: React.FC<SettingsLanguageProps> = ({ language }): React.ReactElement => {
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguagesType | undefined>(language);
+  const onUpdateLanguage = (): void => {};
 
   return (
     <View>

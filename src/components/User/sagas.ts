@@ -57,7 +57,7 @@ function userSagas(): UsersSagasType {
   }
 
   // TODO fix typescript error
-  function* watchActions() {
+  function* watchActions(): Generator {
     yield takeLatest(requestUpdateUserEmail, updateUserEmail);
     yield takeLatest(requestUpdateUserPassword, updateUserPassword);
     yield takeLatest(requestUpdateUserPersonalData, updateUserPersonalData);

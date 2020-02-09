@@ -24,8 +24,8 @@ const PhotoChooseWindowPopup = props => {
   };
 
   return (
-    <Overlay height={400} width={280} borderRadius={6} overlayStyle={styles.overlay}
-    >
+    <Overlay height={400} width={280} borderRadius={6}
+overlayStyle={styles.overlay}>
       <Text style={styles.overlayTitle}>{translate('addEditObservation.addPhotoTitle')}</Text>
       <Text style={styles.overlayDescription}>
         {translate('addEditObservation.addPhotoDescription')}

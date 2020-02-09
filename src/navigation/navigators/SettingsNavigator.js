@@ -1,8 +1,11 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Octicons from 'react-native-vector-icons/Octicons';
 
+import { icons } from 'constants/icons';
+import DrawerIcon from '../DrawerIcon';
+import DrawerLabel from '../DrawerLabel';
 import headerStyles from './headerStyles';
 import { Settings } from '../../screens';
 import { translate } from '../../i18n';
@@ -31,8 +34,10 @@ const SettingsStackNavigator = createStackNavigator(
 );
 
 SettingsStackNavigator.navigationOptions = () => ({
-  drawerIcon: () => <Octicons name="settings" size={24} color="black" />,
-  drawerLabel: translate('topLevelMenu.settings'),
+  drawerIcon: drawerProps => <DrawerIcon type="Octicons" name={icons.settings} {...drawerProps} />,
+  drawerLabel: drawerProps => (
+    <DrawerLabel text={translate('topLevelMenu.settings')} {...drawerProps} />
+  ),
 });
 
 export default SettingsStackNavigator;

@@ -1,279 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login screen renders correctly 1`] = `
-<View
-  onLayout={[Function]}
-  style={
+<RCTScrollView
+  contentContainerStyle={
     Object {
       "alignItems": "center",
-      "flex": 1,
+      "flexGrow": 1,
       "justifyContent": "space-between",
-      "paddingLeft": 20,
-      "paddingRight": 20,
-      "width": "100%",
+      "paddingBottom": 20,
+      "paddingHorizontal": 20,
+      "paddingTop": 10,
+    }
+  }
+  showsVerticalScrollIndicator={false}
+  style={
+    Object {
+      "flex": 1,
     }
   }
 >
-  <View
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
+  <View>
     <View
       style={
         Object {
-          "flexDirection": "row",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+          "width": "100%",
         }
       }
     >
-      <View
+      <Image
+        resizeMode="contain"
+        source="\\"logo.png\\""
         style={
           Object {
-            "flex": 1,
-            "paddingTop": 20,
+            "alignSelf": "center",
+            "aspectRatio": 1.8954248366013071,
+            "height": 80,
+            "marginTop": 30,
           }
         }
-      >
-        <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={null}
-        >
-          <Image
-            source="\\"ic_info.png\\""
-            style={
-              Object {
-                "height": 22,
-                "width": 22,
-              }
-            }
-          />
-        </View>
-      </View>
-      <View
+      />
+      <Text
         style={
           Object {
-            "flex": 10,
-            "paddingTop": 10,
+            "color": "rgba(0,0,0,0.6)",
+            "fontSize": 12,
+            "letterSpacing": 0.4,
+            "lineHeight": 16,
+            "paddingVertical": 18,
+            "textAlign": "center",
           }
         }
       >
-        <Image
-          resizeMode="contain"
-          source="\\"logo.png\\""
-          style={
-            Object {
-              "alignSelf": "center",
-              "height": 104,
-              "width": 186,
-            }
-          }
-        />
-        <Text
-          style={
-            Object {
-              "color": "#546e7a",
-              "fontFamily": "Roboto",
-              "fontSize": 14,
-              "fontWeight": "400",
-              "letterSpacing": 0.1,
-              "lineHeight": 18,
-              "paddingBottom": 15,
-              "paddingTop": 15,
-              "textAlign": "center",
-            }
-          }
-        >
-          [missing "en.login.bandingCenter" translation]
-        </Text>
-      </View>
-    </View>
-    <View
-      style={Object {}}
-    >
-      <View
-        style={Array []}
-      >
-        <View
-          style={
-            Array [
-              Array [
-                Object {
-                  "borderColor": "#000000",
-                  "borderRadius": 4,
-                  "borderWidth": 0.5,
-                  "height": 56,
-                  "paddingLeft": 15,
-                  "position": "relative",
-                  "width": "100%",
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.6)",
-                  "fontFamily": "Roboto",
-                  "fontSize": 16,
-                  "left": 15,
-                  "letterSpacing": 0.15,
-                  "lineHeight": 24,
-                  "position": "absolute",
-                  "top": 15,
-                },
-              ]
-            }
-          >
-            [missing "en.login.email" translation]
-          </Text>
-          <TextInput
-            allowFontScaling={true}
-            blurOnSubmit={true}
-            maxLength={100}
-            onBlur={[Function]}
-            onChangeText={[Function]}
-            onFocus={[Function]}
-            onTextInputBlur={[Function]}
-            rejectResponderTermination={true}
-            style={
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.6)",
-                  "fontSize": 16,
-                },
-                undefined,
-              ]
-            }
-            textContentType="emailAddress"
-            underlineColorAndroid="transparent"
-            value=""
-            wrapperStyles={Array []}
-          />
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "marginTop": 15,
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Array [
-                Object {
-                  "borderColor": "#000000",
-                  "borderRadius": 4,
-                  "borderWidth": 0.5,
-                  "height": 56,
-                  "paddingLeft": 15,
-                  "position": "relative",
-                  "width": "100%",
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.6)",
-                  "fontFamily": "Roboto",
-                  "fontSize": 16,
-                  "left": 15,
-                  "letterSpacing": 0.15,
-                  "lineHeight": 24,
-                  "position": "absolute",
-                  "top": 15,
-                },
-              ]
-            }
-          >
-            [missing "en.login.password" translation]
-          </Text>
-          <TextInput
-            allowFontScaling={true}
-            blurOnSubmit={true}
-            maxLength={100}
-            onBlur={[Function]}
-            onChangeText={[Function]}
-            onFocus={[Function]}
-            onTextInputBlur={[Function]}
-            rejectResponderTermination={true}
-            secureTextEntry={true}
-            style={
-              Array [
-                Object {
-                  "color": "rgba(0,0,0,0.6)",
-                  "fontSize": 16,
-                },
-                undefined,
-              ]
-            }
-            textContentType="password"
-            underlineColorAndroid="transparent"
-            value=""
-            wrapperStyles={
-              Array [
-                Object {
-                  "marginTop": 15,
-                },
-              ]
-            }
-          />
-          <View
-            accessible={true}
-            isTVSelectable={true}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 15,
-                  "top": 15,
-                },
-              ]
-            }
-          >
-            <Image
-              source="\\"ic_eye_show.png\\""
-              style={
-                Array [
-                  Object {
-                    "height": 24,
-                    "width": 24,
-                  },
-                ]
-              }
-            />
-          </View>
-        </View>
-      </View>
+        Белорусский Центр Кольцевания Птиц
+Национальной Академии Наук Беларуси
+      </Text>
       <View
         accessible={true}
+        focusable={true}
         isTVSelectable={true}
+        onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -282,134 +72,515 @@ exports[`Login screen renders correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "#546e7a",
-            "borderRadius": 4,
-            "height": 36,
-            "marginTop": 20,
+            "left": 0,
             "opacity": 1,
-            "width": "100%",
+            "position": "absolute",
+            "top": 20,
           }
         }
       >
-        <Text
+        <Image
+          source="\\"ic_info.png\\""
+          style={
+            Object {
+              "height": 22,
+              "width": 22,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={Array []}
+      >
+        <View
           style={
             Array [
               Object {
-                "color": "#546e7a",
-                "fontFamily": "Roboto",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.25,
-                "lineHeight": 16,
-                "paddingTop": 10,
-                "textAlign": "center",
-                "textTransform": "uppercase",
+                "height": 56,
+                "paddingLeft": 15,
+                "width": "100%",
               },
-              Array [],
+              Object {},
+              null,
               Object {
-                "color": "#ffffff",
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
+                  "position": "absolute",
+                  "top": 15,
+                },
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "letterSpacing": 0.4,
+                  "lineHeight": 16,
+                  "paddingHorizontal": 5,
+                  "top": -9,
+                },
+              ]
+            }
+          >
+            E-mail
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={false}
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
+            }
+            textContentType="emailAddress"
+            underlineColorAndroid="transparent"
+            value="tkaolgav@mail.ru"
+            wrapperStyles={Array []}
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "marginTop": 15,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "height": 56,
+                "paddingLeft": 15,
+                "width": "100%",
+              },
+              Object {},
+              null,
+              Object {
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
+                  "position": "absolute",
+                  "top": 15,
+                },
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 12,
+                  "letterSpacing": 0.4,
+                  "lineHeight": 16,
+                  "paddingHorizontal": 5,
+                  "top": -9,
+                },
+              ]
+            }
+          >
+            Пароль
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            blurOnSubmit={true}
+            maxLength={100}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            style={
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
+            }
+            textContentType="password"
+            underlineColorAndroid="transparent"
+            value="321172ptushki"
+            wrapperStyles={
+              Object {
+                "marginTop": 15,
+              }
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+                "position": "absolute",
+                "right": 15,
+                "top": 15,
+              }
+            }
+          >
+            <Image
+              source="\\"ic_eye_show.png\\""
+              style={
+                Object {
+                  "height": 24,
+                  "width": 24,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#1D455E",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 2,
+            "marginTop": 20,
+            "minWidth": 64,
+            "paddingVertical": 1,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0.75,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 1.5,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
               },
             ]
           }
         >
-          [missing "en.login.sign-in" translation]
-        </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "sans-serif-medium",
+                      "fontSize": 14,
+                      "letterSpacing": 1.25,
+                      "lineHeight": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              Войти
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "rgba(0,0,0,0.12)",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "elevation": 0,
+            "marginTop": 15,
+            "minWidth": 64,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#abc1d1",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "color": "#0A3651",
+                      "fontFamily": "sans-serif-medium",
+                      "fontSize": 14,
+                      "lineHeight": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              Регистрация
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "marginTop": 10,
+            "minWidth": 64,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#abc1d1",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "color": "#0A3651",
+                      "fontFamily": "sans-serif-medium",
+                      "fontSize": 14,
+                      "lineHeight": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              Забыли пароль
+            </Text>
+          </View>
+        </View>
       </View>
     </View>
   </View>
-  <View
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderColor": "#546e7a",
-          "borderRadius": 4,
-          "borderWidth": 1,
-          "height": 36,
-          "opacity": 1,
-          "width": "100%",
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#546e7a",
-              "fontFamily": "Roboto",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.25,
-              "lineHeight": 16,
-              "paddingTop": 10,
-              "textAlign": "center",
-              "textTransform": "uppercase",
-            },
-            Array [],
-            undefined,
-          ]
-        }
-      >
-        [missing "en.login.sign-up" translation]
-      </Text>
-    </View>
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "borderRadius": 4,
-          "height": 36,
-          "marginBottom": 10,
-          "marginTop": 10,
-          "opacity": 1,
-          "width": "100%",
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#546e7a",
-              "fontFamily": "Roboto",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.25,
-              "lineHeight": 16,
-              "paddingTop": 10,
-              "textAlign": "center",
-              "textTransform": "uppercase",
-            },
-            Array [],
-            undefined,
-          ]
-        }
-      >
-        [missing "en.login.forgotPassword" translation]
-      </Text>
-    </View>
-  </View>
-  <View />
-</View>
+</RCTScrollView>
 `;

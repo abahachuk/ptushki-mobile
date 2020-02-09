@@ -1,7 +1,10 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import * as colors from 'constants/colors';
+import { icons } from 'constants/icons';
 import {
   Observations,
   AddObservation,
@@ -12,6 +15,8 @@ import {
 import { translate } from '../../i18n';
 import headerStyles from './headerStyles';
 import ListItemPicker from '../../screens/AddEditObservation/ListItemPicker';
+import DrawerLabel from '../DrawerLabel';
+import DrawerIcon from '../DrawerIcon';
 
 /* eslint react/display-name: 0 */
 
@@ -43,7 +48,7 @@ const ObservationStackNavigator = createStackNavigator(
           <Ionicons
             name="md-menu"
             size={24}
-            color="white"
+            color={colors.white}
             style={{ padding: 15 }}
             onPress={() => navigation.openDrawer()}
           />
@@ -55,8 +60,12 @@ const ObservationStackNavigator = createStackNavigator(
 );
 
 ObservationStackNavigator.navigationOptions = () => ({
-  drawerIcon: () => <FontAwesome name="binoculars" size={24} color="black" />,
-  drawerLabel: translate('topLevelMenu.observationTitle'),
+  drawerIcon: drawerProps => (
+    <DrawerIcon type="FontAwesome" name={icons.binoculars} {...drawerProps} />
+  ),
+  drawerLabel: drawerProps => (
+    <DrawerLabel text={translate('topLevelMenu.observationTitle')} {...drawerProps} />
+  ),
 });
 
 export default ObservationStackNavigator;

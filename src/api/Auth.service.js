@@ -20,17 +20,7 @@ export default class AuthService extends BaseService {
         password,
       })
       .then(response => response.json())
-      .then(data => {
-        const dataToStore = [
-          ['token', data.token],
-          ['refreshToken', data.refreshToken],
-          ['user', JSON.stringify(data.user)],
-        ];
-
-        AsyncStorage.multiSet(dataToStore);
-
-        return data.user;
-      })
+      .then(this.storeSessionData)
       .catch(err => {
         // eslint-disable-next-line no-console
         console.info('Login failed:', err);
@@ -49,23 +39,25 @@ export default class AuthService extends BaseService {
         phone,
       })
       .then(response => response.json())
-      .then(data => {
-        const dataToStore = [
-          ['token', data.token],
-          ['refreshToken', data.refreshToken],
-          ['user', JSON.stringify(data.user)],
-        ];
-
-        AsyncStorage.multiSet(dataToStore);
-
-        return data.user;
-      })
+      .then(this.storeSessionData)
       .catch(err => {
         // eslint-disable-next-line no-console
         console.info('Auth registration error', err);
         throw new Error(err);
       });
   }
+
+  storeSessionData = data => {
+    const dataToStore = [
+      ['token', data.token],
+      ['refreshToken', data.refreshToken],
+      ['user', JSON.stringify(data.user)],
+    ];
+
+    AsyncStorage.multiSet(dataToStore);
+
+    return data.user;
+  };
 
   resetPassword(email) {
     return super
@@ -82,11 +74,19 @@ export default class AuthService extends BaseService {
   async logOut() {
     const refreshToken = await AsyncStorage.getItem('refreshToken');
 
-    return this.sendRequest(AUTH_LOGOUT_ENDPOINT, 'POST', null, {
-      closeAllSessions: true,
-      refreshToken,
-    });
+    super
+      .sendRequest(AUTH_LOGOUT_ENDPOINT, 'POST', null, {
+        closeAllSessions: true,
+        refreshToken,
+      })
+      .then(this.removeSessionData);
   }
+
+  removeSessionData = () => {
+    const keysToRemove = ['token', 'refreshToken', 'user'];
+
+    AsyncStorage.multiRemove(keysToRemove);
+  };
 
   updateEmail({ email, password }) {
     return super

@@ -2,6 +2,7 @@
   "backendError": {
     "401": "Error with password or login, try one more time, please"
   },
+  "bandingCenter": "Center for Ringing Birds\nat the Academy of Sciences of the Republic of Belarus",
   "registration": {
     "password": "Password",
     "email": "E-mail",
@@ -15,10 +16,10 @@
     "register": "Register",
     "statusText": "Yey! Successfully signed up!",
     "hintText": "Check your E-mail, in order to continue. If nothings received, check your spam folder or repeat!",
+    "errorHeader": "Registration error",
     "backendErrorMessage": "Sorry, registration failed"
   },
   "login": {
-    "bandingCenter": "Center for Ringing Birds\nat the Academy of Sciences of the Republic of Belarus",
     "password": "Password",
     "email": "E-mail",
     "sign-in": "Sign In",
@@ -26,7 +27,8 @@
     "forgotPassword": "Forgot password",
     "goToLogin": "Go to login",
     "close": "Close",
-    "backendErrorMessage": "Error with login, check your internet connectiond, if it's ok, check login and password"
+    "errorHeader": "Error with login",
+    "backendErrorMessage": "Check your internet connection.\nIf it's ok, check login and password."
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
@@ -105,7 +107,6 @@
     "hintText": "Check your E-mail for your new password. You could change it later.",
     "email": "E-mail",
     "back": "Back",
-    "bandingCenter": "Bird Ringing Center",
     "academy": "at the Academy of Sciences of the Republic of Belarus"
   },
   "registrationEmailSent": {
@@ -121,7 +122,7 @@
     "errorOnDelete": "Error when deleting observation, please try again later"
   },
   "topLevelMenu": {
-    "observationTitle": "Observations",
+    "observationTitle": "My observations",
     "userRoles": {
       "observer": "Observer",
       "ringer": "Ringer",
@@ -173,7 +174,7 @@
     "informationScreenTitle": "InformationScreenTitle",
     "reasonScreenTitle": "reasonScreenTitle",
     "tagsScreenTitle": "tagsScreenTitle",
-    "historyScreen": "historyScreen",
+    "historyScreenText": "historyScreen",
     "informationScreenText": "informationScreenText",
     "reasonScreenText": "reasonScreenText",
     "tagsScreenText": "tagsScreenText"

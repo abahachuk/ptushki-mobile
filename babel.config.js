@@ -9,7 +9,7 @@ module.exports = {
           navigation: './src/navigation',
           src: './src',
           components: './src/components',
-          // components: './src/components',
+          api: './src/api',
           // store: './src/store',
           // features: './src/features',
           // styles: './src/styles',

@@ -13,6 +13,9 @@ global.jasmine.getEnv().addReporter(
 ); */
 
 // eslint-disable-next-line no-console
+
+import { setI18nConfig } from '../src/i18n';
+
 if (!console.debug) console.debug = console.log;
 
 const { NativeModules, Platform } = require('react-native');
@@ -33,6 +36,22 @@ Object.assign(NativeModules, {
     multiRemove: jest.fn(),
     multiMerge: jest.fn(),
   },
+  RNGestureHandlerModule: {
+    attachGestureHandler: jest.fn(),
+    createGestureHandler: jest.fn(),
+    dropGestureHandler: jest.fn(),
+    updateGestureHandler: jest.fn(),
+    State: {},
+    Directions: {},
+  },
+  ImagePickerManager: {
+    showImagePicker: jest.fn(),
+    launchCamera: jest.fn(),
+    launchImageLibrary: jest.fn(),
+  },
 });
 
-jest.mock('NativeEventEmitter');
+jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
+
+// configure i18N
+setI18nConfig();

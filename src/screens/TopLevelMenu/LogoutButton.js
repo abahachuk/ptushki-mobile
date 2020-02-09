@@ -1,34 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import { AuthService } from 'api';
+import { Text, TouchableOpacity } from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+import { instanceAuthService } from 'api';
+import { icons } from 'constants/icons';
 import { translate } from '../../i18n';
 import { styles } from './styles';
 
-const authService = new AuthService();
-
 const LogoutButton = props => {
   const onLogout = () => {
-    authService
+    instanceAuthService
       .logOut()
       .then(() => props.navigation.navigate('auth'))
       .catch(err => console.info(err));
   };
 
   return (
-    <View style={styles.iconContainer}>
-      <Icon.Button
-        name="login"
-        color="black"
-        backgroundColor="white"
-        size={23}
-        onPress={onLogout}
-        style={styles.icon}
-      >
-        <Text style={styles.iconText}>{translate('topLevelMenu.exit')}</Text>
-      </Icon.Button>
-    </View>
+    <TouchableOpacity onPress={onLogout} style={styles.iconContainer}>
+      <FontAwesome5 name={icons.exit} style={styles.icon} />
+      <Text style={styles.iconText}>{translate('topLevelMenu.exit')}</Text>
+    </TouchableOpacity>
   );
 };
 

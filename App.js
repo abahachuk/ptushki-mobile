@@ -1,6 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
+import 'react-native-gesture-handler';
+
 import store from './src/store';
 import AppContainer from './src';
 

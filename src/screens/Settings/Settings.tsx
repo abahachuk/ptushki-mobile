@@ -37,7 +37,7 @@ const Settings = ({
   updateUserPassword,
   updateUserPersonalData,
   clearUserError,
-}: SettingsProps) => {
+}: SettingsProps): React.ReactElement => {
   const { email, firstName, lastName, phone, loading, error } = user;
 
   return (

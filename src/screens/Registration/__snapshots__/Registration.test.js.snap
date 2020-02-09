@@ -6,10 +6,9 @@ exports[`Registration screen renders correctly 1`] = `
     Object {
       "paddingBottom": 12,
       "paddingTop": 20,
-      "width": "90%",
+      "width": "100%",
     }
   }
-  enabled={true}
   showsVerticalScrollIndicator={false}
 >
   <View>
@@ -17,37 +16,46 @@ exports[`Registration screen renders correctly 1`] = `
       onLayout={[Function]}
       style={
         Object {
-          "flex": 1,
+          "justifyContent": "space-between",
+          "paddingLeft": 18,
+          "paddingRight": 18,
         }
       }
     >
       <Text
         style={
           Object {
-            "color": "#4f6e7c",
-            "fontSize": 34,
+            "color": "#0A3651",
+            "fontFamily": "Lato-Semibold",
+            "fontSize": 32,
+            "letterSpacing": 0.24,
+            "lineHeight": 39,
             "paddingBottom": 20,
           }
         }
       >
-        [missing "en.registration.sign-up" translation]
+        Регистрация
       </Text>
       <View
+        onLayout={[Function]}
         style={Array []}
       >
         <View
           style={
             Array [
               Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
+                "height": 56,
+                "paddingLeft": 15,
                 "width": "100%",
               },
+              Object {},
+              null,
+              Object {
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
             ]
           }
         >
@@ -55,16 +63,19 @@ exports[`Registration screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
           >
-            [missing "en.registration.email" translation]
+            E-mail
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -73,13 +84,17 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
-            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
+            secureTextEntry={false}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
             }
             textContentType="emailAddress"
             underlineColorAndroid="transparent"
@@ -87,39 +102,31 @@ exports[`Registration screen renders correctly 1`] = `
             wrapperStyles={Array []}
           />
         </View>
-        <Text
-          style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
-            }
-          }
-        >
-          
-        </Text>
       </View>
       <View
+        onLayout={[Function]}
         style={
-          Array [
-            Object {
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "marginTop": 15,
+          }
         }
       >
         <View
           style={
             Array [
               Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
+                "height": 56,
+                "paddingLeft": 15,
                 "width": "100%",
               },
+              Object {},
+              null,
+              Object {
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
             ]
           }
         >
@@ -127,16 +134,19 @@ exports[`Registration screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
           >
-            [missing "en.registration.password" translation]
+            Пароль
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -145,29 +155,32 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
-            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
             secureTextEntry={true}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
             }
             textContentType="password"
             underlineColorAndroid="transparent"
             value=""
             wrapperStyles={
-              Array [
-                Object {
-                  "marginTop": 15,
-                },
-              ]
+              Object {
+                "marginTop": 15,
+              }
             }
           />
           <View
             accessible={true}
+            focusable={true}
             isTVSelectable={true}
+            onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
             onResponderRelease={[Function]}
@@ -175,73 +188,61 @@ exports[`Registration screen renders correctly 1`] = `
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 15,
-                  "top": 20,
-                },
-              ]
+              Object {
+                "opacity": 1,
+                "position": "absolute",
+                "right": 15,
+                "top": 15,
+              }
             }
           >
             <Image
-              source={
-                Object {
-                  "testUri": "../../../src/assets/ic_eye_show/ic_eye_show2x.png",
-                }
-              }
+              source="\\"ic_eye_show.png\\""
               style={
-                Array [
-                  Object {
-                    "height": 35,
-                    "width": 35,
-                  },
-                ]
+                Object {
+                  "height": 24,
+                  "width": 24,
+                }
               }
             />
           </View>
         </View>
-        <Text
-          style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
-            }
-          }
-        >
-          
-        </Text>
       </View>
       <Text
         style={
           Object {
-            "color": "#546E7A",
+            "color": "rgba(0,0,0,0.6)",
             "fontFamily": "Roboto",
-            "fontSize": 14,
-            "lineHeight": 24,
-            "marginBottom": 16,
-            "marginLeft": 6,
+            "fontSize": 12,
+            "letterSpacing": 0.4,
+            "lineHeight": 16,
+            "marginBottom": 15,
+            "marginTop": 15,
           }
         }
       >
-        [missing "en.registration.communicationDataHint" translation]
+        Следующие данные нужны для связи с вами в случае, если потребуется уточнить данные
       </Text>
       <View
+        onLayout={[Function]}
         style={Array []}
       >
         <View
           style={
             Array [
               Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
+                "height": 56,
+                "paddingLeft": 15,
                 "width": "100%",
               },
+              Object {},
+              null,
+              Object {
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
             ]
           }
         >
@@ -249,16 +250,19 @@ exports[`Registration screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
           >
-            [missing "en.registration.firstName" translation]
+            Имя
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -267,13 +271,17 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
-            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
+            secureTextEntry={false}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
             }
             textContentType="name"
             underlineColorAndroid="transparent"
@@ -281,18 +289,9 @@ exports[`Registration screen renders correctly 1`] = `
             wrapperStyles={Array []}
           />
         </View>
-        <Text
-          style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
-            }
-          }
-        >
-          
-        </Text>
       </View>
       <View
+        onLayout={[Function]}
         style={
           Array [
             Object {
@@ -305,15 +304,18 @@ exports[`Registration screen renders correctly 1`] = `
           style={
             Array [
               Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
+                "height": 56,
+                "paddingLeft": 15,
                 "width": "100%",
               },
+              Object {},
+              null,
+              Object {
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
             ]
           }
         >
@@ -321,16 +323,19 @@ exports[`Registration screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
           >
-            [missing "en.registration.lastName" translation]
+            Фамилия
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -339,13 +344,17 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
-            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
+            secureTextEntry={false}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
             }
             textContentType="familyName"
             underlineColorAndroid="transparent"
@@ -359,25 +368,16 @@ exports[`Registration screen renders correctly 1`] = `
             }
           />
         </View>
-        <Text
-          style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
-            }
-          }
-        >
-          
-        </Text>
       </View>
       <View
+        onLayout={[Function]}
         style={
           Array [
             Object {
               "marginTop": 15,
             },
             Object {
-              "marginBottom": 15,
+              "marginBottom": 20,
             },
           ]
         }
@@ -386,15 +386,18 @@ exports[`Registration screen renders correctly 1`] = `
           style={
             Array [
               Object {
-                "borderColor": "#151822",
-                "borderRadius": 6,
-                "borderWidth": 2,
-                "paddingBottom": 12,
-                "paddingLeft": 16,
-                "paddingTop": 12,
-                "position": "relative",
+                "height": 56,
+                "paddingLeft": 15,
                 "width": "100%",
               },
+              Object {},
+              null,
+              Object {
+                "borderColor": "rgba(0,0,0,0.32)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+              },
+              null,
             ]
           }
         >
@@ -402,16 +405,19 @@ exports[`Registration screen renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#090a10",
-                  "fontSize": 23,
-                  "left": 19,
+                  "color": "rgba(0,0,0,0.6)",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "left": 15,
+                  "letterSpacing": 0.15,
+                  "lineHeight": 24,
                   "position": "absolute",
-                  "top": 21,
+                  "top": 15,
                 },
               ]
             }
           >
-            [missing "en.registration.phone" translation]
+            Телефон
           </Text>
           <TextInput
             allowFontScaling={true}
@@ -420,13 +426,17 @@ exports[`Registration screen renders correctly 1`] = `
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
-            onTextInputBlur={[Function]}
             rejectResponderTermination={true}
+            secureTextEntry={false}
             style={
-              Object {
-                "color": "#090a10",
-                "fontSize": 23,
-              }
+              Array [
+                Object {
+                  "color": "rgba(0,0,0,0.87)",
+                  "fontSize": 16,
+                  "paddingVertical": 15,
+                },
+                undefined,
+              ]
             }
             textContentType="telephoneNumber"
             underlineColorAndroid="transparent"
@@ -437,103 +447,212 @@ exports[`Registration screen renders correctly 1`] = `
                   "marginTop": 15,
                 },
                 Object {
-                  "marginBottom": 15,
+                  "marginBottom": 20,
                 },
               ]
             }
           />
         </View>
-        <Text
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#1D455E",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 2,
+            "marginTop": 15,
+            "minWidth": 64,
+            "paddingVertical": 1,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0.75,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 1.5,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "color": "#b00020",
-              "fontSize": 18,
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
             }
-          }
-        >
-          
-        </Text>
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "sans-serif-medium",
+                      "fontSize": 14,
+                      "lineHeight": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              Зарегистрироваться
+            </Text>
+          </View>
+        </View>
       </View>
       <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "borderRadius": 6,
-              "paddingBottom": 13,
-              "paddingTop": 13,
-              "width": "100%",
-            },
-            Object {
-              "backgroundColor": "#546e7a",
-            },
-          ]
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "marginTop": 15,
+            "minWidth": 64,
+            "paddingVertical": 1,
+          }
         }
       >
-        <Text
+        <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Array [
               Object {
-                "color": "#546e7a",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "textAlign": "center",
-                "textTransform": "uppercase",
+                "overflow": "hidden",
               },
               Object {
-                "color": "#ffffff",
+                "borderRadius": 4,
               },
             ]
           }
         >
-          [missing "en.registration.sign-up" translation]
-        </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#abc1d1",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "color": "#0A3651",
+                      "fontFamily": "sans-serif-medium",
+                      "fontSize": 14,
+                      "lineHeight": 16,
+                    },
+                  ],
+                ]
+              }
+            >
+              НАЗАД
+            </Text>
+          </View>
+        </View>
       </View>
-      <View
-        accessible={true}
-        isTVSelectable={true}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "borderRadius": 6,
-              "paddingBottom": 13,
-              "paddingTop": 13,
-              "width": "100%",
-            },
-            Object {},
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#546e7a",
-                "fontSize": 18,
-                "fontWeight": "500",
-                "textAlign": "center",
-                "textTransform": "uppercase",
-              },
-              undefined,
-            ]
-          }
-        >
-          [MISSING "EN.REGISTRATION.BACK" TRANSLATION]
-        </Text>
-      </View>
+      <View />
     </View>
   </View>
 </RCTScrollView>

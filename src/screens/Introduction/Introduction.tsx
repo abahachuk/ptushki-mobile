@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { View, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Button from '../../components/Button';
 import Slides from './Slides';
@@ -11,13 +11,12 @@ import { AppScreens } from '../../entities';
 import { styles, hitSlop } from './styles';
 
 const MAX_COUNT_SLIDER_ITEMS = 4;
-const imageClose = require('../../assets/cross.png');
 
 type IntroductionProps = {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 };
 
-const Introduction: React.FC<IntroductionProps> = ({ navigation }) => {
+const Introduction: React.FC<IntroductionProps> = ({ navigation }): React.ReactElement => {
   const [sliderIndex, setSliderIndex] = useState<number>(0);
   const sliderRef = useRef<Swiper>(null);
 

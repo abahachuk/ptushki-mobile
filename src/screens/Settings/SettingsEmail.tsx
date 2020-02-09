@@ -11,7 +11,7 @@ interface SettingsEmailProps {
   updateUserEmail: (email: string, password: string) => void;
 }
 
-const SettingsEmail: React.FC<SettingsEmailProps> = props => {
+const SettingsEmail: React.FC<SettingsEmailProps> = (props): React.ReactElement => {
   const [email, setEmail] = useState<string>(props.email);
   const [emailError, setEmailError] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
@@ -19,7 +19,7 @@ const SettingsEmail: React.FC<SettingsEmailProps> = props => {
   const validatorEmail = makeValidatorEmail(translate('validationError.email'));
   const validatePassword = makeValidatorPassword(translate('validationError.password'));
 
-  const onUpdateEmail = () => {
+  const onUpdateEmail = (): void => {
     const validationErrorEmail = validatorEmail(email);
     setEmailError(validationErrorEmail);
     const validationErrorPassword = validatePassword(password);

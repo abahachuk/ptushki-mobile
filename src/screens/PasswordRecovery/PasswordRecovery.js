@@ -7,17 +7,15 @@ import Button, { ButtonType } from 'components/PaperUIKit/Button';
 import Input from 'components/Input';
 import { translate } from '../../i18n';
 import { styles } from './styles';
-import { AuthService } from 'api';
+import { instanceAuthService } from 'api';
 
 const PasswordRecovery = props => {
   const { emailDefault } = props;
 
   const [email, setEmail] = useState(emailDefault);
 
-  const authService = new AuthService();
-
   const onRecoveryPress = () => {
-    authService
+    instanceAuthService
       .resetPassword(email)
       .then(data => {
         if (data) {

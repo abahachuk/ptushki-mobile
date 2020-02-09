@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Text, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, Text, ScrollView, KeyboardAvoidingView } from 'react-native';
 import Modal from 'react-native-modalbox';
 
 import Button, { ButtonType } from 'components/PaperUIKit/Button';
@@ -13,7 +13,7 @@ import {
 import { modalWindowStyles } from '../../utils/modalWindowStyles';
 import { styles } from './styles';
 import { translate } from '../../i18n';
-import { AuthService } from '../../api';
+import { instanceAuthService } from '../../api';
 
 const fields = {
   email: 'email',
@@ -52,31 +52,17 @@ const Registration = props => {
   const validateLastName = makeRequiredValidator(translate('validationError.lastName'));
   const validatePhone = makeRequiredValidator(translate('validationError.phone'));
   const modalRef = useRef(null);
-  const authService = new AuthService();
 
   const setRegistrationDataCommon = field => value =>
     setRegistrationData(prevData => ({ ...prevData, [field]: value }));
 
-  const onRegisterPress = () => {
-    authService
-      .register(email, password, firstName, lastName, phone)
-      .then(data => {
-        if (data) {
-          props.navigation.navigate('registrationSuccess', {
-            origin: 'registration',
-          });
-        }
-      })
-      .catch(err => {
-        setError(err.message || translate('registration.backendErrorMessage'));
-        modalRef.current.open();
-      });
-  };
   const onBackPress = () => {
     props.navigation.goBack();
   };
-  const onAuthFieldBlur = () => {
+  const onEmailFieldBlur = () => {
     setEmailError(validateEmail(email));
+  };
+  const onPasswordFieldBlur = () => {
     setPasswordError(validatePassword(password));
   };
   const onFirstNameBlur = () => {
@@ -88,6 +74,43 @@ const Registration = props => {
   const onPhoneBlur = () => {
     setPhoneError(validatePhone(phone));
   };
+
+  const onRegisterPress = () => {
+    const isEmailValidationError = validateEmail(email);
+    const isPasswordValidationError = validatePassword(password);
+    const isFirstNameValidationError = validateFirstName(firstName);
+    const isLastNameValidationError = validateLastName(lastName);
+    const isPhoneValidationError = validatePhone(phone);
+
+    if (
+      isEmailValidationError ||
+      isPasswordValidationError ||
+      isFirstNameValidationError ||
+      isLastNameValidationError ||
+      isPhoneValidationError
+    ) {
+      setEmailError(isEmailValidationError);
+      setPasswordError(isPasswordValidationError);
+      setFirstNameError(isFirstNameValidationError);
+      setLastNameError(isLastNameValidationError);
+      setPhoneError(isPhoneValidationError);
+    } else {
+      instanceAuthService
+        .register(email, password, firstName, lastName, phone)
+        .then(data => {
+          if (data) {
+            props.navigation.navigate('registrationSuccess', {
+              origin: 'registration',
+            });
+          }
+        })
+        .catch(err => {
+          setError(`"${err.message}"` || translate('registration.backendErrorMessage'));
+          modalRef.current.open();
+        });
+    }
+  };
+
   const closeModal = () => {
     modalRef.current.close();
   };
@@ -102,7 +125,7 @@ const Registration = props => {
           textContentType="emailAddress"
           onChangeText={setRegistrationDataCommon(fields.email)}
           error={emailError}
-          onTextInputBlur={onAuthFieldBlur}
+          onTextInputBlur={onEmailFieldBlur}
           isUnderlined={false}
         />
         <Input
@@ -111,8 +134,8 @@ const Registration = props => {
           textContentType="password"
           onChangeText={setRegistrationDataCommon(fields.password)}
           error={passwordError}
-          onTextInputBlur={onAuthFieldBlur}
-          wrapperStyles={[styles.belowInput]}
+          onTextInputBlur={onPasswordFieldBlur}
+          wrapperStyles={styles.belowInput}
           isUnderlined={false}
         />
         <Text style={styles.hintText}>{translate('registration.communicationDataHint')}</Text>
@@ -157,14 +180,25 @@ const Registration = props => {
           onPress={onBackPress}
           containerStyle={styles.footerBtn}
         />
-        <Modal style={[modalWindowStyles.modal]} backdrop={false} position="top" ref={modalRef}>
-          <Text style={[modalWindowStyles.modalText]}>{error}</Text>
-          <Button
-            caption={translate('login.close')}
-            onPress={closeModal}
-            wrapperStyles={modalWindowStyles.modalBtn}
-            appearance="Borderless"
-          />
+        <Modal
+          style={modalWindowStyles.modalContainer}
+          backdrop={true}
+          position="center"
+          ref={modalRef}
+        >
+          <View style={modalWindowStyles.modal}>
+            <Text style={modalWindowStyles.modalHeaderText}>
+              {translate('registration.errorHeader')}
+            </Text>
+            <Text style={modalWindowStyles.modalText}>{error}</Text>
+            <Button
+              type={ButtonType.TEXT}
+              title={translate('login.close')}
+              labelStyle={modalWindowStyles.modalBtnText}
+              containerStyle={modalWindowStyles.modalBtn}
+              onPress={closeModal}
+            />
+          </View>
         </Modal>
       </KeyboardAvoidingView>
     </ScrollView>

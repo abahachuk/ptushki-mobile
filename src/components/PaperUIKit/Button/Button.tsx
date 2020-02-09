@@ -19,7 +19,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ type, onPress, title, containerStyle, labelStyle }) => (
   <ButtonUIPaper
     mode={type}
-    labelStyle={getLabelStyleByType(type)}
+    labelStyle={getLabelStyleByType(type, labelStyle)}
     color={getColorByType(type)}
     style={getContainerStyleByType(type, containerStyle)}
     onPress={onPress}

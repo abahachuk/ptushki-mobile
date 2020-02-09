@@ -10,7 +10,7 @@ interface SettingsPasswordProps {
   updateUserPassword: (password: string, newPassword: string) => void;
 }
 
-const SettingsPassword: React.FC<SettingsPasswordProps> = ({ updateUserPassword }) => {
+const SettingsPassword: React.FC<SettingsPasswordProps> = ({ updateUserPassword }): React.ReactElement => {
   const [password, setPassword] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
 

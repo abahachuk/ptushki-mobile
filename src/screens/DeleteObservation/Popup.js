@@ -34,6 +34,7 @@ export default class PopupMenu extends Component {
       }
     };
     /* eslint-enable */
+
     return (
       <View>
         <Entypo.Button

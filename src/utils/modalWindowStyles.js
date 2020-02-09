@@ -1,25 +1,42 @@
 import { StyleSheet } from 'react-native';
 
+import * as colors from 'constants/colors';
 /* eslint  import/prefer-default-export: 0 */
 export const modalWindowStyles = StyleSheet.create({
+  modalContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.transparent,
+  },
   modal: {
-    borderRadius: 4,
-    paddingTop: 15,
-    paddingBottom: 15,
+    width: '90%',
     marginTop: 10,
-    height: 150,
-    backgroundColor: '#000000',
+    paddingTop: 16,
+    paddingBottom: 8,
+    paddingLeft: 16,
+    paddingRight: 4,
+    borderRadius: 4,
+    backgroundColor: colors.white,
+  },
+  modalHeaderText: {
+    marginBottom: 12,
+    fontSize: 18,
+    lineHeight: 22,
+    fontFamily: 'sans-serif-medium',
+    color: colors.black,
   },
   modalText: {
-    paddingLeft: 15,
-    color: '#ffffff',
-    fontSize: 18,
+    marginBottom: 12,
+    paddingRight: 16,
+    fontSize: 14,
+    lineHeight: 20,
+    color: colors.black,
   },
   modalBtn: {
-    position: 'absolute',
-    bottom: 15,
-    right: 10,
-    width: 100,
-    fontSize: 22,
+    alignSelf: 'flex-end',
+  },
+  modalBtnText: {
+    fontFamily: 'sans-serif-medium',
+    fontSize: 12,
   },
 });

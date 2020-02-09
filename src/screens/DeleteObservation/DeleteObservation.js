@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, KeyboardAvoidingView, Alert } from 'react-native';
 import { Overlay, Button, Text, Input } from 'react-native-elements';
 /* eslint-disable-next-line */
-import { ObservationService } from "api";
+import { ObservationService } from 'api';
 import Popup from './Popup';
 import { translate } from '../../i18n';
 import { styles } from './styles';
@@ -23,7 +23,7 @@ const DeleteObservation = props => {
     }
 
     if (index === 1) {
-      this.setModalVisible(true);
+      setModalVisible(true);
     }
   };
 
@@ -34,7 +34,7 @@ const DeleteObservation = props => {
   const onDeletePress = () => {
     service
       .deleteObservation(ObservationItem.id, deleteDescription)
-      .then(response => {
+      .then(() => {
         setModalVisible(false);
         navigation.navigate('Observations');
       })

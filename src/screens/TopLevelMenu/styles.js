@@ -1,48 +1,55 @@
 import { StyleSheet } from 'react-native';
 
+import * as colors from 'constants/colors';
+
 /* eslint  import/prefer-default-export: 0 */
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
-  imageContainer: {
-    paddingLeft: 15,
-    paddingTop: 10,
-    paddingBottom: 15,
+  drawerHeader: {
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderBottomColor: colors.black012,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   image: {
     height: 100,
     width: 150,
+    marginTop: '2%',
+    marginBottom: 12,
   },
   userNameText: {
     fontSize: 20,
-    fontWeight: 'bold',
-    paddingLeft: 15,
-    color: 'black',
-    marginBottom: 5,
+    lineHeight: 24,
+    letterSpacing: 0.25,
+    color: colors.black087,
   },
   userRoleText: {
-    fontSize: 16,
-    paddingLeft: 15,
-    color: 'black',
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.25,
+    color: colors.black087,
   },
-  divider: {
-    backgroundColor: '#F5F5F5',
-    marginTop: 10,
-    marginBottom: 15,
-    padding: 1,
+  contentContainer: {
+    paddingHorizontal: 4,
   },
   icon: {
-    paddingLeft: 15,
+    marginRight: 18,
+    fontSize: 16,
+    color: colors.blue,
   },
   iconText: {
-    fontWeight: 'bold',
-    color: 'black',
-    marginLeft: 23,
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.25,
+    color: colors.black06,
   },
   iconContainer: {
-    backgroundColor: 'white',
-    alignSelf: 'stretch',
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 40,
+    paddingHorizontal: 22,
   },
 });

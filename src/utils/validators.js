@@ -1,8 +1,4 @@
 const makeSimpleValidator = regExp => errorMsg => value => {
-  if (!value) {
-    return '';
-  }
-
   return regExp.test(value) ? '' : errorMsg;
 };
 export const makeRequiredValidator = errorMsg => value => {

@@ -16,3 +16,4 @@ export const grayMedium = '#c9c7c7';
 export const blue = '#0A3651';
 export const blueLight = '#abc1d1';
 export const blueMedium = '#1D455E';
+export const transparent = 'transparent';
